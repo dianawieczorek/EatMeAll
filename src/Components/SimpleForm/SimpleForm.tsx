@@ -41,4 +41,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     add: (aItem: string) => dispatch(addItem(aItem))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SimpleForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SimpleForm)
