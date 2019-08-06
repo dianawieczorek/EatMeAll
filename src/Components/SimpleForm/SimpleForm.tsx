@@ -8,13 +8,13 @@ interface OwnProps {
 
 }
 
-type Props = OwnProps & ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & any;
+type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class SimpleForm extends PureComponent<Props> {
     readonly movieInput: RefObject<HTMLInputElement>;
 
-    constructor(aProps: any, aState: any) {
-        super(aProps, aState);
+    constructor(aProps: Props) {
+        super(aProps);
         this.movieInput = React.createRef();
     }
 

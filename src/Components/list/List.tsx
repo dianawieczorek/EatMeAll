@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import {AppStore} from "../../Redux/store";
+import {Dispatch} from "redux";
 
 interface OwnProps {}
 
-type Props = OwnProps & ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
+type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class List extends PureComponent<Props> {
 
@@ -26,8 +27,8 @@ const mapStateToProps = (state: AppStore) => {
   };
 };
 
-const mapDispatchToProps = {
-
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);
