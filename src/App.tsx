@@ -1,6 +1,5 @@
 import React from 'react';
-import List from "./Components/list/List";
-import SimpleForm from "./Components/SimpleForm/SimpleForm";
+import WeekSchedule from "./Components/WeekSchedule/WeekSchedule";
 
 class App extends React.Component {
 
@@ -8,8 +7,7 @@ class App extends React.Component {
         return (
             <div>
                 HELLO WORLD!
-                <List></List>
-                <SimpleForm></SimpleForm>
+                <WeekSchedule/>
             </div>
         );
     }
