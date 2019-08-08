@@ -1,0 +1,26 @@
+.Button {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #2f2f2f;
+    background-color: #ffffff;
+    outline: none;
+    cursor: pointer;
+    padding: 8px 20px;
+    margin: 10px 20px 10px 0;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    transition: 300ms;
+    display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
+}
+
+.Button:hover {
+    color: #060606;
+    border: 1px solid #ffffff;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+}

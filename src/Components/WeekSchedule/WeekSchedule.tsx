@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
+import styles from './WeekSchedule.module.css'
+import ViewOfAllWeek from "./TableContent/ViewOfAllWeek";
 import TableHeader from "./TableHeader/TableHeader";
-import TableContent from "./TableContent/TableContent";
 
 interface OwnProps {
 }
@@ -11,9 +12,9 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 class WeekSchedule extends PureComponent<Props> {
     render() {
         return (
-            <div>
+            <div className={styles.Header}>
                 <TableHeader/>
-                <TableContent/>
+                <ViewOfAllWeek/>
             </div>
         );
     }

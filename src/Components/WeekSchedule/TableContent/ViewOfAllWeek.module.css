@@ -1,0 +1,5 @@
+.MealPlan {
+    display: flex;
+    flex-flow: row;
+    overflow: hidden;
+}

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {addItem} from "../../Redux/actions";
 import {AppStore} from "../../Redux/store";
 import {Dispatch} from "redux";
+import Button from '../UI/Button/Button'
 
 interface OwnProps {
 
@@ -22,7 +23,7 @@ class SimpleForm extends PureComponent<Props> {
         return (
             <div>
                 Some text: <input ref={this.movieInput} type="text"/>
-                <button onClick={this.addItem} type="submit">PRESS ME</button>
+                <Button onClick={this.addItem} type="submit">PRESS ME</Button>
             </div>
         );
     }

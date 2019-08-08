@@ -1,0 +1,19 @@
+.Date {
+    font-size: 1rem;
+    padding: 5px;
+    display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
+}
+
+@media (min-width: 600px) {
+    .Date {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .Date {
+        font-size: 1rem;
+    }
+}

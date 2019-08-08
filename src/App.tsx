@@ -1,13 +1,13 @@
 import React from 'react';
 import WeekSchedule from "./Components/WeekSchedule/WeekSchedule";
-
+import styles from "./App.module.css"
 class App extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.Container}>
                 HELLO WORLD!
-                <WeekSchedule/>
+<WeekSchedule/>
             </div>
         );
     }
