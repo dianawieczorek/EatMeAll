@@ -1,0 +1,310 @@
+[
+  {
+    "meals": [
+      {
+        "idMeal": 84,
+        "language": "PL",
+        "mealTime": "BREAKFAST",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "omlet owsiany z masłem orzechowym i bananem"
+      },
+      {
+        "idMeal": 10,
+        "language": "PL",
+        "mealTime": "LUNCH",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "sałatka z pomidora, ogórka kiszonego  i cebulki"
+      },
+      {
+        "idMeal": 66,
+        "language": "PL",
+        "mealTime": "DINNER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "bulgur z indykiem suszonymi pomidorami i cukinią"
+      },
+      {
+        "idMeal": 92,
+        "language": "PL",
+        "mealTime": "SNACK",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "mieszanka studencka"
+      },
+      {
+        "idMeal": 34,
+        "language": "PL",
+        "mealTime": "SUPPER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "sałatka cesar ( z kurczakiem)"
+      }
+    ]
+  },
+  {
+    "meals": [
+      {
+        "idMeal": 69,
+        "language": "PL",
+        "mealTime": "BREAKFAST",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "jajecznica z boczkiem i szczypiorkiem"
+      },
+      {
+        "idMeal": 12,
+        "language": "PL",
+        "mealTime": "LUNCH",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "maślanka plus batonik zbożowy"
+      },
+      {
+        "idMeal": 52,
+        "language": "PL",
+        "mealTime": "DINNER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "tortilla z kurczakiem i passatą pomidorową i fetą"
+      },
+      {
+        "idMeal": 29,
+        "language": "PL",
+        "mealTime": "SNACK",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "sałatka z pomidora i ogórka kiszonego "
+      },
+      {
+        "idMeal": 93,
+        "language": "PL",
+        "mealTime": "SUPPER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "kanapki z makrelą wędzoną, musztardą i pomidorem"
+      }
+    ]
+  },
+  {
+    "meals": [
+      {
+        "idMeal": 89,
+        "language": "PL",
+        "mealTime": "BREAKFAST",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "placki z serka wiejskiego z dżemem"
+      },
+      {
+        "idMeal": 41,
+        "language": "PL",
+        "mealTime": "LUNCH",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "kanapki z hummusem, jajkiem,ogórkiem i rzodkiewką"
+      },
+      {
+        "idMeal": 86,
+        "language": "PL",
+        "mealTime": "DINNER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "indyk z warzywami, sosem sojowym i kuskusem"
+      },
+      {
+        "idMeal": 48,
+        "language": "PL",
+        "mealTime": "SNACK",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "mango i mieszanka studencka"
+      },
+      {
+        "idMeal": 49,
+        "language": "PL",
+        "mealTime": "SUPPER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "kanapki z szynką, papryką i kukurydzą"
+      }
+    ]
+  },
+  {
+    "meals": [
+      {
+        "idMeal": 94,
+        "language": "PL",
+        "mealTime": "BREAKFAST",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "naleśniki z jogurtem i kaki"
+      },
+      {
+        "idMeal": 90,
+        "language": "PL",
+        "mealTime": "LUNCH",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "koktajl bananowo-pomarańczowy"
+      },
+      {
+        "idMeal": 42,
+        "language": "PL",
+        "mealTime": "DINNER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "kasza gryczana z warzywami i kurczakiem"
+      },
+      {
+        "idMeal": 97,
+        "language": "PL",
+        "mealTime": "SNACK",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "jogurt z musli"
+      },
+      {
+        "idMeal": 68,
+        "language": "PL",
+        "mealTime": "SUPPER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "omlet z szynką, papryką i szczypiorkiem"
+      }
+    ]
+  },
+  {
+    "meals": [
+      {
+        "idMeal": 30,
+        "language": "PL",
+        "mealTime": "BREAKFAST",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "kanapki z szynką, sałatą, pomidorem i awokado"
+      },
+      {
+        "idMeal": 85,
+        "language": "PL",
+        "mealTime": "LUNCH",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "kanapki z szynką, musztardą, pomidorem i ogórkiem kiszonym"
+      },
+      {
+        "idMeal": 91,
+        "language": "PL",
+        "mealTime": "DINNER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "burger wołowy z rukolą"
+      },
+      {
+        "idMeal": 26,
+        "language": "PL",
+        "mealTime": "SNACK",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "batonik musli "
+      },
+      {
+        "idMeal": 63,
+        "language": "PL",
+        "mealTime": "SUPPER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "sałatka z jajkiem, pomidorem i awokado"
+      }
+    ]
+  },
+  {
+    "meals": [
+      {
+        "idMeal": 35,
+        "language": "PL",
+        "mealTime": "BREAKFAST",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "jajka na twardo i kanapka z hummusem"
+      },
+      {
+        "idMeal": 95,
+        "language": "PL",
+        "mealTime": "LUNCH",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "koktajl bananowo-truskawkowy"
+      },
+      {
+        "idMeal": 14,
+        "language": "PL",
+        "mealTime": "DINNER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "hamburgery drobiowe, surówka z białej kapusty"
+      },
+      {
+        "idMeal": 32,
+        "language": "PL",
+        "mealTime": "SNACK",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "orzechy włoskie i daktyle, suszone"
+      },
+      {
+        "idMeal": 88,
+        "language": "PL",
+        "mealTime": "SUPPER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "twarożek z rzodkiewką i szczypiorkiem + kanapki z hummusem i papryką"
+      }
+    ]
+  },
+  {
+    "meals": [
+      {
+        "idMeal": 50,
+        "language": "PL",
+        "mealTime": "BREAKFAST",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "owsianka z bananem, nasionami chia i masłem orzechowym"
+      },
+      {
+        "idMeal": 11,
+        "language": "PL",
+        "mealTime": "LUNCH",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "jogurt pitny z waflami ryżowymi"
+      },
+      {
+        "idMeal": 15,
+        "language": "PL",
+        "mealTime": "DINNER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "roladki schabowe z ziemniakami z pietruszką, surówka ulubiona"
+      },
+      {
+        "idMeal": 28,
+        "language": "PL",
+        "mealTime": "SNACK",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "ryż na mleku z owocami:"
+      },
+      {
+        "idMeal": 18,
+        "language": "PL",
+        "mealTime": "SUPPER",
+        "public": true,
+        "shortDescription": "Przepis z Excel",
+        "title": "papryka faszerowana"
+      }
+    ]
+  }
+]

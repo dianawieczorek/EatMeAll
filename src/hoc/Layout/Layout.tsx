@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import WeekSchedule from "../../Components/WeekSchedule/WeekSchedule";
 import styles from "./Layout.module.css"
+import RestCommunication from "../../ServerConnection/RestCommunication/RestCommunication";
 
 interface OwnProps {
 }
@@ -12,6 +13,7 @@ class Layout extends PureComponent<Props> {
     render() {
         return (
             <React.Fragment>
+                <RestCommunication/>
                 <main className={styles.Content}>
                     <WeekSchedule/>
                 </main>
