@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b84b5af-f753-4067-8b18-0397e786e476" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" afterPath="$PROJECT_DIR$/src/App.tsx" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/Components/SimpleForm/SimpleForm.tsx" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/Components/list/List.tsx" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/bundle.ts" afterPath="$PROJECT_DIR$/src/Redux/bundle.ts" />
       <change beforePath="$PROJECT_DIR$/src/Redux/reducers.ts" afterPath="$PROJECT_DIR$/src/Redux/reducers.ts" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/Layout/Layout.tsx" afterPath="$PROJECT_DIR$/src/hoc/Layout/Layout.tsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,8 +43,20 @@
       <file leaf-file-name="reducers.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+            <state relative-caret-position="68">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bundle.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Redux/bundle.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -123,7 +137,6 @@
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/WeekSchedule.css" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/WeekSchedule.ts" />
         <option value="$PROJECT_DIR$/src/Components/list/dupa.module.css" />
-        <option value="$PROJECT_DIR$/src/Components/list/List.tsx" />
         <option value="$PROJECT_DIR$/src/Components/UI/Button/Button.ts" />
         <option value="$PROJECT_DIR$/src/Components/UI/Button/Button.module.css" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableHeader/TableHeader.ts" />
@@ -146,6 +159,8 @@
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/ViewOfAllWeek.module.css" />
         <option value="$PROJECT_DIR$/src/App.tsx" />
         <option value="$PROJECT_DIR$/src/hoc/Layout/Layout.tsx" />
+        <option value="$PROJECT_DIR$/src/Redux/bundle.ts" />
+        <option value="$PROJECT_DIR$/src/Components/list/List.tsx" />
         <option value="$PROJECT_DIR$/src/Redux/reducers.ts" />
       </list>
     </option>
@@ -167,7 +182,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -209,6 +224,12 @@
               <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
@@ -298,15 +319,16 @@
       <workItem from="1565167530251" duration="623000" />
       <workItem from="1565169498388" duration="1886000" />
       <workItem from="1565198445781" duration="8187000" />
-      <workItem from="1565504166298" duration="526000" />
+      <workItem from="1565504166298" duration="1457000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17524000" />
+    <option name="totallyTimeSpent" value="18455000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -495,16 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/bundle.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/UI/Button/Button.module.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -512,7 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/list/List.tsx" />
     <entry file="file://$PROJECT_DIR$/src/Components/SimpleForm/SimpleForm.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -534,6 +545,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -668,6 +680,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/hoc/Layout/Layout.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/bundle.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/list/List.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -678,19 +714,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hoc/Layout/Layout.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
