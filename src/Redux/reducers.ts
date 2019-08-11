@@ -1,6 +1,7 @@
-import {ADD_ITEM, Types} from "./actionTypes";
+import {ADD_ITEM, SET_CURRENT_WEEK_SCHEDULE, Types} from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
+import {WeekScheduleDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 
 // interface InitialState {
 //     itemList: string[]
@@ -24,16 +25,22 @@ import {produce} from "immer"
 // }
 
 interface weekInitialState {
+    currentWeekSchedule: WeekScheduleDto | undefined
 }
 
-const WEEK_INITIAL_STATE: weekInitialState = {};
+const WEEK_INITIAL_STATE: weekInitialState = {
+    currentWeekSchedule: undefined
+};
 
 export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: weekInitialState = WEEK_INITIAL_STATE, action: Types) => {
     switch (action.type) {
-        case ADD_ITEM: {
-            return {}
+        case SET_CURRENT_WEEK_SCHEDULE: {
+            return produce(state, draftState => {
+                draftState.currentWeekSchedule = action.currentWeekSchedule;
+            })
+
         }
         default:
             return state
     }
-}
+};

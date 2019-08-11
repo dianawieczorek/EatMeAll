@@ -11,6 +11,7 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 
 class SingleMealShortInfo extends PureComponent<Props> {
   render() {
+      console.log(this.props.currentWeekSchedule)
     return (
         <div className={styles.MealInfo}>
             <div className={styles.TypeOfMeal}>śniadanko</div>
@@ -21,7 +22,9 @@ class SingleMealShortInfo extends PureComponent<Props> {
 }
 
 const mapStateToProps = (state: AppStore) => {
-    return {};
+    return {
+        currentWeekSchedule: state.weekScheduleReducer.currentWeekSchedule
+    };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
