@@ -1,18 +1,13 @@
 import {
-    ADD_ITEM, addItemAction, SET_CURRENT_WEEK_SCHEDULE,
+   SET_CURRENT_WEEK_SCHEDULE,
     setCurrentWeekScheduleIf
 } from "./actionTypes";
-import {WeekScheduleDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 
 
-export const addItem = (aNewItem:string ):addItemAction => {
-    return {
-        type: ADD_ITEM,
-        newItem: aNewItem
-    }
-};
+import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 
-export const setCurrentWeekSchedule = (aCurrentWeekSchedule:WeekScheduleDto ):setCurrentWeekScheduleIf => {
+
+export const setCurrentWeekSchedule = (aCurrentWeekSchedule:Array<DayDto> ):setCurrentWeekScheduleIf => {
     return {
         type: SET_CURRENT_WEEK_SCHEDULE,
         currentWeekSchedule: aCurrentWeekSchedule

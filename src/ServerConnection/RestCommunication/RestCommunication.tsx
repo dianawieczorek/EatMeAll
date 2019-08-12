@@ -19,7 +19,6 @@ class RestCommunication extends PureComponent<Props, State> {
     }
 
      componentDidMount() {
-        console.log("dupa")
         //     fetch("jsonMocks/wholeweek.json")
         // //         .then(response => response.json())
         // //         .then((json: WeekScheduleDto[]) => {

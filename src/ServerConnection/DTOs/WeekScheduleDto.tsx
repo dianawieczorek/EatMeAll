@@ -1,7 +1,3 @@
-export interface WeekScheduleDto {
-    days: Array<DayDto>
-}
-
 export interface DayDto {
     meals: Array<MealDto>
 }
