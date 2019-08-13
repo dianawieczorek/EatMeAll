@@ -13,26 +13,20 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class SingleMealShortInfo extends PureComponent<Props> {
-    state = {
-        mealName: ''
-    };
-
     render() {
-        this.dupa()
-        return (
-
-            <div className={styles.MealInfo}>
-                <div className={styles.TypeOfMeal}>śniadanko</div>
-                <div>{this.state.mealName}</div>
-            </div>
-        );
-    }
-
-    private dupa = () => {
-        let MealIfo: any = this.props.MealInfo;
-        if (MealIfo !== undefined) {
+        if (this.props.MealInfo !== undefined) {
             return (
-                this.state.mealName = MealIfo.title
+                <div className={styles.MealInfo}>
+                    <div className={styles.TypeOfMeal}>śniadanko</div>
+                    <div>{this.props.MealInfo.title}</div>
+                </div>
+            );
+        } else {
+            return (
+                <div className={styles.MealInfo}>
+                    <div className={styles.TypeOfMeal}>śniadanko</div>
+                    <div> </div>
+                </div>
             )
         }
     }

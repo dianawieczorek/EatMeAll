@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import OneDayMealSchedule from "./OneDayMealSchedule/OneDayMealSchedule";
 import styles from "./ViewOfAllWeek.module.css"
+import {AppStore} from "../../../Redux/store";
 
 interface OwnProps {
 }
@@ -28,8 +29,8 @@ class ViewOfAllWeek extends PureComponent<Props> {
     }
 }
 
-const mapStateToProps = () => {
-    return {};
+const mapStateToProps = (state: AppStore) => {
+    return {}
 };
 
 const mapDispatchToProps = () => {
