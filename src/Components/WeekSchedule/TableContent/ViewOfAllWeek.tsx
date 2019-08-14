@@ -15,13 +15,13 @@ class ViewOfAllWeek extends PureComponent<Props> {
             <React.Fragment>
                 <div className={styles.MealPlan}>
                     <React.Fragment>
-                        <OneDayMealSchedule/>
-                        <OneDayMealSchedule/>
-                        <OneDayMealSchedule/>
-                        <OneDayMealSchedule/>
-                        <OneDayMealSchedule/>
-                        <OneDayMealSchedule/>
-                        <OneDayMealSchedule/>
+                        <OneDayMealSchedule dayNumber={0}/>
+                        <OneDayMealSchedule dayNumber={1}/>
+                        <OneDayMealSchedule dayNumber={2}/>
+                        <OneDayMealSchedule dayNumber={3}/>
+                        <OneDayMealSchedule dayNumber={4}/>
+                        <OneDayMealSchedule dayNumber={5}/>
+                        <OneDayMealSchedule dayNumber={6}/>
                     </React.Fragment>
                 </div>
             </React.Fragment>

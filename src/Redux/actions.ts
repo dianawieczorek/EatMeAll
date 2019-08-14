@@ -1,5 +1,6 @@
 import {
-   SET_CURRENT_WEEK_SCHEDULE,
+    SET_CURRENT_DAY,
+    SET_CURRENT_WEEK_SCHEDULE, setCurrentDayIf,
     setCurrentWeekScheduleIf
 } from "./actionTypes";
 
@@ -11,5 +12,11 @@ export const setCurrentWeekSchedule = (aCurrentWeekSchedule:Array<DayDto> ):setC
     return {
         type: SET_CURRENT_WEEK_SCHEDULE,
         currentWeekSchedule: aCurrentWeekSchedule
+    }
+};
+export const setCurrentDay = (aCurrentDay:DayDto ):setCurrentDayIf => {
+    return {
+        type: SET_CURRENT_DAY,
+        currentDay: aCurrentDay
     }
 };

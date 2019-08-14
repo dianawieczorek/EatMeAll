@@ -10,5 +10,10 @@ export interface setCurrentWeekScheduleIf {
     type: typeof SET_CURRENT_WEEK_SCHEDULE
     currentWeekSchedule: Array<DayDto>
 }
+export const SET_CURRENT_DAY= 'SET_CURRENT_DAY';
+export interface setCurrentDayIf {
+    type: typeof SET_CURRENT_DAY
+    currentDay: DayDto
+}
 
-export type Types = setCurrentWeekScheduleIf// | - pipe dodaje kolejne interfejsy akcji
+export type Types = setCurrentWeekScheduleIf | setCurrentDayIf// | - pipe dodaje kolejne interfejsy akcji

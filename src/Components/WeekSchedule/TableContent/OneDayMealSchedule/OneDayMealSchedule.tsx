@@ -6,7 +6,9 @@ import styles from  "./OneDayMealSchedule.module.css"
 import SingleMealShortInfo from "../SingleMealShortInfo/SingleMealShortInfo";
 import DateLabel from "../DateLabel/DateLabel";
 
-interface OwnProps {}
+interface OwnProps {
+    dayNumber:number
+}
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
@@ -15,11 +17,11 @@ class OneDayMealSchedule extends PureComponent<Props> {
     return (
         <div className={styles.Day}>
             <DateLabel/>
-            <SingleMealShortInfo/>
-            <SingleMealShortInfo/>
-            <SingleMealShortInfo/>
-            <SingleMealShortInfo/>
-            <SingleMealShortInfo/>
+            <SingleMealShortInfo mealNumber={0} dayNumber={this.props.dayNumber}/>
+            <SingleMealShortInfo mealNumber={1} dayNumber={this.props.dayNumber}/>
+            <SingleMealShortInfo mealNumber={2} dayNumber={this.props.dayNumber}/>
+            <SingleMealShortInfo mealNumber={3} dayNumber={this.props.dayNumber}/>
+            <SingleMealShortInfo mealNumber={4} dayNumber={this.props.dayNumber}/>
         </div>
     );
   }
