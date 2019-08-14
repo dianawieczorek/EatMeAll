@@ -1,8 +1,7 @@
-import {SET_CURRENT_DAY, SET_CURRENT_WEEK_SCHEDULE, Types} from "./actionTypes";
+import {SET_CURRENT_WEEK_SCHEDULE, Types} from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
-import {setCurrentDay} from "./actions";
 
 // interface InitialState {
 //     itemList: string[]
