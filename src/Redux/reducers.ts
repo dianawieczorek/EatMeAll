@@ -1,4 +1,4 @@
-import {OPEN_MODAL, SET_CURRENT_WEEK_SCHEDULE, Types} from "./actionTypes";
+import {CLOSE_MODAL, OPEN_MODAL, SET_CURRENT_WEEK_SCHEDULE, Types} from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
@@ -63,6 +63,11 @@ export const modalReducer: Reducer<ModalReducerState, Types> = (state: ModalRedu
             return produce(state, draftState => {
                 draftState.visible = true;
                 draftState.data = action.data;
+            })
+        }
+        case CLOSE_MODAL: {
+            return produce(state, draftState => {
+                draftState.visible = false;
             })
         }
         default:

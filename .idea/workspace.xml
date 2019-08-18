@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b84b5af-f753-4067-8b18-0397e786e476" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx" afterPath="$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx" />
-      <change beforePath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" afterPath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/actions.ts" afterPath="$PROJECT_DIR$/src/Redux/actions.ts" />
       <change beforePath="$PROJECT_DIR$/src/Redux/reducers.ts" afterPath="$PROJECT_DIR$/src/Redux/reducers.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,8 +19,8 @@
       <file leaf-file-name="SingleMealShortInfo.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="102" column="56" lean-forward="false" selection-start-line="102" selection-start-column="56" selection-end-line="102" selection-end-column="56" />
+            <state relative-caret-position="70">
+              <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="34" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -64,22 +61,10 @@
       <file leaf-file-name="reducers.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="64" column="46" lean-forward="false" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+            <state relative-caret-position="478">
+              <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
               <folding>
-                <element signature="e#0#75#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Modal.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#88#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -333,12 +318,12 @@
       <workItem from="1565752387727" duration="31000" />
       <workItem from="1565760720209" duration="7918000" />
       <workItem from="1565767559495" duration="6239000" />
-      <workItem from="1566147741125" duration="5718000" />
+      <workItem from="1566147741125" duration="5836000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67720000" />
+    <option name="totallyTimeSpent" value="67838000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
@@ -660,20 +645,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="102" column="56" lean-forward="false" selection-start-line="102" selection-start-column="56" selection-end-line="102" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Redux/actionTypes.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/actions.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -688,20 +671,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/actions.ts">
+    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="70">
+          <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="64" column="46" lean-forward="false" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+        <state relative-caret-position="478">
+          <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
           <folding>
-            <element signature="e#0#75#0" expanded="true" />
+            <element signature="e#0#88#0" expanded="true" />
           </folding>
         </state>
       </provider>
