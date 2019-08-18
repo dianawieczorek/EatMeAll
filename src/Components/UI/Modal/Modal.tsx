@@ -5,6 +5,7 @@ import Backdrop from '../Backdrop/Backdrop';
 import Button from "../Button/Button"
 import {AppStore} from "../../../Redux/store";
 import {Dispatch} from "redux";
+import {closeModal} from "../../../Redux/actions";
 
 
 
