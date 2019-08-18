@@ -11,15 +11,15 @@ export interface setCurrentWeekScheduleIf {
     currentWeekSchedule: Array<DayDto>
 }
 export const OPEN_MODAL= 'OPEN_MODAL';
-export interface OpenModalIf {
+export interface openModalIf {
     type: typeof OPEN_MODAL
     data: string
 }
 
 export const CLOSE_MODAL= 'CLOSE_MODAL';
-export interface CloseModalIf {
+export interface closeModalIf {
     type: typeof CLOSE_MODAL
 }
 
 
-export type Types = setCurrentWeekScheduleIf | OpenModalIf | CloseModalIf// | - pipe dodaje kolejne interfejsy akcji
+export type Types = setCurrentWeekScheduleIf | openModalIf | closeModalIf// | - pipe dodaje kolejne interfejsy akcji

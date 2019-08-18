@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1b84b5af-f753-4067-8b18-0397e786e476" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/Redux/actionTypes.ts" afterPath="$PROJECT_DIR$/src/Redux/actionTypes.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/actions.ts" afterPath="$PROJECT_DIR$/src/Redux/actions.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,12 +29,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="actionTypes.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="actionTypes.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Redux/actionTypes.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="73" lean-forward="false" selection-start-line="24" selection-start-column="73" selection-end-line="24" selection-end-column="73" />
+            <state relative-caret-position="323">
+              <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actions.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Redux/actions.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#152#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,7 +137,6 @@
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/WeekSchedule.module.css" />
         <option value="$USER_HOME$/Dropbox/components/MealSchedule/TableContent/MealInfo/MealInfo.css" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.module.css" />
-        <option value="$PROJECT_DIR$/src/Redux/actions.ts" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableHeader/TableHeader.tsx" />
         <option value="$PROJECT_DIR$/src/Components/UI/Modal/modal.tsx" />
         <option value="$PROJECT_DIR$/src/Components/UI/Modal/modal.module.css" />
@@ -141,6 +153,7 @@
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" />
         <option value="$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx" />
         <option value="$PROJECT_DIR$/src/Redux/actionTypes.ts" />
+        <option value="$PROJECT_DIR$/src/Redux/actions.ts" />
       </list>
     </option>
   </component>
@@ -299,12 +312,12 @@
       <workItem from="1565752387727" duration="31000" />
       <workItem from="1565760720209" duration="7918000" />
       <workItem from="1565767559495" duration="6239000" />
-      <workItem from="1566147741125" duration="5265000" />
+      <workItem from="1566147741125" duration="5471000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67267000" />
+    <option name="totallyTimeSpent" value="67473000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
@@ -454,16 +467,6 @@
     <entry file="file://$USER_HOME$/Dropbox/components/fileWithConstants.js" />
     <entry file="file://$USER_HOME$/Dropbox/components/MealRecipe/MealRecipe.css" />
     <entry file="file://$USER_HOME$/Dropbox/components/MealRecipe/MealRecipe.js" />
-    <entry file="file://$PROJECT_DIR$/src/Redux/actions.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#92#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerConnection/DTOs/WeekScheduleDto.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -668,9 +671,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Redux/actionTypes.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="73" lean-forward="false" selection-start-line="24" selection-start-column="73" selection-end-line="24" selection-end-column="73" />
+        <state relative-caret-position="323">
+          <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/actions.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#152#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
