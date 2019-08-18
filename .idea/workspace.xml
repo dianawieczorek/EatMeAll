@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b84b5af-f753-4067-8b18-0397e786e476" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx" afterPath="$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx" />
-      <change beforePath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" afterPath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/bundle.ts" afterPath="$PROJECT_DIR$/src/Redux/bundle.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/actionTypes.ts" afterPath="$PROJECT_DIR$/src/Redux/actionTypes.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,11 +19,21 @@
       <file leaf-file-name="SingleMealShortInfo.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="102" selection-end-column="5" />
+            <state relative-caret-position="495">
+              <caret line="101" column="63" lean-forward="true" selection-start-line="101" selection-start-column="63" selection-end-line="101" selection-end-column="63" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actionTypes.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Redux/actionTypes.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="73" lean-forward="false" selection-start-line="24" selection-start-column="73" selection-end-line="24" selection-end-column="73" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Modal.tsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Modal.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="512">
-              <caret line="51" column="48" lean-forward="true" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+              <caret line="51" column="45" lean-forward="false" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="45" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -116,7 +124,6 @@
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/WeekSchedule.module.css" />
         <option value="$USER_HOME$/Dropbox/components/MealSchedule/TableContent/MealInfo/MealInfo.css" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.module.css" />
-        <option value="$PROJECT_DIR$/src/Redux/actionTypes.ts" />
         <option value="$PROJECT_DIR$/src/Redux/actions.ts" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableHeader/TableHeader.tsx" />
         <option value="$PROJECT_DIR$/src/Components/UI/Modal/modal.tsx" />
@@ -133,6 +140,7 @@
         <option value="$PROJECT_DIR$/src/Redux/bundle.ts" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" />
         <option value="$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx" />
+        <option value="$PROJECT_DIR$/src/Redux/actionTypes.ts" />
       </list>
     </option>
   </component>
@@ -225,117 +233,7 @@
               <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="MealRecipe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="Backdrop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="Modal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="WeekSchedule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="WeekSchedule" type="462c0819:PsiDirectoryNode" />
-              <item name="TableContent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="WeekSchedule" type="462c0819:PsiDirectoryNode" />
-              <item name="TableContent" type="462c0819:PsiDirectoryNode" />
-              <item name="OneDayMealSchedule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="WeekSchedule" type="462c0819:PsiDirectoryNode" />
-              <item name="TableContent" type="462c0819:PsiDirectoryNode" />
-              <item name="SingleMealShortInfo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="WeekSchedule" type="462c0819:PsiDirectoryNode" />
-              <item name="TableHeader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hoc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hoc" type="462c0819:PsiDirectoryNode" />
-              <item name="Layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Redux" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
-              <item name="DTOs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
-              <item name="RestCommunication" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -401,19 +299,19 @@
       <workItem from="1565752387727" duration="31000" />
       <workItem from="1565760720209" duration="7918000" />
       <workItem from="1565767559495" duration="6239000" />
-      <workItem from="1566147741125" duration="5002000" />
+      <workItem from="1566147741125" duration="5265000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67004000" />
+    <option name="totallyTimeSpent" value="67267000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12961012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16280295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -563,14 +461,6 @@
           <folding>
             <element signature="e#0#92#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/actionTypes.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="45" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -756,23 +646,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
+    <entry file="file://$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="102" selection-end-column="5" />
+        <state relative-caret-position="512">
+          <caret line="51" column="45" lean-forward="false" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="45" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx">
+    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="51" column="48" lean-forward="true" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+        <state relative-caret-position="495">
+          <caret line="101" column="63" lean-forward="true" selection-start-line="101" selection-start-column="63" selection-end-line="101" selection-end-column="63" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/actionTypes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="73" lean-forward="false" selection-start-line="24" selection-start-column="73" selection-end-line="24" selection-end-column="73" />
+          <folding />
         </state>
       </provider>
     </entry>
