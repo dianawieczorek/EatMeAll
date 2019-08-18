@@ -30,7 +30,7 @@ class Modal extends PureComponent<Props> {
                         transform: this.props.visible ? 'translateY(0)' : 'translateY(100vh)'
                     }}
                     >
-                    {this.props.children}
+                    {this.props.data}
                     <Button onClick={this.closeModal}>CANCEL</Button>
                 </div>
             </React.Fragment>)
@@ -43,8 +43,8 @@ class Modal extends PureComponent<Props> {
 
 const mapStateToProps = (store:AppStore) => {
     return {
-        visible: store.modalReducer.visible
-        // data: store.modalReducer.component
+        visible: store.modalReducer.visible,
+        data: store.modalReducer.data
     };
 };
 

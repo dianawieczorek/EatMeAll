@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b84b5af-f753-4067-8b18-0397e786e476" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Redux/reducers.ts" afterPath="$PROJECT_DIR$/src/Redux/reducers.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx" afterPath="$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -58,13 +58,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reducers.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reducers.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="478">
               <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
               <folding>
                 <element signature="e#0#88#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Modal.tsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -136,9 +148,9 @@
         <option value="$PROJECT_DIR$/src/Redux/bundle.ts" />
         <option value="$PROJECT_DIR$/src/Redux/actionTypes.ts" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" />
-        <option value="$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx" />
         <option value="$PROJECT_DIR$/src/Redux/actions.ts" />
         <option value="$PROJECT_DIR$/src/Redux/reducers.ts" />
+        <option value="$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx" />
       </list>
     </option>
   </component>
@@ -318,12 +330,12 @@
       <workItem from="1565752387727" duration="31000" />
       <workItem from="1565760720209" duration="7918000" />
       <workItem from="1565767559495" duration="6239000" />
-      <workItem from="1566147741125" duration="5836000" />
+      <workItem from="1566147741125" duration="5914000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67838000" />
+    <option name="totallyTimeSpent" value="67916000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
@@ -661,16 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
@@ -687,6 +689,16 @@
           <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
           <folding>
             <element signature="e#0#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/UI/Modal/Modal.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
