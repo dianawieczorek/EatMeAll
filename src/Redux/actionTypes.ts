@@ -13,7 +13,7 @@ export interface setCurrentWeekScheduleIf {
 export const OPEN_MODAL= 'OPEN_MODAL';
 export interface openModalIf {
     type: typeof OPEN_MODAL
-    data: string
+    data?: JSX.Element
 }
 
 export const CLOSE_MODAL= 'CLOSE_MODAL';

@@ -16,7 +16,7 @@ export const setCurrentWeekSchedule = (aCurrentWeekSchedule: Array<DayDto>): set
     }
 };
 
-export const openModal = (aData: string): openModalIf => {
+export const openModal = (aData: JSX.Element): openModalIf => {
     return {
         type: OPEN_MODAL,
         data: aData

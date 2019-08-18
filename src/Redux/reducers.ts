@@ -2,6 +2,7 @@ import {CLOSE_MODAL, OPEN_MODAL, SET_CURRENT_WEEK_SCHEDULE, Types} from "./actio
 import {Reducer} from "redux";
 import {produce} from "immer"
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
+import MealRecipe from "../Components/MealRecipe/MealRecipe";
 
 // interface InitialState {
 //     itemList: string[]
@@ -49,12 +50,12 @@ export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: wee
 
 interface ModalReducerState {
     visible: boolean
-    data: string
+    data?: JSX.Element
 }
 
 const MODAL_REDUCER_INITIAL_STATE: ModalReducerState = {
     visible: false,
-    data: "dupeczka69",
+    data: undefined,
 };
 
 export const modalReducer: Reducer<ModalReducerState, Types> = (state: ModalReducerState = MODAL_REDUCER_INITIAL_STATE, action: Types) => {
