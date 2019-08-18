@@ -4,6 +4,7 @@ import styles from './Modal.module.css'
 import Backdrop from '../Backdrop/Backdrop';
 import Button from "../Button/Button"
 import {AppStore} from "../../../Redux/store";
+import {Dispatch} from "redux";
 
 
 
@@ -35,7 +36,7 @@ class Modal extends PureComponent<Props> {
     }
 
     closeModal = () => {
-        this.props.showModal(false);
+        this.props.closeModal();
     };
 }
 
@@ -46,7 +47,9 @@ const mapStateToProps = (store:AppStore) => {
     };
 };
 
-const mapDispatchToProps = () => {
-    return {};
+const mapDispatchToProps = (dispatch:Dispatch) => {
+    return{
+        closeModal: () => dispatch(closeModal())
+    }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

@@ -5,7 +5,6 @@ import {Dispatch} from "redux";
 import styles from "./SingleMealShortInfo.module.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBook, faCalendarTimes, faCopy, faListUl, faPaste, faRetweet} from "@fortawesome/free-solid-svg-icons";
-import MealRecipe from "../../../MealRecipe/MealRecipe";
 
 
 interface OwnProps {
@@ -58,8 +57,9 @@ class SingleMealShortInfo extends PureComponent<Props> {
     }
 
     private showDetailsPopup = () => {
-        this.props.openModal(
-            <MealRecipe/>)
+        // this.props.openModal(
+        //     <MealRecipe/>)
+        this.props.openModal("asdf");
     }
 
     private showDetails = (e: any) => {
@@ -97,6 +97,10 @@ const mapStateToProps = (state: AppStore, ownProps: any) => {
 
 };
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({});
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return{
+        openModal: (aData: string) => dispatch(opnModal(aData))
+    }
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleMealShortInfo);
