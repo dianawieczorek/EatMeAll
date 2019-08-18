@@ -1,0 +1,110 @@
+[
+  {
+    "amountCalories": 636,
+    "authorReceipt": "Łukasz Wiertel",
+    "createdDate": "2019-03-16T19:24:05.280Z",
+    "creatorMeal": {
+      "email": "43excel@wp.pl",
+      "favouritesMealsSetId": [],
+      "idUser": 1,
+      "nick": "EXCEL43",
+      "userType": "ADMIN"
+    },
+    "idMeal": 94,
+    "language": "PL",
+    "photo": 94,
+    "products": [
+      {
+        "amount": 100.0,
+        "category": "GRAINS",
+        "name": "mąka pszenna typ 1850",
+        "specialUnit": "6,67 łyżki",
+        "unit": "g"
+      },
+      {
+        "amount": 100.0,
+        "category": "DAIRY",
+        "name": "mleko",
+        "specialUnit": "0,4 szklanki",
+        "unit": "ml"
+      },
+      {
+        "amount": 56.0,
+        "category": "OTHER",
+        "name": "jajko",
+        "specialUnit": "1 szt.",
+        "unit": "g"
+      },
+      {
+        "amount": 5.0,
+        "category": "OTHER",
+        "name": "olej rzepakowy",
+        "specialUnit": "0,5 łyżki",
+        "unit": "g"
+      },
+      {
+        "amount": 100.0,
+        "category": "DRINK",
+        "name": "woda",
+        "specialUnit": "0,4 szklanki",
+        "unit": "g"
+      },
+      {
+        "amount": 125.0,
+        "category": "FRUIT",
+        "name": "kaki",
+        "specialUnit": "0.5 szt.",
+        "unit": "g"
+      },
+      {
+        "amount": 80.0,
+        "category": "DAIRY",
+        "name": "jogurt grecki",
+        "specialUnit": "4 łyżki",
+        "unit": "g"
+      }
+    ],
+    "public": true,
+    "receiptDTO": {
+      "description": "Jakis dodatkowy opis",
+      "idReceipt": 94,
+      "prepareTime": 30,
+      "steps": [
+        {
+          "header": "do mleka dodaj taką samą ilość wody",
+          "idStep": 306,
+          "number": 1
+        },
+        {
+          "header": " wbij jaja i wymieszaj",
+          "idStep": 307,
+          "number": 2
+        },
+        {
+          "header": " dodaj mąkę i wymieszaj",
+          "idStep": 308,
+          "number": 3
+        },
+        {
+          "header": " patelnię delikatnie wysmaruj olejem i wlewaj ciasto naleśnikowe. usmaż z obu stron",
+          "idStep": 309,
+          "number": 4
+        },
+        {
+          "header": " naleśniki posmaruj jogurtem i wyłóż pokrojone kaki. zwiń",
+          "idStep": 310,
+          "number": 5
+        }
+      ],
+      "title": "naleśniki z jogurtem i kaki"
+    },
+    "shortDescription": "Przepis z Excel",
+    "title": "naleśniki z jogurtem i kaki",
+    "typeMeal": [
+      {
+        "idTypeMeal": 1,
+        "mealTime": "BREAKFAST"
+      }
+    ]
+  }
+]

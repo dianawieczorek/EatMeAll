@@ -5,8 +5,6 @@ import styles from "./ViewOfAllWeek.module.css"
 import {AppStore} from "../../../Redux/store";
 
 interface OwnProps {
-    openModal:any
-    modalClosed:any
 }
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
@@ -17,13 +15,13 @@ class ViewOfAllWeek extends PureComponent<Props> {
             <React.Fragment>
                 <div className={styles.MealPlan}>
                     <React.Fragment>
-                        <OneDayMealSchedule dayNumber={0} openModal ={this.props.openModal} modalClosed={this.props.modalClosed} />
-                        <OneDayMealSchedule dayNumber={1}  openModal={this.props.openModal} modalClosed={this.props.modalClosed} />
-                        <OneDayMealSchedule dayNumber={2}  openModal={this.props.openModal} modalClosed={this.props.modalClosed}/>
-                        <OneDayMealSchedule dayNumber={3} openModal={this.props.openModal} modalClosed={this.props.modalClosed}/>
-                        <OneDayMealSchedule dayNumber={4} openModal={this.props.openModal} modalClosed={this.props.modalClosed}/>
-                        <OneDayMealSchedule dayNumber={5} openModal={this.props.openModal} modalClosed={this.props.modalClosed}/>
-                        <OneDayMealSchedule dayNumber={6} openModal={this.props.openModal} modalClosed={this.props.modalClosed}/>
+                        <OneDayMealSchedule dayNumber={0}/>
+                        <OneDayMealSchedule dayNumber={1}/>
+                        <OneDayMealSchedule dayNumber={2}/>
+                        <OneDayMealSchedule dayNumber={3}/>
+                        <OneDayMealSchedule dayNumber={4}/>
+                        <OneDayMealSchedule dayNumber={5}/>
+                        <OneDayMealSchedule dayNumber={6}/>
                     </React.Fragment>
                 </div>
             </React.Fragment>

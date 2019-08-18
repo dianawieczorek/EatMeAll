@@ -12,13 +12,11 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class WeekSchedule extends PureComponent<Props> {
-    state = {
-        showModal: false,
-        modalData: <MealRecipe/>
-    }
-    cancelHandler = () => {
-        this.setState({showModal: false});
-    };
+    // state = {
+    //     showModal: false,
+    //     modalData: <MealRecipe/>
+    // }
+
 
     showModal = (modalData: any) => {
         this.setState({showModal: true, modalData: modalData});
@@ -28,13 +26,13 @@ class WeekSchedule extends PureComponent<Props> {
     render() {
         return (
             <React.Fragment>
-                <Modal show={this.state.showModal} modalClosed={this.cancelHandler}>
-                    {this.state.modalData}
-                </Modal>
+                <Modal/>
+                {/*<Modal/> show={this.state.showModal} modalClosed={this.cancelHandler}>*/}
+                    {/*{this.state.modalData}*/}
+                {/*</Modal>*/}
                 <div className={styles.Header}>
                     <TableHeader/>
-                    <ViewOfAllWeek openModal={this.showModal}
-                                   modalClosed={this.cancelHandler}/>
+                    <ViewOfAllWeek />
                 </div>
             </React.Fragment>
         );

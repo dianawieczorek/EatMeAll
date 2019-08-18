@@ -5,13 +5,11 @@ import {Dispatch} from "redux";
 import styles from "./SingleMealShortInfo.module.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBook, faCalendarTimes, faCopy, faListUl, faPaste, faRetweet} from "@fortawesome/free-solid-svg-icons";
-import {DayDto, MealDto} from "../../../../ServerConnection/DTOs/WeekScheduleDto";
 import MealRecipe from "../../../MealRecipe/MealRecipe";
 
 
 interface OwnProps {
     mealNumber: number
-    openModal:any
 }
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;

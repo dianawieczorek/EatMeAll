@@ -45,3 +45,21 @@ export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: wee
             return state
     }
 };
+// }
+
+interface ModalReducerState {
+    visible: boolean
+    data: string
+}
+
+const MODAL_REDUCER_INITIAL_STATE: ModalReducerState = {
+    visible: false,
+    data: "dupeczka69",
+};
+
+export const modalReducer: Reducer<ModalReducerState, Types> = (state: ModalReducerState = MODAL_REDUCER_INITIAL_STATE, action: Types) => {
+    switch (action.type) {
+        default:
+            return state
+    }
+};

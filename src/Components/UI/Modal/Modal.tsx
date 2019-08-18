@@ -3,12 +3,13 @@ import {connect} from 'react-redux';
 import styles from './Modal.module.css'
 import Backdrop from '../Backdrop/Backdrop';
 import Button from "../Button/Button"
+import {AppStore} from "../../../Redux/store";
 
 
 
 interface OwnProps {
-    show:any
-    modalClosed:any
+    // show:any
+    // modalClosed:any
 }
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
@@ -20,22 +21,29 @@ class Modal extends PureComponent<Props> {
     render() {
         return (
             <React.Fragment>
-                <Backdrop show={this.props.show} clicked={this.props.modalClosed}/>
+                <Backdrop show={this.props.visible} clicked={this.closeModal}/>
                 <div
                     className={styles.Modal}
                     style={{
-                        transform: this.props.show ? 'translateY(0)' : 'translateY(100vh)'
+                        transform: this.props.visible ? 'translateY(0)' : 'translateY(100vh)'
                     }}
                     >
                     {this.props.children}
-                    <Button onClick={this.props.modalClosed}>CANCEL</Button>
+                    <Button onClick={this.closeModal}>CANCEL</Button>
                 </div>
             </React.Fragment>)
     }
+
+    closeModal = () => {
+        this.props.showModal(false);
+    };
 }
 
-const mapStateToProps = () => {
-    return {};
+const mapStateToProps = (store:AppStore) => {
+    return {
+        visible: store.modalReducer.visible
+        // data: store.modalReducer.component
+    };
 };
 
 const mapDispatchToProps = () => {
