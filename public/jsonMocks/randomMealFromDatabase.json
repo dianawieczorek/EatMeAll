@@ -1,0 +1,11 @@
+// http://eatmeall.pl:100/app/meals/short/mealTime?mealTime=BREAKFAST&language=PL&amount=1
+[
+  {
+    "idMeal": 69,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "jajecznica z boczkiem i szczypiorkiem"
+  }
+]

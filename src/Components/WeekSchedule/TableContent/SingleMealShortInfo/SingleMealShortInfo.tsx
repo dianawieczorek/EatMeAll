@@ -29,7 +29,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
                             <button className={styles.Button} onClick={this.showDetails}>
                                 <FontAwesomeIcon className={styles.Icon} icon={faBook} title="przeczytaj przepis"/>
                             </button>
-                            <button className={styles.Button} /*onClick={this.randomizeMeal}*/>
+                            <button className={styles.Button} onClick={this.randomizeMeal}>
                                 <FontAwesomeIcon className={styles.Icon} icon={faRetweet} title="wylosuj inną potrawę"/>
                             </button>
                             <button className={styles.Button} /*onClick={this.changeMealFromList}*/>
@@ -53,8 +53,8 @@ class SingleMealShortInfo extends PureComponent<Props> {
         } else {
             return (
                 <div className={styles.MealInfo}>
-                    <div className={styles.TypeOfMeal}></div>
-                    <div></div>
+                    <div className={styles.TypeOfMeal}> </div>
+                    <div> </div>
                 </div>
             )
         }
@@ -73,6 +73,10 @@ class SingleMealShortInfo extends PureComponent<Props> {
             .then((json: Array<MealRecipeDto>) => {
                 this.showDetailsPopup(json[0]);
             })
+    };
+
+    private randomizeMeal = (e: any) => {
+
     };
 
     public typeOfMeal = () => {

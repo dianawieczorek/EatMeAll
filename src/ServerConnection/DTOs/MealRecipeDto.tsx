@@ -1,5 +1,5 @@
 export interface MealDetailsDto {
-    meals: Array<MealRecipeDto>
+    [0]: MealRecipeDto
 }
 
 export interface MealRecipeDto {
