@@ -63,6 +63,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
     private showDetailsPopup = (selectedMealJson:MealRecipeDto) => {
         this.props.openModal(<MealRecipe
             mealRecipe={selectedMealJson}
+            typeOfMeal={this.typeOfMeal()}
         />);
     };
 
@@ -74,7 +75,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
             })
     };
 
-    private typeOfMeal = () => {
+    public typeOfMeal = () => {
         if (this.props.MealInfo.mealTime === "BREAKFAST") {
             return "śniadanko"
         } else if (this.props.MealInfo.mealTime === "DINNER") {
