@@ -39,7 +39,6 @@ export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: wee
             return produce(state, draftState => {
                 draftState.currentWeekSchedule = action.currentWeekSchedule;
             })
-
         }
 
         default:
