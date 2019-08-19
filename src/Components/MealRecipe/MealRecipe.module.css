@@ -1,0 +1,50 @@
+h2 {
+    text-transform: uppercase;
+    color: #326D65;
+    margin-bottom: 30px;
+}
+
+h4 {
+    color: #419086;
+    margin-bottom: 10px;
+}
+
+p, li {
+    margin: 0;
+    padding: 0;
+    font-weight: 200;
+}
+
+.BasicInfo {
+    margin-bottom: 20px;
+    border-top: 1px dotted #326D65;
+    border-bottom: 1px dotted #419086;
+    padding: 5px;
+    width: 90%
+}
+
+.BasicInfo p {
+    font-size: 0.9rem;
+}
+
+.Products {
+    margin-bottom: 30px;
+}
+
+.Products ul, ol {
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 900px){
+    .ProductAndInfo {
+        width: 35%;
+        float: left;
+        padding-right: 10px;
+    }
+
+    .Preparation {
+        width: 65%;
+        float: left;
+    }
+}
