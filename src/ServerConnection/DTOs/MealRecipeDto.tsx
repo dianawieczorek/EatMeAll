@@ -6,11 +6,11 @@ export interface MealRecipeDto {
     amountCalories: number,
     authorReceipt: string,
     idMeal: number,
-    products: ProductsDto,
-    recipe: receiptDto
+    products: Array<ProductsDto>,
+    receiptDTO: recipeDto
     shortDescription: string,
     title: string,
-    typeMeal: typeMealDto
+    typeMeal: Array<typeMealDto>
 }
 
 export interface ProductsDto {
@@ -21,7 +21,7 @@ export interface ProductsDto {
     unit: string
 }
 
-export interface receiptDto {
+export interface recipeDto {
     description: string,
     idReceipt: number,
     prepareTime: number,

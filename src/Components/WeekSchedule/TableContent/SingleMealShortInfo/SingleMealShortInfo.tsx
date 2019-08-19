@@ -7,6 +7,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBook, faCalendarTimes, faCopy, faListUl, faPaste, faRetweet} from "@fortawesome/free-solid-svg-icons";
 import {openModal} from "../../../../Redux/actions";
 import MealRecipe from "../../../MealRecipe/MealRecipe";
+import {DayDto} from "../../../../ServerConnection/DTOs/WeekScheduleDto";
+import {MealRecipeDto} from "../../../../ServerConnection/DTOs/MealRecipeDto";
 
 
 interface OwnProps {
@@ -58,22 +60,20 @@ class SingleMealShortInfo extends PureComponent<Props> {
         }
     }
 
-    private showDetailsPopup = () => {
-        // this.props.openModal(
-        //     <MealRecipe/>)
-        this.props.openModal(<MealRecipe/>);
-    }
+    private showDetailsPopup = (selectedMealJson:any) => {
+        this.props.openModal(<MealRecipe
+            mealRecipe={selectedMealJson}
+        />);
+    };
 
     private showDetails = (e: any) => {
-        let mealDetails = "http:eatmeall.pl:100/app/meals/" + this.props.MealInfo.idMeal;
-        console.log(mealDetails)
-        this.showDetailsPopup()
-        // fetch("http:eatmeall.pl:100/app/meals/94")
-        //     .then((response) => response.json())
-        //     .then((json:any) => {
-        //        console.log(json[0]);
-        //     });
-    }
+        fetch("jsonMocks/mealRecipe.json")
+            .then(response => response.json())
+            .then((json: Array<MealRecipeDto>) => {
+                this.showDetailsPopup(json[0]);
+            })
+    };
+
     private typeOfMeal = () => {
         if (this.props.MealInfo.mealTime === "BREAKFAST") {
             return "śniadanko"
