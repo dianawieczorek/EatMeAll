@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1b84b5af-f753-4067-8b18-0397e786e476" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" afterPath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/actionTypes.ts" afterPath="$PROJECT_DIR$/src/Redux/actionTypes.ts" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/actions.ts" afterPath="$PROJECT_DIR$/src/Redux/actions.ts" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/reducers.ts" afterPath="$PROJECT_DIR$/src/Redux/reducers.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,11 +21,21 @@
           <file leaf-file-name="SingleMealShortInfo.tsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="379">
-                  <caret line="84" column="24" lean-forward="true" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
+                <state relative-caret-position="359">
+                  <caret line="93" column="41" lean-forward="true" selection-start-line="93" selection-start-column="41" selection-end-line="93" selection-end-column="41" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="emptyMeal.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/jsonMocks/emptyMeal.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="119">
+                  <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -40,8 +47,8 @@
           <file leaf-file-name="reducers.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="393">
-                  <caret line="50" column="16" lean-forward="true" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+                <state relative-caret-position="410">
+                  <caret line="51" column="20" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
                   <folding>
                     <element signature="e#0#108#0" expanded="true" />
                   </folding>
@@ -149,6 +156,7 @@
         <option value="$PROJECT_DIR$/src/Redux/actionTypes.ts" />
         <option value="$PROJECT_DIR$/src/Redux/reducers.ts" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" />
+        <option value="$PROJECT_DIR$/public/jsonMocks/emptyMeal.json" />
       </list>
     </option>
   </component>
@@ -391,12 +399,12 @@
       <workItem from="1565767559495" duration="6239000" />
       <workItem from="1566147741125" duration="6574000" />
       <workItem from="1566186723965" duration="13833000" />
-      <workItem from="1566217468601" duration="6659000" />
+      <workItem from="1566217468601" duration="7559000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89068000" />
+    <option name="totallyTimeSpent" value="89968000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
@@ -467,13 +475,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/OneDayMealSchedule/OneDayMealSchedule.module.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Dropbox/components/MealSchedule/TableContent/WeekDietPlanTable.css" />
     <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/ViewOfAllWeek.module.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -654,14 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/jsonMocks/randomMealFromDatabase.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Dropbox/EMA/components/MealSchedule/TableContent/MealInfo/MealInfo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -755,10 +748,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/jsonMocks/randomMealFromDatabase.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/jsonMocks/emptyMeal.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="50" column="16" lean-forward="true" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+        <state relative-caret-position="410">
+          <caret line="51" column="20" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
           <folding>
             <element signature="e#0#108#0" expanded="true" />
           </folding>
@@ -767,8 +776,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="84" column="24" lean-forward="true" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
+        <state relative-caret-position="359">
+          <caret line="93" column="41" lean-forward="true" selection-start-line="93" selection-start-column="41" selection-end-line="93" selection-end-column="41" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>

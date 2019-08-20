@@ -38,7 +38,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
                                 <FontAwesomeIcon className={styles.Icon} icon={faListUl}
                                                  title="wybierz inną potrawę z listy"/>
                             </button>
-                            <button className={styles.Button} /*onClick={this.deleteMealFromList}*/>
+                            <button className={styles.Button} onClick={this.deleteMealFromList}>
                                 <FontAwesomeIcon className={styles.Icon} icon={faCalendarTimes}
                                                  title="wyczyść/jem na mieście"/>
                             </button>
@@ -81,6 +81,17 @@ class SingleMealShortInfo extends PureComponent<Props> {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
         fetch("jsonMocks/randomMealFromDatabase.json")
+            .then(response => response.json())
+            .then((json: Array<RandomMealDto>) => {
+                const meal = json[0];
+                this.props.randomMealChange(meal, dayNumber, mealNumber)
+
+            })
+    };
+    private deleteMealFromList = (e: any) => {
+        let dayNumber = this.props.dayNumber;
+        let mealNumber = this.props.mealNumber;
+        fetch("jsonMocks/emptyMeal.json")
             .then(response => response.json())
             .then((json: Array<RandomMealDto>) => {
                 const meal = json[0];
