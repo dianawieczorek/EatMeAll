@@ -27,7 +27,7 @@ class MealRecipe extends PureComponent<Props> {
                         <ul>
                             {
                                 this.props.mealRecipe.products.map((product: ProductsDto) =>
-                                    <li>{product.name}, {product.specialUnit}</li>)
+                                    <li>{product.name}, {product.amount}{product.unit} ({product.specialUnit})</li>)
                             }
                         </ul>
                     </div>

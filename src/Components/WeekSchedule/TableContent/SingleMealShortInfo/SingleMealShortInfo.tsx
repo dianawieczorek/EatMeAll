@@ -5,10 +5,11 @@ import {Dispatch} from "redux";
 import styles from "./SingleMealShortInfo.module.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBook, faCalendarTimes, faCopy, faListUl, faPaste, faRetweet} from "@fortawesome/free-solid-svg-icons";
-import {openModal} from "../../../../Redux/actions";
+import {openModal, randomMealChange} from "../../../../Redux/actions";
 import MealRecipe from "../../../MealRecipe/MealRecipe";
 import {DayDto} from "../../../../ServerConnection/DTOs/WeekScheduleDto";
 import {MealRecipeDto} from "../../../../ServerConnection/DTOs/MealRecipeDto";
+import {RandomMealDto} from "../../../../ServerConnection/DTOs/randomMealDto";
 
 
 interface OwnProps {
@@ -53,14 +54,14 @@ class SingleMealShortInfo extends PureComponent<Props> {
         } else {
             return (
                 <div className={styles.MealInfo}>
-                    <div className={styles.TypeOfMeal}> </div>
-                    <div> </div>
+                    <div className={styles.TypeOfMeal}></div>
+                    <div></div>
                 </div>
             )
         }
     }
 
-    private showDetailsPopup = (selectedMealJson:MealRecipeDto) => {
+    private showDetailsPopup = (selectedMealJson: MealRecipeDto) => {
         this.props.openModal(<MealRecipe
             mealRecipe={selectedMealJson}
             typeOfMeal={this.typeOfMeal()}
@@ -76,7 +77,14 @@ class SingleMealShortInfo extends PureComponent<Props> {
     };
 
     private randomizeMeal = (e: any) => {
+        let currentMeal = this.props.MealInfo;
+        fetch("jsonMocks/randomMealFromDatabase.json")
+            .then(response => response.json())
+            .then((json: Array<RandomMealDto>) => {
+                const meal = json[0];
+                this.props.randomMealChange(meal)
 
+            })
     };
 
     public typeOfMeal = () => {
@@ -105,8 +113,10 @@ const mapStateToProps = (state: AppStore, ownProps: any) => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
-    return{
-        openModal: (aData: JSX.Element) => dispatch(openModal(aData))
+    return {
+        openModal: (aData: JSX.Element) => dispatch(openModal(aData)),
+        randomMealChange: (randomMeal: RandomMealDto) => dispatch(randomMealChange(randomMeal)),
+
     }
 };
 

@@ -1,4 +1,4 @@
-import {CLOSE_MODAL, OPEN_MODAL, SET_CURRENT_WEEK_SCHEDULE, Types} from "./actionTypes";
+import {CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, Types} from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
@@ -40,12 +40,18 @@ export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: wee
                 draftState.currentWeekSchedule = action.currentWeekSchedule;
             })
         }
+        case RANDOM_MEAL_CHANGE: {
+            return produce(state, draftState => {
+                if (draftState.currentWeekSchedule !== undefined) {
+                    draftState.currentWeekSchedule[0]["meals"][0] = action.randomMeal;
+                }
+            })
+        }
 
         default:
             return state
     }
 };
-// }
 
 interface ModalReducerState {
     visible: boolean
