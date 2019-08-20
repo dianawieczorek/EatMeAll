@@ -18,6 +18,8 @@ export const RANDOM_MEAL_CHANGE = 'RANDOM_MEAL_CHANGE';
 export interface randomMealChangeIf {
     type: typeof RANDOM_MEAL_CHANGE
     randomMeal: RandomMealDto
+    dayNr: number,
+    mealNr: number
 }
 
 export const OPEN_MODAL = 'OPEN_MODAL';

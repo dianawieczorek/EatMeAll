@@ -17,10 +17,12 @@ export const setCurrentWeekSchedule = (aCurrentWeekSchedule: Array<DayDto>): set
     }
 };
 
-export const randomMealChange = (aRandomMeal: RandomMealDto): randomMealChangeIf => {
+export const randomMealChange = (aRandomMeal: RandomMealDto, aDayNr:number, aMealNr:number): randomMealChangeIf => {
     return {
         type: RANDOM_MEAL_CHANGE,
         randomMeal: aRandomMeal,
+        dayNr: aDayNr,
+        mealNr: aMealNr
     }
 };
 

@@ -43,8 +43,8 @@ export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: wee
         case RANDOM_MEAL_CHANGE: {
             return produce(state, draftState => {
                 if (draftState.currentWeekSchedule !== undefined) {
-                    draftState.currentWeekSchedule[0]["meals"][0] = action.randomMeal;
-                }
+                draftState.currentWeekSchedule[action.dayNr]["meals"][action.mealNr]= action.randomMeal;
+               }
             })
         }
 

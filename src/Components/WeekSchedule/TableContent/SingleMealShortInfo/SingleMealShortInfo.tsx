@@ -14,6 +14,7 @@ import {RandomMealDto} from "../../../../ServerConnection/DTOs/randomMealDto";
 
 interface OwnProps {
     mealNumber: number
+    dayNumber: number
 }
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
@@ -77,12 +78,13 @@ class SingleMealShortInfo extends PureComponent<Props> {
     };
 
     private randomizeMeal = (e: any) => {
-        let currentMeal = this.props.MealInfo;
+        let dayNumber = this.props.dayNumber;
+        let mealNumber = this.props.mealNumber;
         fetch("jsonMocks/randomMealFromDatabase.json")
             .then(response => response.json())
             .then((json: Array<RandomMealDto>) => {
                 const meal = json[0];
-                this.props.randomMealChange(meal)
+                this.props.randomMealChange(meal, dayNumber, mealNumber)
 
             })
     };
@@ -115,7 +117,7 @@ const mapStateToProps = (state: AppStore, ownProps: any) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         openModal: (aData: JSX.Element) => dispatch(openModal(aData)),
-        randomMealChange: (randomMeal: RandomMealDto) => dispatch(randomMealChange(randomMeal)),
+        randomMealChange: (randomMeal: RandomMealDto, dayNr:number, mealNr: number) => dispatch(randomMealChange(randomMeal, dayNr, mealNr)),
 
     }
 };
