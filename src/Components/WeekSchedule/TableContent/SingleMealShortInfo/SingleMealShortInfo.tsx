@@ -7,7 +7,6 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBook, faCalendarTimes, faCopy, faListUl, faPaste, faRetweet} from "@fortawesome/free-solid-svg-icons";
 import {openModal, randomMealChange} from "../../../../Redux/actions";
 import MealRecipe from "../../../MealRecipe/MealRecipe";
-import {DayDto} from "../../../../ServerConnection/DTOs/WeekScheduleDto";
 import {MealRecipeDto} from "../../../../ServerConnection/DTOs/MealRecipeDto";
 import {RandomMealDto} from "../../../../ServerConnection/DTOs/randomMealDto";
 import ListOfMeals from "../../../ListOfMeals/ListOfMeals";
@@ -96,8 +95,13 @@ class SingleMealShortInfo extends PureComponent<Props> {
     };
 
     private changeMealFromList = (e: any) => {
-        this.showMealsListPopup()
-
+        let dayNumber = this.props.dayNumber;
+        let mealNumber = this.props.mealNumber;
+        fetch("jsonMocks/fewRandomMeals.json")
+            .then(response => response.json())
+            .then((json: Array<RandomMealDto>) => {
+                this.showMealsListPopup(json);
+            })
     };
 
     private showDetailsPopup = (selectedMealJson: MealRecipeDto) => {
@@ -107,11 +111,10 @@ class SingleMealShortInfo extends PureComponent<Props> {
         />);
     };
 
-    private showMealsListPopup(// randomMealList: Array<RandomMealDto>
-    ) {
+    private showMealsListPopup(selectedMealJson: Array<RandomMealDto>) {
         this.props.openModal(
             <ListOfMeals
-
+                randomMealList={selectedMealJson}
             />
         )
     }
