@@ -10,6 +10,7 @@ import MealRecipe from "../../../MealRecipe/MealRecipe";
 import {DayDto} from "../../../../ServerConnection/DTOs/WeekScheduleDto";
 import {MealRecipeDto} from "../../../../ServerConnection/DTOs/MealRecipeDto";
 import {RandomMealDto} from "../../../../ServerConnection/DTOs/randomMealDto";
+import ListOfMeals from "../../../ListOfMeals/ListOfMeals";
 
 
 interface OwnProps {
@@ -34,7 +35,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
                             <button className={styles.Button} onClick={this.randomizeMeal}>
                                 <FontAwesomeIcon className={styles.Icon} icon={faRetweet} title="wylosuj inną potrawę"/>
                             </button>
-                            <button className={styles.Button} /*onClick={this.changeMealFromList}*/>
+                            <button className={styles.Button} onClick={this.changeMealFromList}>
                                 <FontAwesomeIcon className={styles.Icon} icon={faListUl}
                                                  title="wybierz inną potrawę z listy"/>
                             </button>
@@ -62,13 +63,6 @@ class SingleMealShortInfo extends PureComponent<Props> {
         }
     }
 
-    private showDetailsPopup = (selectedMealJson: MealRecipeDto) => {
-        this.props.openModal(<MealRecipe
-            mealRecipe={selectedMealJson}
-            typeOfMeal={this.typeOfMeal()}
-        />);
-    };
-
     private showDetails = (e: any) => {
         fetch("jsonMocks/mealRecipe.json")
             .then(response => response.json())
@@ -88,6 +82,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
 
             })
     };
+
     private deleteMealFromList = (e: any) => {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
@@ -100,6 +95,26 @@ class SingleMealShortInfo extends PureComponent<Props> {
             })
     };
 
+    private changeMealFromList = (e: any) => {
+        this.showMealsListPopup()
+
+    };
+
+    private showDetailsPopup = (selectedMealJson: MealRecipeDto) => {
+        this.props.openModal(<MealRecipe
+            mealRecipe={selectedMealJson}
+            typeOfMeal={this.typeOfMeal()}
+        />);
+    };
+
+    private showMealsListPopup(// randomMealList: Array<RandomMealDto>
+    ) {
+        this.props.openModal(
+            <ListOfMeals
+
+            />
+        )
+    }
     public typeOfMeal = () => {
         if (this.props.MealInfo.mealTime === "BREAKFAST") {
             return "śniadanko"

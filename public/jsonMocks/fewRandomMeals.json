@@ -1,0 +1,82 @@
+[
+  {
+    "idMeal": 3,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "jogurt owocowy z suszonymi owocami"
+  },
+  {
+    "idMeal": 5,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "owocowo-orzechowa owsianka bez gotowania"
+  },
+  {
+    "idMeal": 94,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "naleśniki z jogurtem i kaki"
+  },
+  {
+    "idMeal": 40,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "kanapki z szynką, szpinakiem, pomidorem i ogórkiem kiszonym"
+  },
+  {
+    "idMeal": 54,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "kanapki z serem białym, rzodkiewką i szczypiorkiem"
+  },
+  {
+    "idMeal": 50,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "owsianka z bananem, nasionami chia i masłem orzechowym"
+  },
+  {
+    "idMeal": 59,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "naleśniki z musem jabłkowo-cynamonowym i jogurtem"
+  },
+  {
+    "idMeal": 1,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "koktajl mleczny z otrębami"
+  },
+  {
+    "idMeal": 89,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "placki z serka wiejskiego z dżemem"
+  },
+  {
+    "idMeal": 4,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "drobiowa pancetta na grzance z jajkiem"
+  }
+]
