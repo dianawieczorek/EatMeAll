@@ -1,7 +1,7 @@
 import {
     CLOSE_MODAL, closeModalIf,
     OPEN_MODAL, openModalIf, RANDOM_MEAL_CHANGE, randomMealChangeIf,
-    SET_CURRENT_WEEK_SCHEDULE,
+    SET_CURRENT_WEEK_SCHEDULE, CLOSE_SIDEDRAWER, OPEN_SIDEDRAWER, closeSidedrawerIf, openSidedrawerIf,
     setCurrentWeekScheduleIf
 } from "./actionTypes";
 
@@ -36,5 +36,17 @@ export const openModal = (aData: JSX.Element): openModalIf => {
 export const closeModal = (): closeModalIf => {
     return {
         type: CLOSE_MODAL,
+    }
+};
+
+export const openSidedrawer = (): openSidedrawerIf => {
+    return {
+        type: OPEN_SIDEDRAWER,
+    }
+};
+
+export const closeSidedrawer = (): closeSidedrawerIf => {
+    return {
+        type: CLOSE_SIDEDRAWER,
     }
 };

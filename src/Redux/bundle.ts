@@ -1,6 +1,6 @@
 import {combineReducers} from "redux";
-import {modalReducer, weekScheduleReducer} from "./reducers";
+import {modalReducer, weekScheduleReducer, sidedrawerReducer} from "./reducers";
 
 export const rootReducer = combineReducers({
-    weekScheduleReducer, modalReducer
+    weekScheduleReducer, modalReducer, sidedrawerReducer
 });

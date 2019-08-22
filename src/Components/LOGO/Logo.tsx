@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Logo from "../assets/EMAlogo.png"
+import Logo from "../../assets/EMAlogo.png"
 import styles from './Logo.module.css';
 
 

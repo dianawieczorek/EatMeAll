@@ -1,10 +1,11 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import WeekSchedule from "../../Components/WeekSchedule/WeekSchedule";
 import styles from "./Layout.module.css"
 import RestCommunication from "../../ServerConnection/RestCommunication/RestCommunication";
-import NavItems from "../../Components/Navigation/NavItems/NavItems";
 import Toolbar from "../../Components/Navigation/Toolbar/Toolbar";
+import SideDrawer from "../../Components/Navigation/SideDrawer/SideDrawer";
+import {Dispatch} from "redux";
+import {openSidedrawer} from "../../Redux/actions";
 
 interface OwnProps {
 }
@@ -12,11 +13,17 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class Layout extends PureComponent<Props> {
+
+    sideDrawerOpen = () => {
+        this.props.openSidedrawer()
+    };
+
     render() {
         return (
             <React.Fragment>
                 <RestCommunication/>
-                <Toolbar/>
+                <Toolbar drawerToggleClicked={this.sideDrawerOpen}/>
+                <SideDrawer/>
                 <main className={styles.Content}>
                     {this.props.children}
                 </main>
@@ -29,7 +36,11 @@ const mapStateToProps = () => {
     return {};
 };
 
-const mapDispatchToProps = () => {
-    return {};
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {
+        openSidedrawer: () => dispatch(openSidedrawer()),
+
+
+    };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Layout)

@@ -1,4 +1,4 @@
-import {CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, Types} from "./actionTypes";
+import {CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER, Types} from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
@@ -50,6 +50,31 @@ export const modalReducer: Reducer<ModalReducerState, Types> = (state: ModalRedu
             })
         }
         case CLOSE_MODAL: {
+            return produce(state, draftState => {
+                draftState.visible = false;
+            })
+        }
+        default:
+            return state
+    }
+};
+
+interface SideDrawerReducerState {
+    visible: boolean
+}
+
+const SIDEDRAWER_REDUCER_INITIAL_STATE: SideDrawerReducerState = {
+    visible: false,
+};
+
+export const sidedrawerReducer: Reducer<SideDrawerReducerState, Types> = (state: SideDrawerReducerState = SIDEDRAWER_REDUCER_INITIAL_STATE, action: Types) => {
+    switch (action.type) {
+        case OPEN_SIDEDRAWER: {
+            return produce(state, draftState => {
+                draftState.visible = true;
+            })
+        }
+        case CLOSE_SIDEDRAWER: {
             return produce(state, draftState => {
                 draftState.visible = false;
             })

@@ -30,5 +30,17 @@ export interface closeModalIf {
     type: typeof CLOSE_MODAL
 }
 
+export const OPEN_SIDEDRAWER = 'OPEN_SIDEDRAWER';
 
-export type Types = setCurrentWeekScheduleIf | openModalIf | closeModalIf | randomMealChangeIf// | - pipe dodaje kolejne interfejsy akcji
+export interface openSidedrawerIf {
+    type: typeof OPEN_SIDEDRAWER
+}
+
+export const CLOSE_SIDEDRAWER = 'CLOSE_SIDEDRAWER';
+
+export interface closeSidedrawerIf {
+    type: typeof CLOSE_SIDEDRAWER
+}
+
+
+export type Types = setCurrentWeekScheduleIf | openModalIf | closeModalIf | randomMealChangeIf | openSidedrawerIf | closeSidedrawerIf// | - pipe dodaje kolejne interfejsy akcji

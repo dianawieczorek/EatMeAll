@@ -10,16 +10,12 @@ import {closeModal} from "../../../Redux/actions";
 
 
 interface OwnProps {
-    // show:any
-    // modalClosed:any
 }
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class Modal extends PureComponent<Props> {
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
-    // }
+
     render() {
         return (
             <React.Fragment>

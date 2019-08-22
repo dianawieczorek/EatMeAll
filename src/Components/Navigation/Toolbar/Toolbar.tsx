@@ -2,9 +2,11 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import styles from "./Toolbar.module.css"
 import NavItems from "../NavItems/NavItems";
-import Logo from "../../../LOGO/Logo"
+import Logo from "../../LOGO/Logo"
+import DrawerToggle from "../SideDrawer/DrawerToggle/DrawerToggle";
 
 interface OwnProps {
+    drawerToggleClicked:any
 }
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
@@ -18,6 +20,7 @@ class Toolbar extends PureComponent<Props> {
                 <nav className={styles.DesktopOnly}>
                     {navigation}
                 </nav>
+                <DrawerToggle clicked={this.props.drawerToggleClicked}/>
             </header>
         )
     }
