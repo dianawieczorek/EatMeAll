@@ -10,6 +10,7 @@ th, td {
     font-size: 0.75rem;
     border: 1px solid #326D65;
     /*border-left: 1px solid #060606;*/
+    width: 25%;
 }
 
 th:first-child {

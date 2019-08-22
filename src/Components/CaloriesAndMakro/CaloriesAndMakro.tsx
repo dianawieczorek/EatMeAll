@@ -1,47 +1,80 @@
-import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
+import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
 import {AppStore} from "../../Redux/store";
 import {Dispatch} from "redux";
 import styles from "./CaloriesAndMakro.module.css"
 
-interface OwnProps {}
+
+interface OwnProps {
+    dayNumber: number
+}
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
-
 class CaloriesAndMakro extends PureComponent<Props> {
-  render() {
-    return (
-      <div>
-          <table className={styles.Table}>
-              <tr>
-                  <th>kcal</th>
-                  <th>W</th>
-                  <th>T</th>
-                  <th>B</th>
-              </tr>
-              <tr>
-                  <td>2500</td>
-                  <td>200</td>
-                  <td>100</td>
-                  <td>100</td>
-              </tr>
-          </table>
-          {/*<p>ilość kcal: {this.props.mealRecipe.amountCalories}kcal</p>*/}
-          {/*<div className={styles.Makro} >*/}
-              {/*<p>węglowodany: {this.props.mealRecipe.amountCarbohydrates}g</p>*/}
-              {/*<p>tłuszcze: {this.props.mealRecipe.amountFat}g</p>*/}
-              {/*<p>białka: {this.props.mealRecipe.amountProtein}g</p>*/}
-          {/*</div>*/}
-      </div>
-    );
-  }
+    dupa() {
+        let dayDetails = this.props.DayInfo;
+        if(dayDetails !== undefined) {
+            let amountCalories=
+                dayDetails.reduce(function (accumulator, dayDetails){
+                    return accumulator + dayDetails.amountCalories;
+                }, 0);
+            let amountCarbs=
+                dayDetails.reduce(function (accumulator, dayDetails){
+                    return accumulator + dayDetails.amountCarbohydrates;
+                }, 0);
+            let amountFat=
+                dayDetails.reduce(function (accumulator, dayDetails){
+                    return accumulator + dayDetails.amountFat;
+                }, 0);
+            let amountProtein=
+                dayDetails.reduce(function (accumulator, dayDetails){
+                    return accumulator + dayDetails.amountProtein;
+                }, 0);
+        return (
+                <tr>
+                    <td>{amountCalories}</td>
+                    <td>{amountCarbs}</td>
+                    <td>{amountFat}</td>
+                    <td>{amountProtein}</td>
+                </tr>)
+    } else {
+            return (
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            )
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <table className={styles.Table}>
+                    <tr>
+                        <th>kcal</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>B</th>
+                    </tr>
+                    {this.dupa()}
+                </table>
+            </div>
+        );
+    }
 }
 
-const mapStateToProps = (state: AppStore) => {
-    return {};
+const mapStateToProps = (state: AppStore, ownProps: any) => {
+    if (state.weekScheduleReducer.currentWeekSchedule !== undefined) {
+        return {
+            DayInfo: state.weekScheduleReducer.currentWeekSchedule[ownProps.dayNumber].meals
+        }
+    }
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps) (CaloriesAndMakro);
+export default connect(mapStateToProps, mapDispatchToProps)(CaloriesAndMakro);

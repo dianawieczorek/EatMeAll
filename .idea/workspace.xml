@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b84b5af-f753-4067-8b18-0397e786e476" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.module.css" afterPath="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.module.css" />
+      <change beforePath="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.tsx" afterPath="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.tsx" />
       <change beforePath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/OneDayMealSchedule/OneDayMealSchedule.tsx" afterPath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/OneDayMealSchedule/OneDayMealSchedule.tsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,8 +27,8 @@
           <file leaf-file-name="SingleMealShortInfo.tsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="57">
-                  <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                <state relative-caret-position="275">
+                  <caret line="138" column="24" lean-forward="false" selection-start-line="138" selection-start-column="24" selection-end-line="143" selection-end-column="5" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                   </folding>
@@ -36,39 +39,21 @@
           <file leaf-file-name="OneDayMealSchedule.tsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/OneDayMealSchedule/OneDayMealSchedule.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+                <state relative-caret-position="187">
+                  <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CaloriesAndMakro.tsx" pinned="false" current-in-tab="false">
+          <file leaf-file-name="CaloriesAndMakro.tsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="45" lean-forward="true" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CaloriesAndMakro.module.css" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.module.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="mealRecipe.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/jsonMocks/mealRecipe.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="5" selection-end-column="26" />
-                  <folding />
+                <state relative-caret-position="1071">
+                  <caret line="63" column="24" lean-forward="false" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#0#43#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -77,22 +62,24 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="wholeweek.json" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/jsonMocks/wholeweek.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="122">
-                  <caret line="417" column="80" lean-forward="false" selection-start-line="417" selection-start-column="80" selection-end-line="421" selection-end-column="29" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="reducers.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
                   <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ListOfMeals.tsx" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Components/ListOfMeals/ListOfMeals.tsx">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="459">
+                  <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+                  <folding>
+                    <element signature="e#0#43#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -174,8 +161,8 @@
         <option value="$PROJECT_DIR$/public/jsonMocks/randomMealFromDatabase.json" />
         <option value="$PROJECT_DIR$/public/jsonMocks/emptyMeal.json" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/OneDayMealSchedule/OneDayMealSchedule.tsx" />
-        <option value="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.tsx" />
         <option value="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.module.css" />
+        <option value="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.tsx" />
       </list>
     </option>
   </component>
@@ -436,12 +423,12 @@
       <workItem from="1566147741125" duration="6574000" />
       <workItem from="1566186723965" duration="13833000" />
       <workItem from="1566217468601" duration="24745000" />
-      <workItem from="1566452785726" duration="3768000" />
+      <workItem from="1566452785726" duration="9303000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110922000" />
+    <option name="totallyTimeSpent" value="116457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
@@ -746,30 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/jsonMocks/wholeweek.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="417" column="80" lean-forward="false" selection-start-line="417" selection-start-column="80" selection-end-line="421" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/jsonMocks/mealRecipe.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="5" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/jsonMocks/emptyMeal.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -794,24 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/ListOfMeals/ListOfMeals.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServerConnection/DTOs/WeekScheduleDto.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="12" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MealRecipe/MealRecipe.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -819,24 +764,6 @@
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/OneDayMealSchedule/OneDayMealSchedule.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -856,19 +783,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.tsx">
+    <entry file="file://$PROJECT_DIR$/public/jsonMocks/wholeweek.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="422" column="8" lean-forward="true" selection-start-line="422" selection-start-column="8" selection-end-line="422" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="138" column="24" lean-forward="false" selection-start-line="138" selection-start-column="24" selection-end-line="143" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServerConnection/DTOs/WeekScheduleDto.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="12" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/OneDayMealSchedule/OneDayMealSchedule.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="45" lean-forward="true" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
+          <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/ListOfMeals/ListOfMeals.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.module.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/jsonMocks/mealRecipe.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="63" column="24" lean-forward="false" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
