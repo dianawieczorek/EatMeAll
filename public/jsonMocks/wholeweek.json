@@ -7,7 +7,11 @@
         "mealTime": "BREAKFAST",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "omlet owsiany z masłem orzechowym i bananem"
+        "title": "omlet owsiany z masłem orzechowym i bananem",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 10,
@@ -15,7 +19,11 @@
         "mealTime": "LUNCH",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "sałatka z pomidora, ogórka kiszonego  i cebulki"
+        "title": "sałatka z pomidora, ogórka kiszonego  i cebulki",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 66,
@@ -23,7 +31,11 @@
         "mealTime": "DINNER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "bulgur z indykiem suszonymi pomidorami i cukinią"
+        "title": "bulgur z indykiem suszonymi pomidorami i cukinią",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 92,
@@ -31,7 +43,11 @@
         "mealTime": "SNACK",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "mieszanka studencka"
+        "title": "mieszanka studencka",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 34,
@@ -39,7 +55,11 @@
         "mealTime": "SUPPER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "sałatka cesar ( z kurczakiem)"
+        "title": "sałatka cesar ( z kurczakiem)",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       }
     ]
   },
@@ -51,7 +71,11 @@
         "mealTime": "BREAKFAST",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "jajecznica z boczkiem i szczypiorkiem"
+        "title": "jajecznica z boczkiem i szczypiorkiem",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 12,
@@ -59,7 +83,11 @@
         "mealTime": "LUNCH",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "maślanka plus batonik zbożowy"
+        "title": "maślanka plus batonik zbożowy",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 52,
@@ -67,7 +95,11 @@
         "mealTime": "DINNER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "tortilla z kurczakiem i passatą pomidorową i fetą"
+        "title": "tortilla z kurczakiem i passatą pomidorową i fetą",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 29,
@@ -75,7 +107,11 @@
         "mealTime": "SNACK",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "sałatka z pomidora i ogórka kiszonego "
+        "title": "sałatka z pomidora i ogórka kiszonego ",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 93,
@@ -83,7 +119,11 @@
         "mealTime": "SUPPER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "kanapki z makrelą wędzoną, musztardą i pomidorem"
+        "title": "kanapki z makrelą wędzoną, musztardą i pomidorem",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       }
     ]
   },
@@ -95,7 +135,11 @@
         "mealTime": "BREAKFAST",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "placki z serka wiejskiego z dżemem"
+        "title": "placki z serka wiejskiego z dżemem",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 41,
@@ -103,7 +147,11 @@
         "mealTime": "LUNCH",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "kanapki z hummusem, jajkiem,ogórkiem i rzodkiewką"
+        "title": "kanapki z hummusem, jajkiem,ogórkiem i rzodkiewką",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 86,
@@ -111,7 +159,11 @@
         "mealTime": "DINNER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "indyk z warzywami, sosem sojowym i kuskusem"
+        "title": "indyk z warzywami, sosem sojowym i kuskusem",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 48,
@@ -119,7 +171,11 @@
         "mealTime": "SNACK",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "mango i mieszanka studencka"
+        "title": "mango i mieszanka studencka",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 49,
@@ -127,7 +183,11 @@
         "mealTime": "SUPPER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "kanapki z szynką, papryką i kukurydzą"
+        "title": "kanapki z szynką, papryką i kukurydzą",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       }
     ]
   },
@@ -139,7 +199,11 @@
         "mealTime": "BREAKFAST",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "naleśniki z jogurtem i kaki"
+        "title": "naleśniki z jogurtem i kaki",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 90,
@@ -147,7 +211,11 @@
         "mealTime": "LUNCH",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "koktajl bananowo-pomarańczowy"
+        "title": "koktajl bananowo-pomarańczowy",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 42,
@@ -155,7 +223,11 @@
         "mealTime": "DINNER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "kasza gryczana z warzywami i kurczakiem"
+        "title": "kasza gryczana z warzywami i kurczakiem",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 97,
@@ -163,7 +235,11 @@
         "mealTime": "SNACK",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "jogurt z musli"
+        "title": "jogurt z musli",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 68,
@@ -171,7 +247,11 @@
         "mealTime": "SUPPER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "omlet z szynką, papryką i szczypiorkiem"
+        "title": "omlet z szynką, papryką i szczypiorkiem",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       }
     ]
   },
@@ -183,7 +263,11 @@
         "mealTime": "BREAKFAST",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "kanapki z szynką, sałatą, pomidorem i awokado"
+        "title": "kanapki z szynką, sałatą, pomidorem i awokado",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 85,
@@ -191,7 +275,11 @@
         "mealTime": "LUNCH",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "kanapki z szynką, musztardą, pomidorem i ogórkiem kiszonym"
+        "title": "kanapki z szynką, musztardą, pomidorem i ogórkiem kiszonym",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 91,
@@ -199,7 +287,11 @@
         "mealTime": "DINNER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "burger wołowy z rukolą"
+        "title": "burger wołowy z rukolą",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 26,
@@ -207,7 +299,11 @@
         "mealTime": "SNACK",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "batonik musli "
+        "title": "batonik musli ",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 63,
@@ -215,7 +311,11 @@
         "mealTime": "SUPPER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "sałatka z jajkiem, pomidorem i awokado"
+        "title": "sałatka z jajkiem, pomidorem i awokado",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       }
     ]
   },
@@ -227,7 +327,11 @@
         "mealTime": "BREAKFAST",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "jajka na twardo i kanapka z hummusem"
+        "title": "jajka na twardo i kanapka z hummusem",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 95,
@@ -235,7 +339,11 @@
         "mealTime": "LUNCH",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "koktajl bananowo-truskawkowy"
+        "title": "koktajl bananowo-truskawkowy",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 14,
@@ -243,7 +351,11 @@
         "mealTime": "DINNER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "hamburgery drobiowe, surówka z białej kapusty"
+        "title": "hamburgery drobiowe, surówka z białej kapusty",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 32,
@@ -251,7 +363,11 @@
         "mealTime": "SNACK",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "orzechy włoskie i daktyle, suszone"
+        "title": "orzechy włoskie i daktyle, suszone",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 88,
@@ -259,7 +375,11 @@
         "mealTime": "SUPPER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "twarożek z rzodkiewką i szczypiorkiem + kanapki z hummusem i papryką"
+        "title": "twarożek z rzodkiewką i szczypiorkiem + kanapki z hummusem i papryką",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       }
     ]
   },
@@ -271,7 +391,11 @@
         "mealTime": "BREAKFAST",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "owsianka z bananem, nasionami chia i masłem orzechowym"
+        "title": "owsianka z bananem, nasionami chia i masłem orzechowym",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 11,
@@ -279,7 +403,11 @@
         "mealTime": "LUNCH",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "jogurt pitny z waflami ryżowymi"
+        "title": "jogurt pitny z waflami ryżowymi",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 15,
@@ -287,7 +415,11 @@
         "mealTime": "DINNER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "roladki schabowe z ziemniakami z pietruszką, surówka ulubiona"
+        "title": "roladki schabowe z ziemniakami z pietruszką, surówka ulubiona",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 28,
@@ -295,7 +427,11 @@
         "mealTime": "SNACK",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "ryż na mleku z owocami:"
+        "title": "ryż na mleku z owocami:",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       },
       {
         "idMeal": 18,
@@ -303,7 +439,11 @@
         "mealTime": "SUPPER",
         "public": true,
         "shortDescription": "Przepis z Excel",
-        "title": "papryka faszerowana"
+        "title": "papryka faszerowana",
+        "amountCalories": 428.0,
+        "amountCarbohydrates": 46.0,
+        "amountFat": 15.4,
+        "amountProtein": 28.0
       }
     ]
   }

@@ -36,6 +36,10 @@ p, li {
     margin-bottom: 30px;
 }
 
+.Makro {
+    padding-left: 10%;
+}
+
 @media (min-width: 900px){
     .ProductAndInfo {
         width: 35%;

@@ -20,6 +20,11 @@ class MealRecipe extends PureComponent<Props> {
                         <p>rodzaj dania: {this.props.typeOfMeal} </p>
                         <p>czas przygotowania: {this.props.mealRecipe.receiptDTO.prepareTime}min</p>
                         <p>ilość kcal: {this.props.mealRecipe.amountCalories}kcal</p>
+                        <div className={styles.Makro} >
+                            <p>węglowodany: {this.props.mealRecipe.amountCarbohydrates}g</p>
+                            <p>tłuszcze: {this.props.mealRecipe.amountFat}g</p>
+                            <p>białka: {this.props.mealRecipe.amountProtein}g</p>
+                        </div>
                         <p>autor przepisu: {this.props.mealRecipe.authorReceipt}</p>
                     </div>
                     <div className={styles.Products}>

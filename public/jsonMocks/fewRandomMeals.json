@@ -5,7 +5,11 @@
     "mealTime": "BREAKFAST",
     "public": true,
     "shortDescription": "Przepis z Excel",
-    "title": "jogurt owocowy z suszonymi owocami"
+    "title": "jogurt owocowy z suszonymi owocami",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0
   },
   {
     "idMeal": 5,
@@ -13,7 +17,11 @@
     "mealTime": "BREAKFAST",
     "public": true,
     "shortDescription": "Przepis z Excel",
-    "title": "owocowo-orzechowa owsianka bez gotowania"
+    "title": "owocowo-orzechowa owsianka bez gotowania",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0
   },
   {
     "idMeal": 94,
@@ -21,7 +29,11 @@
     "mealTime": "BREAKFAST",
     "public": true,
     "shortDescription": "Przepis z Excel",
-    "title": "naleśniki z jogurtem i kaki"
+    "title": "naleśniki z jogurtem i kaki",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0
   },
   {
     "idMeal": 40,
@@ -29,7 +41,11 @@
     "mealTime": "BREAKFAST",
     "public": true,
     "shortDescription": "Przepis z Excel",
-    "title": "kanapki z szynką, szpinakiem, pomidorem i ogórkiem kiszonym"
+    "title": "kanapki z szynką, szpinakiem, pomidorem i ogórkiem kiszonym",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0
   },
   {
     "idMeal": 54,
@@ -37,7 +53,11 @@
     "mealTime": "BREAKFAST",
     "public": true,
     "shortDescription": "Przepis z Excel",
-    "title": "kanapki z serem białym, rzodkiewką i szczypiorkiem"
+    "title": "kanapki z serem białym, rzodkiewką i szczypiorkiem",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0
   },
   {
     "idMeal": 50,
@@ -45,7 +65,11 @@
     "mealTime": "BREAKFAST",
     "public": true,
     "shortDescription": "Przepis z Excel",
-    "title": "owsianka z bananem, nasionami chia i masłem orzechowym"
+    "title": "owsianka z bananem, nasionami chia i masłem orzechowym",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0
   },
   {
     "idMeal": 59,
@@ -53,7 +77,11 @@
     "mealTime": "BREAKFAST",
     "public": true,
     "shortDescription": "Przepis z Excel",
-    "title": "naleśniki z musem jabłkowo-cynamonowym i jogurtem"
+    "title": "naleśniki z musem jabłkowo-cynamonowym i jogurtem",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0
   },
   {
     "idMeal": 1,
@@ -61,7 +89,11 @@
     "mealTime": "BREAKFAST",
     "public": true,
     "shortDescription": "Przepis z Excel",
-    "title": "koktajl mleczny z otrębami"
+    "title": "koktajl mleczny z otrębami",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0
   },
   {
     "idMeal": 89,
@@ -69,7 +101,11 @@
     "mealTime": "BREAKFAST",
     "public": true,
     "shortDescription": "Przepis z Excel",
-    "title": "placki z serka wiejskiego z dżemem"
+    "title": "placki z serka wiejskiego z dżemem",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0
   },
   {
     "idMeal": 4,
@@ -77,6 +113,10 @@
     "mealTime": "BREAKFAST",
     "public": true,
     "shortDescription": "Przepis z Excel",
-    "title": "drobiowa pancetta na grzance z jajkiem"
+    "title": "drobiowa pancetta na grzance z jajkiem",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0
   }
 ]

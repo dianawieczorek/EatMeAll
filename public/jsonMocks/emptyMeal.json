@@ -5,6 +5,10 @@
     "mealTime": "",
     "public": true,
     "shortDescription": "",
-    "title": "jem na mieście albo wcale :)"
+    "title": "jem na mieście albo wcale :)",
+    "amountCalories": 0,
+    "amountCarbohydrates": 0,
+    "amountFat": 0,
+    "amountProtein": 0
   }
 ]
