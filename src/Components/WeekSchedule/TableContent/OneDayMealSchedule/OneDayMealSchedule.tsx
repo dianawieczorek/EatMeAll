@@ -5,6 +5,7 @@ import {Dispatch} from "redux";
 import styles from "./OneDayMealSchedule.module.css"
 import SingleMealShortInfo from "../SingleMealShortInfo/SingleMealShortInfo";
 import DateLabel from "../DateLabel/DateLabel";
+import CaloriesAndMakro from "../../../CaloriesAndMakro/CaloriesAndMakro";
 
 interface OwnProps {
     dayNumber: number
@@ -17,6 +18,7 @@ class OneDayMealSchedule extends PureComponent<Props> {
         return (
             <div className={styles.Day}>
                 <DateLabel/>
+                <CaloriesAndMakro/>
                 <SingleMealShortInfo mealNumber={0} dayNumber={this.props.dayNumber}/>
                 <SingleMealShortInfo mealNumber={1} dayNumber={this.props.dayNumber}/>
                 <SingleMealShortInfo mealNumber={2} dayNumber={this.props.dayNumber}/>
