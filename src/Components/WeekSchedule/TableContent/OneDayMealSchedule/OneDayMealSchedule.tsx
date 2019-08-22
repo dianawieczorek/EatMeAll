@@ -5,7 +5,7 @@ import {Dispatch} from "redux";
 import styles from "./OneDayMealSchedule.module.css"
 import SingleMealShortInfo from "../SingleMealShortInfo/SingleMealShortInfo";
 import DateLabel from "../DateLabel/DateLabel";
-import CaloriesAndMakro from "../../../CaloriesAndMakro/CaloriesAndMakro";
+import CaloriesAndMakro from "../../../CaloriesAndMakro/CaloriesAndMakroPerDay";
 
 interface OwnProps {
     dayNumber: number

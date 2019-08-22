@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import OneDayMealSchedule from "./OneDayMealSchedule/OneDayMealSchedule";
 import styles from "./ViewOfAllWeek.module.css"
 import {AppStore} from "../../../Redux/store";
+import CaloriesAndMakro from "../../CaloriesAndMakro/CaloriesAndMakroPerDay";
 
 interface OwnProps {
 }

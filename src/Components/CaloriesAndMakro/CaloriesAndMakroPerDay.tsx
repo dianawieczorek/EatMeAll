@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {AppStore} from "../../Redux/store";
 import {Dispatch} from "redux";
-import styles from "./CaloriesAndMakro.module.css"
+import styles from "./CaloriesAndMakroPerDay.module.css"
 
 
 interface OwnProps {
@@ -11,7 +11,7 @@ interface OwnProps {
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
-class CaloriesAndMakro extends PureComponent<Props> {
+class CaloriesAndMakroPerDay extends PureComponent<Props> {
     dupa() {
         let dayDetails = this.props.DayInfo;
         if(dayDetails !== undefined) {
@@ -69,4 +69,4 @@ const mapStateToProps = (state: AppStore, ownProps: any) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(CaloriesAndMakro);
+export default connect(mapStateToProps, mapDispatchToProps)(CaloriesAndMakroPerDay);
