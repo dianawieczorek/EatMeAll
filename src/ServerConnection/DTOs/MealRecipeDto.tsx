@@ -4,6 +4,9 @@ export interface MealDetailsDto {
 
 export interface MealRecipeDto {
     amountCalories: number,
+    amountCarbohydrates: number,
+    amountFat: number,
+    amountProtein: number,
     authorReceipt: string,
     idMeal: number,
     products: Array<ProductsDto>,

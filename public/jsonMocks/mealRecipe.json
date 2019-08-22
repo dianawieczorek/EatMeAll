@@ -1,109 +1,77 @@
 [
   {
-    "amountCalories": 636,
-    "authorReceipt": "Łukasz Wiertel",
-    "createdDate": "2019-03-16T19:24:05.280Z",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0,
+    "authorReceipt": "pSZemek redukcja",
+    "createdDate": "2019-07-04T04:13:24.357Z",
     "creatorMeal": {
-      "email": "43excel@wp.pl",
+      "email": "1excel@wp.pl",
       "favouritesMealsSetId": [],
       "idUser": 1,
-      "nick": "EXCEL43",
+      "nick": "EXCEL1",
       "userType": "ADMIN"
     },
-    "idMeal": 94,
+    "idMeal": 36,
+    "idPhoto": 36,
     "language": "PL",
-    "photo": 94,
+    "photo": 36,
     "products": [
       {
-        "amount": 100.0,
-        "category": "GRAINS",
-        "name": "mąka pszenna typ 1850",
-        "specialUnit": "6,67 łyżki",
+        "amount": 120.0,
+        "category": "FRUIT",
+        "name": "banan",
+        "specialUnit": "1 sztuka",
         "unit": "g"
       },
       {
-        "amount": 100.0,
-        "category": "DAIRY",
-        "name": "mleko",
-        "specialUnit": "0,4 szklanki",
-        "unit": "ml"
-      },
-      {
-        "amount": 56.0,
+        "amount": 12.0,
         "category": "OTHER",
-        "name": "jajko",
-        "specialUnit": "1 szt.",
-        "unit": "g"
-      },
-      {
-        "amount": 5.0,
-        "category": "OTHER",
-        "name": "olej rzepakowy",
-        "specialUnit": "0,5 łyżki",
-        "unit": "g"
-      },
-      {
-        "amount": 100.0,
-        "category": "DRINK",
-        "name": "woda",
-        "specialUnit": "0,4 szklanki",
+        "name": "miód",
+        "specialUnit": "1 łyżeczka",
         "unit": "g"
       },
       {
         "amount": 125.0,
-        "category": "FRUIT",
-        "name": "kaki",
-        "specialUnit": "0.5 szt.",
+        "category": "DAIRY",
+        "name": "ser twarogowy chudy",
+        "specialUnit": "0,5 opakowanie",
         "unit": "g"
       },
       {
-        "amount": 80.0,
+        "amount": 150.0,
         "category": "DAIRY",
-        "name": "jogurt grecki",
-        "specialUnit": "4 łyżki",
+        "name": "jogurt naturalny",
+        "specialUnit": "0,4 opakowanie",
         "unit": "g"
       }
     ],
     "public": true,
     "receiptDTO": {
       "description": "Jakis dodatkowy opis",
-      "idReceipt": 94,
-      "prepareTime": 30,
+      "idReceipt": 36,
+      "prepareTime": 5,
       "steps": [
         {
-          "header": "do mleka dodaj taką samą ilość wody",
-          "idStep": 306,
+          "header": "Rozgnieść",
+          "idStep": 109,
           "number": 1
         },
         {
-          "header": " wbij jaja i wymieszaj",
-          "idStep": 307,
+          "header": " Zamieszać",
+          "idStep": 110,
           "number": 2
-        },
-        {
-          "header": " dodaj mąkę i wymieszaj",
-          "idStep": 308,
-          "number": 3
-        },
-        {
-          "header": " patelnię delikatnie wysmaruj olejem i wlewaj ciasto naleśnikowe. usmaż z obu stron",
-          "idStep": 309,
-          "number": 4
-        },
-        {
-          "header": " naleśniki posmaruj jogurtem i wyłóż pokrojone kaki. zwiń",
-          "idStep": 310,
-          "number": 5
         }
       ],
-      "title": "naleśniki z jogurtem i kaki"
+      "title": "Pyszny twarożek"
     },
     "shortDescription": "Przepis z Excel",
-    "title": "naleśniki z jogurtem i kaki",
+    "title": "Pyszny twarożek",
     "typeMeal": [
       {
-        "idTypeMeal": 1,
-        "mealTime": "BREAKFAST"
+        "idTypeMeal": 2,
+        "mealTime": "LUNCH"
       }
     ]
   }

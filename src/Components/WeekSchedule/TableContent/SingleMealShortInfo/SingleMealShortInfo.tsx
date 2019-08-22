@@ -100,7 +100,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
         fetch("jsonMocks/fewRandomMeals.json")
             .then(response => response.json())
             .then((json: Array<RandomMealDto>) => {
-                this.showMealsListPopup(json);
+                this.showMealsListPopup(json,dayNumber,mealNumber);
             })
     };
 
@@ -111,10 +111,12 @@ class SingleMealShortInfo extends PureComponent<Props> {
         />);
     };
 
-    private showMealsListPopup(selectedMealJson: Array<RandomMealDto>) {
+    private showMealsListPopup(selectedMealJson: Array<RandomMealDto>, dayNumber: number, mealNumber: number) {
         this.props.openModal(
             <ListOfMeals
                 randomMealList={selectedMealJson}
+                dayNumber={dayNumber}
+                mealNumber={mealNumber}
             />
         )
     }

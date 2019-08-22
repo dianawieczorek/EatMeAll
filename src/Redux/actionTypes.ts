@@ -1,11 +1,6 @@
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
 
-// export const ADD_ITEM = 'addItemAction'
-// export interface addItemAction {
-//     type: typeof ADD_ITEM
-//     newItem: string
-// }
 export const SET_CURRENT_WEEK_SCHEDULE = 'SET_CURRENT_WEEK_SCHEDULE';
 
 export interface setCurrentWeekScheduleIf {
