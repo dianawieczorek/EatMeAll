@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b84b5af-f753-4067-8b18-0397e786e476" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.module.css" afterPath="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.module.css" />
       <change beforePath="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.tsx" afterPath="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.tsx" />
-      <change beforePath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/OneDayMealSchedule/OneDayMealSchedule.tsx" afterPath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/OneDayMealSchedule/OneDayMealSchedule.tsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,8 +46,8 @@
           <file leaf-file-name="CaloriesAndMakro.tsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1071">
-                  <caret line="63" column="24" lean-forward="false" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+                <state relative-caret-position="544">
+                  <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                   </folding>
@@ -423,12 +420,12 @@
       <workItem from="1566147741125" duration="6574000" />
       <workItem from="1566186723965" duration="13833000" />
       <workItem from="1566217468601" duration="24745000" />
-      <workItem from="1566452785726" duration="9303000" />
+      <workItem from="1566452785726" duration="9617000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116457000" />
+    <option name="totallyTimeSpent" value="116771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
@@ -853,8 +850,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakro.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="63" column="24" lean-forward="false" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        <state relative-caret-position="544">
+          <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>

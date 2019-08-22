@@ -16,22 +16,14 @@ class CaloriesAndMakro extends PureComponent<Props> {
         let dayDetails = this.props.DayInfo;
         if(dayDetails !== undefined) {
             let amountCalories=
-                dayDetails.reduce(function (accumulator, dayDetails){
-                    return accumulator + dayDetails.amountCalories;
-                }, 0);
+                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountCalories, 0);
             let amountCarbs=
-                dayDetails.reduce(function (accumulator, dayDetails){
-                    return accumulator + dayDetails.amountCarbohydrates;
-                }, 0);
+                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountCarbohydrates, 0);
             let amountFat=
-                dayDetails.reduce(function (accumulator, dayDetails){
-                    return accumulator + dayDetails.amountFat;
-                }, 0);
+                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountFat, 0);
             let amountProtein=
-                dayDetails.reduce(function (accumulator, dayDetails){
-                    return accumulator + dayDetails.amountProtein;
-                }, 0);
-        return (
+                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountProtein, 0);
+            return (
                 <tr>
                     <td>{amountCalories}</td>
                     <td>{amountCarbs}</td>
