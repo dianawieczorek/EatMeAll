@@ -1,0 +1,34 @@
+p {
+    margin-top: 20px;
+}
+
+.Category {
+    padding: 30px;
+    width: 100%;
+}
+
+.ProductLabel {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+li {
+    font-weight: 200;
+    list-style-type: square;
+}
+
+@media (min-width: 600px) {
+    .Category {
+        width: 50%;
+        display: inline-grid;
+    }
+}
+
+
+@media (min-width: 900px) {
+    .Category {
+        padding: 30px;
+        width: 20%;
+    }
+}
