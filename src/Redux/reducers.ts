@@ -2,13 +2,14 @@ import {CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, 
 import {Reducer} from "redux";
 import {produce} from "immer"
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
+import {loadState} from "../ServerConnection/localStorage";
 
 interface weekInitialState {
     currentWeekSchedule: Array<DayDto> | undefined
 }
 
 const WEEK_INITIAL_STATE: weekInitialState = {
-    currentWeekSchedule: undefined,
+    currentWeekSchedule: loadState(),
 };
 
 export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: weekInitialState = WEEK_INITIAL_STATE, action: Types) => {

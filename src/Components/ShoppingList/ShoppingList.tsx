@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import styles from "./ShoppingList.module.css"
 import {AppStore} from "../../Redux/store";
 import CategoryListOfProduct from "./CategoryListOfProducts/CategoryListOfProduct";
+import {MealRecipeDto} from "../../ServerConnection/DTOs/MealRecipeDto";
 
 
 interface OwnProps {
@@ -30,8 +31,8 @@ class ShoppingList extends PureComponent<Props> {
                 <CategoryListOfProduct category={"Inne"}/>
             </div>
         )
-
     }
+
 
 }
 

@@ -13,6 +13,13 @@ p {
     margin-bottom: 10px;
 }
 
+.Done {
+    text-decoration: line-through;
+}
+.NotDone {
+    text-decoration: none;
+}
+
 li {
     font-weight: 200;
     list-style-type: square;

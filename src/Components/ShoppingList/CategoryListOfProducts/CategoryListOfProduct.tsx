@@ -4,7 +4,7 @@ import styles from "./CategoryListOfProduct.module.css";
 
 
 interface OwnProps {
-    category:string
+    category: string
 }
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
@@ -14,12 +14,16 @@ class CategoryListOfProduct extends PureComponent<Props> {
         return (
             <div className={styles.Category}>
                 <div className={styles.ProductLabel}>{this.props.category}</div>
-                <ul>lista prod</ul>
+                <ul>
+                    <li className={styles.Done}>produkt</li>
+                    <li>produkt</li>
+                    <li>produkt</li>
+                    <li>produkt</li>
+                </ul>
             </div>
 
         )
     }
-
 }
 
 const mapStateToProps = () => {
