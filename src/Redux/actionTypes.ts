@@ -1,5 +1,6 @@
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
+import {GroupproductsDto, ProductDto} from "../ServerConnection/DTOs/ShoppingListDto";
 
 export const SET_CURRENT_WEEK_SCHEDULE = 'SET_CURRENT_WEEK_SCHEDULE';
 
@@ -42,5 +43,11 @@ export interface closeSidedrawerIf {
     type: typeof CLOSE_SIDEDRAWER
 }
 
+export const SET_PRODUCT_LIST = 'SET_PRODUCT_LIST';
 
-export type Types = setCurrentWeekScheduleIf | openModalIf | closeModalIf | randomMealChangeIf | openSidedrawerIf | closeSidedrawerIf// | - pipe dodaje kolejne interfejsy akcji
+export interface setProductListIf {
+    type: typeof SET_PRODUCT_LIST
+    categoryListOfProduct: GroupproductsDto
+}
+
+export type Types = setCurrentWeekScheduleIf | openModalIf | closeModalIf | randomMealChangeIf | openSidedrawerIf | closeSidedrawerIf |setProductListIf// | - pipe dodaje kolejne interfejsy akcji

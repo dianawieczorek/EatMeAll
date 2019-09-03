@@ -25,6 +25,7 @@ p, li {
 
 .BasicInfo p {
     font-size: 0.9rem;
+    margin-top: 0;
 }
 
 .Products {

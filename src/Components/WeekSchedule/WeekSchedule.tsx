@@ -5,6 +5,7 @@ import ViewOfAllWeek from "./TableContent/ViewOfAllWeek";
 import TableHeader from "./TableHeader/TableHeader";
 import Modal from "../UI/Modal/Modal";
 import MealRecipe from "../MealRecipe/MealRecipe";
+import PanelForUsers from "./PanelForUsers/PanelForUsers";
 
 interface OwnProps {
 }
@@ -12,27 +13,15 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class WeekSchedule extends PureComponent<Props> {
-    // state = {
-    //     showModal: false,
-    //     modalData: <MealRecipe/>
-    // }
-
-
-    showModal = (modalData: any) => {
-        this.setState({showModal: true, modalData: modalData});
-
-    }
 
     render() {
         return (
             <React.Fragment>
                 <Modal/>
-                {/*<Modal/> show={this.state.showModal} modalClosed={this.cancelHandler}>*/}
-                    {/*{this.state.modalData}*/}
-                {/*</Modal>*/}
                 <div className={styles.Header}>
                     <TableHeader/>
-                    <ViewOfAllWeek />
+                    <PanelForUsers/>
+                    <ViewOfAllWeek/>
                 </div>
             </React.Fragment>
         );

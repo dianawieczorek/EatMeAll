@@ -1,11 +1,16 @@
-import {CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER, Types} from "./actionTypes";
+import {
+    CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
+    Types, SET_PRODUCT_LIST
+} from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {loadState} from "../ServerConnection/localStorage";
+import {GroupproductsDto, ProductDto} from "../ServerConnection/DTOs/ShoppingListDto";
 
 interface weekInitialState {
-    currentWeekSchedule: Array<DayDto> | undefined
+    currentWeekSchedule:  Array<DayDto> | undefined
+    // currentWeekSchedule: Array<{userName:string ,weekShedule: Array<DayDto>}> | undefined
 }
 
 const WEEK_INITIAL_STATE: weekInitialState = {
@@ -78,6 +83,38 @@ export const sidedrawerReducer: Reducer<SideDrawerReducerState, Types> = (state:
         case CLOSE_SIDEDRAWER: {
             return produce(state, draftState => {
                 draftState.visible = false;
+            })
+        }
+        default:
+            return state
+    }
+};
+
+interface ProductListReducerState {
+    categoryListOfProduct:GroupproductsDto,
+}
+
+const PRODUCT_LIST_INITIAL_STATE: ProductListReducerState = {
+    categoryListOfProduct: {
+        baking: [],
+        dairy: [],
+        drink: [],
+        meat: [],
+        fish: [],
+        fruit: [],
+        vegetable: [],
+        grains: [],
+        spice: [],
+        other: [],
+        unknown: []
+    },
+};
+
+export const productListReducer: Reducer<ProductListReducerState, Types> = (state: ProductListReducerState = PRODUCT_LIST_INITIAL_STATE, action: Types) => {
+    switch (action.type) {
+        case SET_PRODUCT_LIST: {
+            return produce(state, draftState => {
+                draftState.categoryListOfProduct = action.categoryListOfProduct
             })
         }
         default:

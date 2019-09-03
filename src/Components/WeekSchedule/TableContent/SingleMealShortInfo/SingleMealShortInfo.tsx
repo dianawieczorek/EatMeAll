@@ -21,7 +21,6 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 
 class SingleMealShortInfo extends PureComponent<Props> {
     render() {
-        console.log( localStorage.getItem('weekMeals'))
         if (this.props.MealInfo !== undefined) {
             return (
                 <div className={styles.ChangeDiv}>

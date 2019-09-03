@@ -1,9 +1,13 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import styles from "./ShoppingList.module.css"
+import styles from "./ShoppingList.module.css" ;
+import classes from "../WeekSchedule/TableHeader/TableHeader.module.css";
 import {AppStore} from "../../Redux/store";
+import Button from "../UI/Button/Button"
 import CategoryListOfProduct from "./CategoryListOfProducts/CategoryListOfProduct";
-import {MealRecipeDto} from "../../ServerConnection/DTOs/MealRecipeDto";
+import {setProductList} from "../../Redux/actions";
+import {Dispatch} from "redux";
+import {GroupproductsDto, ProductDto} from "../../ServerConnection/DTOs/ShoppingListDto";
 
 
 interface OwnProps {
@@ -13,37 +17,55 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 
 class ShoppingList extends PureComponent<Props> {
     render() {
-        let mealIds= this.props.Meal.map(dayOfWeekPlan => dayOfWeekPlan["meals"].map(meal => meal.idMeal));
-        console.log(mealIds)
-        console.log("http://eatmeall.pl:100/app/shoppingList/order/id/"+mealIds);
         return (
             <div className={styles.About}>
-                <h1>Lista zakupów</h1>
-                <CategoryListOfProduct category={"Owoce"}/>
-                <CategoryListOfProduct category={"Warzywa"}/>
-                <CategoryListOfProduct category={"Pieczywo"}/>
-                <CategoryListOfProduct category={"Nabiał"}/>
-                <CategoryListOfProduct category={"Mięso"}/>
-                <CategoryListOfProduct category={"Ryby"} />
-                <CategoryListOfProduct category={"Napoje"}/>
-                <CategoryListOfProduct category={"Ziarna"}/>
-                <CategoryListOfProduct category={"Przyprawy"}/>
-                <CategoryListOfProduct category={"Inne"}/>
+                <div className={classes.TableHeader}>
+                    <div className={classes.Label}>Lista Zakupów</div>
+                    <div className={classes.Buttons}>
+                        <Button onClick={this.shoppingList}>
+                            Wygeneruj listę zakupów
+                        </Button>
+
+                    </div>
+                </div>
+                <CategoryListOfProduct category={"Owoce"} productList={this.props.ProductList.fruit}/>
+                <CategoryListOfProduct category={"Warzywa"} productList={this.props.ProductList.vegetable}/>
+                <CategoryListOfProduct category={"Pieczywo"} productList={this.props.ProductList.baking}/>
+                <CategoryListOfProduct category={"Nabiał"} productList={this.props.ProductList.dairy}/>
+                <CategoryListOfProduct category={"Mięso"} productList={this.props.ProductList.meat}/>
+                <CategoryListOfProduct category={"Ryby"} productList={this.props.ProductList.fish}/>
+                <CategoryListOfProduct category={"Napoje"} productList={this.props.ProductList.drink}/>
+                <CategoryListOfProduct category={"Ziarna"} productList={this.props.ProductList.grains}/>
+                <CategoryListOfProduct category={"Przyprawy"} productList={this.props.ProductList.spice}/>
+                <CategoryListOfProduct category={"Inne"} productList={this.props.ProductList.other && this.props.ProductList.unknown}/>
             </div>
         )
     }
 
-
+    private shoppingList = () => {
+        let mealIds = [this.props.Meal.map(dayOfWeekPlan => dayOfWeekPlan["meals"].map(meal => meal.idMeal))];
+        fetch("http://217.182.78.23:100/app/shoppingList/order/id/" + mealIds)
+            .then((response) => response.json())
+            .then((json: GroupproductsDto) => {
+                    this.props.setProductList(json)
+                }
+            );
+    }
 }
 
 const mapStateToProps = (state: AppStore) => {
     if (state.weekScheduleReducer.currentWeekSchedule !== undefined) {
         return {
-            Meal: state.weekScheduleReducer.currentWeekSchedule
+            Meal: state.weekScheduleReducer.currentWeekSchedule,
+            ProductList: state.productListReducer.categoryListOfProduct
         }
     }
 };
 
-const mapDispatchToProps = () => ({});
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {
+        setProductList: (aProductList: GroupproductsDto) => dispatch(setProductList(aProductList))
+    };
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingList);
