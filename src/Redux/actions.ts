@@ -2,7 +2,7 @@ import {
     CLOSE_MODAL, closeModalIf,
     OPEN_MODAL, openModalIf, RANDOM_MEAL_CHANGE, randomMealChangeIf,
     SET_CURRENT_WEEK_SCHEDULE, CLOSE_SIDEDRAWER, OPEN_SIDEDRAWER, SET_PRODUCT_LIST, closeSidedrawerIf, openSidedrawerIf,
-    setCurrentWeekScheduleIf, setProductListIf
+    setCurrentWeekScheduleIf, setProductListIf, setUserNameIf, SET_USER_NAME
 } from "./actionTypes";
 
 
@@ -59,3 +59,9 @@ export const setProductList = (aProductList: GroupproductsDto): setProductListIf
     }
 };
 
+export const setUserName = (aUserNames: Array<string>): setUserNameIf => {
+    return {
+        type: SET_USER_NAME,
+        userNames: aUserNames
+    }
+};
