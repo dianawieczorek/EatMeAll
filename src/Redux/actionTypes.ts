@@ -50,4 +50,10 @@ export interface setProductListIf {
     categoryListOfProduct: GroupproductsDto
 }
 
-export type Types = setCurrentWeekScheduleIf | openModalIf | closeModalIf | randomMealChangeIf | openSidedrawerIf | closeSidedrawerIf |setProductListIf// | - pipe dodaje kolejne interfejsy akcji
+export const SET_USER_NAME = 'SET_USER_NAME';
+export interface setUserNameIf {
+    type: typeof SET_USER_NAME
+    userNames: Array<string>
+}
+
+export type Types = setCurrentWeekScheduleIf | openModalIf | closeModalIf | randomMealChangeIf | openSidedrawerIf | closeSidedrawerIf |setProductListIf | setUserNameIf// | - pipe dodaje kolejne interfejsy akcji

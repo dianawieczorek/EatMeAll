@@ -7,7 +7,7 @@ import Button from "../UI/Button/Button"
 import CategoryListOfProduct from "./CategoryListOfProducts/CategoryListOfProduct";
 import {setProductList} from "../../Redux/actions";
 import {Dispatch} from "redux";
-import {GroupproductsDto, ProductDto} from "../../ServerConnection/DTOs/ShoppingListDto";
+import {GroupproductsDto} from "../../ServerConnection/DTOs/ShoppingListDto";
 
 
 interface OwnProps {
@@ -16,6 +16,10 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class ShoppingList extends PureComponent<Props> {
+
+    constructor(aProps: Props){
+        super(aProps)
+    }
     render() {
         return (
             <div className={styles.About}>
@@ -43,6 +47,7 @@ class ShoppingList extends PureComponent<Props> {
     }
 
     private shoppingList = () => {
+        // let mealIds = [this.props.Meal.filter((dayOfWeekPlan,i) => x.contains(i)).map(dayOfWeekPlan => dayOfWeekPlan["meals"].map(meal => meal.idMeal))];
         let mealIds = [this.props.Meal.map(dayOfWeekPlan => dayOfWeekPlan["meals"].map(meal => meal.idMeal))];
         fetch("http://217.182.78.23:100/app/shoppingList/order/id/" + mealIds)
             .then((response) => response.json())
