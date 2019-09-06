@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {AppStore} from "../../../Redux/store";
 import {Dispatch} from "redux";
 import {deleteUser} from "../../../Redux/actions";
+import styles from "./ListOfUsers.module.css"
 
 
 interface OwnProps {
@@ -15,8 +16,8 @@ class ListOfUsers extends PureComponent<Props> {
         return (
             <div>
                 <ol>
-                    {this.props.listofUsers.map((item: string) => <li>{item}
-                        <button onClick={this.deleteUserName} type="submit">skasuj dietożercę</button>
+                    {this.props.listofUsers.map((item: string) => <li className={styles.UserName}>{item}
+                        <button className={styles.Button} onClick={this.deleteUserName} type="submit">skasuj dietożercę</button>
                     </li>)}
                 </ol>
             </div>

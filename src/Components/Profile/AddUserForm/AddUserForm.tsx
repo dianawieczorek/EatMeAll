@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Button from "../../UI/Button/Button"
 import {deleteUsers, setUserName} from "../../../Redux/actions";
 import {Dispatch} from "redux";
-
+import styles from "./AddUserForm.module.css"
 
 interface OwnProps {
 }
@@ -21,7 +21,7 @@ class AddUserForm extends PureComponent<Props> {
     render() {
         return (
             <div>
-                <input ref={this.userNameInput} type="text"/>
+                <input className={styles.Input} ref={this.userNameInput} type="text"/>
                 <Button onClick={this.addUser} type="submit">dodaj dietożercę</Button>
                 <Button onClick={this.deleteUsers} type="submit">skasuj wszystkich dietożerców</Button>
             </div>

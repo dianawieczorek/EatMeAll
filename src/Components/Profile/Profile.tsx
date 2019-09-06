@@ -24,7 +24,7 @@ class Profile extends PureComponent<Props> {
                         </Button>
                     </div>
                 </div>
-                <div>
+                <div className={styles.Content}>
                     <ListOfUsers/>
                     <AddUserForm/>
                 </div>
