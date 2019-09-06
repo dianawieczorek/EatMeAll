@@ -5,6 +5,7 @@ import styles from "./PanelForUsers.module.css"
 import {Dispatch} from "redux";
 import {setCurrentWeekSchedule} from "../../../Redux/actions";
 import {DayDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
+import {AppStore} from "../../../Redux/store";
 
 interface OwnProps {
 }
@@ -18,13 +19,7 @@ class PanelForUsers extends PureComponent<Props> {
                 <div>
                     Wybierz dietożercę
                 </div>
-
-                <Button>
-                    Dianka
-                </Button>
-                <Button>
-                    Przemek
-                </Button>
+                {this.props.userList.map((userName:string) => <Button>{userName}</Button>)}
 
             </div>
         );
@@ -33,8 +28,10 @@ class PanelForUsers extends PureComponent<Props> {
 }
 
 
-const mapStateToProps = () => {
-    return {};
+const mapStateToProps = (store: AppStore) => {
+    return {
+        userList: store.listOfUsersReducer.userList
+    };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
