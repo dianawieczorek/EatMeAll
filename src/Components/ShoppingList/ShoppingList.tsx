@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import styles from "./ShoppingList.module.css" ;
 import classes from "../WeekSchedule/TableHeader/TableHeader.module.css";
+import style from '..//WeekSchedule/WeekSchedule.module.css'
 import {AppStore} from "../../Redux/store";
 import Button from "../UI/Button/Button"
 import CategoryListOfProduct from "./CategoryListOfProducts/CategoryListOfProduct";
@@ -22,7 +23,7 @@ class ShoppingList extends PureComponent<Props> {
     }
     render() {
         return (
-            <div className={styles.About}>
+            <div className={style.PageSettings}>
                 <div className={classes.TableHeader}>
                     <div className={classes.Label}>Lista Zakupów</div>
                     <div className={classes.Buttons}>

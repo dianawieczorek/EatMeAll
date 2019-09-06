@@ -1,6 +1,6 @@
 import {combineReducers} from "redux";
-import {modalReducer, weekScheduleReducer, sidedrawerReducer, productListReducer} from "./reducers";
+import {modalReducer, weekScheduleReducer, sidedrawerReducer, productListReducer, listOfUsersReducer} from "./reducers";
 
 export const rootReducer = combineReducers({
-    weekScheduleReducer, modalReducer, sidedrawerReducer, productListReducer
+    weekScheduleReducer, modalReducer, sidedrawerReducer, productListReducer, listOfUsersReducer
 });

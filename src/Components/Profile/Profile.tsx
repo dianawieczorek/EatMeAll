@@ -1,7 +1,11 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {AppStore} from "../../Redux/store";
-
+import Button from "../UI/Button/Button"
+import classes from "../WeekSchedule/TableHeader/TableHeader.module.css";
+import style from '..//WeekSchedule/WeekSchedule.module.css'
+import styles from "./Profile.module.css"
+import ListOfUsers from "./ListOfUsers/ListOfUsers";
+import AddUserForm from "./AddUserForm/AddUserForm";
 
 interface OwnProps {
 }
@@ -11,14 +15,26 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 class Profile extends PureComponent<Props> {
     render() {
         return (
-            <div>
+            <div className={style.PageSettings}>
+                <div className={classes.TableHeader}>
+                    <div className={classes.Label}>Zarządzaj listą dietożerców</div>
+                    <div className={classes.Buttons}>
+                        <Button>
+                            Zapisz ustawienia
+                        </Button>
+                    </div>
+                </div>
+                <div>
+                    <ListOfUsers/>
+                    <AddUserForm/>
+                </div>
             </div>
         )
     }
 
 }
 
-const mapStateToProps = (state: AppStore) => {
+const mapStateToProps = () => {
 };
 
 const mapDispatchToProps = () => {

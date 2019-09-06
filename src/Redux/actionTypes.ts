@@ -1,6 +1,6 @@
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
-import {GroupproductsDto, ProductDto} from "../ServerConnection/DTOs/ShoppingListDto";
+import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 
 export const SET_CURRENT_WEEK_SCHEDULE = 'SET_CURRENT_WEEK_SCHEDULE';
 
@@ -53,7 +53,18 @@ export interface setProductListIf {
 export const SET_USER_NAME = 'SET_USER_NAME';
 export interface setUserNameIf {
     type: typeof SET_USER_NAME
-    userNames: Array<string>
+    userName: string
+}
+export const DELETE_USERS = 'DELETE_USERS';
+export interface deleteUsersIf {
+    type: typeof DELETE_USERS
 }
 
-export type Types = setCurrentWeekScheduleIf | openModalIf | closeModalIf | randomMealChangeIf | openSidedrawerIf | closeSidedrawerIf |setProductListIf | setUserNameIf// | - pipe dodaje kolejne interfejsy akcji
+export const DELETE_USER = 'DELETE_USER';
+export interface deleteUserIf {
+    type: typeof DELETE_USER
+    userName: string
+
+}
+
+export type Types = setCurrentWeekScheduleIf | openModalIf | closeModalIf | randomMealChangeIf | openSidedrawerIf | closeSidedrawerIf |setProductListIf | setUserNameIf |deleteUsersIf |deleteUserIf
