@@ -2,10 +2,8 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import Button from "../../UI/Button/Button"
 import styles from "./PanelForUsers.module.css"
-import {Dispatch} from "redux";
-import {setCurrentWeekSchedule} from "../../../Redux/actions";
-import {DayDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
 import {AppStore} from "../../../Redux/store";
+import {NavLink} from "react-router-dom";
 
 interface OwnProps {
 }
@@ -19,7 +17,11 @@ class PanelForUsers extends PureComponent<Props> {
                 <div>
                     Wybierz dietożercę
                 </div>
-                {this.props.userList.map((userName:string) => <Button>{userName}</Button>)}
+                {this.props.userList.map((userName: string) => <Button>
+                    <NavLink className={styles.Nav}
+                        to={userName}>{userName}
+                    </NavLink>
+                </Button>)}
 
             </div>
         );
@@ -34,9 +36,7 @@ const mapStateToProps = (store: AppStore) => {
     };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
-    return {
-        setCurrentWeekSchedule: (aCurrentWeekSchedule: Array<DayDto>) => dispatch(setCurrentWeekSchedule(aCurrentWeekSchedule))
-    };
+const mapDispatchToProps = () => {
+    return {};
 };
 export default connect(mapStateToProps, mapDispatchToProps)(PanelForUsers);

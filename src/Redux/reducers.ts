@@ -126,7 +126,7 @@ interface UserListReducerState {
 }
 
 const USER_LIST_INITIAL_STATE: UserListReducerState = {
-    userList: loadState().user,
+    userList: loadState().users,
 
 };
 
