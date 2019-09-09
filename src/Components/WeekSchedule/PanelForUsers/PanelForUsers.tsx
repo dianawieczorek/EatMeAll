@@ -20,7 +20,7 @@ class PanelForUsers extends PureComponent<Props> {
                     </div>
                     {this.props.userList.map((userName: string) => <Button>
                         <NavLink className={styles.Nav}
-                                 to={userName}>{userName}
+                                 to={"/home/" + userName}>{userName}
                         </NavLink>
                     </Button>)}
 
