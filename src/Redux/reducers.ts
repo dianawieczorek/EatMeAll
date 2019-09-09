@@ -5,7 +5,7 @@ import {
 import {Reducer} from "redux";
 import {produce} from "immer"
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
-import {loadState} from "../ServerConnection/localStorage";
+import {loadMeals, loadUsers} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 
 interface weekInitialState {
@@ -14,7 +14,7 @@ interface weekInitialState {
 }
 
 const WEEK_INITIAL_STATE: weekInitialState = {
-    currentWeekSchedule: loadState().weekMeals,
+    currentWeekSchedule: loadMeals(),
 };
 
 export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: weekInitialState = WEEK_INITIAL_STATE, action: Types) => {
@@ -126,7 +126,7 @@ interface UserListReducerState {
 }
 
 const USER_LIST_INITIAL_STATE: UserListReducerState = {
-    userList: loadState().users,
+    userList: [],
 
 };
 

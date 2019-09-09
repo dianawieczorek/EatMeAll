@@ -1,19 +1,40 @@
-export const loadState = () => {
+export const loadMeals = () => {
     try {
-        const serializedState = localStorage.getItem('weekMeals');
-        if (serializedState === null) {
+        const serializedMeals = localStorage.getItem('weekMeals');
+        if (serializedMeals === null) {
             return undefined;
         }
-        return JSON.parse(serializedState);
+        return JSON.parse(serializedMeals);
     } catch (err) {
         return undefined;
     }
 };
 
-export const  saveState = (state:any) => {
+export const loadUsers = () => {
+    try {
+        const serializedUsers= localStorage.getItem('users');
+        if (serializedUsers === null) {
+            return undefined;
+        }
+        return JSON.parse(serializedUsers);
+    } catch (err) {
+        return undefined;
+    }
+};
+
+export const  saveWeekMeals = (state:any) => {
     try {
         const serializedState = JSON.stringify(state);
         localStorage.setItem('weekMeals', serializedState);
+    }catch (err) {
+        // ignore write errors
+    }
+}
+
+export const  saveUsers= (state:any) => {
+    try {
+        const serializedState = JSON.stringify(state);
+        localStorage.setItem('users', serializedState);
     }catch (err) {
         // ignore write errors
     }

@@ -12,21 +12,31 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 
 class PanelForUsers extends PureComponent<Props> {
     render() {
-        return (
-            <div className={styles.Wrapper}>
-                <div>
-                    Wybierz dietożercę
+        if (this.props.userList !== undefined) {
+            return (
+                <div className={styles.Wrapper}>
+                    <div>
+                        Wybierz dietożercę
+                    </div>
+                    {this.props.userList.map((userName: string) => <Button>
+                        <NavLink className={styles.Nav}
+                                 to={userName}>{userName}
+                        </NavLink>
+                    </Button>)}
+
                 </div>
-                {this.props.userList.map((userName: string) => <Button>
-                    <NavLink className={styles.Nav}
-                        to={userName}>{userName}
-                    </NavLink>
-                </Button>)}
+            );
+        } else {
+            return (
+                <div className={styles.Wrapper}>
+                    <div>
+                        Wybierz dietożercę
+                    </div>
+                </div>
+            )
+        }
 
-            </div>
-        );
     }
-
 }
 
 

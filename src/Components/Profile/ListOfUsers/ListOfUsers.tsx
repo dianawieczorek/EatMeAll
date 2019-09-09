@@ -13,25 +13,35 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 
 class ListOfUsers extends PureComponent<Props> {
     render() {
-        return (
-            <div>
-                <ol>
-                    {this.props.listofUsers.map((item: string) => <li className={styles.UserName}>{item}
-                        <button className={styles.Button} onClick={this.deleteUserName} type="submit">skasuj dietożercę</button>
-                    </li>)}
-                </ol>
-            </div>
-        );
+        if (this.props.listofUsers !== undefined) {
+            return (
+                <div>
+                    <ol>
+                        {this.props.listofUsers.map((item: string) => <li className={styles.UserName}>{item}
+                            <button className={styles.Button} onClick={this.deleteUserName} type="submit">skasuj
+                                dietożercę
+                            </button>
+                        </li>)}
+                    </ol>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+
+                </div>
+            )
+        }
     }
 
-    private deleteUserName = (e:any)  => {
-        let innerValue=e.target.parentElement.innerHTML.split("<")[0];
+    private deleteUserName = (e: any) => {
+        let innerValue = e.target.parentElement.innerHTML.split("<")[0];
         this.props.deleteSingleUser(innerValue)
     }
 
 }
 
-const mapStateToProps  = (state: AppStore) => {
+const mapStateToProps = (state: AppStore) => {
     return {
         listofUsers: state.listOfUsersReducer.userList
     };

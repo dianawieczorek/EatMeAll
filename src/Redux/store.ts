@@ -1,19 +1,18 @@
 import {createStore} from "redux";
 import {rootReducer} from "../Redux/bundle";
 import {composeWithDevTools} from 'redux-devtools-extension';
-import {loadState, saveState} from "../ServerConnection/localStorage";
+import {loadMeals, loadUsers, saveUsers, saveWeekMeals} from "../ServerConnection/localStorage";
 
-const persistedState = loadState();
+const persistedState = loadUsers() && loadMeals();
 
 const store = createStore(rootReducer,
     persistedState, composeWithDevTools());
 
 store.subscribe(() => {
-    saveState(
-        {weekMeals: store.getState().weekScheduleReducer.currentWeekSchedule,
-        users: store.getState().listOfUsersReducer.userList}
-    )
-})
+    saveWeekMeals(store.getState().weekScheduleReducer.currentWeekSchedule);
+    saveUsers(store.getState().listOfUsersReducer.userList)
+}
+);
 
 export default store;
 export type AppStore = ReturnType<typeof rootReducer>
