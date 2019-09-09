@@ -14,11 +14,11 @@ export const loadUsers = () => {
     try {
         const serializedUsers= localStorage.getItem('users');
         if (serializedUsers === null) {
-            return undefined;
+            return [];
         }
         return JSON.parse(serializedUsers);
     } catch (err) {
-        return undefined;
+        return [];
     }
 };
 

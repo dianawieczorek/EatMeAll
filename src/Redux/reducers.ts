@@ -1,6 +1,6 @@
 import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
-    Types, SET_PRODUCT_LIST, SET_USER_NAME, DELETE_USERS, DELETE_USER
+    Types, SET_PRODUCT_LIST, ADD_USER_NAME, DELETE_USERS, DELETE_USER
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
@@ -126,13 +126,13 @@ interface UserListReducerState {
 }
 
 const USER_LIST_INITIAL_STATE: UserListReducerState = {
-    userList: [],
+    userList: loadUsers(),
 
 };
 
 export const listOfUsersReducer: Reducer<UserListReducerState, Types> = (state: UserListReducerState = USER_LIST_INITIAL_STATE, action: Types) => {
     switch (action.type) {
-        case SET_USER_NAME: {
+        case ADD_USER_NAME: {
             return produce(state, draftState => {
                 draftState.userList.push(action.userName)
             })

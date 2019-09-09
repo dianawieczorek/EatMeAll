@@ -50,9 +50,9 @@ export interface setProductListIf {
     categoryListOfProduct: GroupproductsDto
 }
 
-export const SET_USER_NAME = 'SET_USER_NAME';
+export const ADD_USER_NAME = 'ADD_USER_NAME';
 export interface setUserNameIf {
-    type: typeof SET_USER_NAME
+    type: typeof ADD_USER_NAME
     userName: string
 }
 export const DELETE_USERS = 'DELETE_USERS';
