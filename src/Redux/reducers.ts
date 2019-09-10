@@ -4,31 +4,35 @@ import {
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
-import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
-import {loadMeals, loadUsers} from "../ServerConnection/localStorage";
+import {loadUsers} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
+import WeekScheduleDomain from './Model/WeekScheduleDomain';
+import {setCurrentWeekSchedule} from "./actions";
 
 interface weekInitialState {
-    currentWeekSchedule:  Array<DayDto> | undefined
-    // currentWeekSchedule: Array<{userName:string ,weekShedule: Array<DayDto>}> | undefined
+    // currentWeekSchedule:  Array<DayDto> | undefined
+    currentWeekSchedule: Array<WeekScheduleDomain>
 }
 
 const WEEK_INITIAL_STATE: weekInitialState = {
-    currentWeekSchedule: loadMeals(),
+    // currentWeekSchedule: [],
+    currentWeekSchedule: [{user: "Diana", weekSchedule: []}],
 };
 
 export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: weekInitialState = WEEK_INITIAL_STATE, action: Types) => {
     switch (action.type) {
         case SET_CURRENT_WEEK_SCHEDULE: {
             return produce(state, draftState => {
-                draftState.currentWeekSchedule = action.currentWeekSchedule;
+                if (draftState.currentWeekSchedule !== undefined) {
+                    draftState.currentWeekSchedule[0].weekSchedule = action.currentWeekSchedule;
+                }
             })
         }
         case RANDOM_MEAL_CHANGE: {
             return produce(state, draftState => {
                 if (draftState.currentWeekSchedule !== undefined) {
-                draftState.currentWeekSchedule[action.dayNr]["meals"][action.mealNr]= action.randomMeal;
-               }
+                    draftState.currentWeekSchedule[0].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
+                }
             })
         }
 
@@ -91,7 +95,7 @@ export const sidedrawerReducer: Reducer<SideDrawerReducerState, Types> = (state:
 };
 
 interface ProductListReducerState {
-    categoryListOfProduct:GroupproductsDto,
+    categoryListOfProduct: GroupproductsDto,
 }
 
 const PRODUCT_LIST_INITIAL_STATE: ProductListReducerState = {
@@ -121,6 +125,7 @@ export const productListReducer: Reducer<ProductListReducerState, Types> = (stat
             return state
     }
 };
+
 interface UserListReducerState {
     userList: Array<string>
 }

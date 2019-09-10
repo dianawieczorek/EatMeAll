@@ -137,9 +137,9 @@ class SingleMealShortInfo extends PureComponent<Props> {
 
 
 const mapStateToProps = (state: AppStore, ownProps: any) => {
-    if (state.weekScheduleReducer.currentWeekSchedule !== undefined) {
+    if (state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber] !== undefined) {
         return {
-            MealInfo: state.weekScheduleReducer.currentWeekSchedule[ownProps.dayNumber].meals[ownProps.mealNumber]
+            MealInfo: state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber].meals[ownProps.mealNumber]
         }
     }
 
@@ -152,5 +152,6 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
 
     }
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleMealShortInfo);

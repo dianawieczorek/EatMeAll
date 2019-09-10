@@ -12,35 +12,35 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class CaloriesAndMakroPerDay extends PureComponent<Props> {
-    makroCounter() {
-        let dayDetails = this.props.DayInfo;
-        if(dayDetails !== undefined) {
-            let amountCalories=
-                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountCalories, 0);
-            let amountCarbs=
-                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountCarbohydrates, 0);
-            let amountFat=
-                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountFat, 0);
-            let amountProtein=
-                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountProtein, 0);
-            return (
-                <tr>
-                    <td>{amountCalories}</td>
-                    <td>{amountCarbs}</td>
-                    <td>{amountFat}</td>
-                    <td>{amountProtein}</td>
-                </tr>)
-    } else {
-            return (
-                <tr>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-            )
-        }
-    }
+    // makroCounter() {
+    //     let dayDetails = this.props.DayInfo;
+    //     if(dayDetails !== undefined) {
+    //         let amountCalories=
+    //             dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountCalories, 0);
+    //         let amountCarbs=
+    //             dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountCarbohydrates, 0);
+    //         let amountFat=
+    //             dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountFat, 0);
+    //         let amountProtein=
+    //             dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountProtein, 0);
+    //         return (
+    //             <tr>
+    //                 <td>{amountCalories}</td>
+    //                 <td>{amountCarbs}</td>
+    //                 <td>{amountFat}</td>
+    //                 <td>{amountProtein}</td>
+    //             </tr>)
+    // } else {
+    //         return (
+    //             <tr>
+    //                 <td>0</td>
+    //                 <td>0</td>
+    //                 <td>0</td>
+    //                 <td>0</td>
+    //             </tr>
+    //         )
+    //     }
+    // }
 
     render() {
         return (
@@ -52,7 +52,7 @@ class CaloriesAndMakroPerDay extends PureComponent<Props> {
                         <th>T</th>
                         <th>B</th>
                     </tr>
-                    {this.makroCounter()}
+                    {/*{this.makroCounter()}*/}
                 </table>
             </div>
         );
@@ -62,7 +62,7 @@ class CaloriesAndMakroPerDay extends PureComponent<Props> {
 const mapStateToProps = (state: AppStore, ownProps: any) => {
     if (state.weekScheduleReducer.currentWeekSchedule !== undefined) {
         return {
-            DayInfo: state.weekScheduleReducer.currentWeekSchedule[ownProps.dayNumber].meals
+            // DayInfo: state.weekScheduleReducer.currentWeekSchedule[ownProps.dayNumber].meals
         }
     }
 };
