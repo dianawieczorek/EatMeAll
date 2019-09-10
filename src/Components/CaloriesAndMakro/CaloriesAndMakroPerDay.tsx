@@ -12,7 +12,7 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class CaloriesAndMakroPerDay extends PureComponent<Props> {
-    dupa() {
+    makroCounter() {
         let dayDetails = this.props.DayInfo;
         if(dayDetails !== undefined) {
             let amountCalories=
@@ -52,7 +52,7 @@ class CaloriesAndMakroPerDay extends PureComponent<Props> {
                         <th>T</th>
                         <th>B</th>
                     </tr>
-                    {this.dupa()}
+                    {this.makroCounter()}
                 </table>
             </div>
         );
