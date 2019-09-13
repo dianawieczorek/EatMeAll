@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import classes from "../WeekSchedule/TableHeader/TableHeader.module.css";
-import Button from "../UI/Button/Button"
 import style from '..//WeekSchedule/WeekSchedule.module.css'
 import styles from './AddMealToDatabase.module.css'
 

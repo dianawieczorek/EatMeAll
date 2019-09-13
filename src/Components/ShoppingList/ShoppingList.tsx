@@ -18,9 +18,10 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 
 class ShoppingList extends PureComponent<Props> {
 
-    constructor(aProps: Props){
+    constructor(aProps: Props) {
         super(aProps)
     }
+
     render() {
         return (
             <div className={style.PageSettings}>
@@ -42,15 +43,19 @@ class ShoppingList extends PureComponent<Props> {
                 <CategoryListOfProduct category={"Napoje"} productList={this.props.ProductList.drink}/>
                 <CategoryListOfProduct category={"Ziarna"} productList={this.props.ProductList.grains}/>
                 <CategoryListOfProduct category={"Przyprawy"} productList={this.props.ProductList.spice}/>
-                <CategoryListOfProduct category={"Inne"} productList={this.props.ProductList.other && this.props.ProductList.unknown}/>
+                <CategoryListOfProduct category={"Inne"}
+                                       productList={this.props.ProductList.other && this.props.ProductList.unknown}/>
             </div>
         )
     }
 
     private shoppingList = () => {
         // let mealIds = [this.props.Meal.filter((dayOfWeekPlan,i) => x.contains(i)).map(dayOfWeekPlan => dayOfWeekPlan["meals"].map(meal => meal.idMeal))];
-        let mealIds = [this.props.Meal.map((dayOfWeekPlan:any) => dayOfWeekPlan["meals"].map((meal:any) => meal.idMeal))];
-        fetch("http://217.182.78.23:100/app/shoppingList/order/id/" + mealIds)
+        // let mealIds=[this.props.Meal.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.idMeal))][0];
+        let mealIds=[this.props.Meal.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.idMeal))][0];
+        let arrayOfMealIds= mealIds[0].concat(mealIds[1]).concat(mealIds[2]).concat(mealIds[3]).concat(mealIds[4]).concat(mealIds[5]).concat(mealIds[6])
+        ;
+        fetch("http://217.182.78.23:100/app/shoppingList/order/id/" + arrayOfMealIds)
             .then((response) => response.json())
             .then((json: GroupproductsDto) => {
                     this.props.setProductList(json)
@@ -62,7 +67,7 @@ class ShoppingList extends PureComponent<Props> {
 const mapStateToProps = (state: AppStore) => {
     if (state.weekScheduleReducer.currentWeekSchedule !== undefined) {
         return {
-            Meal: state.weekScheduleReducer.currentWeekSchedule,
+            Meal: state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule,
             ProductList: state.productListReducer.categoryListOfProduct
         }
     }

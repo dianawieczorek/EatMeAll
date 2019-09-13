@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1b84b5af-f753-4067-8b18-0397e786e476" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" afterPath="$PROJECT_DIR$/src/App.tsx" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Navigation/NavItems/NavItems.tsx" afterPath="$PROJECT_DIR$/src/Components/Navigation/NavItems/NavItems.tsx" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" afterPath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UI/Button/Button.module.css" afterPath="$PROJECT_DIR$/src/Components/UI/Button/Button.module.css" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx" afterPath="$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ShoppingList/ShoppingList.tsx" afterPath="$PROJECT_DIR$/src/Components/ShoppingList/ShoppingList.tsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,7 +20,7 @@
     <favorites_list name="eatmeallproject" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44725206">
+    <splitter split-orientation="horizontal" split-proportion="0.67593175">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="NavItems.tsx" pinned="false" current-in-tab="false">
@@ -35,14 +33,22 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AddMealToDatabase.tsx" pinned="false" current-in-tab="true">
+          <file leaf-file-name="AddMealToDatabase.tsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="17" column="77" lean-forward="false" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
-                  <folding>
-                    <element signature="e#0#43#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="51">
+                  <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ShoppingList.tsx" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Components/ShoppingList/ShoppingList.tsx">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="426">
+                  <caret line="62" column="14" lean-forward="false" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -61,11 +67,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="reducers.ts" pinned="false" current-in-tab="false">
+          <file leaf-file-name="reducers.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="457">
-                  <caret line="56" column="86" lean-forward="false" selection-start-line="56" selection-start-column="86" selection-end-line="56" selection-end-column="89" />
+                <state relative-caret-position="287">
+                  <caret line="46" column="32" lean-forward="true" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#213#0" expanded="true" />
                   </folding>
@@ -105,7 +111,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Profile.tsx" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Profile.tsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Components/Profile/Profile.tsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="306">
@@ -207,14 +213,11 @@
         <option value="$PROJECT_DIR$/src/Redux/actionTypes.ts" />
         <option value="$PROJECT_DIR$/src/ServerConnection/DTOs/WeekScheduleDto.tsx" />
         <option value="$PROJECT_DIR$/src/Redux/Model/WeekScheduleDomain" />
-        <option value="$PROJECT_DIR$/src/Components/ShoppingList/ShoppingList.tsx" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" />
         <option value="$PROJECT_DIR$/src/ServerConnection/localStorage.tsx" />
-        <option value="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/PanelForUsers/PanelForUsers.tsx" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableHeader/TableHeader.tsx" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/WeekSchedule.tsx" />
-        <option value="$PROJECT_DIR$/src/Redux/reducers.ts" />
         <option value="$PROJECT_DIR$/src/Components/Navigation/NavItems/NavItems.tsx" />
         <option value="$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx.ts" />
         <option value="$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx.tsx" />
@@ -223,6 +226,9 @@
         <option value="$PROJECT_DIR$/src/Components/UI/Button/Button.module.css" />
         <option value="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" />
         <option value="$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx" />
+        <option value="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx" />
+        <option value="$PROJECT_DIR$/src/Redux/reducers.ts" />
+        <option value="$PROJECT_DIR$/src/Components/ShoppingList/ShoppingList.tsx" />
       </list>
     </option>
   </component>
@@ -529,7 +535,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218419000" />
+    <option name="totallyTimeSpent" value="220606000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
@@ -598,20 +604,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Components/ShoppingList/CategoryListOfProducts/CategoryListOfProduct.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="13" column="51" lean-forward="false" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20383">
-          <caret line="1212" column="4" lean-forward="false" selection-start-line="1212" selection-start-column="4" selection-end-line="1212" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@types/react/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7531">
@@ -760,14 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/ShoppingList/ShoppingList.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="64" column="63" lean-forward="false" selection-start-line="64" selection-start-column="63" selection-end-line="64" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Redux/store.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -787,13 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="62" column="89" lean-forward="false" selection-start-line="62" selection-start-column="89" selection-end-line="62" selection-end-column="89" />
         </state>
       </provider>
     </entry>
@@ -889,16 +866,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="56" column="86" lean-forward="false" selection-start-line="56" selection-start-column="86" selection-end-line="56" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#213#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/WeekSchedule.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -965,16 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="77" lean-forward="false" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Profile/Profile.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -982,6 +939,58 @@
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.module.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="848">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="66" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="46" column="32" lean-forward="true" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Dropbox/EMA/components/ShoppingList/ShoppingList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="92" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/ShoppingList/ShoppingList.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="62" column="14" lean-forward="false" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
