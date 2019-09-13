@@ -4,10 +4,44 @@ import {
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
-import {loadUsers} from "../ServerConnection/localStorage";
+import {loadMeals, loadUsers} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 import WeekScheduleDomain from './Model/WeekScheduleDomain';
 import {setCurrentWeekSchedule} from "./actions";
+
+
+
+interface UserListReducerState {
+    userList: Array<string>
+}
+
+const USER_LIST_INITIAL_STATE: UserListReducerState = {
+    userList: loadUsers(),
+
+};
+
+export const listOfUsersReducer: Reducer<UserListReducerState, Types> = (state: UserListReducerState = USER_LIST_INITIAL_STATE, action: Types) => {
+    switch (action.type) {
+        case ADD_USER_NAME: {
+            return produce(state, draftState => {
+                draftState.userList.push(action.userName)
+            })
+        }
+        case DELETE_USERS: {
+            return produce(state, draftState => {
+                draftState.userList = []
+            })
+        }
+        case DELETE_USER: {
+            return produce(state, draftState => {
+                draftState.userList = draftState.userList.filter(user => user !== action.userName);
+            })
+        }
+        default:
+            return state
+    }
+};
+
 
 interface weekInitialState {
     // currentWeekSchedule:  Array<DayDto> | undefined
@@ -16,7 +50,8 @@ interface weekInitialState {
 
 const WEEK_INITIAL_STATE: weekInitialState = {
     // currentWeekSchedule: [],
-    currentWeekSchedule: [{user: "Diana", weekSchedule: []}],
+    // currentWeekSchedule: loadMeals(),
+    currentWeekSchedule: [{user: USER_LIST_INITIAL_STATE.userList[0], weekSchedule: []}],
 };
 
 export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: weekInitialState = WEEK_INITIAL_STATE, action: Types) => {
@@ -119,37 +154,6 @@ export const productListReducer: Reducer<ProductListReducerState, Types> = (stat
         case SET_PRODUCT_LIST: {
             return produce(state, draftState => {
                 draftState.categoryListOfProduct = action.categoryListOfProduct
-            })
-        }
-        default:
-            return state
-    }
-};
-
-interface UserListReducerState {
-    userList: Array<string>
-}
-
-const USER_LIST_INITIAL_STATE: UserListReducerState = {
-    userList: loadUsers(),
-
-};
-
-export const listOfUsersReducer: Reducer<UserListReducerState, Types> = (state: UserListReducerState = USER_LIST_INITIAL_STATE, action: Types) => {
-    switch (action.type) {
-        case ADD_USER_NAME: {
-            return produce(state, draftState => {
-                draftState.userList.push(action.userName)
-            })
-        }
-        case DELETE_USERS: {
-            return produce(state, draftState => {
-                draftState.userList = []
-            })
-        }
-        case DELETE_USER: {
-            return produce(state, draftState => {
-                draftState.userList = draftState.userList.filter(user => user !== action.userName);
             })
         }
         default:
