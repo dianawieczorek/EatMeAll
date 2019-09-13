@@ -54,6 +54,8 @@ const WEEK_INITIAL_STATE: weekInitialState = {
     currentWeekSchedule: [{user: USER_LIST_INITIAL_STATE.userList[0], weekSchedule: []}],
 };
 
+console.log(window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
+
 export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: weekInitialState = WEEK_INITIAL_STATE, action: Types) => {
     switch (action.type) {
         case SET_CURRENT_WEEK_SCHEDULE: {
