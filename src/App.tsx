@@ -5,6 +5,7 @@ import Layout from "./hoc/Layout/Layout";
 import WeekSchedule from "./Components/WeekSchedule/WeekSchedule";
 import ShoppingList from "./Components/ShoppingList/ShoppingList";
 import Profile from "./Components/Profile/Profile";
+import AddMealToDatabase from "./Components/AddMealToDatabase/AddMealToDatabase";
 
 class App extends React.Component {
 
@@ -16,6 +17,7 @@ class App extends React.Component {
                         <Route path="/home" component={WeekSchedule}/>}
                         <Redirect from="/" exact to='/home'/>
                         <Route from="/shopping-list" component={ShoppingList}/>
+                        <Route from="/add-meal" component={AddMealToDatabase}/>
                         <Route from="/profile" component={Profile}/>
                         <Route render={() => <h1>Sorry but our devs still working on this page, see You soon! </h1>}/>
                     </Switch>

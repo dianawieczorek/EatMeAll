@@ -16,6 +16,7 @@ render() {
         <ul className={styles.NavigationItems}>
             <NavigationItem link={"/home/"+this.props.userList[0]} >home</NavigationItem>
             <NavigationItem link="/shopping-list">lista zakupów</NavigationItem>
+            <NavigationItem link="/add-meal">dodaj posiłek</NavigationItem>
             <NavigationItem link="/about">o nas</NavigationItem>
             <NavigationItem link="/contact">kontakt</NavigationItem>
             <NavigationItem link="/profile">profil</NavigationItem>
