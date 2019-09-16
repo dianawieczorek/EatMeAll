@@ -51,7 +51,9 @@ interface weekInitialState {
 const WEEK_INITIAL_STATE: weekInitialState = {
     // currentWeekSchedule: [],
     // currentWeekSchedule: loadMeals(),
-    currentWeekSchedule: [{user: USER_LIST_INITIAL_STATE.userList[0], weekSchedule: []}],
+    currentWeekSchedule: USER_LIST_INITIAL_STATE.userList.map(u => {
+        return {user: u, weekSchedule: []}
+    })
 };
 
 console.log(window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));

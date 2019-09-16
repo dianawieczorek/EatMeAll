@@ -32,7 +32,7 @@ class TableHeader extends PureComponent<Props> {
     }
 
     private randomCurrentWeekSchedule = (e: MouseEvent) => {
-        fetch("jsonMocks/wholeweek.json")
+        fetch("http://217.182.78.23:100/app/schedule")
             .then(response => response.json())
             .then((json: Array<DayDto>) => {
                 this.props.setCurrentWeekSchedule(json);

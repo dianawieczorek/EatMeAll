@@ -53,8 +53,8 @@ class ShoppingList extends PureComponent<Props> {
         // let mealIds = [this.props.Meal.filter((dayOfWeekPlan,i) => x.contains(i)).map(dayOfWeekPlan => dayOfWeekPlan["meals"].map(meal => meal.idMeal))];
         // let mealIds=[this.props.Meal.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.idMeal))][0];
         let mealIds=[this.props.Meal.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.idMeal))][0];
-        let arrayOfMealIds= mealIds[0].concat(mealIds[1]).concat(mealIds[2]).concat(mealIds[3]).concat(mealIds[4]).concat(mealIds[5]).concat(mealIds[6])
-        ;
+        // let arrayOfMealIds= mealIds[0].concat(mealIds[1]).concat(mealIds[2]).concat(mealIds[3]).concat(mealIds[4]).concat(mealIds[5]).concat(mealIds[6]);
+        let arrayOfMealIds= [...mealIds[0],...mealIds[1],...mealIds[2],...mealIds[3],...mealIds[4],...mealIds[5],...mealIds[6]];
         fetch("http://217.182.78.23:100/app/shoppingList/order/id/" + arrayOfMealIds)
             .then((response) => response.json())
             .then((json: GroupproductsDto) => {
