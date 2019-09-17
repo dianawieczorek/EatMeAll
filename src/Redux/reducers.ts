@@ -56,14 +56,16 @@ const WEEK_INITIAL_STATE: weekInitialState = {
     })
 };
 
-console.log(window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
-
 export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: weekInitialState = WEEK_INITIAL_STATE, action: Types) => {
     switch (action.type) {
         case SET_CURRENT_WEEK_SCHEDULE: {
             return produce(state, draftState => {
                 if (draftState.currentWeekSchedule !== undefined) {
-                    draftState.currentWeekSchedule[0].weekSchedule = action.currentWeekSchedule;
+                    let currentUser=(window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
+                    if (currentUser !== "home") {
+                        let currentUserIndex = draftState.currentWeekSchedule.findIndex(u => u.user == currentUser)
+                        draftState.currentWeekSchedule[currentUserIndex].weekSchedule = action.currentWeekSchedule;
+                    } else window.alert("musisz wybrać dietożercę")
                 }
             })
         }

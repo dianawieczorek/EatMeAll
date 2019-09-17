@@ -100,7 +100,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
         fetch("jsonMocks/fewRandomMeals.json")
             .then(response => response.json())
             .then((json: Array<RandomMealDto>) => {
-                this.showMealsListPopup(json,dayNumber,mealNumber);
+                this.showMealsListPopup(json, dayNumber, mealNumber);
             })
     };
 
@@ -120,6 +120,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
             />
         )
     }
+
     public typeOfMeal = () => {
         if (this.props.MealInfo.mealTime === "BREAKFAST") {
             return "śniadanko"
@@ -137,9 +138,12 @@ class SingleMealShortInfo extends PureComponent<Props> {
 
 
 const mapStateToProps = (state: AppStore, ownProps: any) => {
-    if (state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber] !== undefined) {
-        return {
-            MealInfo: state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber].meals[ownProps.mealNumber]
+    if (state.weekScheduleReducer.currentWeekSchedule[0] !== undefined) {
+
+        if (state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber] !== undefined) {
+            return {
+                MealInfo: state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber].meals[ownProps.mealNumber]
+            }
         }
     }
 
@@ -148,7 +152,7 @@ const mapStateToProps = (state: AppStore, ownProps: any) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         openModal: (aData: JSX.Element) => dispatch(openModal(aData)),
-        randomMealChange: (randomMeal: RandomMealDto, dayNr:number, mealNr: number) => dispatch(randomMealChange(randomMeal, dayNr, mealNr)),
+        randomMealChange: (randomMeal: RandomMealDto, dayNr: number, mealNr: number) => dispatch(randomMealChange(randomMeal, dayNr, mealNr)),
 
     }
 };

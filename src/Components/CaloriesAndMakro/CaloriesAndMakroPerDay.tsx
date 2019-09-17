@@ -14,14 +14,14 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 class CaloriesAndMakroPerDay extends PureComponent<Props> {
     makroCounter() {
         let dayDetails = this.props.DayInfo;
-        if(dayDetails !== undefined) {
-            let amountCalories=
+        if (dayDetails !== undefined) {
+            let amountCalories =
                 dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountCalories, 0);
-            let amountCarbs=
+            let amountCarbs =
                 dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountCarbohydrates, 0);
-            let amountFat=
+            let amountFat =
                 dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountFat, 0);
-            let amountProtein=
+            let amountProtein =
                 dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountProtein, 0);
             return (
                 <tr>
@@ -30,7 +30,7 @@ class CaloriesAndMakroPerDay extends PureComponent<Props> {
                     <td>{amountFat}</td>
                     <td>{amountProtein}</td>
                 </tr>)
-    } else {
+        } else {
             return (
                 <tr>
                     <td>0</td>
@@ -60,9 +60,11 @@ class CaloriesAndMakroPerDay extends PureComponent<Props> {
 }
 
 const mapStateToProps = (state: AppStore, ownProps: any) => {
-    if (state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber] !== undefined) {
-        return {
-            DayInfo: state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber].meals
+    if (state.weekScheduleReducer.currentWeekSchedule[0] !== undefined) {
+        if (state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber] !== undefined) {
+            return {
+                DayInfo: state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber].meals
+            }
         }
     }
 };
