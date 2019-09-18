@@ -15,7 +15,7 @@ interface UserListReducerState {
     userList: Array<string>
 }
 
-const USER_LIST_INITIAL_STATE: UserListReducerState = {
+export const USER_LIST_INITIAL_STATE: UserListReducerState = {
     userList: loadUsers(),
 
 };
@@ -25,6 +25,7 @@ export const listOfUsersReducer: Reducer<UserListReducerState, Types> = (state: 
         case ADD_USER_NAME: {
             return produce(state, draftState => {
                 draftState.userList.push(action.userName)
+                WEEK_INITIAL_STATE.currentWeekSchedule.push({user: action.userName, weekSchedule: []})
             })
         }
         case DELETE_USERS: {
@@ -35,6 +36,9 @@ export const listOfUsersReducer: Reducer<UserListReducerState, Types> = (state: 
         case DELETE_USER: {
             return produce(state, draftState => {
                 draftState.userList = draftState.userList.filter(user => user !== action.userName);
+                WEEK_INITIAL_STATE.currentWeekSchedule=draftState.userList.map(u => {
+                    return {user: u, weekSchedule: []}
+                })
             })
         }
         default:
@@ -50,10 +54,10 @@ interface weekInitialState {
 
 const WEEK_INITIAL_STATE: weekInitialState = {
     // currentWeekSchedule: [],
-    // currentWeekSchedule: loadMeals(),
-    currentWeekSchedule: USER_LIST_INITIAL_STATE.userList.map(u => {
-        return {user: u, weekSchedule: []}
-    })
+    currentWeekSchedule: loadMeals(),
+    // currentWeekSchedule: USER_LIST_INITIAL_STATE.userList.map(u => {
+    //     return {user: u, weekSchedule: []}
+    // })
 };
 
 export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: weekInitialState = WEEK_INITIAL_STATE, action: Types) => {

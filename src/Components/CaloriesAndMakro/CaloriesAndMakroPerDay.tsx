@@ -60,7 +60,7 @@ class CaloriesAndMakroPerDay extends PureComponent<Props> {
 }
 
 const mapStateToProps = (state: AppStore, ownProps: any) => {
-    if (state.weekScheduleReducer.currentWeekSchedule[0] !== undefined) {
+    if (state.weekScheduleReducer.currentWeekSchedule !== undefined) {
         if (state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber] !== undefined) {
             return {
                 DayInfo: state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule[ownProps.dayNumber].meals

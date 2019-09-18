@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1b84b5af-f753-4067-8b18-0397e786e476" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Navigation/NavItems/NavItems.tsx" afterPath="$PROJECT_DIR$/src/Components/Navigation/NavItems/NavItems.tsx" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" afterPath="$PROJECT_DIR$/src/App.tsx" />
+      <change beforePath="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx" afterPath="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx" />
+      <change beforePath="$PROJECT_DIR$/src/Components/WeekSchedule/PanelForUsers/PanelForUsers.tsx" afterPath="$PROJECT_DIR$/src/Components/WeekSchedule/PanelForUsers/PanelForUsers.tsx" />
       <change beforePath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" afterPath="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/reducers.ts" afterPath="$PROJECT_DIR$/src/Redux/reducers.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/store.ts" afterPath="$PROJECT_DIR$/src/Redux/store.ts" />
       <change beforePath="$PROJECT_DIR$/src/ServerConnection/localStorage.tsx" afterPath="$PROJECT_DIR$/src/ServerConnection/localStorage.tsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,8 +29,8 @@
       <file leaf-file-name="reducers.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="55" column="6" lean-forward="true" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+            <state relative-caret-position="425">
+              <caret line="44" column="10" lean-forward="true" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
               <folding>
                 <element signature="e#0#213#0" expanded="true" />
               </folding>
@@ -34,45 +38,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleMealShortInfo.tsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
+      <file leaf-file-name="store.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Redux/store.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="597">
-              <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PanelForUsers.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/PanelForUsers/PanelForUsers.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="78" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fileWithConstants.js" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Dropbox/EMA/components/fileWithConstants.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="73" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NavItems.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/Navigation/NavItems/NavItems.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,19 +53,65 @@
       <file leaf-file-name="localStorage.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ServerConnection/localStorage.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+            <state relative-caret-position="119">
+              <caret line="7" column="50" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="7" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Redux/store.ts">
+      <file leaf-file-name="SingleMealShortInfo.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="140" column="70" lean-forward="true" selection-start-line="140" selection-start-column="70" selection-end-line="140" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PanelForUsers.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/PanelForUsers/PanelForUsers.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NavigationItem.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/Navigation/NavigationItem/NavigationItem.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="32" column="15" lean-forward="false" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WeekSchedule.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/WeekSchedule.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="41" lean-forward="false" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="60" lean-forward="false" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -157,27 +175,27 @@
         <option value="$PROJECT_DIR$/src/Components/Profile/AddUserForm/AddUserForm.module.css" />
         <option value="$PROJECT_DIR$/src/Components/Profile/ListOfUsers/ListOfUsers.module.css" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/PanelForUsers/PanelForUsers.module.css" />
-        <option value="$PROJECT_DIR$/src/Redux/store.ts" />
         <option value="$PROJECT_DIR$/src/Components/Profile/ListOfUsers/ListOfUsers.tsx" />
         <option value="$PROJECT_DIR$/src/Redux/actionTypes.ts" />
         <option value="$PROJECT_DIR$/src/ServerConnection/DTOs/WeekScheduleDto.tsx" />
         <option value="$PROJECT_DIR$/src/Redux/Model/WeekScheduleDomain" />
-        <option value="$PROJECT_DIR$/src/Components/WeekSchedule/PanelForUsers/PanelForUsers.tsx" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/WeekSchedule.tsx" />
         <option value="$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx.ts" />
         <option value="$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx.tsx" />
-        <option value="$PROJECT_DIR$/src/App.tsx" />
         <option value="$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.module.css" />
         <option value="$PROJECT_DIR$/src/Components/UI/Button/Button.module.css" />
         <option value="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" />
         <option value="$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx" />
         <option value="$PROJECT_DIR$/src/Components/ShoppingList/ShoppingList.tsx" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableHeader/TableHeader.tsx" />
-        <option value="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx" />
-        <option value="$PROJECT_DIR$/src/ServerConnection/localStorage.tsx" />
         <option value="$PROJECT_DIR$/src/Components/Navigation/NavItems/NavItems.tsx" />
-        <option value="$PROJECT_DIR$/src/Redux/reducers.ts" />
+        <option value="$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx" />
         <option value="$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx" />
+        <option value="$PROJECT_DIR$/src/App.tsx" />
+        <option value="$PROJECT_DIR$/src/Components/WeekSchedule/PanelForUsers/PanelForUsers.tsx" />
+        <option value="$PROJECT_DIR$/src/ServerConnection/localStorage.tsx" />
+        <option value="$PROJECT_DIR$/src/Redux/store.ts" />
+        <option value="$PROJECT_DIR$/src/Redux/reducers.ts" />
       </list>
     </option>
   </component>
@@ -334,15 +352,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Components" type="462c0819:PsiDirectoryNode" />
               <item name="WeekSchedule" type="462c0819:PsiDirectoryNode" />
-              <item name="TableContent" type="462c0819:PsiDirectoryNode" />
-              <item name="SingleMealShortInfo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatmeallproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eatmeallproject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="WeekSchedule" type="462c0819:PsiDirectoryNode" />
               <item name="TableHeader" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -405,7 +414,7 @@
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.standard" value="" />
-    <property name="SearchEverywhereHistoryKey" value="tablehe&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/src/Components/WeekSchedule/TableHeader/TableHeader.tsx&#10;app&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/src/App.tsx&#10;tool&#9;null&#9;null&#10;SingleMealShortInfo&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx&#10;shopp&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/src/Components/ShoppingList/ShoppingList.tsx&#10;ca&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx&#10;dupa&#9;null&#9;null&#10;20px&#9;null&#9;null&#10;font-size&#9;null&#9;null&#10;Hello world&#9;null&#9;null&#10;livetemplate&#9;ACTION&#9;SurroundWithLiveTemplate&#10;webpack.&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/node_modules/react-scripts/config/webpack.config.js&#10;livete&#9;ACTION&#9;InsertLiveTemplate&#10;plugi&#9;ACTION&#9;WelcomeScreen.Plugins&#10;plugin&#9;ACTION&#9;WelcomeScreen.Plugins" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/src/Redux/store.ts&#10;tablehe&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/src/Components/WeekSchedule/TableHeader/TableHeader.tsx&#10;app&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/src/App.tsx&#10;tool&#9;null&#9;null&#10;SingleMealShortInfo&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx&#10;shopp&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/src/Components/ShoppingList/ShoppingList.tsx&#10;ca&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx&#10;dupa&#9;null&#9;null&#10;20px&#9;null&#9;null&#10;font-size&#9;null&#9;null&#10;Hello world&#9;null&#9;null&#10;livetemplate&#9;ACTION&#9;SurroundWithLiveTemplate&#10;webpack.&#9;FILE&#9;file://D:/_Development/_Source/eatmeallproject/node_modules/react-scripts/config/webpack.config.js&#10;livete&#9;ACTION&#9;InsertLiveTemplate&#10;plugi&#9;ACTION&#9;WelcomeScreen.Plugins&#10;plugin&#9;ACTION&#9;WelcomeScreen.Plugins" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -474,12 +483,12 @@
       <workItem from="1568267850526" duration="2181000" />
       <workItem from="1568279360173" duration="1142000" />
       <workItem from="1568652810329" duration="1683000" />
-      <workItem from="1568696997832" duration="8746000" />
+      <workItem from="1568696997832" duration="23347000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231774000" />
+    <option name="totallyTimeSpent" value="246375000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
@@ -565,22 +574,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/jsonMocks/dupa.json" />
-    <entry file="file://$PROJECT_DIR$/public/jsonMocks/week.json" />
-    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableHeader/TableHeader.module.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/WeekSchedule.module.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/ShoppingList/ShoppingList.module.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -641,13 +634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="763">
           <caret line="57" column="15" lean-forward="false" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/react-router-dom/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="70" column="13" lean-forward="false" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -750,14 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/WeekSchedule.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/AddMealToDatabase/AddMealToDatabase.tsx.tsx" />
     <entry file="file://$PROJECT_DIR$/src/Components/Profile/Profile.module.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -835,24 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableHeader/TableHeader.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -861,36 +821,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Navigation/NavigationItem/NavigationItem.tsx">
+    <entry file="file://$USER_HOME$/Dropbox/EMA/components/fileWithConstants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="32" column="15" lean-forward="false" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+        <state relative-caret-position="102">
+          <caret line="6" column="73" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.tsx">
+    <entry file="file://$USER_HOME$/Dropbox/EMA/components/MealSchedule/MealSchedule.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state relative-caret-position="138">
+          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/store.ts">
+    <entry file="file://$USER_HOME$/Dropbox/EMA/components/MealSchedule/TableContent/WeekDietPlanTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="41" lean-forward="false" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServerConnection/localStorage.tsx">
+    <entry file="file://$USER_HOME$/Dropbox/EMA/components/MealSchedule/TableContent/DayMealsPlan/DayMealsPlan.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Dropbox/EMA/components/MealSchedule/TableContent/MealInfo/MealInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1887">
+          <caret line="117" column="70" lean-forward="true" selection-start-line="117" selection-start-column="70" selection-end-line="117" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/react-router-dom/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="70" column="13" lean-forward="false" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -905,39 +887,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Dropbox/EMA/components/fileWithConstants.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/CaloriesAndMakro/CaloriesAndMakroPerDay.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="73" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="73" />
+        <state relative-caret-position="467">
+          <caret line="62" column="53" lean-forward="false" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/PanelForUsers/PanelForUsers.tsx">
+    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableHeader/TableHeader.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="546">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="51" selection-end-column="2" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="140" column="70" lean-forward="true" selection-start-line="140" selection-start-column="70" selection-end-line="140" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="60" lean-forward="false" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/WeekSchedule.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Navigation/NavigationItem/NavigationItem.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="32" column="15" lean-forward="false" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/PanelForUsers/PanelForUsers.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServerConnection/localStorage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="50" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="7" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Redux/reducers.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="55" column="6" lean-forward="true" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+        <state relative-caret-position="425">
+          <caret line="44" column="10" lean-forward="true" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
           <folding>
             <element signature="e#0#213#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/WeekSchedule/TableContent/SingleMealShortInfo/SingleMealShortInfo.tsx">
+    <entry file="file://$PROJECT_DIR$/src/Redux/store.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="204">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="78" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -9,9 +9,9 @@ const store = createStore(rootReducer,
     persistedState, composeWithDevTools());
 
 store.subscribe(() => {
-    saveWeekMeals(store.getState().weekScheduleReducer.currentWeekSchedule);
-    saveUsers(store.getState().listOfUsersReducer.userList)
-}
+        saveUsers(store.getState().listOfUsersReducer.userList);
+        saveWeekMeals(store.getState().weekScheduleReducer.currentWeekSchedule);
+    }
 );
 
 export default store;

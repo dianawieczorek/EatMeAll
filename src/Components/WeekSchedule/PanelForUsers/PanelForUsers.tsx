@@ -4,6 +4,11 @@ import Button from "../../UI/Button/Button"
 import styles from "./PanelForUsers.module.css"
 import {AppStore} from "../../../Redux/store";
 import {NavLink} from "react-router-dom";
+import {DayDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
+import {Dispatch} from "redux";
+import {setCurrentWeekSchedule} from "../../../Redux/actions";
+import SingleMealShortInfo from "../TableContent/SingleMealShortInfo/SingleMealShortInfo";
+
 
 interface OwnProps {
 }
@@ -18,7 +23,7 @@ class PanelForUsers extends PureComponent<Props> {
                     <div>
                         Wybierz dietożercę
                     </div>
-                    {this.props.userList.map((userName: string) => <Button>
+                    {this.props.userList.map((userName: string) => <Button onClick={this.changeScheduleForSelectedUser}>
                         <NavLink className={styles.Nav}
                                  to={"/home/" + userName}>{userName}
                         </NavLink>
@@ -37,16 +42,20 @@ class PanelForUsers extends PureComponent<Props> {
         }
 
     }
+
+    private changeScheduleForSelectedUser = (e: any) => {
+        // window.location.reload
+    }
 }
 
 
 const mapStateToProps = (store: AppStore) => {
     return {
-        userList: store.listOfUsersReducer.userList
+        userList: store.listOfUsersReducer.userList,
     };
 };
 
 const mapDispatchToProps = () => {
-    return {};
+
 };
 export default connect(mapStateToProps, mapDispatchToProps)(PanelForUsers);

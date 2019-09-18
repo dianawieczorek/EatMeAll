@@ -6,16 +6,21 @@ import WeekSchedule from "./Components/WeekSchedule/WeekSchedule";
 import ShoppingList from "./Components/ShoppingList/ShoppingList";
 import Profile from "./Components/Profile/Profile";
 import AddMealToDatabase from "./Components/AddMealToDatabase/AddMealToDatabase";
+import {AppStore} from "./Redux/store";
+import {connect} from "react-redux";
 
-class App extends React.Component {
+type Props = ReturnType<typeof mapStateToProps>;
+
+class App extends React.Component<Props> {
 
     render() {
+        const defaultUser= this.props.userList[0];
         return (
             <div className={styles.Container}>
                 <Layout>
                     <Switch>
-                        <Route path="/home" component={WeekSchedule}/>}
-                        <Redirect from="/" exact to='/home'/>
+                        <Route path="/home/:userName" component={WeekSchedule}/>}
+                        <Redirect from="/" exact to={'/home/'+defaultUser}/>
                         <Route from="/shopping-list" component={ShoppingList}/>
                         <Route from="/add-meal" component={AddMealToDatabase}/>
                         <Route from="/profile" component={Profile}/>
@@ -26,5 +31,9 @@ class App extends React.Component {
         );
     }
 }
-
-export default App;
+const mapStateToProps = (store: AppStore) => {
+    return {
+        userList: store.listOfUsersReducer.userList,
+    };
+};
+export default connect(mapStateToProps)(App);
