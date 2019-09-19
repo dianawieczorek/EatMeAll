@@ -11,7 +11,6 @@ import {setCurrentWeekSchedule} from "./actions";
 import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 
 
-
 interface UserListReducerState {
     userList: Array<string>
 }
@@ -33,14 +32,14 @@ export const listOfUsersReducer: Reducer<UserListReducerState, Types> = (state: 
             return produce(state, draftState => {
                 draftState.userList = ["user"]
                 WEEK_INITIAL_STATE.currentWeekSchedule = draftState.userList.map(u => {
-                        return {user: u, weekSchedule: []}
-                    })
+                    return {user: u, weekSchedule: []}
+                })
             })
         }
         case DELETE_USER: {
             return produce(state, draftState => {
                 draftState.userList = draftState.userList.filter(user => user !== action.userName);
-                WEEK_INITIAL_STATE.currentWeekSchedule= draftState.userList.map(u => {
+                WEEK_INITIAL_STATE.currentWeekSchedule = draftState.userList.map(u => {
                     return {user: u, weekSchedule: []}
                 })
             })
@@ -73,7 +72,7 @@ export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: wee
         case SET_CURRENT_WEEK_SCHEDULE: {
             return produce(state, draftState => {
                 if (draftState.currentWeekSchedule !== undefined) {
-                    let currentUser=(window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
+                    let currentUser = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
                     if (currentUser !== "home") {
                         let currentUserIndex = draftState.currentWeekSchedule.findIndex(u => u.user == currentUser)
                         draftState.currentWeekSchedule[currentUserIndex].weekSchedule = action.currentWeekSchedule;
