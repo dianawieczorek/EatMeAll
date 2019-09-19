@@ -44,7 +44,7 @@ class PanelForUsers extends PureComponent<Props> {
     }
 
     private changeScheduleForSelectedUser = (e: any) => {
-        // window.location.reload
+        window.location.reload()
     }
 }
 

@@ -139,14 +139,13 @@ class SingleMealShortInfo extends PureComponent<Props> {
 
 const mapStateToProps = (state: AppStore, ownProps: any) => {
     if (state.weekScheduleReducer.currentWeekSchedule !== undefined) {
-        let currentUser = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
-        let currentUserIndex = state.weekScheduleReducer.currentWeekSchedule.findIndex(u => u.user == currentUser)
+        // let currentUser = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
+        let currentUserIndex = state.weekScheduleReducer.currentWeekSchedule.findIndex(u => u.user == state.weekScheduleReducer.currentUser)
         if (state.weekScheduleReducer.currentWeekSchedule[currentUserIndex] !== undefined) {
             if (state.weekScheduleReducer.currentWeekSchedule[currentUserIndex].weekSchedule[ownProps.dayNumber] !== undefined) {
-                if (currentUser !== "home") {
-                    return {
-                        MealInfo: state.weekScheduleReducer.currentWeekSchedule[currentUserIndex].weekSchedule[ownProps.dayNumber].meals[ownProps.mealNumber]
-                    }
+                return {
+                    MealInfo: state.weekScheduleReducer.currentWeekSchedule[currentUserIndex].weekSchedule[ownProps.dayNumber].meals[ownProps.mealNumber]
+
                 }
             }
         }

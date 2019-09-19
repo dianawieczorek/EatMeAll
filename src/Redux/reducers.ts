@@ -8,6 +8,7 @@ import {loadMeals, loadUsers} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 import WeekScheduleDomain from './Model/WeekScheduleDomain';
 import {setCurrentWeekSchedule} from "./actions";
+import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 
 
 
@@ -24,19 +25,22 @@ export const listOfUsersReducer: Reducer<UserListReducerState, Types> = (state: 
     switch (action.type) {
         case ADD_USER_NAME: {
             return produce(state, draftState => {
-                draftState.userList.push(action.userName)
+                draftState.userList.push(action.userName);
                 WEEK_INITIAL_STATE.currentWeekSchedule.push({user: action.userName, weekSchedule: []})
             })
         }
         case DELETE_USERS: {
             return produce(state, draftState => {
-                draftState.userList = []
+                draftState.userList = ["user"]
+                WEEK_INITIAL_STATE.currentWeekSchedule = draftState.userList.map(u => {
+                        return {user: u, weekSchedule: []}
+                    })
             })
         }
         case DELETE_USER: {
             return produce(state, draftState => {
                 draftState.userList = draftState.userList.filter(user => user !== action.userName);
-                WEEK_INITIAL_STATE.currentWeekSchedule=draftState.userList.map(u => {
+                WEEK_INITIAL_STATE.currentWeekSchedule= draftState.userList.map(u => {
                     return {user: u, weekSchedule: []}
                 })
             })
@@ -49,12 +53,16 @@ export const listOfUsersReducer: Reducer<UserListReducerState, Types> = (state: 
 
 interface weekInitialState {
     // currentWeekSchedule:  Array<DayDto> | undefined
+    currentUser: string
     currentWeekSchedule: Array<WeekScheduleDomain>
+    weekScheduleForCurrentUser: Array<DayDto>;
 }
 
 const WEEK_INITIAL_STATE: weekInitialState = {
     // currentWeekSchedule: [],
     currentWeekSchedule: loadMeals(),
+    currentUser: window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1),
+    weekScheduleForCurrentUser: loadMeals()[0]
     // currentWeekSchedule: USER_LIST_INITIAL_STATE.userList.map(u => {
     //     return {user: u, weekSchedule: []}
     // })
@@ -73,6 +81,13 @@ export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: wee
                 }
             })
         }
+        // case SET_CURENT_USER{
+        //     action.currentUser;
+        //     this.state.weekScheduleReducer.currentUser;
+        //     draftState.weekScheduleForCurrentUser = loadMeals()[x]
+        // }
+        //
+        //
         case RANDOM_MEAL_CHANGE: {
             return produce(state, draftState => {
                 if (draftState.currentWeekSchedule !== undefined) {

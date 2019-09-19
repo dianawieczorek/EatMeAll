@@ -25,7 +25,6 @@ class Profile extends PureComponent<Props> {
             </div>
         )
     }
-
 }
 
 const mapStateToProps = () => {
