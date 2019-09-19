@@ -1,0 +1,78 @@
+[
+  {
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0,
+    "authorReceipt": "pSZemek redukcja",
+    "createdDate": "2019-07-04T04:13:24.357Z",
+    "creatorMeal": {
+      "email": "1excel@wp.pl",
+      "favouritesMealsSetId": [],
+      "idUser": 1,
+      "nick": "EXCEL1",
+      "userType": "ADMIN"
+    },
+    "idMeal": 36,
+    "idPhoto": 36,
+    "language": "PL",
+    "photo": 36,
+    "products": [
+      {
+        "amount": 120.0,
+        "category": "FRUIT",
+        "name": "banan",
+        "specialUnit": "1 sztuka",
+        "unit": "g"
+      },
+      {
+        "amount": 12.0,
+        "category": "OTHER",
+        "name": "miód",
+        "specialUnit": "1 łyżeczka",
+        "unit": "g"
+      },
+      {
+        "amount": 125.0,
+        "category": "DAIRY",
+        "name": "ser twarogowy chudy",
+        "specialUnit": "0,5 opakowanie",
+        "unit": "g"
+      },
+      {
+        "amount": 150.0,
+        "category": "DAIRY",
+        "name": "jogurt naturalny",
+        "specialUnit": "0,4 opakowanie",
+        "unit": "g"
+      }
+    ],
+    "public": true,
+    "receiptDTO": {
+      "description": "Jakis dodatkowy opis",
+      "idReceipt": 36,
+      "prepareTime": 5,
+      "steps": [
+        {
+          "header": "Rozgnieść",
+          "idStep": 109,
+          "number": 1
+        },
+        {
+          "header": " Zamieszać",
+          "idStep": 110,
+          "number": 2
+        }
+      ],
+      "title": "Pyszny twarożek"
+    },
+    "shortDescription": "Przepis z Excel",
+    "title": "Pyszny twarożek",
+    "typeMeal": [
+      {
+        "idTypeMeal": 2,
+        "mealTime": "LUNCH"
+      }
+    ]
+  }
+]

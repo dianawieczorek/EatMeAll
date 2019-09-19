@@ -1,0 +1,14 @@
+[
+  {
+    "idMeal": 69,
+    "language": "PL",
+    "mealTime": "BREAKFAST",
+    "public": true,
+    "shortDescription": "Przepis z Excel",
+    "title": "jajecznica z boczkiem i szczypiorkiem",
+    "amountCalories": 428.0,
+    "amountCarbohydrates": 46.0,
+    "amountFat": 15.4,
+    "amountProtein": 28.0
+  }
+]

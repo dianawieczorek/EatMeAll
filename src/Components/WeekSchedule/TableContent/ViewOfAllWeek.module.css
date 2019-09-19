@@ -1,0 +1,12 @@
+.MealPlan {
+    display: flex;
+    flex-flow: row;
+    overflow: scroll;
+}
+
+@media (min-width: 600px) {
+    .MealPlan {
+        overflow: hidden;
+    }
+
+}

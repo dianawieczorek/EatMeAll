@@ -1,0 +1,70 @@
+.MealInfo {
+    font-size: 1rem;
+    font-weight: 200;
+    min-height: 6rem;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-flow: column;
+    text-transform: lowercase;
+}
+
+.TypeOfMeal {
+    font-weight: 400;
+    font-size: 0.75rem;
+    margin-left: auto;
+    padding-bottom: 5px;
+}
+
+.HoverButtons {
+    position: absolute;
+    display: none;
+    margin-left: -8px;
+}
+
+.ChangeDiv:hover .TypeOfMeal {
+    opacity: 0.2;
+}
+
+.ChangeDiv:hover .MealName {
+    opacity: 0.2;
+}
+
+.ChangeDiv:hover .HoverButtons {
+    display: block;
+    box-sizing: border-box;
+    padding: 10px;
+    line-height: 4rem;
+}
+
+.HoverButtons a {
+    color: black;
+}
+
+Button {
+    font-size: 1rem;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border:none;
+    display: inline-block;
+}
+
+@media (min-width: 600px) {
+    .ChangeDiv:hover .HoverButtons {
+        line-height: 3.5rem;
+    }
+
+    .Icon {
+        font-size: 1.5rem;
+        padding: 0 4px;
+    }
+
+    .Icon:hover {
+        opacity: 0.75;
+        font-size: 1.75rem;
+    }
+}
+

@@ -1,0 +1,39 @@
+.TableHeader {
+    background: #326D65;
+    align-items: center;
+    color: whitesmoke;
+    border-radius: 2px;
+    display: flex;
+    flex-flow: row;
+}
+
+.Label {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    align-items: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.Buttons {
+    margin-left: auto;
+}
+
+@media (min-width: 900px) {
+    .TableHeader {
+        display: flex;
+        flex-flow: row;
+    }
+
+    .Label {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        align-items: center;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .Buttons {
+        margin-left: auto;
+    }
+}

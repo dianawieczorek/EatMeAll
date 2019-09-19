@@ -1,0 +1,23 @@
+.Toolbar {
+    height: 90px;
+    max-width: inherit;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 18px;
+    box-sizing: border-box;
+    z-index: 90;
+    background: white;
+}
+
+.Logo {
+    height: 90%;
+}
+
+@media (max-width:599px) {
+    .DesktopOnly{
+        display: none;
+    }
+}

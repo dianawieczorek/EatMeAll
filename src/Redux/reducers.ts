@@ -1,22 +1,185 @@
-import {ADD_ITEM, Types} from "./actionTypes";
+import {
+    CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
+    Types, SET_PRODUCT_LIST, ADD_USER_NAME, DELETE_USERS, DELETE_USER
+} from "./actionTypes";
 import {Reducer} from "redux";
+import {produce} from "immer"
+import {loadMeals, loadUsers} from "../ServerConnection/localStorage";
+import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
+import WeekScheduleDomain from './Model/WeekScheduleDomain';
+import {setCurrentWeekSchedule} from "./actions";
+import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 
-interface InitialState {
-    itemList: string[]
+
+
+interface UserListReducerState {
+    userList: Array<string>
 }
 
-const INITIAL_STATE: InitialState = {
-    itemList: ["test1-redux", "test2-redux"]
+export const USER_LIST_INITIAL_STATE: UserListReducerState = {
+    userList: loadUsers(),
+
+};
+
+export const listOfUsersReducer: Reducer<UserListReducerState, Types> = (state: UserListReducerState = USER_LIST_INITIAL_STATE, action: Types) => {
+    switch (action.type) {
+        case ADD_USER_NAME: {
+            return produce(state, draftState => {
+                draftState.userList.push(action.userName);
+                WEEK_INITIAL_STATE.currentWeekSchedule.push({user: action.userName, weekSchedule: []})
+            })
+        }
+        case DELETE_USERS: {
+            return produce(state, draftState => {
+                draftState.userList = ["user"]
+                WEEK_INITIAL_STATE.currentWeekSchedule = draftState.userList.map(u => {
+                        return {user: u, weekSchedule: []}
+                    })
+            })
+        }
+        case DELETE_USER: {
+            return produce(state, draftState => {
+                draftState.userList = draftState.userList.filter(user => user !== action.userName);
+                WEEK_INITIAL_STATE.currentWeekSchedule= draftState.userList.map(u => {
+                    return {user: u, weekSchedule: []}
+                })
+            })
+        }
+        default:
+            return state
+    }
 };
 
 
-export const listReducer: Reducer<InitialState, Types> = (state: InitialState = INITIAL_STATE, action: Types) => {
+interface weekInitialState {
+    // currentWeekSchedule:  Array<DayDto> | undefined
+    currentUser: string
+    currentWeekSchedule: Array<WeekScheduleDomain>
+    weekScheduleForCurrentUser: Array<DayDto>;
+}
+
+const WEEK_INITIAL_STATE: weekInitialState = {
+    // currentWeekSchedule: [],
+    currentWeekSchedule: loadMeals(),
+    currentUser: window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1),
+    weekScheduleForCurrentUser: loadMeals()[0]
+    // currentWeekSchedule: USER_LIST_INITIAL_STATE.userList.map(u => {
+    //     return {user: u, weekSchedule: []}
+    // })
+};
+
+export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: weekInitialState = WEEK_INITIAL_STATE, action: Types) => {
     switch (action.type) {
-        case ADD_ITEM: {
-            return {
-                ...state,
-                itemList: [...state.itemList, action.newItem]
-            }
+        case SET_CURRENT_WEEK_SCHEDULE: {
+            return produce(state, draftState => {
+                if (draftState.currentWeekSchedule !== undefined) {
+                    let currentUser=(window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
+                    if (currentUser !== "home") {
+                        let currentUserIndex = draftState.currentWeekSchedule.findIndex(u => u.user == currentUser)
+                        draftState.currentWeekSchedule[currentUserIndex].weekSchedule = action.currentWeekSchedule;
+                    } else window.alert("musisz wybrać dietożercę")
+                }
+            })
+        }
+        // case SET_CURENT_USER{
+        //     action.currentUser;
+        //     this.state.weekScheduleReducer.currentUser;
+        //     draftState.weekScheduleForCurrentUser = loadMeals()[x]
+        // }
+        //
+        //
+        case RANDOM_MEAL_CHANGE: {
+            return produce(state, draftState => {
+                if (draftState.currentWeekSchedule !== undefined) {
+                    draftState.currentWeekSchedule[0].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
+                }
+            })
+        }
+
+        default:
+            return state
+    }
+};
+
+interface ModalReducerState {
+    visible: boolean
+    data?: JSX.Element
+}
+
+const MODAL_REDUCER_INITIAL_STATE: ModalReducerState = {
+    visible: false,
+    data: undefined,
+};
+
+export const modalReducer: Reducer<ModalReducerState, Types> = (state: ModalReducerState = MODAL_REDUCER_INITIAL_STATE, action: Types) => {
+    switch (action.type) {
+        case OPEN_MODAL: {
+            return produce(state, draftState => {
+                draftState.visible = true;
+                draftState.data = action.data;
+            })
+        }
+        case CLOSE_MODAL: {
+            return produce(state, draftState => {
+                draftState.visible = false;
+            })
+        }
+        default:
+            return state
+    }
+};
+
+interface SideDrawerReducerState {
+    visible: boolean
+}
+
+const SIDEDRAWER_REDUCER_INITIAL_STATE: SideDrawerReducerState = {
+    visible: false,
+};
+
+export const sidedrawerReducer: Reducer<SideDrawerReducerState, Types> = (state: SideDrawerReducerState = SIDEDRAWER_REDUCER_INITIAL_STATE, action: Types) => {
+    switch (action.type) {
+        case OPEN_SIDEDRAWER: {
+            return produce(state, draftState => {
+                draftState.visible = true;
+            })
+        }
+        case CLOSE_SIDEDRAWER: {
+            return produce(state, draftState => {
+                draftState.visible = false;
+            })
+        }
+        default:
+            return state
+    }
+};
+
+interface ProductListReducerState {
+    categoryListOfProduct: GroupproductsDto,
+}
+
+const PRODUCT_LIST_INITIAL_STATE: ProductListReducerState = {
+    categoryListOfProduct: {
+        baking: [],
+        dairy: [],
+        drink: [],
+        meat: [],
+        fish: [],
+        fruit: [],
+        vegetable: [],
+        grains: [],
+        spice: [],
+        other: [],
+        unknown: []
+    },
+};
+
+export const productListReducer: Reducer<ProductListReducerState, Types> = (state: ProductListReducerState = PRODUCT_LIST_INITIAL_STATE, action: Types) => {
+    switch (action.type) {
+        case SET_PRODUCT_LIST: {
+            return produce(state, draftState => {
+                draftState.categoryListOfProduct = action.categoryListOfProduct
+            })
         }
         default:
             return state
