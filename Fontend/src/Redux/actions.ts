@@ -2,8 +2,8 @@ import {
     CLOSE_MODAL, closeModalIf,
     OPEN_MODAL, openModalIf, RANDOM_MEAL_CHANGE, randomMealChangeIf,
     SET_CURRENT_WEEK_SCHEDULE, CLOSE_SIDEDRAWER, OPEN_SIDEDRAWER, SET_PRODUCT_LIST, closeSidedrawerIf, openSidedrawerIf,
-    setCurrentWeekScheduleIf, setProductListIf, setUserNameIf, ADD_USER_NAME, deleteUsersIf, DELETE_USERS, deleteUserIf,
-    DELETE_USER
+    setCurrentWeekScheduleIf, setProductListIf, setUserNameIf, ADD_MEMBER_NAME, deleteUsersIf, DELETE_MEMBERS, deleteUserIf,
+    DELETE_MEMBER
 } from "./actionTypes";
 
 
@@ -62,20 +62,20 @@ export const setProductList = (aProductList: GroupproductsDto): setProductListIf
 
 export const setUserName = (aUserName: string): setUserNameIf => {
     return {
-        type: ADD_USER_NAME,
+        type: ADD_MEMBER_NAME,
         userName: aUserName
     }
 };
 
 export const deleteUsers = (): deleteUsersIf => {
     return {
-        type: DELETE_USERS,
+        type: DELETE_MEMBERS,
     }
 };
 
 export const deleteUser = (aUserName: string): deleteUserIf => {
     return {
-        type: DELETE_USER,
+        type: DELETE_MEMBER,
         userName: aUserName
     }
 };

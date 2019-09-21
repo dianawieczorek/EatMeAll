@@ -17,13 +17,13 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 
 class PanelForUsers extends PureComponent<Props> {
     render() {
-        if (this.props.userList !== undefined) {
+        if (this.props.memberList !== undefined) {
             return (
                 <div className={styles.Wrapper}>
                     <div>
                         Wybierz dietożercę
                     </div>
-                    {this.props.userList.map((userName: string) => <Button onClick={this.changeScheduleForSelectedUser}>
+                    {this.props.memberList.map((userName: string) => <Button onClick={this.changeScheduleForSelectedUser}>
                         <NavLink className={styles.Nav}
                                  to={"/home/" + userName}>{userName}
                         </NavLink>
@@ -51,7 +51,7 @@ class PanelForUsers extends PureComponent<Props> {
 
 const mapStateToProps = (store: AppStore) => {
     return {
-        userList: store.listOfUsersReducer.userList,
+        memberList: store.listOfUsersReducer.memberList,
     };
 };
 

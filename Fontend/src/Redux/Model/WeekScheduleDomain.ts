@@ -1,6 +1,6 @@
 import {DayDto} from "../../ServerConnection/DTOs/WeekScheduleDto";
 
 export default interface WeekScheduleDomain{
-    user: string;
+    member: string;
     weekSchedule: Array<DayDto>;
 }

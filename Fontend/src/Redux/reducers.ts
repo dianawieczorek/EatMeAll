@@ -1,47 +1,38 @@
 import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
-    Types, SET_PRODUCT_LIST, ADD_USER_NAME, DELETE_USERS, DELETE_USER
+    Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
 import {loadMeals, loadUsers} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
-import WeekScheduleDomain from './Model/WeekScheduleDomain';
-import {setCurrentWeekSchedule} from "./actions";
-import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
+import Geberish243874587293874987 from './Model/WeekScheduleDomain';
 
 
-interface UserListReducerState {
-    userList: Array<string>
+interface GlobalCongigReducerIf {
+    memberList: Array<string>
 }
 
-export const USER_LIST_INITIAL_STATE: UserListReducerState = {
-    userList: loadUsers(),
+export const GLOBAL_CONFIG: GlobalCongigReducerIf = {
+    memberList: loadUsers(),
 
 };
 
-export const listOfUsersReducer: Reducer<UserListReducerState, Types> = (state: UserListReducerState = USER_LIST_INITIAL_STATE, action: Types) => {
+export const globalConfigReducer: Reducer<GlobalCongigReducerIf, Types> = (state: GlobalCongigReducerIf = GLOBAL_CONFIG, action: Types) => {
     switch (action.type) {
-        case ADD_USER_NAME: {
+        case ADD_MEMBER_NAME: {
             return produce(state, draftState => {
-                draftState.userList.push(action.userName);
-                WEEK_INITIAL_STATE.currentWeekSchedule.push({user: action.userName, weekSchedule: []})
+                draftState.memberList.push(action.userName);
             })
         }
-        case DELETE_USERS: {
+        case DELETE_MEMBERS: {
             return produce(state, draftState => {
-                draftState.userList = ["user"]
-                WEEK_INITIAL_STATE.currentWeekSchedule = draftState.userList.map(u => {
-                    return {user: u, weekSchedule: []}
-                })
+                draftState.memberList = ["member"];
             })
         }
-        case DELETE_USER: {
+        case DELETE_MEMBER: {
             return produce(state, draftState => {
-                draftState.userList = draftState.userList.filter(user => user !== action.userName);
-                WEEK_INITIAL_STATE.currentWeekSchedule = draftState.userList.map(u => {
-                    return {user: u, weekSchedule: []}
-                })
+                draftState.memberList = draftState.memberList.filter(user => user !== action.userName);
             })
         }
         default:
@@ -50,31 +41,25 @@ export const listOfUsersReducer: Reducer<UserListReducerState, Types> = (state: 
 };
 
 
-interface weekInitialState {
-    // currentWeekSchedule:  Array<DayDto> | undefined
-    currentUser: string
-    currentWeekSchedule: Array<WeekScheduleDomain>
-    weekScheduleForCurrentUser: Array<DayDto>;
+interface weekScheduleReducerIf {
+    currentUser: Geberish243874587293874987
+    currentWeekSchedule: Array<Geberish243874587293874987>
 }
 
-const WEEK_INITIAL_STATE: weekInitialState = {
-    // currentWeekSchedule: [],
+const WEEK_INIT: weekScheduleReducerIf = {
     currentWeekSchedule: loadMeals(),
-    currentUser: window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1),
-    weekScheduleForCurrentUser: loadMeals()[0]
-    // currentWeekSchedule: USER_LIST_INITIAL_STATE.userList.map(u => {
-    //     return {user: u, weekSchedule: []}
-    // })
+    currentUser: loadMeals()[0]
+        // window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1),
 };
 
-export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: weekInitialState = WEEK_INITIAL_STATE, action: Types) => {
+export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state: weekScheduleReducerIf = WEEK_INIT, action: Types) => {
     switch (action.type) {
         case SET_CURRENT_WEEK_SCHEDULE: {
             return produce(state, draftState => {
                 if (draftState.currentWeekSchedule !== undefined) {
                     let currentUser = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
                     if (currentUser !== "home") {
-                        let currentUserIndex = draftState.currentWeekSchedule.findIndex(u => u.user == currentUser)
+                        let currentUserIndex = draftState.currentWeekSchedule.findIndex(u => u.member == currentUser)
                         draftState.currentWeekSchedule[currentUserIndex].weekSchedule = action.currentWeekSchedule;
                     } else window.alert("musisz wybrać dietożercę")
                 }
@@ -100,17 +85,17 @@ export const weekScheduleReducer: Reducer<weekInitialState, Types> = (state: wee
     }
 };
 
-interface ModalReducerState {
+interface ModalReducerIf {
     visible: boolean
     data?: JSX.Element
 }
 
-const MODAL_REDUCER_INITIAL_STATE: ModalReducerState = {
+const MODAL_REDUCER_INIT: ModalReducerIf = {
     visible: false,
     data: undefined,
 };
 
-export const modalReducer: Reducer<ModalReducerState, Types> = (state: ModalReducerState = MODAL_REDUCER_INITIAL_STATE, action: Types) => {
+export const modalReducer: Reducer<ModalReducerIf, Types> = (state: ModalReducerIf = MODAL_REDUCER_INIT, action: Types) => {
     switch (action.type) {
         case OPEN_MODAL: {
             return produce(state, draftState => {
@@ -128,15 +113,15 @@ export const modalReducer: Reducer<ModalReducerState, Types> = (state: ModalRedu
     }
 };
 
-interface SideDrawerReducerState {
+interface SideDrawerReducerIf {
     visible: boolean
 }
 
-const SIDEDRAWER_REDUCER_INITIAL_STATE: SideDrawerReducerState = {
+const SIDEDRAWER_REDUCER_INIT: SideDrawerReducerIf = {
     visible: false,
 };
 
-export const sidedrawerReducer: Reducer<SideDrawerReducerState, Types> = (state: SideDrawerReducerState = SIDEDRAWER_REDUCER_INITIAL_STATE, action: Types) => {
+export const sidedrawerReducer: Reducer<SideDrawerReducerIf, Types> = (state: SideDrawerReducerIf = SIDEDRAWER_REDUCER_INIT, action: Types) => {
     switch (action.type) {
         case OPEN_SIDEDRAWER: {
             return produce(state, draftState => {
@@ -153,11 +138,11 @@ export const sidedrawerReducer: Reducer<SideDrawerReducerState, Types> = (state:
     }
 };
 
-interface ProductListReducerState {
+interface ProductListReducerIf {
     categoryListOfProduct: GroupproductsDto,
 }
 
-const PRODUCT_LIST_INITIAL_STATE: ProductListReducerState = {
+const PRODUCT_LIST_INIT: ProductListReducerIf = {
     categoryListOfProduct: {
         baking: [],
         dairy: [],
@@ -173,7 +158,7 @@ const PRODUCT_LIST_INITIAL_STATE: ProductListReducerState = {
     },
 };
 
-export const productListReducer: Reducer<ProductListReducerState, Types> = (state: ProductListReducerState = PRODUCT_LIST_INITIAL_STATE, action: Types) => {
+export const productListReducer: Reducer<ProductListReducerIf, Types> = (state: ProductListReducerIf = PRODUCT_LIST_INIT, action: Types) => {
     switch (action.type) {
         case SET_PRODUCT_LIST: {
             return produce(state, draftState => {

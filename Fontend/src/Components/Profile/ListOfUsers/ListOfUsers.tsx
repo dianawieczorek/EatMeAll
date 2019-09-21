@@ -43,7 +43,7 @@ class ListOfUsers extends PureComponent<Props> {
 
 const mapStateToProps = (state: AppStore) => {
     return {
-        listofUsers: state.listOfUsersReducer.userList
+        listofUsers: state.listOfUsersReducer.memberList
     };
 };
 

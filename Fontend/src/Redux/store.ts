@@ -9,7 +9,7 @@ const store = createStore(rootReducer,
     persistedState, composeWithDevTools());
 
 store.subscribe(() => {
-        saveUsers(store.getState().listOfUsersReducer.userList);
+        saveUsers(store.getState().listOfUsersReducer.memberList);
         saveWeekMeals(store.getState().weekScheduleReducer.currentWeekSchedule);
     }
 );
