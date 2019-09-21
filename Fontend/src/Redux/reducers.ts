@@ -1,12 +1,12 @@
 import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
-    Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS
+    Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
 import {loadMeals, loadUsers} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
-import Geberish243874587293874987 from './Model/WeekScheduleDomain';
+import Geberish243874587293874987 from './Model/Geberish243874587293874987';
 
 
 interface GlobalCongigReducerIf {
@@ -42,14 +42,14 @@ export const globalConfigReducer: Reducer<GlobalCongigReducerIf, Types> = (state
 
 
 interface weekScheduleReducerIf {
-    currentUser: Geberish243874587293874987
+    currentMember: Geberish243874587293874987
     currentWeekSchedule: Array<Geberish243874587293874987>
 }
 
 const WEEK_INIT: weekScheduleReducerIf = {
     currentWeekSchedule: loadMeals(),
-    currentUser: loadMeals()[0]
-        // window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1),
+    currentMember: loadMeals()[0]
+    // window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1),
 };
 
 export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state: weekScheduleReducerIf = WEEK_INIT, action: Types) => {
@@ -59,19 +59,19 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
                 if (draftState.currentWeekSchedule !== undefined) {
                     let currentUser = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
                     if (currentUser !== "home") {
-                        let currentUserIndex = draftState.currentWeekSchedule.findIndex(u => u.member == currentUser)
+                        let currentUserIndex = draftState.currentWeekSchedule.findIndex(u => u.member == currentUser);
                         draftState.currentWeekSchedule[currentUserIndex].weekSchedule = action.currentWeekSchedule;
-                    } else window.alert("musisz wybrać dietożercę")
+                    } else {
+                        window.alert("musisz wybrać dietożercę");
+                    }
                 }
             })
         }
-        // case SET_CURENT_USER{
-        //     action.currentUser;
-        //     this.state.weekScheduleReducer.currentUser;
-        //     draftState.weekScheduleForCurrentUser = loadMeals()[x]
-        // }
-        //
-        //
+        case SET_CURRENT_MEMBER: {
+            return produce(state, draftState => {
+                draftState.currentMember = state.currentWeekSchedule.filter(member => member.member === action.memberName)[0];
+            })
+        }
         case RANDOM_MEAL_CHANGE: {
             return produce(state, draftState => {
                 if (draftState.currentWeekSchedule !== undefined) {

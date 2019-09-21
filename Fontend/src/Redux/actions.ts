@@ -2,8 +2,9 @@ import {
     CLOSE_MODAL, closeModalIf,
     OPEN_MODAL, openModalIf, RANDOM_MEAL_CHANGE, randomMealChangeIf,
     SET_CURRENT_WEEK_SCHEDULE, CLOSE_SIDEDRAWER, OPEN_SIDEDRAWER, SET_PRODUCT_LIST, closeSidedrawerIf, openSidedrawerIf,
-    setCurrentWeekScheduleIf, setProductListIf, setUserNameIf, ADD_MEMBER_NAME, deleteUsersIf, DELETE_MEMBERS, deleteUserIf,
-    DELETE_MEMBER
+    setCurrentWeekScheduleIf, setProductListIf, setUserNameIf, ADD_MEMBER_NAME, deleteUsersIf, DELETE_MEMBERS,
+    deleteUserIf,
+    DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER
 } from "./actionTypes";
 
 
@@ -19,7 +20,14 @@ export const setCurrentWeekSchedule = (aCurrentWeekSchedule: Array<DayDto>): set
     }
 };
 
-export const randomMealChange = (aRandomMeal: RandomMealDto, aDayNr:number, aMealNr:number): randomMealChangeIf => {
+export const setCurrentMember = (memberName: string): setCurrentMemberIf => {
+    return {
+        type: SET_CURRENT_MEMBER,
+        memberName: memberName
+    }
+};
+
+export const randomMealChange = (aRandomMeal: RandomMealDto, aDayNr: number, aMealNr: number): randomMealChangeIf => {
     return {
         type: RANDOM_MEAL_CHANGE,
         randomMeal: aRandomMeal,

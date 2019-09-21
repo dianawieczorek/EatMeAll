@@ -51,20 +51,43 @@ export interface setProductListIf {
 }
 
 export const ADD_MEMBER_NAME = 'ADD_MEMBER_NAME';
+
 export interface setUserNameIf {
     type: typeof ADD_MEMBER_NAME
     userName: string
 }
+
 export const DELETE_MEMBERS = 'DELETE_MEMBERS';
+
 export interface deleteUsersIf {
     type: typeof DELETE_MEMBERS
 }
 
 export const DELETE_MEMBER = 'DELETE_MEMBER';
+
 export interface deleteUserIf {
     type: typeof DELETE_MEMBER
     userName: string
 
 }
 
-export type Types = setCurrentWeekScheduleIf | openModalIf | closeModalIf | randomMealChangeIf | openSidedrawerIf | closeSidedrawerIf |setProductListIf | setUserNameIf |deleteUsersIf |deleteUserIf
+export const SET_CURRENT_MEMBER = 'SET_CURRENT_MEMBER';
+
+export interface setCurrentMemberIf {
+    type: typeof SET_CURRENT_MEMBER
+    memberName: string
+
+}
+
+export type Types =
+    setCurrentWeekScheduleIf
+    | openModalIf
+    | closeModalIf
+    | randomMealChangeIf
+    | openSidedrawerIf
+    | closeSidedrawerIf
+    | setProductListIf
+    | setUserNameIf
+    | deleteUsersIf
+    | deleteUserIf
+    | setCurrentMemberIf

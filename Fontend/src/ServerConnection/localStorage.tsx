@@ -1,18 +1,17 @@
 import {GLOBAL_CONFIG} from "../Redux/reducers";
+import Geberish243874587293874987 from "../Redux/Model/Geberish243874587293874987";
 
 export const loadMeals = () => {
     try {
         const serializedMeals = localStorage.getItem('weekMeals');
         if (serializedMeals === null) {
             return GLOBAL_CONFIG.memberList.map(u => {
-                return {user: u, weekSchedule: []}
+                return {member: u, weekSchedule: new Geberish243874587293874987().weekSchedule}
             });
         }
         return JSON.parse(serializedMeals);
     } catch (err) {
-        return GLOBAL_CONFIG.memberList.map(u => {
-            return {user: u, weekSchedule: []}
-        });
+
     }
 };
 
@@ -24,7 +23,7 @@ export const loadUsers = () => {
         }
         return JSON.parse(serializedUsers);
     } catch (err) {
-        return ["member"];
+
     }
 };
 

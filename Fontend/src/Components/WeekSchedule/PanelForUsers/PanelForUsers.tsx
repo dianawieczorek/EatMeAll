@@ -6,7 +6,7 @@ import {AppStore} from "../../../Redux/store";
 import {NavLink} from "react-router-dom";
 import {DayDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
 import {Dispatch} from "redux";
-import {setCurrentWeekSchedule} from "../../../Redux/actions";
+import {openModal, setCurrentMember, setCurrentWeekSchedule} from "../../../Redux/actions";
 import SingleMealShortInfo from "../TableContent/SingleMealShortInfo/SingleMealShortInfo";
 
 
@@ -23,11 +23,14 @@ class PanelForUsers extends PureComponent<Props> {
                     <div>
                         Wybierz dietożercę
                     </div>
-                    {this.props.memberList.map((userName: string) => <Button onClick={this.changeScheduleForSelectedUser}>
-                        <NavLink className={styles.Nav}
-                                 to={"/home/" + userName}>{userName}
-                        </NavLink>
-                    </Button>)}
+                    {this.props.memberList.map((userName: string) =>
+                        <Button
+                            onClick={this.changeScheduleForSelectedUser}>
+                            <NavLink className={styles.Nav}
+                                     to={"/home/" + userName}>{userName}
+                            </NavLink>
+                        </Button>)
+                    }
 
                 </div>
             );
@@ -44,7 +47,7 @@ class PanelForUsers extends PureComponent<Props> {
     }
 
     private changeScheduleForSelectedUser = (e: any) => {
-        window.location.reload()
+        this.props.setCurrentMember(e.target.innerHTML);
     }
 }
 
@@ -55,7 +58,10 @@ const mapStateToProps = (store: AppStore) => {
     };
 };
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {
+        setCurrentMember: (memberName: string) => dispatch(setCurrentMember(memberName)),
 
+    }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(PanelForUsers);
