@@ -62,18 +62,18 @@ class SingleMealShortInfo extends PureComponent<Props> {
         }
     }
 
-    private showDetails = (e: any) => {
-        fetch("jsonMocks/mealRecipe.json")
+    private showDetails = () => {
+        fetch("http://217.182.78.23:100/app/meals/"+ this.props.MealInfo.idMeal)
             .then(response => response.json())
             .then((json: Array<MealRecipeDto>) => {
                 this.showDetailsPopup(json[0]);
             })
     };
 
-    private randomizeMeal = (e: any) => {
+    private randomizeMeal = () => {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
-        fetch("jsonMocks/randomMealFromDatabase.json")
+        fetch("http://217.182.78.23:100/app/meals/short/mealTime?mealTime="+this.props.MealInfo.mealTime)
             .then(response => response.json())
             .then((json: Array<RandomMealDto>) => {
                 const meal = json[0];
@@ -82,7 +82,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
             })
     };
 
-    private deleteMealFromList = (e: any) => {
+    private deleteMealFromList = () => {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
         fetch("jsonMocks/emptyMeal.json")
@@ -94,10 +94,10 @@ class SingleMealShortInfo extends PureComponent<Props> {
             })
     };
 
-    private changeMealFromList = (e: any) => {
+    private changeMealFromList = () => {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
-        fetch("jsonMocks/fewRandomMeals.json")
+        fetch("http://217.182.78.23:100/app/meals/short/mealTime?mealTime="+this.props.MealInfo.mealTime)
             .then(response => response.json())
             .then((json: Array<RandomMealDto>) => {
                 this.showMealsListPopup(json, dayNumber, mealNumber);
@@ -132,6 +132,8 @@ class SingleMealShortInfo extends PureComponent<Props> {
             return "podwieczorek"
         } else if (this.props.MealInfo.mealTime === "SUPPER") {
             return "kolacja"
+        } else {
+            return ""
         }
     }
 }

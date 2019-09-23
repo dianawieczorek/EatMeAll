@@ -23,22 +23,20 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
         case SET_CURRENT_WEEK_SCHEDULE: {
             return produce(state, draftState => {
                 if (draftState.members !== undefined) {
-                    let currentUser = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
-                    if (currentUser !== "home") {
-                        let currentUserIndex = draftState.members.findIndex(u => u.name == currentUser);
-                        draftState.members[currentUserIndex].weekSchedule = action.currentWeekSchedule;
-                        draftState.currentMember = draftState.members[currentUserIndex];
-                    } else {
-                        window.alert("musisz wybrać dietożercę");
-                    }
+                    let selectedMember = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
+                    let currentMemberIndex = state.members.findIndex(u => u.name == selectedMember);
+                    draftState.currentMember = loadMembers()[currentMemberIndex];
+                    draftState.members[currentMemberIndex].weekSchedule = action.currentWeekSchedule;
                 }
             })
         }
         case RANDOM_MEAL_CHANGE: {
             return produce(state, draftState => {
-                if (draftState.members !== undefined) {
-                    draftState.members[0].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
-                }
+                let selectedMember = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
+                let currentMemberIndex = state.members.findIndex(u => u.name == selectedMember);
+                draftState.currentMember = loadMembers()[currentMemberIndex];
+                draftState.members[currentMemberIndex].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
+
             })
         }
         case SET_CURRENT_MEMBER: {
