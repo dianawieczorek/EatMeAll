@@ -21,6 +21,7 @@ class App extends React.Component<Props> {
                     <Switch>
                         <Route path="/home/:userName" component={WeekSchedule}/>}
                         <Redirect from="/" exact to={'/home/'+defaultUser}/>
+                        <Redirect from="/home" exact to={'/home/'+defaultUser}/>
                         <Route from="/shopping-list" component={ShoppingList}/>
                         <Route from="/add-meal" component={AddMealToDatabase}/>
                         <Route from="/profile" component={Profile}/>

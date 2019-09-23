@@ -50,7 +50,7 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
         }
         case DELETE_MEMBERS: {
             return produce(state, draftState => {
-                draftState.members = [new Member('member')]
+                draftState.members = [new Member('default')]
             })
         }
         case DELETE_MEMBER: {

@@ -10,6 +10,7 @@ import MealRecipe from "../../../MealRecipe/MealRecipe";
 import {MealRecipeDto} from "../../../../ServerConnection/DTOs/MealRecipeDto";
 import {RandomMealDto} from "../../../../ServerConnection/DTOs/randomMealDto";
 import ListOfMeals from "../../../ListOfMeals/ListOfMeals";
+import {Simulate} from "react-dom/test-utils";
 
 
 interface OwnProps {
@@ -90,7 +91,6 @@ class SingleMealShortInfo extends PureComponent<Props> {
             .then((json: Array<RandomMealDto>) => {
                 const meal = json[0];
                 this.props.randomMealChange(meal, dayNumber, mealNumber)
-
             })
     };
 
