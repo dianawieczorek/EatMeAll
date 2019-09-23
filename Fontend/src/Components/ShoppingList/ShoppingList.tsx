@@ -65,9 +65,9 @@ class ShoppingList extends PureComponent<Props> {
 }
 
 const mapStateToProps = (state: AppStore) => {
-    if (state.weekScheduleReducer.currentWeekSchedule !== undefined) {
+    if (state.weekScheduleReducer.members !== undefined) {
         return {
-            Meal: state.weekScheduleReducer.currentWeekSchedule[0].weekSchedule,
+            Meal: state.weekScheduleReducer.members[0].weekSchedule,
             ProductList: state.productListReducer.categoryListOfProduct
         }
     }

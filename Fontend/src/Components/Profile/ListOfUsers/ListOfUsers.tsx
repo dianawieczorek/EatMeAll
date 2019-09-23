@@ -13,11 +13,11 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 
 class ListOfUsers extends PureComponent<Props> {
     render() {
-        if (this.props.listofUsers !== undefined) {
+        if (this.props.members !== undefined) {
             return (
                 <div>
                     <ol>
-                        {this.props.listofUsers.map((item: string) => <li className={styles.UserName}>{item}
+                        {this.props.members.map((item: string) => <li className={styles.UserName}>{item}
                             <button className={styles.Button} onClick={this.deleteUserName} type="submit">skasuj
                                 dietożercę
                             </button>
@@ -43,7 +43,7 @@ class ListOfUsers extends PureComponent<Props> {
 
 const mapStateToProps = (state: AppStore) => {
     return {
-        listofUsers: state.listOfUsersReducer.memberList
+        members: state.weekScheduleReducer.members.map(member => member.name)
     };
 };
 

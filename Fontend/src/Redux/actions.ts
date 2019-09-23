@@ -8,12 +8,12 @@ import {
 } from "./actionTypes";
 
 
-import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
+import {DayDietDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
 import {GroupproductsDto, ProductDto} from "../ServerConnection/DTOs/ShoppingListDto";
 
 
-export const setCurrentWeekSchedule = (aCurrentWeekSchedule: Array<DayDto>): setCurrentWeekScheduleIf => {
+export const setCurrentWeekSchedule = (aCurrentWeekSchedule: Array<DayDietDto>): setCurrentWeekScheduleIf => {
     return {
         type: SET_CURRENT_WEEK_SCHEDULE,
         currentWeekSchedule: aCurrentWeekSchedule

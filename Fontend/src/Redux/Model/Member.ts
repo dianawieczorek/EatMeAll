@@ -1,20 +1,20 @@
-import {DayDto, MealDto} from "../../ServerConnection/DTOs/WeekScheduleDto";
+import {DayDietDto, MealDto} from "../../ServerConnection/DTOs/WeekScheduleDto";
 
-export default class Geberish243874587293874987 {
-    member: string;
-    weekSchedule: Array<DayDto>;
+export default class Member {
+    name: string;
+    weekSchedule: Array<DayDietDto>;
 
 
-    constructor() {
-        this.member = "member";
+    constructor(aUserName: string) {
+        this.name = aUserName;
         this.weekSchedule = []
         for (let day = 0; day < 7; day++) {
             const tempArray: Array<MealDto> = [];
             for (let meal = 0; meal < 5; meal++) {
                 tempArray.push({
                     idMeal: -1,
-                    mealTime: "LUNCH",
-                    title: "x",
+                    mealTime: "",
+                    title: "",
                     shortDescription: "",
                     amountCalories: 0,
                     amountCarbohydrates: 0,

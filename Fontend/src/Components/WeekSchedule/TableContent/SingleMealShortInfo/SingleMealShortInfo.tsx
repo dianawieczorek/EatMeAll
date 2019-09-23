@@ -136,10 +136,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
     }
 }
 
-
 const mapStateToProps = (state: AppStore, ownProps: any) => {
-    console.log(state.weekScheduleReducer.currentWeekSchedule)
-    console.log(state.weekScheduleReducer.currentMember)
     return {
         MealInfo: state.weekScheduleReducer.currentMember.weekSchedule[ownProps.dayNumber].meals[ownProps.mealNumber]
     };
@@ -150,9 +147,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         openModal: (aData: JSX.Element) => dispatch(openModal(aData)),
         randomMealChange: (randomMeal: RandomMealDto, dayNr: number, mealNr: number) => dispatch(randomMealChange(randomMeal, dayNr, mealNr)),
-
     }
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleMealShortInfo);

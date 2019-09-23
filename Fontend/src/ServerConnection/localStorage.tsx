@@ -1,46 +1,26 @@
-import {GLOBAL_CONFIG} from "../Redux/reducers";
-import Geberish243874587293874987 from "../Redux/Model/Geberish243874587293874987";
+import Member from "../Redux/Model/Member";
 
-export const loadMeals = () => {
+const MEMBERS = 'members';
+
+export const  saveMembers = (members:Array<Member>) => {
     try {
-        const serializedMeals = localStorage.getItem('weekMeals');
+        const serializedState = JSON.stringify(members);
+        localStorage.setItem(MEMBERS, serializedState);
+    }catch (err) {
+        // ignore write errors
+    }
+};
+
+export const loadMembers = () => {
+    try {
+        let serializedMeals = localStorage.getItem(MEMBERS);
         if (serializedMeals === null) {
-            return GLOBAL_CONFIG.memberList.map(u => {
-                return {member: u, weekSchedule: new Geberish243874587293874987().weekSchedule}
-            });
+            saveMembers ( [new Member('default')]);
+            serializedMeals = localStorage.getItem(MEMBERS);
         }
-        return JSON.parse(serializedMeals);
+        return JSON.parse(serializedMeals!);
     } catch (err) {
 
     }
 };
 
-export const loadUsers = () => {
-    try {
-        const serializedUsers= localStorage.getItem('users');
-        if (serializedUsers === null) {
-            return ["member"];
-        }
-        return JSON.parse(serializedUsers);
-    } catch (err) {
-
-    }
-};
-
-export const  saveWeekMeals = (state:any) => {
-    try {
-        const serializedState = JSON.stringify(state);
-        localStorage.setItem('weekMeals', serializedState);
-    }catch (err) {
-        // ignore write errors
-    }
-}
-
-export const  saveUsers= (state:any) => {
-    try {
-        const serializedState = JSON.stringify(state);
-        localStorage.setItem('users', serializedState);
-    }catch (err) {
-        // ignore write errors
-    }
-}

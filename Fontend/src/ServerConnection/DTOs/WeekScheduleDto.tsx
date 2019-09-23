@@ -1,4 +1,4 @@
-export interface DayDto {
+export interface DayDietDto {
     meals: Array<MealDto>
 }
 

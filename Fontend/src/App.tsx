@@ -14,7 +14,7 @@ type Props = ReturnType<typeof mapStateToProps>;
 class App extends React.Component<Props> {
 
     render() {
-        const defaultUser= this.props.memberList[0]
+        const defaultUser= this.props.memberList[0];
         return (
             <div className={styles.Container}>
                 <Layout>
@@ -33,7 +33,7 @@ class App extends React.Component<Props> {
 }
 const mapStateToProps = (store: AppStore) => {
     return {
-        memberList: store.listOfUsersReducer.memberList,
+        memberList: store.weekScheduleReducer.members.map(member => member.name),
     };
 };
 export default connect(mapStateToProps)(App);

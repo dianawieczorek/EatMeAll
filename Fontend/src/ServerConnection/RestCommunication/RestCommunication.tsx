@@ -36,7 +36,7 @@ const mapStateToProps = (state: any) => {
 
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    // ta akcja ma ustawiać cały tydzień w appStore jako currentWeekSchedule
+    // ta akcja ma ustawiać cały tydzień w appStore jako members
     // setCurrentWeekSchedule: (aWeekSchedule: WeekScheduleDto) => dispatch(setCurrentWeekSchedule(aWeekSchedule))
     // setMyBuildings: (aMyBuildings: Array<BuildingDto>) => dispatch(setMyBuildings(aMyBuildings)),
     // setResources: (aResources: {minerals: number, gas: number}) => dispatch(setResources(aResources))

@@ -1,4 +1,4 @@
-import {DayDto} from "../ServerConnection/DTOs/WeekScheduleDto";
+import {DayDietDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 
@@ -6,7 +6,7 @@ export const SET_CURRENT_WEEK_SCHEDULE = 'SET_CURRENT_WEEK_SCHEDULE';
 
 export interface setCurrentWeekScheduleIf {
     type: typeof SET_CURRENT_WEEK_SCHEDULE
-    currentWeekSchedule: Array<DayDto>
+    currentWeekSchedule: Array<DayDietDto>
 }
 
 export const RANDOM_MEAL_CHANGE = 'RANDOM_MEAL_CHANGE';

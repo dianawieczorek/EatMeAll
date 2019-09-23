@@ -4,79 +4,62 @@ import {
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
-import {loadMeals, loadUsers} from "../ServerConnection/localStorage";
+import {loadMembers} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
-import Geberish243874587293874987 from './Model/Geberish243874587293874987';
-
-
-interface GlobalCongigReducerIf {
-    memberList: Array<string>
-}
-
-export const GLOBAL_CONFIG: GlobalCongigReducerIf = {
-    memberList: loadUsers(),
-
-};
-
-export const globalConfigReducer: Reducer<GlobalCongigReducerIf, Types> = (state: GlobalCongigReducerIf = GLOBAL_CONFIG, action: Types) => {
-    switch (action.type) {
-        case ADD_MEMBER_NAME: {
-            return produce(state, draftState => {
-                draftState.memberList.push(action.userName);
-            })
-        }
-        case DELETE_MEMBERS: {
-            return produce(state, draftState => {
-                draftState.memberList = ["member"];
-            })
-        }
-        case DELETE_MEMBER: {
-            return produce(state, draftState => {
-                draftState.memberList = draftState.memberList.filter(user => user !== action.userName);
-            })
-        }
-        default:
-            return state
-    }
-};
-
+import Member from './Model/Member';
 
 interface weekScheduleReducerIf {
-    currentMember: Geberish243874587293874987
-    currentWeekSchedule: Array<Geberish243874587293874987>
+    currentMember: Member
+    members: Array<Member>
 }
 
 const WEEK_INIT: weekScheduleReducerIf = {
-    currentWeekSchedule: loadMeals(),
-    currentMember: loadMeals()[0]
-    // window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1),
+    currentMember: loadMembers()[0],
+    members: loadMembers()
 };
 
 export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state: weekScheduleReducerIf = WEEK_INIT, action: Types) => {
     switch (action.type) {
         case SET_CURRENT_WEEK_SCHEDULE: {
             return produce(state, draftState => {
-                if (draftState.currentWeekSchedule !== undefined) {
+                if (draftState.members !== undefined) {
                     let currentUser = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
                     if (currentUser !== "home") {
-                        let currentUserIndex = draftState.currentWeekSchedule.findIndex(u => u.member == currentUser);
-                        draftState.currentWeekSchedule[currentUserIndex].weekSchedule = action.currentWeekSchedule;
+                        let currentUserIndex = draftState.members.findIndex(u => u.name == currentUser);
+                        draftState.members[currentUserIndex].weekSchedule = action.currentWeekSchedule;
+                        draftState.currentMember = draftState.members[currentUserIndex];
                     } else {
                         window.alert("musisz wybrać dietożercę");
                     }
                 }
             })
         }
-        case SET_CURRENT_MEMBER: {
-            return produce(state, draftState => {
-                draftState.currentMember = state.currentWeekSchedule.filter(member => member.member === action.memberName)[0];
-            })
-        }
         case RANDOM_MEAL_CHANGE: {
             return produce(state, draftState => {
-                if (draftState.currentWeekSchedule !== undefined) {
-                    draftState.currentWeekSchedule[0].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
+                if (draftState.members !== undefined) {
+                    draftState.members[0].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
                 }
+            })
+        }
+        case SET_CURRENT_MEMBER: {
+            return produce(state, draftState => {
+                draftState.currentMember = state.members.filter(member => member.name === action.memberName)[0];
+            })
+        }
+
+        case ADD_MEMBER_NAME: {
+            return produce(state, draftState => {
+                draftState.members.push(new Member(action.userName));
+            })
+        }
+        case DELETE_MEMBERS: {
+            return produce(state, draftState => {
+                draftState.members = [new Member('member')]
+            })
+        }
+        case DELETE_MEMBER: {
+            return produce(state, draftState => {
+                draftState.members = draftState.members.filter(member => member.name !== action.userName);
             })
         }
 

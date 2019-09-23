@@ -4,7 +4,7 @@ import Button from "../../UI/Button/Button"
 import styles from "./PanelForUsers.module.css"
 import {AppStore} from "../../../Redux/store";
 import {NavLink} from "react-router-dom";
-import {DayDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
+import {DayDietDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
 import {Dispatch} from "redux";
 import {openModal, setCurrentMember, setCurrentWeekSchedule} from "../../../Redux/actions";
 import SingleMealShortInfo from "../TableContent/SingleMealShortInfo/SingleMealShortInfo";
@@ -54,7 +54,7 @@ class PanelForUsers extends PureComponent<Props> {
 
 const mapStateToProps = (store: AppStore) => {
     return {
-        memberList: store.listOfUsersReducer.memberList,
+        memberList: store.weekScheduleReducer.members.map(member => member.name),
     };
 };
 
