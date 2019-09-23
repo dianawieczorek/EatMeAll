@@ -7,6 +7,7 @@ import {produce} from "immer"
 import {loadMembers} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 import Member from './Model/Member';
+import {DayOfWeekDto} from "../ServerConnection/DTOs/DayOfWeekDto";
 
 interface weekScheduleReducerIf {
     members: Array<Member>
@@ -142,6 +143,33 @@ export const productListReducer: Reducer<ProductListReducerIf, Types> = (state: 
         case SET_PRODUCT_LIST: {
             return produce(state, draftState => {
                 draftState.categoryListOfProduct = action.categoryListOfProduct
+            })
+        }
+        default:
+            return state
+    }
+};
+
+interface ShoppingListReducerIf {
+    days: Array<DayOfWeekDto>,
+}
+
+const SHOPPING_LIST_INIT: ShoppingListReducerIf = {
+    days: [
+        {id:0, value:"Pon", isChecked:false},
+        {id:1, value:"Wt", isChecked:false},
+        {id:2, value:"Śr", isChecked:false},
+        {id:3, value:"Czw", isChecked:false},
+        {id:4, value:"Pt", isChecked:false},
+        {id:5, value:"Sob", isChecked:false},
+        {id:6, value:"Nd", isChecked:false},
+    ]
+};
+
+export const shoppingListReducer: Reducer<ShoppingListReducerIf, Types> = (state: ShoppingListReducerIf = SHOPPING_LIST_INIT, action: Types) => {
+    switch (action.type) {
+        case SET_PRODUCT_LIST: {
+            return produce(state, draftState => {
             })
         }
         default:

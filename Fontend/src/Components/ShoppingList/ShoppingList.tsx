@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import classes from "../WeekSchedule/TableHeader/TableHeader.module.css";
 import style from '..//WeekSchedule/WeekSchedule.module.css'
@@ -9,6 +9,8 @@ import CategoryListOfProduct from "./CategoryListOfProducts/CategoryListOfProduc
 import {setProductList} from "../../Redux/actions";
 import {Dispatch} from "redux";
 import {GroupproductsDto} from "../../ServerConnection/DTOs/ShoppingListDto";
+import WeekCheckbox from "./CheckboxPerMember/WeekCheckbox/WeekCheckbox";
+import CheckboxPerMember from "./CheckboxPerMember/CheckboxPerMember";
 
 
 interface OwnProps {
@@ -16,14 +18,13 @@ interface OwnProps {
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
-class ShoppingList extends PureComponent<Props> {
+class ShoppingList extends Component<Props> {
 
     constructor(aProps: Props) {
-        super(aProps)
+        super(aProps);
     }
 
     render() {
-        let days = ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"]
 
         return (
             <div className={style.PageSettings}>
@@ -35,23 +36,17 @@ class ShoppingList extends PureComponent<Props> {
                                 <div className={styles.MemberList}>
                                     <p>wygeneruj listę zakupów dla:</p>
                                     <div>
-                                        <input value={userName} type="checkbox"/>
+                                        <input value={userName} type="checkbox" onClick={this.selectedMember}/>
                                         <label>{userName}</label>
                                         <div>
-                                            {days.map((day: string) =>
-                                                <div className={styles.DayList}>
-                                                    <input value={day} type="checkbox"/>
-                                                    <label>{day}</label>
-                                                </div>
-                                            )}
+                                            <WeekCheckbox/>
                                         </div>
                                     </div>
                                 </div>
 
                             </React.Fragment>
                         )}
-                    </div>
-                    <div className={classes.Buttons}>
+                    </div>                    <div className={classes.Buttons}>
                         <Button onClick={this.shoppingList}>
                             Wygeneruj listę zakupów
                         </Button>
@@ -73,11 +68,17 @@ class ShoppingList extends PureComponent<Props> {
         )
     }
 
+    private selectedMember = (e: any) => {
+        let selectedMember = e.target.parentElement.innerHTML.split("<label>")[1].split("</label>")[0];
+        let currentMemberIndex = this.props.Meal.findIndex(m => m.name == selectedMember);
+        console.log(currentMemberIndex)
+    };
+
     private shoppingList = () => {
         // let mealIds = [this.props.Meal.filter((dayOfWeekPlan,i) => x.contains(i)).map(dayOfWeekPlan => dayOfWeekPlan.weekSchedule["meals"].map((meal => meal.idMeal))];
         let mealIds = [this.props.Meal.map((member: any) => member.weekSchedule.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.idMeal)))];
         console.log(mealIds)
-        // let selectedMember = mealIds[n]
+        let selectedMember = mealIds[1]
         // let arrayOfMealIds= [...mealIds[0],...mealIds[1],...mealIds[2],...mealIds[3],...mealIds[4],...mealIds[5],...mealIds[6]];
         // console.log(arrayOfMealIds)
         // fetch("http://217.182.78.23:100/app/shoppingList/order/id/" + arrayOfMealIds)

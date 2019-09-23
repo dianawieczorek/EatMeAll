@@ -4,10 +4,8 @@ import Button from "../../UI/Button/Button"
 import styles from "./PanelForUsers.module.css"
 import {AppStore} from "../../../Redux/store";
 import {NavLink} from "react-router-dom";
-import {DayDietDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
 import {Dispatch} from "redux";
-import {openModal, setCurrentMember, setCurrentWeekSchedule} from "../../../Redux/actions";
-import SingleMealShortInfo from "../TableContent/SingleMealShortInfo/SingleMealShortInfo";
+import {setCurrentMember} from "../../../Redux/actions";
 
 
 interface OwnProps {
