@@ -9,33 +9,31 @@ import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 import Member from './Model/Member';
 
 interface weekScheduleReducerIf {
-    currentMember: Member
     members: Array<Member>
+    currentMember: Member
 }
 
 const WEEK_INIT: weekScheduleReducerIf = {
-    currentMember: loadMembers()[0],
-    members: loadMembers()
+    members: loadMembers(),
+    currentMember: loadMembers()[0]
 };
 
 export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state: weekScheduleReducerIf = WEEK_INIT, action: Types) => {
+    let selectedMember = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
+    let currentMemberIndex = state.members.findIndex(u => u.name == selectedMember);
     switch (action.type) {
         case SET_CURRENT_WEEK_SCHEDULE: {
             return produce(state, draftState => {
-                if (draftState.members !== undefined) {
-                    let selectedMember = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
-                    let currentMemberIndex = state.members.findIndex(u => u.name == selectedMember);
                     draftState.currentMember = loadMembers()[currentMemberIndex];
                     draftState.members[currentMemberIndex].weekSchedule = action.currentWeekSchedule;
-                }
+                    draftState.currentMember.weekSchedule = action.currentWeekSchedule;
             })
         }
         case RANDOM_MEAL_CHANGE: {
             return produce(state, draftState => {
-                let selectedMember = (window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1));
-                let currentMemberIndex = state.members.findIndex(u => u.name == selectedMember);
                 draftState.currentMember = loadMembers()[currentMemberIndex];
                 draftState.members[currentMemberIndex].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
+                draftState.currentMember.weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
 
             })
         }
