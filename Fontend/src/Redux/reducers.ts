@@ -1,6 +1,6 @@
 import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
-    Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER
+    Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
@@ -168,8 +168,10 @@ const SHOPPING_LIST_INIT: ShoppingListReducerIf = {
 
 export const shoppingListReducer: Reducer<ShoppingListReducerIf, Types> = (state: ShoppingListReducerIf = SHOPPING_LIST_INIT, action: Types) => {
     switch (action.type) {
-        case SET_PRODUCT_LIST: {
+        case CHANGE_CHECKED: {
             return produce(state, draftState => {
+                let selectedDay = draftState.days.filter(day => day.value===action.dayName);
+                selectedDay[0].isChecked = !selectedDay[0].isChecked
             })
         }
         default:

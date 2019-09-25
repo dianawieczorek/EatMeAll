@@ -3,7 +3,7 @@ import {
     OPEN_MODAL, openModalIf, RANDOM_MEAL_CHANGE, randomMealChangeIf,
     SET_CURRENT_WEEK_SCHEDULE, CLOSE_SIDEDRAWER, OPEN_SIDEDRAWER, SET_PRODUCT_LIST, closeSidedrawerIf, openSidedrawerIf,
     setCurrentWeekScheduleIf, setProductListIf, setUserNameIf, ADD_MEMBER_NAME, deleteUsersIf, DELETE_MEMBERS,
-    deleteUserIf,
+    deleteUserIf, changeCheckboxIf,CHANGE_CHECKED,
     DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER
 } from "./actionTypes";
 
@@ -85,5 +85,14 @@ export const deleteUser = (aUserName: string): deleteUserIf => {
     return {
         type: DELETE_MEMBER,
         userName: aUserName
+    }
+};
+
+export const changeCheckbox = (aName: string): changeCheckboxIf => {
+    return {
+        type: CHANGE_CHECKED,
+        dayName: aName
+        // checked: aChecked,
+        // id: aId
     }
 };

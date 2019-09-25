@@ -11,6 +11,8 @@ import {MealRecipeDto} from "../../../../ServerConnection/DTOs/MealRecipeDto";
 import {RandomMealDto} from "../../../../ServerConnection/DTOs/randomMealDto";
 import ListOfMeals from "../../../ListOfMeals/ListOfMeals";
 import {Simulate} from "react-dom/test-utils";
+import {EmptyMeal} from "../../../../Redux/Model/Schedule";
+import {RANDOM_MEAL_URL, SHOW_DETAIL_URL} from "../../../../ServerConnection/RestCommunication/fileWithConstants";
 
 
 interface OwnProps {
@@ -64,7 +66,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
     }
 
     private showDetails = () => {
-        fetch("http://217.182.78.23:100/app/meals/"+ this.props.MealInfo.idMeal)
+        fetch(SHOW_DETAIL_URL+ this.props.MealInfo.idMeal)
             .then(response => response.json())
             .then((json: Array<MealRecipeDto>) => {
                 this.showDetailsPopup(json[0]);
@@ -74,7 +76,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
     private randomizeMeal = () => {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
-        fetch("http://217.182.78.23:100/app/meals/short/mealTime?mealTime="+this.props.MealInfo.mealTime)
+        fetch(RANDOM_MEAL_URL+this.typeOfMealForEmpty())
             .then(response => response.json())
             .then((json: Array<RandomMealDto>) => {
                 const meal = json[0];
@@ -86,18 +88,13 @@ class SingleMealShortInfo extends PureComponent<Props> {
     private deleteMealFromList = () => {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
-        fetch("jsonMocks/emptyMeal.json")
-            .then(response => response.json())
-            .then((json: Array<RandomMealDto>) => {
-                const meal = json[0];
-                this.props.randomMealChange(meal, dayNumber, mealNumber)
-            })
+        this.props.randomMealChange(new EmptyMeal(), dayNumber, mealNumber)
     };
 
     private changeMealFromList = () => {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
-        fetch("http://217.182.78.23:100/app/meals/short/mealTime?mealTime="+this.props.MealInfo.mealTime)
+        fetch(RANDOM_MEAL_URL+this.typeOfMealForEmpty())
             .then(response => response.json())
             .then((json: Array<RandomMealDto>) => {
                 this.showMealsListPopup(json, dayNumber, mealNumber);
@@ -135,6 +132,22 @@ class SingleMealShortInfo extends PureComponent<Props> {
         } else {
             return ""
         }
+    };
+
+    public typeOfMealForEmpty = () => {
+        if (this.props.mealNumber === 0) {
+            return "BREAKFAST"
+        } else if (this.props.mealNumber === 1) {
+            return "DINNER"
+        } else if (this.props.mealNumber === 2) {
+            return "LUNCH"
+        } else if (this.props.mealNumber === 3) {
+            return "SNACK"
+        } else if (this.props.mealNumber === 4) {
+            return "SUPPER"
+        } else {
+            return ""
+        }
     }
 }
 
@@ -149,7 +162,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         openModal: (aData: JSX.Element) => dispatch(openModal(aData)),
         randomMealChange: (randomMeal: RandomMealDto, dayNr: number, mealNr: number) => dispatch(randomMealChange(randomMeal, dayNr, mealNr)),
-    }
+}
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleMealShortInfo);

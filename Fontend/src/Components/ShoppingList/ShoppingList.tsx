@@ -81,7 +81,7 @@ class ShoppingList extends Component<Props> {
         let selectedMember = mealIds[1]
         // let arrayOfMealIds= [...mealIds[0],...mealIds[1],...mealIds[2],...mealIds[3],...mealIds[4],...mealIds[5],...mealIds[6]];
         // console.log(arrayOfMealIds)
-        // fetch("http://217.182.78.23:100/app/shoppingList/order/id/" + arrayOfMealIds)
+        // fetch(SHOPPING_LIST_URL + arrayOfMealIds)
         //     .then((response) => response.json())
         //     .then((json: GroupproductsDto) => {
         //             this.props.setProductList(json)

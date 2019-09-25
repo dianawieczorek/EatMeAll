@@ -79,6 +79,16 @@ export interface setCurrentMemberIf {
 
 }
 
+export const CHANGE_CHECKED = 'CHANGE_CHECKED';
+
+export interface changeCheckboxIf {
+    type: typeof CHANGE_CHECKED
+    dayName: string
+    // checked: boolean,
+    // id: number
+
+}
+
 export type Types =
     setCurrentWeekScheduleIf
     | openModalIf
@@ -91,3 +101,4 @@ export type Types =
     | deleteUsersIf
     | deleteUserIf
     | setCurrentMemberIf
+    | changeCheckboxIf
