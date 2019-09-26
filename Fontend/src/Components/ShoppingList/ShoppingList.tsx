@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import classes from "../WeekSchedule/TableHeader/TableHeader.module.css";
 import style from '..//WeekSchedule/WeekSchedule.module.css'
-import styles from "./ShoppingList.module.css"
 import {AppStore} from "../../Redux/store";
 import Button from "../UI/Button/Button"
 import CategoryListOfProduct from "./CategoryListOfProducts/CategoryListOfProduct";
 import {setProductList} from "../../Redux/actions";
 import {Dispatch} from "redux";
 import {GroupproductsDto} from "../../ServerConnection/DTOs/ShoppingListDto";
-import WeekCheckbox from "./CheckboxPerMember/WeekCheckbox/WeekCheckbox";
-import CheckboxPerMember from "./CheckboxPerMember/CheckboxPerMember";
+import WeekCheckbox from "./WeekCheckbox/WeekCheckbox";
+import {SHOPPING_LIST_URL} from "../../ServerConnection/RestCommunication/fileWithConstants";
+import {func} from "prop-types";
 
 
 interface OwnProps {
@@ -30,23 +30,8 @@ class ShoppingList extends Component<Props> {
             <div className={style.PageSettings}>
                 <div className={classes.TableHeader}>
                     <div className={classes.Label}>Lista Zakupów</div>
-                    <div className={styles.Checkbox}>
-                        {this.props.memberList.map((userName: string) =>
-                            <React.Fragment>
-                                <div className={styles.MemberList}>
-                                    <p>wygeneruj listę zakupów dla:</p>
-                                    <div>
-                                        <input value={userName} type="checkbox" onClick={this.selectedMember}/>
-                                        <label>{userName}</label>
-                                        <div>
-                                            <WeekCheckbox/>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </React.Fragment>
-                        )}
-                    </div>                    <div className={classes.Buttons}>
+                    <WeekCheckbox/>
+                    <div className={classes.Buttons}>
                         <Button onClick={this.shoppingList}>
                             Wygeneruj listę zakupów
                         </Button>
@@ -68,25 +53,24 @@ class ShoppingList extends Component<Props> {
         )
     }
 
-    private selectedMember = (e: any) => {
-        let selectedMember = e.target.parentElement.innerHTML.split("<label>")[1].split("</label>")[0];
-        let currentMemberIndex = this.props.Meal.findIndex(m => m.name == selectedMember);
-        console.log(currentMemberIndex)
-    };
-
     private shoppingList = () => {
+        let checkedDays = this.props.days.map(day => day.id).map(dayId => dayId);
         // let mealIds = [this.props.Meal.filter((dayOfWeekPlan,i) => x.contains(i)).map(dayOfWeekPlan => dayOfWeekPlan.weekSchedule["meals"].map((meal => meal.idMeal))];
-        let mealIds = [this.props.Meal.map((member: any) => member.weekSchedule.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.idMeal)))];
-        console.log(mealIds)
-        let selectedMember = mealIds[1]
-        // let arrayOfMealIds= [...mealIds[0],...mealIds[1],...mealIds[2],...mealIds[3],...mealIds[4],...mealIds[5],...mealIds[6]];
-        // console.log(arrayOfMealIds)
-        // fetch(SHOPPING_LIST_URL + arrayOfMealIds)
-        //     .then((response) => response.json())
-        //     .then((json: GroupproductsDto) => {
-        //             this.props.setProductList(json)
-        //         }
-        //     );
+        let mealIds = [this.props.Meal.map((member: any) => member.weekSchedule.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.idMeal)))][0];
+        let mealIdsForSelectedDays = [];
+        for (let m = 0; m < this.props.memberList.length; m++) {
+            for (let x = 0; x < checkedDays.length; x++) {
+                let idsOfSingleDay = mealIds[m][checkedDays[x]];
+                mealIdsForSelectedDays.push(idsOfSingleDay)
+            }
+        }
+        let arrayOfIdsMeals = mealIdsForSelectedDays.reduce((arr, el) => arr.concat(el));
+        fetch(SHOPPING_LIST_URL + arrayOfIdsMeals)
+            .then((response) => response.json())
+            .then((json: GroupproductsDto) => {
+                    this.props.setProductList(json)
+                }
+            );
     }
 }
 
@@ -95,7 +79,8 @@ const mapStateToProps = (store: AppStore) => {
         return {
             Meal: store.weekScheduleReducer.members,
             memberList: store.weekScheduleReducer.members.map(member => member.name),
-            ProductList: store.productListReducer.categoryListOfProduct
+            ProductList: store.productListReducer.categoryListOfProduct,
+            days: store.shoppingListReducer.days.filter(day => day.isChecked === true)
         }
     }
 };

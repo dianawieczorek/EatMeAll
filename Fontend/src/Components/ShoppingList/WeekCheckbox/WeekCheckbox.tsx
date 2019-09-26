@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import styles from "../../../ShoppingList/ShoppingList.module.css"
-import {AppStore} from "../../../../Redux/store";
-import {GroupproductsDto} from "../../../../ServerConnection/DTOs/ShoppingListDto";
+import styles from "../ShoppingList.module.css"
+import {AppStore} from "../../../Redux/store";
+import {GroupproductsDto} from "../../../ServerConnection/DTOs/ShoppingListDto";
 import {Dispatch} from "redux";
-import {changeCheckbox} from "../../../../Redux/actions";
+import {changeCheckbox} from "../../../Redux/actions";
 
 
 interface OwnProps {
@@ -28,7 +28,6 @@ class WeekCheckbox extends Component<Props> {
 
     private selectedDay = (e: any) => {
         let selectedDay = e.target.value;
-        console.log(selectedDay)
         this.props.changeCheckbox(selectedDay)
     };
 }
@@ -43,7 +42,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         changeCheckbox: (aDayName: string) => dispatch(changeCheckbox(aDayName))
     };
-}
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeekCheckbox);

@@ -10,7 +10,6 @@ import MealRecipe from "../../../MealRecipe/MealRecipe";
 import {MealRecipeDto} from "../../../../ServerConnection/DTOs/MealRecipeDto";
 import {RandomMealDto} from "../../../../ServerConnection/DTOs/randomMealDto";
 import ListOfMeals from "../../../ListOfMeals/ListOfMeals";
-import {Simulate} from "react-dom/test-utils";
 import {EmptyMeal} from "../../../../Redux/Model/Schedule";
 import {RANDOM_MEAL_URL, SHOW_DETAIL_URL} from "../../../../ServerConnection/RestCommunication/fileWithConstants";
 
