@@ -5,7 +5,7 @@ import {Dispatch} from "redux";
 import styles from "./SingleMealShortInfo.module.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBook, faCalendarTimes, faCopy, faListUl, faPaste, faRetweet} from "@fortawesome/free-solid-svg-icons";
-import {openModal, randomMealChange} from "../../../../Redux/actions";
+import {copyMeal, openModal, randomMealChange} from "../../../../Redux/actions";
 import MealRecipe from "../../../MealRecipe/MealRecipe";
 import {MealRecipeDto} from "../../../../ServerConnection/DTOs/MealRecipeDto";
 import {RandomMealDto} from "../../../../ServerConnection/DTOs/randomMealDto";
@@ -44,7 +44,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
                                 <FontAwesomeIcon className={styles.Icon} icon={faCalendarTimes}
                                                  title="wyczyść/jem na mieście"/>
                             </button>
-                            <button className={styles.Button} /*onClick={this.copyActionHandler}*/>
+                            <button className={styles.Button} onClick={this.copyMeal}>
                                 <FontAwesomeIcon className={styles.Icon} icon={faCopy} title="kopiuj"/>
                             </button>
                             <button className={styles.Button} /*onClick={this.pasteActionHandler}*/>
@@ -57,15 +57,15 @@ class SingleMealShortInfo extends PureComponent<Props> {
         } else {
             return (
                 <div className={styles.MealInfo}>
-                    <div className={styles.TypeOfMeal}></div>
-                    <div></div>
+                    <div className={styles.TypeOfMeal}> </div>
+                    <div> </div>
                 </div>
             )
         }
     }
 
     private showDetails = () => {
-        fetch(SHOW_DETAIL_URL+ this.props.MealInfo.idMeal)
+        fetch(SHOW_DETAIL_URL + this.props.MealInfo.idMeal)
             .then(response => response.json())
             .then((json: Array<MealRecipeDto>) => {
                 this.showDetailsPopup(json[0]);
@@ -75,7 +75,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
     private randomizeMeal = () => {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
-        fetch(RANDOM_MEAL_URL+this.typeOfMealForEmpty())
+        fetch(RANDOM_MEAL_URL + this.typeOfMealForEmpty())
             .then(response => response.json())
             .then((json: Array<RandomMealDto>) => {
                 const meal = json[0];
@@ -93,11 +93,15 @@ class SingleMealShortInfo extends PureComponent<Props> {
     private changeMealFromList = () => {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
-        fetch(RANDOM_MEAL_URL+this.typeOfMealForEmpty())
+        fetch(RANDOM_MEAL_URL + this.typeOfMealForEmpty())
             .then(response => response.json())
             .then((json: Array<RandomMealDto>) => {
                 this.showMealsListPopup(json, dayNumber, mealNumber);
             })
+    };
+
+    private copyMeal = () => {
+        this.props.copyMeal(this.props.MealInfo)
     };
 
     private showDetailsPopup = (selectedMealJson: MealRecipeDto) => {
@@ -161,7 +165,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         openModal: (aData: JSX.Element) => dispatch(openModal(aData)),
         randomMealChange: (randomMeal: RandomMealDto, dayNr: number, mealNr: number) => dispatch(randomMealChange(randomMeal, dayNr, mealNr)),
-}
+        copyMeal: (mealToCopy: RandomMealDto) => dispatch(copyMeal(mealToCopy)),
+    }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleMealShortInfo);

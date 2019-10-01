@@ -18,6 +18,13 @@ export interface randomMealChangeIf {
     mealNr: number
 }
 
+export const COPY_MEAL = 'COPY_MEAL';
+
+export interface copyMealIf {
+    type: typeof COPY_MEAL
+    mealToCopy: RandomMealDto
+}
+
 export const OPEN_MODAL = 'OPEN_MODAL';
 
 export interface openModalIf {
@@ -84,8 +91,7 @@ export const CHANGE_CHECKED = 'CHANGE_CHECKED';
 export interface changeCheckboxIf {
     type: typeof CHANGE_CHECKED
     dayName: string
-    // checked: boolean,
-    // id: number
+
 
 }
 
@@ -102,3 +108,4 @@ export type Types =
     | deleteUserIf
     | setCurrentMemberIf
     | changeCheckboxIf
+    | copyMealIf

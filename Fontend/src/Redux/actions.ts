@@ -3,8 +3,8 @@ import {
     OPEN_MODAL, openModalIf, RANDOM_MEAL_CHANGE, randomMealChangeIf,
     SET_CURRENT_WEEK_SCHEDULE, CLOSE_SIDEDRAWER, OPEN_SIDEDRAWER, SET_PRODUCT_LIST, closeSidedrawerIf, openSidedrawerIf,
     setCurrentWeekScheduleIf, setProductListIf, setUserNameIf, ADD_MEMBER_NAME, deleteUsersIf, DELETE_MEMBERS,
-    deleteUserIf, changeCheckboxIf,CHANGE_CHECKED,
-    DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER
+    deleteUserIf, changeCheckboxIf, CHANGE_CHECKED,
+    DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER, COPY_MEAL, copyMealIf
 } from "./actionTypes";
 
 
@@ -33,6 +33,13 @@ export const randomMealChange = (aRandomMeal: RandomMealDto, aDayNr: number, aMe
         randomMeal: aRandomMeal,
         dayNr: aDayNr,
         mealNr: aMealNr
+    }
+};
+
+export const copyMeal = (aMealToCopy: RandomMealDto): copyMealIf => {
+    return {
+        type: COPY_MEAL,
+        mealToCopy: aMealToCopy,
     }
 };
 
