@@ -5,13 +5,14 @@ import {Dispatch} from "redux";
 import styles from "./SingleMealShortInfo.module.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBook, faCalendarTimes, faCopy, faListUl, faPaste, faRetweet} from "@fortawesome/free-solid-svg-icons";
-import {copyMeal, openModal, randomMealChange} from "../../../../Redux/actions";
+import {copyMeal, openModal, pasteMeal, randomMealChange} from "../../../../Redux/actions";
 import MealRecipe from "../../../MealRecipe/MealRecipe";
 import {MealRecipeDto} from "../../../../ServerConnection/DTOs/MealRecipeDto";
 import {RandomMealDto} from "../../../../ServerConnection/DTOs/randomMealDto";
 import ListOfMeals from "../../../ListOfMeals/ListOfMeals";
 import {EmptyMeal} from "../../../../Redux/Model/Schedule";
 import {RANDOM_MEAL_URL, SHOW_DETAIL_URL} from "../../../../ServerConnection/RestCommunication/fileWithConstants";
+import {loadMealToPaste} from "../../../../ServerConnection/localStorage";
 
 
 interface OwnProps {
@@ -47,7 +48,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
                             <button className={styles.Button} onClick={this.copyMeal}>
                                 <FontAwesomeIcon className={styles.Icon} icon={faCopy} title="kopiuj"/>
                             </button>
-                            <button className={styles.Button} /*onClick={this.pasteActionHandler}*/>
+                            <button className={styles.Button} onClick={this.pasteMeal}>
                                 <FontAwesomeIcon className={styles.Icon} icon={faPaste} title="wklej"/>
                             </button>
                         </div>
@@ -102,6 +103,12 @@ class SingleMealShortInfo extends PureComponent<Props> {
 
     private copyMeal = () => {
         this.props.copyMeal(this.props.MealInfo)
+    };
+
+    private pasteMeal = () => {
+        let dayNumber = this.props.dayNumber;
+        let mealNumber = this.props.mealNumber;
+        this.props.pasteMeal(loadMealToPaste(), dayNumber, mealNumber)
     };
 
     private showDetailsPopup = (selectedMealJson: MealRecipeDto) => {
@@ -166,6 +173,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
         openModal: (aData: JSX.Element) => dispatch(openModal(aData)),
         randomMealChange: (randomMeal: RandomMealDto, dayNr: number, mealNr: number) => dispatch(randomMealChange(randomMeal, dayNr, mealNr)),
         copyMeal: (mealToCopy: RandomMealDto) => dispatch(copyMeal(mealToCopy)),
+        pasteMeal: (meal:RandomMealDto, dayNr: number, mealNr: number) => dispatch(pasteMeal(meal, dayNr, mealNr)),
     }
 };
 

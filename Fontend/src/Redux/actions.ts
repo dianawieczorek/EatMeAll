@@ -4,7 +4,7 @@ import {
     SET_CURRENT_WEEK_SCHEDULE, CLOSE_SIDEDRAWER, OPEN_SIDEDRAWER, SET_PRODUCT_LIST, closeSidedrawerIf, openSidedrawerIf,
     setCurrentWeekScheduleIf, setProductListIf, setUserNameIf, ADD_MEMBER_NAME, deleteUsersIf, DELETE_MEMBERS,
     deleteUserIf, changeCheckboxIf, CHANGE_CHECKED,
-    DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER, COPY_MEAL, copyMealIf
+    DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER, COPY_MEAL, copyMealIf, pasteMealIf, PASTE_MEAL
 } from "./actionTypes";
 
 
@@ -40,6 +40,15 @@ export const copyMeal = (aMealToCopy: RandomMealDto): copyMealIf => {
     return {
         type: COPY_MEAL,
         mealToCopy: aMealToCopy,
+    }
+};
+
+export const pasteMeal = (aMealToPaste: RandomMealDto, aDayNr: number, aMealNr: number): pasteMealIf => {
+    return {
+        type: PASTE_MEAL,
+        mealToPaste: aMealToPaste,
+        dayNr: aDayNr,
+        mealNr: aMealNr
     }
 };
 
@@ -99,7 +108,5 @@ export const changeCheckbox = (aName: string): changeCheckboxIf => {
     return {
         type: CHANGE_CHECKED,
         dayName: aName
-        // checked: aChecked,
-        // id: aId
     }
 };

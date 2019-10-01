@@ -1,11 +1,11 @@
 import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
     Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED,
-    COPY_MEAL
+    COPY_MEAL, PASTE_MEAL
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
-import {loadMembers, saveMealToCopy} from "../ServerConnection/localStorage";
+import {loadMealToPaste, loadMembers, saveMealToCopy} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 import Member from './Model/Member';
 import {DayOfWeekDto} from "../ServerConnection/DTOs/DayOfWeekDto";
@@ -36,7 +36,6 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
                 draftState.currentMember = loadMembers()[currentMemberIndex];
                 draftState.members[currentMemberIndex].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
                 draftState.currentMember.weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
-
             })
         }
         case SET_CURRENT_MEMBER: {
@@ -60,11 +59,17 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
                 draftState.members = draftState.members.filter(member => member.name !== action.userName);
             })
         }
-
         case COPY_MEAL: {
             return produce(state, draftState => {
                 saveMealToCopy(action.mealToCopy)
             })
+        }
+        case PASTE_MEAL: {
+            return produce(state, draftState => {
+                draftState.currentMember = loadMembers()[currentMemberIndex];
+                draftState.members[currentMemberIndex].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.mealToPaste;
+                draftState.currentMember.weekSchedule[action.dayNr]["meals"][action.mealNr] = action.mealToPaste;
+                })
         }
 
         default:

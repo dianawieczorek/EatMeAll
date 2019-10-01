@@ -25,6 +25,15 @@ export interface copyMealIf {
     mealToCopy: RandomMealDto
 }
 
+export const PASTE_MEAL = 'PASTE_MEAL';
+
+export interface pasteMealIf {
+    type: typeof PASTE_MEAL
+    mealToPaste: RandomMealDto
+    dayNr: number,
+    mealNr: number
+}
+
 export const OPEN_MODAL = 'OPEN_MODAL';
 
 export interface openModalIf {
@@ -91,8 +100,6 @@ export const CHANGE_CHECKED = 'CHANGE_CHECKED';
 export interface changeCheckboxIf {
     type: typeof CHANGE_CHECKED
     dayName: string
-
-
 }
 
 export type Types =
@@ -109,3 +116,4 @@ export type Types =
     | setCurrentMemberIf
     | changeCheckboxIf
     | copyMealIf
+    | pasteMealIf
