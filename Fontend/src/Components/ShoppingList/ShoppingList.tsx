@@ -10,7 +10,6 @@ import {Dispatch} from "redux";
 import {GroupproductsDto} from "../../ServerConnection/DTOs/ShoppingListDto";
 import WeekCheckbox from "./WeekCheckbox/WeekCheckbox";
 import {SHOPPING_LIST_URL} from "../../ServerConnection/RestCommunication/fileWithConstants";
-import {func} from "prop-types";
 
 
 interface OwnProps {

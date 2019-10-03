@@ -1,3 +1,43 @@
 .Content {
-    padding: 20px;
+    padding: 0 20px;
+}
+
+.SideMenu {
+    border-right: 3px solid #326D65;
+    padding-top: 20px;
+}
+
+.SearchArea {
+    padding-bottom: 2vh;
+    border-bottom: 2px solid #326D65;
+}
+.Main {
+    padding-top: 20px;
+    padding-left: 5vw;
+}
+
+p {
+    margin-top: 10px;
+}
+
+h4 {
+    margin-top: 5vh;
+}
+
+input {
+    padding: 3px;
+}
+
+.NameInput {
+    width: 70%;
+}
+
+.Table th,
+.Table td {
+    border: 1px solid lightgray;
+}
+
+button {
+    margin-left: 5px;
+    line-height: 1.25 !important;
 }

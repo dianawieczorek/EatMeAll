@@ -1,0 +1,9 @@
+.ProductCategory {
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: 200;
+    padding: 2vh;
+    border-bottom: 2px solid #326D65;
+    text-align: center;
+    margin: 0;
+}
