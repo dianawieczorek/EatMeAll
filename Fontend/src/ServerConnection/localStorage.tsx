@@ -38,7 +38,7 @@ export const  loadMealToPaste = () => {
     try {
         let serializedMeal = localStorage.getItem('meal');
         if (serializedMeal === null) {
-            window.alert("posiłek nie został skopiowany")
+            window.alert("żaden posiłek nie został skopiowany")
         }
         return JSON.parse(serializedMeal!)
     } catch (err) {
