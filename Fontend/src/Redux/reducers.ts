@@ -1,7 +1,7 @@
 import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
     Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED,
-    COPY_MEAL, PASTE_MEAL
+    COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
@@ -26,9 +26,9 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
     switch (action.type) {
         case SET_CURRENT_WEEK_SCHEDULE: {
             return produce(state, draftState => {
-                    draftState.currentMember = loadMembers()[currentMemberIndex];
-                    draftState.members[currentMemberIndex].weekSchedule = action.currentWeekSchedule;
-                    draftState.currentMember.weekSchedule = action.currentWeekSchedule;
+                draftState.currentMember = loadMembers()[currentMemberIndex];
+                draftState.members[currentMemberIndex].weekSchedule = action.currentWeekSchedule;
+                draftState.currentMember.weekSchedule = action.currentWeekSchedule;
             })
         }
         case RANDOM_MEAL_CHANGE: {
@@ -69,7 +69,7 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
                 draftState.currentMember = loadMembers()[currentMemberIndex];
                 draftState.members[currentMemberIndex].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.mealToPaste;
                 draftState.currentMember.weekSchedule[action.dayNr]["meals"][action.mealNr] = action.mealToPaste;
-                })
+            })
         }
 
         default:
@@ -168,13 +168,13 @@ interface ShoppingListReducerIf {
 
 const SHOPPING_LIST_INIT: ShoppingListReducerIf = {
     days: [
-        {id:0, value:"Pon", isChecked:false},
-        {id:1, value:"Wt", isChecked:false},
-        {id:2, value:"Śr", isChecked:false},
-        {id:3, value:"Czw", isChecked:false},
-        {id:4, value:"Pt", isChecked:false},
-        {id:5, value:"Sob", isChecked:false},
-        {id:6, value:"Nd", isChecked:false},
+        {id: 0, value: "Pon", isChecked: false},
+        {id: 1, value: "Wt", isChecked: false},
+        {id: 2, value: "Śr", isChecked: false},
+        {id: 3, value: "Czw", isChecked: false},
+        {id: 4, value: "Pt", isChecked: false},
+        {id: 5, value: "Sob", isChecked: false},
+        {id: 6, value: "Nd", isChecked: false},
     ]
 };
 
@@ -182,8 +182,34 @@ export const shoppingListReducer: Reducer<ShoppingListReducerIf, Types> = (state
     switch (action.type) {
         case CHANGE_CHECKED: {
             return produce(state, draftState => {
-                let selectedDay = draftState.days.filter(day => day.value===action.dayName);
+                let selectedDay = draftState.days.filter(day => day.value === action.dayName);
                 selectedDay[0].isChecked = !selectedDay[0].isChecked
+            })
+        }
+        default:
+            return state
+    }
+};
+
+
+interface AddMealToDatabaseReducerIf {
+    preparation: Array<string>
+}
+
+const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
+    preparation: []
+};
+
+export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types> = (state: AddMealToDatabaseReducerIf = ADD_MEAL_TO_DATABASE_INIT, action: Types) => {
+    switch (action.type) {
+        case ADD_PREP_STEP: {
+            return produce(state, draftState => {
+                draftState.preparation.push(action.step)
+            })
+        }
+        case DELETE_PREP_STEP: {
+            return produce(state, draftState => {
+                draftState.preparation = draftState.preparation.filter(step => step !== action.step);
             })
         }
         default:

@@ -4,7 +4,8 @@ import {
     SET_CURRENT_WEEK_SCHEDULE, CLOSE_SIDEDRAWER, OPEN_SIDEDRAWER, SET_PRODUCT_LIST, closeSidedrawerIf, openSidedrawerIf,
     setCurrentWeekScheduleIf, setProductListIf, setUserNameIf, ADD_MEMBER_NAME, deleteUsersIf, DELETE_MEMBERS,
     deleteUserIf, changeCheckboxIf, CHANGE_CHECKED,
-    DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER, COPY_MEAL, copyMealIf, pasteMealIf, PASTE_MEAL
+    DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER, COPY_MEAL, copyMealIf, pasteMealIf, PASTE_MEAL,
+    addPrepStepIf, ADD_PREP_STEP, deletePrepStepIf, DELETE_PREP_STEP
 } from "./actionTypes";
 
 
@@ -108,5 +109,19 @@ export const changeCheckbox = (aName: string): changeCheckboxIf => {
     return {
         type: CHANGE_CHECKED,
         dayName: aName
+    }
+};
+
+export const addPrepStep = (aStep: string): addPrepStepIf => {
+    return {
+        type: ADD_PREP_STEP,
+        step: aStep
+    }
+};
+
+export const deletePrepStep = (aStep: string): deletePrepStepIf => {
+    return {
+        type: DELETE_PREP_STEP,
+        step: aStep
     }
 };

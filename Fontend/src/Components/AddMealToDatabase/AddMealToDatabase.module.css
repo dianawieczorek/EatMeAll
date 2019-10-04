@@ -14,6 +14,7 @@
 .Main {
     padding-top: 20px;
     padding-left: 5vw;
+    margin-bottom: 5vh;
 }
 
 p {
@@ -39,5 +40,5 @@ input {
 
 button {
     margin-left: 5px;
-    line-height: 1.25 !important;
+    line-height: 1 !important;
 }

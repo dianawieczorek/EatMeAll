@@ -15,7 +15,7 @@ class ListOfUsers extends PureComponent<Props> {
     render() {
         if (this.props.members !== undefined) {
             return (
-                <div>
+                <React.Fragment>
                     <ol>
                         {this.props.members.map((item: string) => <li className={styles.UserName}>{item}
                             <button className={styles.Button} onClick={this.deleteUserName} type="submit">skasuj
@@ -23,7 +23,7 @@ class ListOfUsers extends PureComponent<Props> {
                             </button>
                         </li>)}
                     </ol>
-                </div>
+                </React.Fragment>
             );
         } else {
             return (
@@ -41,9 +41,9 @@ class ListOfUsers extends PureComponent<Props> {
 
 }
 
-const mapStateToProps = (state: AppStore) => {
+const mapStateToProps = (store: AppStore) => {
     return {
-        members: state.weekScheduleReducer.members.map(member => member.name)
+        members: store.weekScheduleReducer.members.map(member => member.name)
     };
 };
 

@@ -102,6 +102,20 @@ export interface changeCheckboxIf {
     dayName: string
 }
 
+export const ADD_PREP_STEP = 'ADD_PREP_STEP';
+
+export interface addPrepStepIf {
+    type: typeof ADD_PREP_STEP
+    step: string
+}
+
+export const DELETE_PREP_STEP = 'ADD_PREDELETE_PREP_STEPP_STEP';
+
+export interface deletePrepStepIf {
+    type: typeof DELETE_PREP_STEP
+    step: string
+}
+
 export type Types =
     setCurrentWeekScheduleIf
     | openModalIf
@@ -117,3 +131,5 @@ export type Types =
     | changeCheckboxIf
     | copyMealIf
     | pasteMealIf
+    | addPrepStepIf
+    | deletePrepStepIf
