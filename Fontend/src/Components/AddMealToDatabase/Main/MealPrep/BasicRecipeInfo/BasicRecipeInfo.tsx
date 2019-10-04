@@ -1,6 +1,8 @@
-import React, {PureComponent} from 'react';
+import React, {PureComponent, RefObject} from 'react';
 import {connect} from 'react-redux';
 import styles from '../../../AddMealToDatabase.module.css'
+import {changeNameOfRecipe, deletePrepStep} from "../../../../../Redux/actions";
+import {Dispatch} from "redux";
 
 interface OwnProps {
 }
@@ -8,10 +10,16 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class AddMealToDatabase extends PureComponent<Props> {
+    readonly nameInput: RefObject<HTMLInputElement>;
+
+    constructor(Props:any) {
+        super(Props);
+        this.nameInput = React.createRef();
+    }
     render() {
         return (
             <React.Fragment>
-                <input className={styles.NameInput} type="text" name="title"
+                <input className={styles.NameInput} type="text" name="title" ref={this.nameInput} onChange={this.changeNameOfRecipe}
                        placeholder="nazwa posiłku"/>
                 <div className={styles.ProductAndInfo}>
                     <div className={styles.BasicInfo}>
@@ -49,14 +57,20 @@ class AddMealToDatabase extends PureComponent<Props> {
             </React.Fragment>
         )
     }
+    private changeNameOfRecipe = () => {
+        this.props.changeNameOfRecipe(this.nameInput.current!.value)
+    }
 }
 
 const mapStateToProps = () => {
     return {};
 };
 
-const mapDispatchToProps = () => {
-    return {};
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {
+        changeNameOfRecipe: (name: string) => dispatch(changeNameOfRecipe(name))
+
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddMealToDatabase);

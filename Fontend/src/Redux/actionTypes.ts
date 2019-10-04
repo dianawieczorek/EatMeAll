@@ -116,6 +116,13 @@ export interface deletePrepStepIf {
     step: string
 }
 
+export const CHANGE_NAME_OF_RECIPE = 'CHANGE_NAME_OF_RECIPE';
+
+export interface changeNameOfRecipeIf {
+    type: typeof CHANGE_NAME_OF_RECIPE
+    name: string
+}
+
 export type Types =
     setCurrentWeekScheduleIf
     | openModalIf
@@ -133,3 +140,4 @@ export type Types =
     | pasteMealIf
     | addPrepStepIf
     | deletePrepStepIf
+    | changeNameOfRecipeIf

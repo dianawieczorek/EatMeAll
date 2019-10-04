@@ -5,7 +5,7 @@ import {
     setCurrentWeekScheduleIf, setProductListIf, setUserNameIf, ADD_MEMBER_NAME, deleteUsersIf, DELETE_MEMBERS,
     deleteUserIf, changeCheckboxIf, CHANGE_CHECKED,
     DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER, COPY_MEAL, copyMealIf, pasteMealIf, PASTE_MEAL,
-    addPrepStepIf, ADD_PREP_STEP, deletePrepStepIf, DELETE_PREP_STEP
+    addPrepStepIf, ADD_PREP_STEP, deletePrepStepIf, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, changeNameOfRecipeIf
 } from "./actionTypes";
 
 
@@ -123,5 +123,12 @@ export const deletePrepStep = (aStep: string): deletePrepStepIf => {
     return {
         type: DELETE_PREP_STEP,
         step: aStep
+    }
+};
+
+export const changeNameOfRecipe = (aName: string): changeNameOfRecipeIf => {
+    return {
+        type: CHANGE_NAME_OF_RECIPE,
+        name: aName
     }
 };

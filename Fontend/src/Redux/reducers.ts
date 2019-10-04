@@ -1,7 +1,7 @@
 import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
     Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED,
-    COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP
+    COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
@@ -194,10 +194,12 @@ export const shoppingListReducer: Reducer<ShoppingListReducerIf, Types> = (state
 
 interface AddMealToDatabaseReducerIf {
     preparation: Array<string>
+    nameOfRecipe: string
 }
 
 const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
-    preparation: []
+    preparation: [],
+    nameOfRecipe: ""
 };
 
 export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types> = (state: AddMealToDatabaseReducerIf = ADD_MEAL_TO_DATABASE_INIT, action: Types) => {
@@ -210,6 +212,11 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
         case DELETE_PREP_STEP: {
             return produce(state, draftState => {
                 draftState.preparation = draftState.preparation.filter(step => step !== action.step);
+            })
+        }
+        case CHANGE_NAME_OF_RECIPE: {
+            return produce(state, draftState => {
+                draftState.nameOfRecipe =action.name;
             })
         }
         default:
