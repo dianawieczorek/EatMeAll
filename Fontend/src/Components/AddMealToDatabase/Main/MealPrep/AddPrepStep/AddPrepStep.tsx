@@ -26,6 +26,7 @@ class AddMealToDatabase extends PureComponent<Props> {
 
     private addPrepStep = () => {
         this.props.addPrepStep(this.stepInput.current!.value)
+        this.stepInput.current!.value = ""
     };
 }
 

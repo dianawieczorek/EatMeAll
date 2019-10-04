@@ -30,7 +30,9 @@ class AddUserForm extends PureComponent<Props> {
 
     private addUser = () => {
         this.props.addUser(this.userNameInput.current!.value)
-    }
+        this.userNameInput.current!.value = ""
+    };
+    
     private deleteUsers = () => {
         this.props.deleteAll();
     }
