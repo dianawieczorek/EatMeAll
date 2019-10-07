@@ -95,10 +95,10 @@ export interface setCurrentMemberIf {
 
 }
 
-export const CHANGE_CHECKED = 'CHANGE_CHECKED';
+export const CHANGE_CHECKED_DAY = 'CHANGE_CHECKED_DAY';
 
 export interface changeCheckboxIf {
-    type: typeof CHANGE_CHECKED
+    type: typeof CHANGE_CHECKED_DAY
     dayName: string
 }
 
@@ -123,6 +123,13 @@ export interface changeNameOfRecipeIf {
     name: string
 }
 
+export const CHANGE_CHECKED_MEALTIME = 'CHANGE_CHECKED_MEALTIME';
+
+export interface changeMealTimeCheckboxIf {
+    type: typeof CHANGE_CHECKED_MEALTIME
+    mealTime: string
+}
+
 export type Types =
     setCurrentWeekScheduleIf
     | openModalIf
@@ -141,3 +148,4 @@ export type Types =
     | addPrepStepIf
     | deletePrepStepIf
     | changeNameOfRecipeIf
+|changeMealTimeCheckboxIf

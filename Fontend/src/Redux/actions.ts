@@ -3,9 +3,10 @@ import {
     OPEN_MODAL, openModalIf, RANDOM_MEAL_CHANGE, randomMealChangeIf,
     SET_CURRENT_WEEK_SCHEDULE, CLOSE_SIDEDRAWER, OPEN_SIDEDRAWER, SET_PRODUCT_LIST, closeSidedrawerIf, openSidedrawerIf,
     setCurrentWeekScheduleIf, setProductListIf, setUserNameIf, ADD_MEMBER_NAME, deleteUsersIf, DELETE_MEMBERS,
-    deleteUserIf, changeCheckboxIf, CHANGE_CHECKED,
+    deleteUserIf, changeCheckboxIf, CHANGE_CHECKED_DAY,
     DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER, COPY_MEAL, copyMealIf, pasteMealIf, PASTE_MEAL,
-    addPrepStepIf, ADD_PREP_STEP, deletePrepStepIf, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, changeNameOfRecipeIf
+    addPrepStepIf, ADD_PREP_STEP, deletePrepStepIf, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, changeNameOfRecipeIf,
+    CHANGE_CHECKED_MEALTIME, changeMealTimeCheckboxIf
 } from "./actionTypes";
 
 
@@ -107,7 +108,7 @@ export const deleteUser = (aUserName: string): deleteUserIf => {
 
 export const changeCheckbox = (aName: string): changeCheckboxIf => {
     return {
-        type: CHANGE_CHECKED,
+        type: CHANGE_CHECKED_DAY,
         dayName: aName
     }
 };
@@ -130,5 +131,13 @@ export const changeNameOfRecipe = (aName: string): changeNameOfRecipeIf => {
     return {
         type: CHANGE_NAME_OF_RECIPE,
         name: aName
+    }
+};
+
+
+export const changeMealTimeCheckbox = (amealTime: string): changeMealTimeCheckboxIf => {
+    return {
+        type: CHANGE_CHECKED_MEALTIME,
+        mealTime: amealTime
     }
 };

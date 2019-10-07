@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import styles from "../ShoppingList.module.css"
 import {AppStore} from "../../../Redux/store";
-import {GroupproductsDto} from "../../../ServerConnection/DTOs/ShoppingListDto";
 import {Dispatch} from "redux";
 import {changeCheckbox} from "../../../Redux/actions";
 

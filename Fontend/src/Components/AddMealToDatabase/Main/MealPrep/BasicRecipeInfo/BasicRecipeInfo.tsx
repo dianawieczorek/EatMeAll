@@ -1,8 +1,9 @@
 import React, {PureComponent, RefObject} from 'react';
 import {connect} from 'react-redux';
 import styles from '../../../AddMealToDatabase.module.css'
-import {changeNameOfRecipe, deletePrepStep} from "../../../../../Redux/actions";
+import {changeCheckbox, changeMealTimeCheckbox, changeNameOfRecipe, deletePrepStep} from "../../../../../Redux/actions";
 import {Dispatch} from "redux";
+import {AppStore} from "../../../../../Redux/store";
 
 interface OwnProps {
 }
@@ -24,31 +25,13 @@ class AddMealToDatabase extends PureComponent<Props> {
                 <div className={styles.ProductAndInfo}>
                     <div className={styles.BasicInfo}>
                         <p>Pora posiłku: </p>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="breakfast"
-                                   value="breakfast"/>
-                            <label className="form-check-label">śniadanie</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="lunch"
-                                   value="lunch"/>
-                            <label className="form-check-label">2 śniadanie</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="dinner"
-                                   value="dinner"/>
-                            <label className="form-check-label">obiad</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="snack"
-                                   value="snack"/>
-                            <label className="form-check-label">podwieczorek</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="supper"
-                                   value="supper"/>
-                            <label className="form-check-label">kolacja</label>
-                        </div>
+                        {this.props.mealTime.map((mealTime) =>
+                            <div className="form-check form-check-inline">
+                                <input className="form-check-input" type="checkbox" id={mealTime.value}
+                                       value={mealTime.value} onClick={this.selectedMeal} key={mealTime.id}/>
+                                <label className="form-check-label">{mealTime.value}</label>
+                            </div>
+                        )}
                         <p>czas przygotowania: <input type="text" name="5"
                                                       placeholder="podaj ilość minut"/></p>
                         <p>autor przepisu: <input type="text" name="authorReceipt"/></p>
@@ -59,16 +42,24 @@ class AddMealToDatabase extends PureComponent<Props> {
     }
     private changeNameOfRecipe = () => {
         this.props.changeNameOfRecipe(this.nameInput.current!.value)
-    }
+    };
+
+    private selectedMeal = (e:any) => {
+        let selectedMeal = e.target.value;
+        this.props.changeMealTimeCheckbox(selectedMeal)
+    };
 }
 
-const mapStateToProps = () => {
-    return {};
+const mapStateToProps = (store: AppStore) => {
+    return {
+        mealTime: store.addMealToDatabaseReducer.mealTime
+    }
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
-        changeNameOfRecipe: (name: string) => dispatch(changeNameOfRecipe(name))
+        changeNameOfRecipe: (name: string) => dispatch(changeNameOfRecipe(name)),
+        changeMealTimeCheckbox: (aMealTime: string) => dispatch(changeMealTimeCheckbox(aMealTime))
 
     };
 };

@@ -1,11 +1,11 @@
 import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
-    Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED,
-    COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE
+    Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED_DAY,
+    COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, CHANGE_CHECKED_MEALTIME
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
-import {loadMealToPaste, loadMembers, saveMealToCopy} from "../ServerConnection/localStorage";
+import {loadMembers, saveMealToCopy} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 import Member from './Model/Member';
 import {DayOfWeekDto} from "../ServerConnection/DTOs/DayOfWeekDto";
@@ -180,7 +180,7 @@ const SHOPPING_LIST_INIT: ShoppingListReducerIf = {
 
 export const shoppingListReducer: Reducer<ShoppingListReducerIf, Types> = (state: ShoppingListReducerIf = SHOPPING_LIST_INIT, action: Types) => {
     switch (action.type) {
-        case CHANGE_CHECKED: {
+        case CHANGE_CHECKED_DAY: {
             return produce(state, draftState => {
                 let selectedDay = draftState.days.filter(day => day.value === action.dayName);
                 selectedDay[0].isChecked = !selectedDay[0].isChecked
@@ -195,11 +195,20 @@ export const shoppingListReducer: Reducer<ShoppingListReducerIf, Types> = (state
 interface AddMealToDatabaseReducerIf {
     preparation: Array<string>
     nameOfRecipe: string
+    mealTime: Array<DayOfWeekDto>
 }
 
 const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
     preparation: [],
-    nameOfRecipe: ""
+    nameOfRecipe: "",
+    mealTime: [
+        {id: 0, value: "śniadanie", isChecked: false},
+        {id: 1, value: "2 śniadanie", isChecked: false},
+        {id: 2, value: "obiad", isChecked: false},
+        {id: 3, value: "podwieczorek", isChecked: false},
+        {id: 4, value: "kolacja", isChecked: false},
+
+    ]
 };
 
 export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types> = (state: AddMealToDatabaseReducerIf = ADD_MEAL_TO_DATABASE_INIT, action: Types) => {
@@ -217,6 +226,12 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
         case CHANGE_NAME_OF_RECIPE: {
             return produce(state, draftState => {
                 draftState.nameOfRecipe =action.name;
+            })
+        }
+        case CHANGE_CHECKED_MEALTIME: {
+            return produce(state, draftState => {
+                let selectedMeal = draftState.mealTime.filter(meal => meal.value === action.mealTime);
+                selectedMeal[0].isChecked = !selectedMeal[0].isChecked
             })
         }
         default:
