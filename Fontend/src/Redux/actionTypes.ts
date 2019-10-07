@@ -130,11 +130,18 @@ export interface changeMealTimeCheckboxIf {
     mealTime: string
 }
 
-export const CHANGE_CREATOR_OF_RECIPE = 'CHANGE_CREATOR_OF_RECIPE';
+export const CHANGE_AUTHOR_OF_RECIPE = 'CHANGE_AUTHOR_OF_RECIPE';
 
-export interface changeCreatorOfRecipeIf {
-    type: typeof CHANGE_CREATOR_OF_RECIPE
-    creator: string
+export interface changeAuthorOfRecipeIf {
+    type: typeof CHANGE_AUTHOR_OF_RECIPE
+    author: string
+}
+
+export const CHANGE_PREP_TIME = 'CHANGE_PREP_TIME';
+
+export interface changePrepTimeIf {
+    type: typeof CHANGE_PREP_TIME
+    time: number
 }
 
 
@@ -157,4 +164,5 @@ export type Types =
     | deletePrepStepIf
     | changeNameOfRecipeIf
     | changeMealTimeCheckboxIf
-    | changeCreatorOfRecipeIf
+    | changeAuthorOfRecipeIf
+| changePrepTimeIf

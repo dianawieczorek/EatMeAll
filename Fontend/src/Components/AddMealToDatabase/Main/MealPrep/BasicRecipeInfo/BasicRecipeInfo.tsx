@@ -2,8 +2,8 @@ import React, {PureComponent, RefObject} from 'react';
 import {connect} from 'react-redux';
 import styles from '../../../AddMealToDatabase.module.css'
 import {
-    changeCheckbox, changeCreatorOfRecipe, changeMealTimeCheckbox, changeNameOfRecipe,
-    deletePrepStep
+    changeAuthorOfRecipe, changeMealTimeCheckbox, changeNameOfRecipe,
+    changePrepTime,
 } from "../../../../../Redux/actions";
 import {Dispatch} from "redux";
 import {AppStore} from "../../../../../Redux/store";
@@ -16,16 +16,20 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 class AddMealToDatabase extends PureComponent<Props> {
     readonly nameInput: RefObject<HTMLInputElement>;
     readonly creatorInput: RefObject<HTMLInputElement>;
+    readonly prepTime: RefObject<HTMLInputElement>;
 
-    constructor(Props:any) {
+    constructor(Props: any) {
         super(Props);
         this.nameInput = React.createRef();
         this.creatorInput = React.createRef();
+        this.prepTime = React.createRef();
     }
+
     render() {
         return (
             <React.Fragment>
-                <input className={styles.NameInput} type="text" name="title" ref={this.nameInput} onChange={this.changeNameOfRecipe}
+                <input className={styles.NameInput} type="text" name="title" ref={this.nameInput}
+                       onChange={this.changeNameOfRecipe}
                        placeholder="nazwa posiłku"/>
                 <div className={styles.ProductAndInfo}>
                     <div className={styles.BasicInfo}>
@@ -37,24 +41,32 @@ class AddMealToDatabase extends PureComponent<Props> {
                                 <label className="form-check-label">{mealTime.value}</label>
                             </div>
                         )}
-                        <p>czas przygotowania: <input type="text" name="5"
-                                                      placeholder="podaj ilość minut" /></p>
-                        <p>autor przepisu: <input type="text" name="authorReceipt" ref={this.creatorInput} onChange={this.changeCreatorOfRecipe}/></p>
+                        <p>czas przygotowania: <input type="number" name="5"
+                                                      placeholder="podaj ilość minut" ref={this.prepTime}
+                                                      onChange={this.changePrepTime}/></p>
+                        <p>autor przepisu: <input type="text" name="authorReceipt" ref={this.creatorInput}
+                                                  onChange={this.changeAuthorOfRecipe}/></p>
                     </div>
                 </div>
             </React.Fragment>
         )
     }
+
     private changeNameOfRecipe = () => {
         this.props.changeNameOfRecipe(this.nameInput.current!.value)
     };
 
-    private selectedMeal = (e:any) => {
+    private selectedMeal = (e: any) => {
         let selectedMeal = e.target.value;
         this.props.changeMealTimeCheckbox(selectedMeal)
     };
-    private changeCreatorOfRecipe = () => {
-        this.props.changeCreatorOfRecipe(this.creatorInput.current!.value)
+
+    private changeAuthorOfRecipe = () => {
+        this.props.changeAuthorOfRecipe(this.creatorInput.current!.value)
+    };
+
+    private changePrepTime = () => {
+        this.props.changePrepTime(parseInt(this.prepTime.current!.value))
     };
 
 }
@@ -68,7 +80,8 @@ const mapStateToProps = (store: AppStore) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         changeNameOfRecipe: (aName: string) => dispatch(changeNameOfRecipe(aName)),
-        changeCreatorOfRecipe: (aCreator: string) => dispatch(changeCreatorOfRecipe(aCreator)),
+        changeAuthorOfRecipe: (aAuthor: string) => dispatch(changeAuthorOfRecipe(aAuthor)),
+        changePrepTime: (aTime: number) => dispatch(changePrepTime(aTime)),
         changeMealTimeCheckbox: (aMealTime: string) => dispatch(changeMealTimeCheckbox(aMealTime))
 
     };
