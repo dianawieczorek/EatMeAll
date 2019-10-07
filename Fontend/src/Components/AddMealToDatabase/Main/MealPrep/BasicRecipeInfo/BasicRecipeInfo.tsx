@@ -1,7 +1,10 @@
 import React, {PureComponent, RefObject} from 'react';
 import {connect} from 'react-redux';
 import styles from '../../../AddMealToDatabase.module.css'
-import {changeCheckbox, changeMealTimeCheckbox, changeNameOfRecipe, deletePrepStep} from "../../../../../Redux/actions";
+import {
+    changeCheckbox, changeCreatorOfRecipe, changeMealTimeCheckbox, changeNameOfRecipe,
+    deletePrepStep
+} from "../../../../../Redux/actions";
 import {Dispatch} from "redux";
 import {AppStore} from "../../../../../Redux/store";
 
@@ -12,10 +15,12 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 
 class AddMealToDatabase extends PureComponent<Props> {
     readonly nameInput: RefObject<HTMLInputElement>;
+    readonly creatorInput: RefObject<HTMLInputElement>;
 
     constructor(Props:any) {
         super(Props);
         this.nameInput = React.createRef();
+        this.creatorInput = React.createRef();
     }
     render() {
         return (
@@ -33,8 +38,8 @@ class AddMealToDatabase extends PureComponent<Props> {
                             </div>
                         )}
                         <p>czas przygotowania: <input type="text" name="5"
-                                                      placeholder="podaj ilość minut"/></p>
-                        <p>autor przepisu: <input type="text" name="authorReceipt"/></p>
+                                                      placeholder="podaj ilość minut" /></p>
+                        <p>autor przepisu: <input type="text" name="authorReceipt" ref={this.creatorInput} onChange={this.changeCreatorOfRecipe}/></p>
                     </div>
                 </div>
             </React.Fragment>
@@ -48,6 +53,10 @@ class AddMealToDatabase extends PureComponent<Props> {
         let selectedMeal = e.target.value;
         this.props.changeMealTimeCheckbox(selectedMeal)
     };
+    private changeCreatorOfRecipe = () => {
+        this.props.changeCreatorOfRecipe(this.creatorInput.current!.value)
+    };
+
 }
 
 const mapStateToProps = (store: AppStore) => {
@@ -58,7 +67,8 @@ const mapStateToProps = (store: AppStore) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
-        changeNameOfRecipe: (name: string) => dispatch(changeNameOfRecipe(name)),
+        changeNameOfRecipe: (aName: string) => dispatch(changeNameOfRecipe(aName)),
+        changeCreatorOfRecipe: (aCreator: string) => dispatch(changeCreatorOfRecipe(aCreator)),
         changeMealTimeCheckbox: (aMealTime: string) => dispatch(changeMealTimeCheckbox(aMealTime))
 
     };

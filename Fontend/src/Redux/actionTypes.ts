@@ -130,6 +130,14 @@ export interface changeMealTimeCheckboxIf {
     mealTime: string
 }
 
+export const CHANGE_CREATOR_OF_RECIPE = 'CHANGE_CREATOR_OF_RECIPE';
+
+export interface changeCreatorOfRecipeIf {
+    type: typeof CHANGE_CREATOR_OF_RECIPE
+    creator: string
+}
+
+
 export type Types =
     setCurrentWeekScheduleIf
     | openModalIf
@@ -148,4 +156,5 @@ export type Types =
     | addPrepStepIf
     | deletePrepStepIf
     | changeNameOfRecipeIf
-|changeMealTimeCheckboxIf
+    | changeMealTimeCheckboxIf
+    | changeCreatorOfRecipeIf

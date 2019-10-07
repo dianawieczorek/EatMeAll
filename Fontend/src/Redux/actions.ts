@@ -6,7 +6,7 @@ import {
     deleteUserIf, changeCheckboxIf, CHANGE_CHECKED_DAY,
     DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER, COPY_MEAL, copyMealIf, pasteMealIf, PASTE_MEAL,
     addPrepStepIf, ADD_PREP_STEP, deletePrepStepIf, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, changeNameOfRecipeIf,
-    CHANGE_CHECKED_MEALTIME, changeMealTimeCheckboxIf
+    CHANGE_CHECKED_MEALTIME, changeMealTimeCheckboxIf, CHANGE_CREATOR_OF_RECIPE, changeCreatorOfRecipeIf
 } from "./actionTypes";
 
 
@@ -139,5 +139,12 @@ export const changeMealTimeCheckbox = (amealTime: string): changeMealTimeCheckbo
     return {
         type: CHANGE_CHECKED_MEALTIME,
         mealTime: amealTime
+    }
+};
+
+export const changeCreatorOfRecipe = (aCreator: string): changeCreatorOfRecipeIf => {
+    return {
+        type: CHANGE_CREATOR_OF_RECIPE,
+        creator: aCreator
     }
 };
