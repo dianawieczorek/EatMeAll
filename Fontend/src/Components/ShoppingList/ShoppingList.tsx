@@ -52,23 +52,27 @@ class ShoppingList extends Component<Props> {
 
     private shoppingList = () => {
         let checkedDays = this.props.days.map(day => day.id).map(dayId => dayId);
-        // let mealIds = [this.props.Meal.filter((dayOfWeekPlan,i) => x.contains(i)).map(dayOfWeekPlan => dayOfWeekPlan.weekSchedule["meals"].map((meal => meal.idMeal))];
-        let mealIds = [this.props.Meal.map((member: any) => member.weekSchedule.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.idMeal)))][0];
-        let mealIdsForSelectedDays = [];
-        for (let m = 0; m < this.props.memberList.length; m++) {
-            for (let x = 0; x < checkedDays.length; x++) {
-                let idsOfSingleDay = mealIds[m][checkedDays[x]];
-                mealIdsForSelectedDays.push(idsOfSingleDay)
-            }
-        }
-        let arrayOfIdsMeals = mealIdsForSelectedDays.reduce((arr, el) => arr.concat(el));
-        fetch(SHOPPING_LIST_URL + arrayOfIdsMeals)
-            .then((response) => response.json())
-            .then((json: GroupproductsDto) => {
-                    this.props.setProductList(json)
+        if (checkedDays.length > 0) {
+            let mealIds = [this.props.Meal.map((member: any) => member.weekSchedule.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.idMeal)))][0];
+            let mealIdsForSelectedDays = [];
+            for (let m = 0; m < this.props.memberList.length; m++) {
+                for (let x = 0; x < checkedDays.length; x++) {
+                    let idsOfSingleDay = mealIds[m][checkedDays[x]];
+                    mealIdsForSelectedDays.push(idsOfSingleDay)
                 }
-            );
+            }
+            let arrayOfIdsMeals = mealIdsForSelectedDays.reduce((arr, el) => arr.concat(el));
+            fetch(SHOPPING_LIST_URL + arrayOfIdsMeals)
+                .then((response) => response.json())
+                .then((json: GroupproductsDto) => {
+                        this.props.setProductList(json)
+                    }
+                );
+        } else {
+            window.alert("musisz wybrać co najmniej 1 dzień")
+        }
     }
+
 }
 
 const mapStateToProps = (store: AppStore) => {
