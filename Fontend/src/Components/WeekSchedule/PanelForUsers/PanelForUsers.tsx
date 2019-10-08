@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Button from "../../UI/Button/Button"
 import styles from "./PanelForUsers.module.css"
 import {AppStore} from "../../../Redux/store";
-import {NavLink} from "react-router-dom";
 import {Dispatch} from "redux";
 import {setCurrentMember} from "../../../Redux/actions";
 
@@ -22,13 +21,18 @@ class PanelForUsers extends PureComponent<Props> {
                         Wybierz dietożercę
                     </div>
                     {this.props.memberList.map((userName: string) =>
-                        <Button
-                            onClick={this.changeScheduleForSelectedUser}>
-                            <NavLink className={styles.Nav}
-                                     to={"/home/" + userName}>{userName}
-                            </NavLink>
+                        <Button 
+                            onClick={this.changeScheduleForSelectedUser}
+                                to={"/home/" + userName}>
+                           {userName}
                         </Button>)
                     }
+
+                    <select>
+                        {this.props.memberList.map((userName: string) =>
+                            <option value={userName}>{userName}</option>)}
+                    </select>
+                    <Button>skopiuj cały tydzień</Button>
 
                 </div>
             );
