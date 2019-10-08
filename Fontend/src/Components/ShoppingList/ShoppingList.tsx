@@ -18,13 +18,11 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class ShoppingList extends Component<Props> {
-
     constructor(aProps: Props) {
         super(aProps);
     }
 
     render() {
-
         return (
             <div className={style.PageSettings}>
                 <div className={classes.TableHeader}>
