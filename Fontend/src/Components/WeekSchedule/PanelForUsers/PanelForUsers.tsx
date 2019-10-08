@@ -5,6 +5,7 @@ import styles from "./PanelForUsers.module.css"
 import {AppStore} from "../../../Redux/store";
 import {Dispatch} from "redux";
 import {setCurrentMember} from "../../../Redux/actions";
+import {NavLink} from "react-router-dom";
 
 
 interface OwnProps {
@@ -21,11 +22,13 @@ class PanelForUsers extends PureComponent<Props> {
                         Wybierz dietożercę
                     </div>
                     {this.props.memberList.map((userName: string) =>
-                        <Button 
-                            onClick={this.changeScheduleForSelectedUser}
-                                to={"/home/" + userName}>
-                           {userName}
-                        </Button>)
+                        <NavLink to={"/home/" + userName} className={styles.Nav}>
+                            <Button
+                                onClick={this.changeScheduleForSelectedUser}
+                                >
+                                {userName}
+                            </Button>
+                        </NavLink>)
                     }
 
                     <select>
