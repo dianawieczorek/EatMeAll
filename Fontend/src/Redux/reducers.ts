@@ -20,7 +20,7 @@ interface weekScheduleReducerIf {
 const WEEK_INIT: weekScheduleReducerIf = {
     members: loadMembers(),
     currentMember: loadMembers()[0],
-    choosenMember: ""
+    choosenMember: loadMembers()[0].name
 };
 
 export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state: weekScheduleReducerIf = WEEK_INIT, action: Types) => {
