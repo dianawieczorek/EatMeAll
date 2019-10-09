@@ -7,7 +7,7 @@ import {
     DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER, COPY_MEAL, copyMealIf, pasteMealIf, PASTE_MEAL,
     addPrepStepIf, ADD_PREP_STEP, deletePrepStepIf, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, changeNameOfRecipeIf,
     CHANGE_CHECKED_MEALTIME, changeMealTimeCheckboxIf, CHANGE_AUTHOR_OF_RECIPE, changeAuthorOfRecipeIf,
-    changePrepTimeIf, CHANGE_PREP_TIME
+    changePrepTimeIf, CHANGE_PREP_TIME, chooseMemberToCopyIf, CHOOSE_MEMBER_TO_COPY
 } from "./actionTypes";
 
 
@@ -52,6 +52,13 @@ export const pasteMeal = (aMealToPaste: RandomMealDto, aDayNr: number, aMealNr: 
         mealToPaste: aMealToPaste,
         dayNr: aDayNr,
         mealNr: aMealNr
+    }
+};
+
+export const chooseMemberToCopy = (aMember: string): chooseMemberToCopyIf => {
+    return {
+        type: CHOOSE_MEMBER_TO_COPY,
+        member: aMember
     }
 };
 

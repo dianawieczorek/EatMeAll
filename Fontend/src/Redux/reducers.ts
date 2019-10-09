@@ -72,6 +72,11 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
                 draftState.currentMember.weekSchedule[action.dayNr]["meals"][action.mealNr] = action.mealToPaste;
             })
         }
+        case CHOOSE_MEMBER_TO_COPY: {
+            return produce(state, draftState => {
+
+            })
+        }
 
         default:
             return state

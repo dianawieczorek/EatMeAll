@@ -144,6 +144,13 @@ export interface changePrepTimeIf {
     time: number
 }
 
+export const CHOOSE_MEMBER_TO_COPY = 'CHOOSE_MEMBER_TO_COPY';
+
+export interface chooseMemberToCopyIf {
+    type: typeof CHOOSE_MEMBER_TO_COPY
+    member: string
+}
+
 
 export type Types =
     setCurrentWeekScheduleIf
@@ -165,4 +172,5 @@ export type Types =
     | changeNameOfRecipeIf
     | changeMealTimeCheckboxIf
     | changeAuthorOfRecipeIf
-| changePrepTimeIf
+    | changePrepTimeIf
+    | chooseMemberToCopyIf

@@ -25,17 +25,17 @@ class PanelForUsers extends PureComponent<Props> {
                         <NavLink to={"/home/" + userName} className={styles.Nav}>
                             <Button
                                 onClick={this.changeScheduleForSelectedUser}
-                                >
+                            >
                                 {userName}
                             </Button>
                         </NavLink>)
                     }
 
-                    <select>
-                        {this.props.memberList.map((userName: string) =>
-                            <option value={userName}>{userName}</option>)}
+                    <select onChange={this.changeSelectedMember}>
+                        {this.props.memberList.map((memberName: string) =>
+                            <option value={memberName}>{memberName}</option>)}
                     </select>
-                    <Button>skopiuj cały tydzień</Button>
+                    <Button onClick={this.copyWholeWeekToSelectedMember}>skopiuj cały tydzień</Button>
 
                 </div>
             );
@@ -53,6 +53,16 @@ class PanelForUsers extends PureComponent<Props> {
 
     private changeScheduleForSelectedUser = (e: any) => {
         this.props.setCurrentMember(e.target.innerHTML);
+    };
+
+    private changeSelectedMember = (e: any) => {
+        console.log(e.target.value);
+
+    };
+
+    private copyWholeWeekToSelectedMember = () => {
+        console.log(this.props.currentMember)
+        console.log(this.changeSelectedMember)
     }
 }
 
@@ -60,6 +70,7 @@ class PanelForUsers extends PureComponent<Props> {
 const mapStateToProps = (store: AppStore) => {
     return {
         memberList: store.weekScheduleReducer.members.map(member => member.name),
+        currentMember: store.weekScheduleReducer.currentMember
     };
 };
 
