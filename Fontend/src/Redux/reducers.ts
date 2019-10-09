@@ -2,7 +2,7 @@ import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
     Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED_DAY,
     COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, CHANGE_CHECKED_MEALTIME,
-    CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME
+    CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
@@ -14,11 +14,13 @@ import {DayOfWeekDto} from "../ServerConnection/DTOs/DayOfWeekDto";
 interface weekScheduleReducerIf {
     members: Array<Member>
     currentMember: Member
+    choosenMember: string
 }
 
 const WEEK_INIT: weekScheduleReducerIf = {
     members: loadMembers(),
-    currentMember: loadMembers()[0]
+    currentMember: loadMembers()[0],
+    choosenMember: ""
 };
 
 export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state: weekScheduleReducerIf = WEEK_INIT, action: Types) => {
@@ -74,7 +76,7 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
         }
         case CHOOSE_MEMBER_TO_COPY: {
             return produce(state, draftState => {
-
+                draftState.choosenMember = action.member
             })
         }
 
@@ -234,7 +236,7 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
         }
         case CHANGE_NAME_OF_RECIPE: {
             return produce(state, draftState => {
-                draftState.nameOfRecipe =action.name;
+                draftState.nameOfRecipe = action.name;
             })
         }
         case CHANGE_CHECKED_MEALTIME: {
@@ -245,12 +247,12 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
         }
         case CHANGE_AUTHOR_OF_RECIPE: {
             return produce(state, draftState => {
-                draftState.authorOfRecipe =action.author;
+                draftState.authorOfRecipe = action.author;
             })
         }
         case CHANGE_PREP_TIME: {
             return produce(state, draftState => {
-                draftState.prepTime =action.time;
+                draftState.prepTime = action.time;
             })
         }
         default:

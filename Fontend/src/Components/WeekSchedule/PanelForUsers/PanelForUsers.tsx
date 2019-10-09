@@ -4,8 +4,9 @@ import Button from "../../UI/Button/Button"
 import styles from "./PanelForUsers.module.css"
 import {AppStore} from "../../../Redux/store";
 import {Dispatch} from "redux";
-import {setCurrentMember} from "../../../Redux/actions";
+import {chooseMemberToCopy, setCurrentMember, setCurrentWeekSchedule} from "../../../Redux/actions";
 import {NavLink} from "react-router-dom";
+import {DayDietDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
 
 
 interface OwnProps {
@@ -56,13 +57,13 @@ class PanelForUsers extends PureComponent<Props> {
     };
 
     private changeSelectedMember = (e: any) => {
-        console.log(e.target.value);
+        this.props.setChoosenMember(e.target.value);
 
     };
 
     private copyWholeWeekToSelectedMember = () => {
-        console.log(this.props.currentMember)
-        console.log(this.changeSelectedMember)
+        let weekToCopy = this.props.members.filter(member => member.name === this.props.choosenMember)[0].weekSchedule;
+        this.props.setCurrentWeekSchedule(weekToCopy);
     }
 }
 
@@ -70,13 +71,18 @@ class PanelForUsers extends PureComponent<Props> {
 const mapStateToProps = (store: AppStore) => {
     return {
         memberList: store.weekScheduleReducer.members.map(member => member.name),
-        currentMember: store.weekScheduleReducer.currentMember
+        members: store.weekScheduleReducer.members,
+        currentMember: store.weekScheduleReducer.currentMember,
+        choosenMember: store.weekScheduleReducer.choosenMember
     };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         setCurrentMember: (memberName: string) => dispatch(setCurrentMember(memberName)),
+        setChoosenMember: (member: string) => dispatch(chooseMemberToCopy(member)),
+        setCurrentWeekSchedule: (aCurrentWeekSchedule: Array<DayDietDto>) => dispatch(setCurrentWeekSchedule(aCurrentWeekSchedule))
+
 
     }
 };
