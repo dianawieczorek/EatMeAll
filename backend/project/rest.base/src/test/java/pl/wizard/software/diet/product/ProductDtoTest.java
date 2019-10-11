@@ -4,13 +4,16 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.junit.jupiter.api.Test;
 import pl.wizard.software.diet.products.ProductEntity;
 
+import javax.validation.constraints.AssertTrue;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductDtoTest {
 
     @Test
     void shouldReturnCorrectDtoByEntity() {
-        ProductEntity ent = ProductEntity.builder().aId(1l)
+        //given
+        ProductEntity ent = ProductEntity.builder().aId(1L)
                 .aVersion(0)
                 .aCalorific(1.1)
                 .aFat(2.2)
@@ -19,11 +22,8 @@ class ProductDtoTest {
                 .aName("TEST_1")
                 .aRoughage(7.1)
                 .build();
-
-        ProductDto dto = new ProductDto(ent);
-
         ProductDto expected = ProductDto.builder()
-                .aId(1l)
+                .aId(1L)
                 .aVersion(0)
                 .aCalorific(1.1)
                 .aFat(2.2)
@@ -33,7 +33,11 @@ class ProductDtoTest {
                 .aRoughage(7.1)
                 .build();
 
-        EqualsBuilder.reflectionEquals(expected, dto);
+        //when
+        ProductDto dto = new ProductDto(ent);
+
+        //then
+        assertTrue(EqualsBuilder.reflectionEquals(expected, dto));
     }
 
 }
