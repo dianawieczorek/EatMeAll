@@ -42,7 +42,7 @@
 //        }
 //    }
 //
-//    public ProductTypeEnum getProductType() {
+//    public ProductTypeEnum getStringName() {
 //        return productType;
 //    }
 //

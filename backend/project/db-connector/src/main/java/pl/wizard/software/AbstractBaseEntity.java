@@ -25,6 +25,12 @@ public class AbstractBaseEntity {
     @Version
     private int version;
 
+    public AbstractBaseEntity(Long aId, int aVersion) {
+        id = aId;
+        version = aVersion;
+    }
+
+
     @Override
     public boolean equals(Object aO) {
         if (this == aO) return true;
