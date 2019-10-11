@@ -28,7 +28,7 @@ class ProductDtoTest {
                 .aCalorific(1.1)
                 .aFat(2.2)
                 .aProtein(3.3)
-                .aProductType(ProductEntity.ProductTypeEnum.CEREALS.getStringName())
+                .aProductType("zboża")
                 .aName("TEST_1")
                 .aRoughage(7.1)
                 .build();
