@@ -5,14 +5,12 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public abstract class AbstractDto {
+public abstract class AbstractDtoShort {
 
     private Long id;
-    private int version;
 
-    public AbstractDto(Long aId, int aVersion) {
+    public AbstractDtoShort(Long aId) {
         id = aId;
-        version = aVersion;
     }
 
     @Override
@@ -20,7 +18,7 @@ public abstract class AbstractDto {
         if (this == aO) return true;
         if (aO == null || getClass() != aO.getClass()) return false;
 
-        AbstractDto that = (AbstractDto) aO;
+        AbstractDtoShort that = (AbstractDtoShort) aO;
 
         return id != null ? id.equals(that.id) : that.id == null;
     }

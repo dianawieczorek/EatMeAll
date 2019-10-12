@@ -49,5 +49,14 @@ public class ProductEntity extends AbstractBaseEntity {
         public String getStringName() {
             return productType;
         }
+
+        public static ProductTypeEnum parse(String aStringProductType) {
+            for (ProductTypeEnum enumm : ProductTypeEnum.values()) {
+                if (enumm.productType.equalsIgnoreCase(aStringProductType)) {
+                    return enumm;
+                }
+            }
+            throw new IllegalArgumentException("Cannot recognize product type" + aStringProductType);
+        }
     }
 }

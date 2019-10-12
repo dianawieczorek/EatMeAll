@@ -2,10 +2,11 @@ package pl.wizard.software.diet.product;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import pl.wizard.software.core.AbstractDto;
-import pl.wizard.software.diet.products.ProductEntity;
 
 @Data
+@NoArgsConstructor
 public class ProductDto extends AbstractDto {
 
     private String name;
@@ -15,22 +16,6 @@ public class ProductDto extends AbstractDto {
     private Double carbohydrates;
     private Double roughage;
     private String productType;
-
-    ProductDto(){
-        super(null,0);
-    }
-
-    ProductDto(ProductEntity aEntity) {
-        super(aEntity.getId(), aEntity.getVersion());
-
-        name = aEntity.getName();
-        calorific = aEntity.getCalorific();
-        protein = aEntity.getProtein();
-        fat = aEntity.getFat();
-        carbohydrates = aEntity.getCarbohydrates();
-        roughage = aEntity.getRoughage();
-        productType = aEntity.getProductType().getStringName();
-    }
 
     @Builder
     ProductDto(Long aId, int aVersion, String aName, Double aCalorific, Double aProtein, Double aFat, Double aCarbohydrates, Double aRoughage, String aProductType) {
