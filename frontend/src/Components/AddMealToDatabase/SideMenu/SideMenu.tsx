@@ -2,11 +2,16 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import SearchArea from "./SearchArea/SearchArea";
 import styles from "./SideMenu.module.css"
-import {PRODUCT_INFORMATION} from "../../../ServerConnection/RestCommunication/fileWithConstants";
+import {
+    ALL_PRODUCTS_INFORMATION, SINGLE_PRODUCT_INFORMATION,
+} from "../../../ServerConnection/RestCommunication/fileWithConstants";
 import {Dispatch} from "redux";
 import {AppStore} from "../../../Redux/store";
 import {addProduct, setAllProducts} from "../../../Redux/actions";
-import {ProductsInCategoryDto, SingleCategoryDto} from "../../../ServerConnection/DTOs/AllProductsDto";
+import {
+    ProductsInCategoryDto, ProductWholeDataDto,
+    SingleCategoryDto
+} from "../../../ServerConnection/DTOs/AllProductsDto";
 
 interface OwnProps {
 }
@@ -16,7 +21,7 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 
 class SideMenu extends Component<Props> {
     componentDidMount() {
-        fetch(PRODUCT_INFORMATION)
+        fetch(ALL_PRODUCTS_INFORMATION)
             .then(response => response.json())
             .then((json: any) => {
                 this.props.setAllProducts(json)
@@ -45,7 +50,7 @@ class SideMenu extends Component<Props> {
     private productSelectionList = (e: any) => {
         let innerValue = e.target.innerHTML;
         document.getElementById(innerValue)!.classList.toggle(styles.show);
-        fetch(PRODUCT_INFORMATION)
+        fetch(ALL_PRODUCTS_INFORMATION)
             .then(response => response.json())
             .then((json: any) => {
                 let products = json.filter((category: any) => category.type == innerValue)[0].products;
@@ -54,7 +59,12 @@ class SideMenu extends Component<Props> {
     };
 
     private selectProduct = (e: any) => {
-        this.props.addProductToTable(e.target.id)
+        fetch(SINGLE_PRODUCT_INFORMATION)
+            .then(response => response.json())
+            .then((json:ProductWholeDataDto)=> {
+                this.props.addProductToTable(json)
+            })
+
     }
 }
 
@@ -67,7 +77,7 @@ const mapStateToProps = (store: AppStore) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         setAllProducts: (allProducts: Array<SingleCategoryDto>) => dispatch(setAllProducts(allProducts)),
-        addProductToTable: (aProduct: number) => dispatch(addProduct(aProduct))
+        addProductToTable: (aProduct: ProductWholeDataDto) => dispatch(addProduct(aProduct))
     };
 };
 

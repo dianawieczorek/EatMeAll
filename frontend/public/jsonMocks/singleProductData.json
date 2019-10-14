@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "createdAt": "2019-10-10T16:53:12.786+0000",
+  "updatedAt": "2019-10-10T16:53:12.786+0000",
+  "version": 0,
+  "name": "Bagietki francuskie",
+  "calorific": 283.0,
+  "protein": 8.7,
+  "fat": 1.7,
+  "carbohydrates": 59.2,
+  "roughage": 2.0,
+  "productType": "CEREALS"
+}

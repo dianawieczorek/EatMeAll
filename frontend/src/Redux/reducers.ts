@@ -10,7 +10,7 @@ import {loadMembers, saveMealToCopy} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 import Member from './Model/Member';
 import {DayOfWeekDto} from "../ServerConnection/DTOs/DayOfWeekDto";
-import {ProductsInCategoryDto, SingleCategoryDto} from "../ServerConnection/DTOs/AllProductsDto";
+import {ProductsInCategoryDto, ProductWholeDataDto, SingleCategoryDto} from "../ServerConnection/DTOs/AllProductsDto";
 
 interface weekScheduleReducerIf {
     members: Array<Member>
@@ -208,7 +208,7 @@ interface AddMealToDatabaseReducerIf {
     authorOfRecipe: string
     prepTime: number
     allProducts: Array<SingleCategoryDto>
-    selectedProducts: Array<number>
+    selectedProducts: Array<ProductWholeDataDto>
 }
 
 const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
@@ -267,7 +267,7 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
         }
         case ADD_PRODUCT: {
             return produce(state, draftState => {
-                draftState.selectedProducts.push(action.productId)
+                draftState.selectedProducts.push(action.product)
             })
         }
         default:

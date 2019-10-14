@@ -1,7 +1,7 @@
 import {DayDietDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
-import {ProductsInCategoryDto} from "../ServerConnection/DTOs/AllProductsDto";
+import {ProductsInCategoryDto, ProductWholeDataDto} from "../ServerConnection/DTOs/AllProductsDto";
 
 export const SET_CURRENT_WEEK_SCHEDULE = 'SET_CURRENT_WEEK_SCHEDULE';
 
@@ -163,7 +163,7 @@ export const ADD_PRODUCT = 'ADD_PRODUCT';
 
 export interface addProductIf {
     type: typeof ADD_PRODUCT
-    productId: number
+    product: ProductWholeDataDto
 }
 
 export type Types =

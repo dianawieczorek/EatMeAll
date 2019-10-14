@@ -15,7 +15,7 @@ import {
 import {DayDietDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
 import {GroupproductsDto, ProductDto} from "../ServerConnection/DTOs/ShoppingListDto";
-import {ProductsInCategoryDto} from "../ServerConnection/DTOs/AllProductsDto";
+import {ProductsInCategoryDto, ProductWholeDataDto} from "../ServerConnection/DTOs/AllProductsDto";
 
 
 export const setCurrentWeekSchedule = (aCurrentWeekSchedule: Array<DayDietDto>): setCurrentWeekScheduleIf => {
@@ -173,9 +173,9 @@ export const setAllProducts = (aAllProducts: any): allProductIf => {
     }
 };
 
-export const addProduct = (aProductId: number): addProductIf => {
+export const addProduct = (aProduct: ProductWholeDataDto): addProductIf => {
     return {
         type: ADD_PRODUCT,
-        productId: aProductId
+        product: aProduct
     }
 };

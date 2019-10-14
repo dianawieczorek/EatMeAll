@@ -3,6 +3,11 @@ import {connect} from 'react-redux';
 import styles from '../AddMealToDatabase.module.css'
 import MealPrep from "./MealPrep/MealPrep";
 import BasicRecipeInfo from "./MealPrep/BasicRecipeInfo/BasicRecipeInfo";
+import {
+    ALL_PRODUCTS_INFORMATION,
+    SINGLE_PRODUCT_INFORMATION
+} from "../../../ServerConnection/RestCommunication/fileWithConstants";
+import {AppStore} from "../../../Redux/store";
 
 interface OwnProps {
 }
@@ -29,15 +34,16 @@ class AddMealToDatabase extends PureComponent<Props> {
                         </tr>
                         </thead>
                         <tbody>
+                        {this.props.selectedProducts.map(product =>
                         <tr>
-                            <th scope="row">chleb żytni</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                            <th scope="row">{product.name}</th>
+                            <td><input  type="number" defaultValue="100"/></td>
+                            <td><input type="text"/></td>
+                            <td>{product.calorific}</td>
+                            <td>{product.protein}</td>
+                            <td>{product.fat}</td>
+                            <td>{product.carbohydrates}</td>
+                        </tr>)}
                         <tr>
                             <th scope="row">SUMA:</th>
                             <td></td>
@@ -56,8 +62,10 @@ class AddMealToDatabase extends PureComponent<Props> {
     }
 }
 
-const mapStateToProps = () => {
-    return {};
+const mapStateToProps = (store: AppStore) => {
+    return {
+        selectedProducts: store.addMealToDatabaseReducer.selectedProducts
+    };
 };
 
 const mapDispatchToProps = () => {
