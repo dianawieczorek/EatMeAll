@@ -151,6 +151,13 @@ export interface chooseMemberToCopyIf {
     member: string
 }
 
+export const ALL_PRODUCT = 'ALL_PRODUCT';
+
+export interface allProductIf {
+    type: typeof ALL_PRODUCT
+    allProducts: any
+}
+
 
 export type Types =
     setCurrentWeekScheduleIf
@@ -174,3 +181,4 @@ export type Types =
     | changeAuthorOfRecipeIf
     | changePrepTimeIf
     | chooseMemberToCopyIf
+|allProductIf

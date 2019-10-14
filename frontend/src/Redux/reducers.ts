@@ -2,7 +2,7 @@ import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
     Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED_DAY,
     COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, CHANGE_CHECKED_MEALTIME,
-    CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY
+    CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY, ALL_PRODUCT
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
@@ -206,6 +206,7 @@ interface AddMealToDatabaseReducerIf {
     mealTime: Array<DayOfWeekDto>
     authorOfRecipe: string
     prepTime: number
+    allProducts: any
 }
 
 const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
@@ -219,7 +220,8 @@ const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
         {id: 4, value: "kolacja", isChecked: false},
     ],
     authorOfRecipe: "",
-    prepTime: 0
+    prepTime: 0,
+    allProducts: []
 };
 
 export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types> = (state: AddMealToDatabaseReducerIf = ADD_MEAL_TO_DATABASE_INIT, action: Types) => {
@@ -253,6 +255,11 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
         case CHANGE_PREP_TIME: {
             return produce(state, draftState => {
                 draftState.prepTime = action.time;
+            })
+        }
+        case ALL_PRODUCT: {
+            return produce(state, draftState => {
+                draftState.allProducts = action.allProducts;
             })
         }
         default:

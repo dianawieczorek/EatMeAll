@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import SearchArea from "./SearchArea/SearchArea";
 import styles from "./SideMenu.module.css"
 import {PRODUCT_INFORMATION} from "../../../ServerConnection/RestCommunication/fileWithConstants";
+import {Dispatch} from "redux";
+import {AppStore} from "../../../Redux/store";
+import {setAllProducts} from "../../../Redux/actions";
 
 interface OwnProps {
 }
@@ -14,21 +17,18 @@ type State = {
 }
 
 class SideMenu extends Component<Props, State> {
-    constructor(props: Props, state: State) {
-        super(props, state);
-        this.state = {
-            products: [],
-        }
-    }
+    // constructor(props: Props, state: State) {
+    //     super(props, state);
+    //     this.state = {
+    //         products: [],
+    //     }
+    // }
 
     componentDidMount() {
         fetch(PRODUCT_INFORMATION)
             .then(response => response.json())
             .then((json: any) => {
-                this.setState({
-                    products: json.map((category: any) => category.type)
-                });
-
+                this.props.setAllProducts(json)
             });
     }
 
@@ -36,14 +36,12 @@ class SideMenu extends Component<Props, State> {
         return (
             <React.Fragment>
                 <SearchArea/>
-                {this.state.products.map(category =>
+                {this.props.allProducts.map((products: any) =>
                     <div className={styles.Dropdown}>
                         <button className={styles.ProductCategory}
-                                onClick={this.productSelectionList}>{category}</button>
-                        <div id={category} className={styles.DropdownContent}>
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                                onClick={this.productSelectionList}>{products.type}</button>
+                        <div id={products.type} className={styles.DropdownContent}>
+                            {products.products.map((name: any) => <a>{name.name}</a>)}
                         </div>
                     </div>
                 )}
@@ -63,19 +61,24 @@ class SideMenu extends Component<Props, State> {
     };
 
     private showListOfProducts = (selectedMealJson: any) => {
-
+        let dupa = <div>{selectedMealJson.map((product: any) => <button>{product}</button>)}</div>;
+        console.log(dupa)
     };
-
 
 
 }
 
-const mapStateToProps = () => {
-    return {};
+const mapStateToProps = (store: AppStore) => {
+    return {
+        allProducts: store.addMealToDatabaseReducer.allProducts
+    };
 };
 
-const mapDispatchToProps = () => {
-    return {};
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {
+        setAllProducts: (allProducts: any) => dispatch(setAllProducts(allProducts)),
+
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);
