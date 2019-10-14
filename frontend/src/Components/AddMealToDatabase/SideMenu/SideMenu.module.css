@@ -6,4 +6,32 @@
     border-bottom: 2px solid #326D65;
     text-align: center;
     margin: 0;
+    cursor: pointer;
 }
+
+.ProductCategory:hover {
+    background-color: #3d978e
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.DropdownContent {
+    display: none;
+    position: relative;
+    z-index: 1;
+}
+
+.DropdownContent a {
+    color: black;
+    text-decoration: none;
+    padding: 2px 10px;
+    display: block;
+}
+
+.DropdownContent a:hover {
+    background-color: #3d978e
+}
+
+.show {display:block;}

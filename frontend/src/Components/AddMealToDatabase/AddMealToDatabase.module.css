@@ -5,6 +5,8 @@
 .SideMenu {
     border-right: 3px solid #326D65;
     padding-top: 20px;
+    height: 70vh;
+    overflow-x:auto;
 }
 
 .SearchArea {
@@ -15,6 +17,8 @@
     padding-top: 20px;
     padding-left: 5vw;
     margin-bottom: 5vh;
+    height: 70vh;
+    overflow-x:auto;
 }
 
 p {

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import SearchArea from "./SearchArea/SearchArea";
 import styles from "./SideMenu.module.css"
+import {PRODUCT_INFORMATION} from "../../../ServerConnection/RestCommunication/fileWithConstants";
 
 interface OwnProps {
 }
@@ -16,17 +17,18 @@ class SideMenu extends Component<Props, State> {
     constructor(props: Props, state: State) {
         super(props, state);
         this.state = {
-            products: []
+            products: [],
         }
     }
 
     componentDidMount() {
-        fetch("jsonMocks/allProducts.json")
+        fetch(PRODUCT_INFORMATION)
             .then(response => response.json())
             .then((json: any) => {
                 this.setState({
                     products: json.map((category: any) => category.type)
                 });
+
             });
     }
 
@@ -35,11 +37,35 @@ class SideMenu extends Component<Props, State> {
             <React.Fragment>
                 <SearchArea/>
                 {this.state.products.map(category =>
-                    <button className={styles.ProductCategory}>{category}</button>
+                    <div className={styles.Dropdown}>
+                        <button className={styles.ProductCategory}
+                                onClick={this.productSelectionList}>{category}</button>
+                        <div id={category} className={styles.DropdownContent}>
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
                 )}
             </React.Fragment>
         )
     }
+
+    private productSelectionList = (e: any) => {
+        let innerValue = e.target.innerHTML;
+        document.getElementById(innerValue)!.classList.toggle(styles.show);
+        fetch(PRODUCT_INFORMATION)
+            .then(response => response.json())
+            .then((json: any) => {
+                let products = json.filter((category: any) => category.type == innerValue)[0].products;
+                this.showListOfProducts(products)
+            });
+    };
+
+    private showListOfProducts = (selectedMealJson: any) => {
+
+    };
+
 
 
 }
