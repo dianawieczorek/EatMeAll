@@ -7,13 +7,15 @@ import {
     DELETE_MEMBER, setCurrentMemberIf, SET_CURRENT_MEMBER, COPY_MEAL, copyMealIf, pasteMealIf, PASTE_MEAL,
     addPrepStepIf, ADD_PREP_STEP, deletePrepStepIf, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, changeNameOfRecipeIf,
     CHANGE_CHECKED_MEALTIME, changeMealTimeCheckboxIf, CHANGE_AUTHOR_OF_RECIPE, changeAuthorOfRecipeIf,
-    changePrepTimeIf, CHANGE_PREP_TIME, chooseMemberToCopyIf, CHOOSE_MEMBER_TO_COPY, allProductIf, ALL_PRODUCT
+    changePrepTimeIf, CHANGE_PREP_TIME, chooseMemberToCopyIf, CHOOSE_MEMBER_TO_COPY, allProductIf, ALL_PRODUCTS,
+    addProductIf, ADD_PRODUCT
 } from "./actionTypes";
 
 
 import {DayDietDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
 import {GroupproductsDto, ProductDto} from "../ServerConnection/DTOs/ShoppingListDto";
+import {ProductsInCategoryDto} from "../ServerConnection/DTOs/AllProductsDto";
 
 
 export const setCurrentWeekSchedule = (aCurrentWeekSchedule: Array<DayDietDto>): setCurrentWeekScheduleIf => {
@@ -166,7 +168,14 @@ export const changePrepTime = (aTime: number): changePrepTimeIf => {
 
 export const setAllProducts = (aAllProducts: any): allProductIf => {
     return {
-        type: ALL_PRODUCT,
+        type: ALL_PRODUCTS,
         allProducts: aAllProducts
+    }
+};
+
+export const addProduct = (aProductId: number): addProductIf => {
+    return {
+        type: ADD_PRODUCT,
+        productId: aProductId
     }
 };

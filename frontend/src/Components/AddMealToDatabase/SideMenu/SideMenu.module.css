@@ -18,20 +18,25 @@
 }
 
 .DropdownContent {
+    max-height: 30vh;
+    overflow-x: auto;
     display: none;
     position: relative;
     z-index: 1;
 }
 
-.DropdownContent a {
+.DropdownContent button {
+    width: 95%;
+    box-sizing: border-box;
+    text-align: left;
     color: black;
     text-decoration: none;
-    padding: 2px 10px;
+    padding:1vh;
     display: block;
     cursor: pointer;
 }
 
-.DropdownContent a:hover {
+.DropdownContent button:hover {
     background-color: #3d978e
 }
 

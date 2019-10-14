@@ -1,6 +1,7 @@
 import {DayDietDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
+import {ProductsInCategoryDto} from "../ServerConnection/DTOs/AllProductsDto";
 
 export const SET_CURRENT_WEEK_SCHEDULE = 'SET_CURRENT_WEEK_SCHEDULE';
 
@@ -151,13 +152,19 @@ export interface chooseMemberToCopyIf {
     member: string
 }
 
-export const ALL_PRODUCT = 'ALL_PRODUCT';
+export const ALL_PRODUCTS = 'ALL_PRODUCTS';
 
 export interface allProductIf {
-    type: typeof ALL_PRODUCT
+    type: typeof ALL_PRODUCTS
     allProducts: any
 }
 
+export const ADD_PRODUCT = 'ADD_PRODUCT';
+
+export interface addProductIf {
+    type: typeof ADD_PRODUCT
+    productId: number
+}
 
 export type Types =
     setCurrentWeekScheduleIf
@@ -181,4 +188,5 @@ export type Types =
     | changeAuthorOfRecipeIf
     | changePrepTimeIf
     | chooseMemberToCopyIf
-|allProductIf
+    | allProductIf
+    | addProductIf
