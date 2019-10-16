@@ -1,0 +1,37 @@
+{
+  "name":"pyszne kanapeczki",
+  "description": "tutaj powinien znaleźć się opis tego zajebistego dania",
+  "mealTime":[
+    "śniadanie","2 śniadanie", "obiad", "podwieczorek", "kolacja"
+  ],
+  "prepareTime":10,
+  "author":"pSZemcio",
+  "parts":[
+    {
+      "id":43,
+      "amount":100,
+      "specialAmount":"3 kromki"
+    },
+    {
+      "id":360,
+      "amount":15,
+      "specialAmount":"1 łyżka"
+    },
+    {
+      "id":264,
+      "amount":45,
+      "specialAmount":"3 plasterki"
+    },
+    {
+      "id":669,
+      "amount":120,
+      "specialAmount":"1 sztuka"
+    }
+  ],
+  "steps":[
+    "posmarować masełkiem",
+    "położyć szyneczkę",
+    "pokroić pomidorek",
+    "mniam"
+  ]
+}

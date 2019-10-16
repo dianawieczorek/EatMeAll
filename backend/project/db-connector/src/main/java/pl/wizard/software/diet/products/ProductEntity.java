@@ -2,14 +2,18 @@ package pl.wizard.software.diet.products;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import pl.wizard.software.AbstractBaseEntity;
+import pl.wizard.software.diet.meals.MealEntity;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 
 @Entity
 @Table(name = "PRODUCTS")
 @Data
+@NoArgsConstructor
 public class ProductEntity extends AbstractBaseEntity {
     private String name;
     private Double calorific;
@@ -19,14 +23,16 @@ public class ProductEntity extends AbstractBaseEntity {
     private Double roughage;
     @Enumerated(EnumType.ORDINAL)
     private ProductTypeEnum productType;
+    @ManyToMany(mappedBy = "parts")
+    private Collection<MealEntity> meals;
 
     ProductEntity(Long aId, int aVersion) {
         super(aId, aVersion);
     }
 
     @Builder
-    ProductEntity(Long aId, int aVersion, String aName, Double aCalorific, Double aProtein, Double aFat, Double aCarbohydrates, Double aRoughage, ProductTypeEnum aProductType) {
-        super(aId, aVersion);
+    ProductEntity(Long aId, int aVersion, String aName, Double aCalorific, Double aProtein, Double aFat, Double aCarbohydrates, Double aRoughage, ProductTypeEnum aProductType, Collection<MealEntity> aMeals) {
+        this(aId, aVersion);
         name = aName;
         calorific = aCalorific;
         protein = aProtein;
@@ -34,6 +40,7 @@ public class ProductEntity extends AbstractBaseEntity {
         carbohydrates = aCarbohydrates;
         roughage = aRoughage;
         productType = aProductType;
+        meals = aMeals;
     }
 
     public enum ProductTypeEnum {
@@ -56,7 +63,7 @@ public class ProductEntity extends AbstractBaseEntity {
                     return enumm;
                 }
             }
-            throw new IllegalArgumentException("Cannot recognize product type" + aStringProductType);
+            throw new IllegalArgumentException("Cannot recognize products type" + aStringProductType);
         }
     }
 }

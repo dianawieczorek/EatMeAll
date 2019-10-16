@@ -11,6 +11,19 @@
 
     <artifactId>db-connector</artifactId>
 
+    <properties>
+        <jpa.dll.auto>none</jpa.dll.auto>
+    </properties>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -22,5 +35,13 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>gen-sql</id>
+            <properties>
+                <jpa.dll.auto>create</jpa.dll.auto>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
