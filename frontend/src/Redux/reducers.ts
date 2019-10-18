@@ -2,7 +2,7 @@ import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
     Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED_DAY,
     COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, CHANGE_CHECKED_MEALTIME,
-    CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY, ALL_PRODUCTS, ADD_PRODUCT
+    CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY, ALL_PRODUCTS, ADD_PRODUCT, CHANGE_PART_AMOUNT
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
@@ -11,6 +11,7 @@ import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 import Member from './Model/Member';
 import {DayOfWeekDto} from "../ServerConnection/DTOs/DayOfWeekDto";
 import {ProductsInCategoryDto, ProductWholeDataDto, SingleCategoryDto} from "../ServerConnection/DTOs/AllProductsDto";
+import {PostMealRecipieDto} from "../ServerConnection/DTOs/MealRecipeDto";
 
 interface weekScheduleReducerIf {
     members: Array<Member>
@@ -209,6 +210,8 @@ interface AddMealToDatabaseReducerIf {
     prepTime: number
     allProducts: Array<SingleCategoryDto>
     selectedProducts: Array<ProductWholeDataDto>
+
+    toSerialize: PostMealRecipieDto;
 }
 
 const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
@@ -224,7 +227,16 @@ const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
     authorOfRecipe: "",
     prepTime: 0,
     allProducts: [],
-    selectedProducts: []
+    selectedProducts: [],
+    toSerialize: {
+        name:"",
+        description: "",
+        mealTime:[],
+        prepareTime:0,
+        author:"",
+        parts:[],
+        steps:[]
+    }
 };
 
 export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types> = (state: AddMealToDatabaseReducerIf = ADD_MEAL_TO_DATABASE_INIT, action: Types) => {
@@ -267,7 +279,17 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
         }
         case ADD_PRODUCT: {
             return produce(state, draftState => {
-                draftState.selectedProducts.push(action.product)
+                draftState.selectedProducts.push(action.product);
+                draftState.toSerialize.parts.push({id: action.product.id, amount:100, specialAmount: ""});
+            })
+        }
+        case CHANGE_PART_AMOUNT:{
+            return produce(state, draftState => {
+                let part = state.toSerialize.parts.filter(p => Number(action.part.id) === p.id)[0];
+                part.amount = action.part.amount;
+
+                //podmieniać oelement zamiast dodawać
+                draftState.toSerialize.parts.push(part);
             })
         }
         default:

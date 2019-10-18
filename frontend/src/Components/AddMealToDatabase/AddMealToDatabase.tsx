@@ -5,7 +5,7 @@ import style from '..//WeekSchedule/WeekSchedule.module.css'
 import styles from './AddMealToDatabase.module.css'
 import SideMenu from "./SideMenu/SideMenu";
 import Button from "../UI/Button/Button"
-import Main from "./Main/Main";
+import AddMealForm from "./AddMealForm/AddMealForm";
 
 
 interface OwnProps {
@@ -31,7 +31,7 @@ class AddMealToDatabase extends PureComponent<Props> {
                             <SideMenu/>
                         </div>
                         <div className={["col-md-9", styles.Main].join(" ")}>
-                            <Main/>
+                            <AddMealForm/>
                         </div>
                     </div>
 

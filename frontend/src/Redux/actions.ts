@@ -8,7 +8,7 @@ import {
     addPrepStepIf, ADD_PREP_STEP, deletePrepStepIf, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, changeNameOfRecipeIf,
     CHANGE_CHECKED_MEALTIME, changeMealTimeCheckboxIf, CHANGE_AUTHOR_OF_RECIPE, changeAuthorOfRecipeIf,
     changePrepTimeIf, CHANGE_PREP_TIME, chooseMemberToCopyIf, CHOOSE_MEMBER_TO_COPY, allProductIf, ALL_PRODUCTS,
-    addProductIf, ADD_PRODUCT
+    addProductIf, ADD_PRODUCT, changePartAmountIf, CHANGE_PART_AMOUNT
 } from "./actionTypes";
 
 
@@ -16,6 +16,7 @@ import {DayDietDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
 import {GroupproductsDto, ProductDto} from "../ServerConnection/DTOs/ShoppingListDto";
 import {ProductsInCategoryDto, ProductWholeDataDto} from "../ServerConnection/DTOs/AllProductsDto";
+import {PostProductDto} from "../ServerConnection/DTOs/MealRecipeDto";
 
 
 export const setCurrentWeekSchedule = (aCurrentWeekSchedule: Array<DayDietDto>): setCurrentWeekScheduleIf => {
@@ -179,3 +180,10 @@ export const addProduct = (aProduct: ProductWholeDataDto): addProductIf => {
         product: aProduct
     }
 };
+
+export const changePartAmount = (aPart: PostProductDto): changePartAmountIf => {
+    return {
+        type: CHANGE_PART_AMOUNT,
+        part: aPart
+    }
+}
