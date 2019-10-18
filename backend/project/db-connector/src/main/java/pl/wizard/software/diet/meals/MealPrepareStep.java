@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.wizard.software.AbstractBaseEntity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -15,6 +14,17 @@ class MealPrepareStep extends AbstractBaseEntity {
 
     private int orderNumber;
     private String step;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private MealEntity meal;
+
+    MealPrepareStep(Long aId, int aVersion, int aOrderNumber, String aStep) {
+        super(aId, aVersion);
+        orderNumber = aOrderNumber;
+        step = aStep;
+    }
+
+    MealPrepareStep(String aStep) {
+        super(null, 0);
+        step = aStep;
+    }
 }

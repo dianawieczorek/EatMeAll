@@ -22,13 +22,13 @@ public class MealEntity extends AbstractBaseEntity {
     private Collection<MealTimeEnum> mealTimes;
     private String author;
     @OrderBy
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "R_meal_product",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "meal_id")
     )
     private List<ProductEntity> parts;
-    @OneToMany(mappedBy="meal")
+    @OneToMany(mappedBy="meal", cascade = CascadeType.ALL)
     private Collection<MealPrepareStep> steps;
 
     @Builder
