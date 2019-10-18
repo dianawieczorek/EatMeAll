@@ -53,7 +53,7 @@ class AddMealForm extends PureComponent<Props> {
                             </tr>)}
                         <tr>
                             <th scope="row">SUMA:</th>
-                            <td></td>
+                            <td>{this.props.selectedProductsToSerialize.map(prod => prod).reduce((accumulator, productDetails) => accumulator + productDetails.amount, 0)}</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -74,7 +74,7 @@ class AddMealForm extends PureComponent<Props> {
 
     private productAmountChange = (e:any) => {
         let id = e.target.id;
-        this.props.onAmountChange({id:id, amount:e.target.value, specialAmount:""})
+        this.props.onAmountChange({id:id, amount: parseInt(e.target.value), specialAmount:""})
     }
 }
 

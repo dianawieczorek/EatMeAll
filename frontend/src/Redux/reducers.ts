@@ -204,8 +204,6 @@ export const shoppingListReducer: Reducer<ShoppingListReducerIf, Types> = (state
 
 interface AddMealToDatabaseReducerIf {
     mealTime: Array<DayOfWeekDto>
-    authorOfRecipe: string
-    prepTime: number
     allProducts: Array<SingleCategoryDto>
     selectedProducts: Array<ProductWholeDataDto>
 
@@ -220,8 +218,6 @@ const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
         {id: 3, value: "podwieczorek", isChecked: false},
         {id: 4, value: "kolacja", isChecked: false},
     ],
-    authorOfRecipe: "",
-    prepTime: 0,
     allProducts: [],
     selectedProducts: [],
     toSerialize: {
@@ -265,7 +261,7 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
         }
         case CHANGE_PREP_TIME: {
             return produce(state, draftState => {
-                draftState.prepTime = action.time;
+                draftState.toSerialize.prepareTime = action.time;
             })
         }
         case ALL_PRODUCTS: {
@@ -281,11 +277,8 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
         }
         case CHANGE_PART_AMOUNT:{
             return produce(state, draftState => {
-                let part = state.toSerialize.parts.filter(p => Number(action.part.id) === p.id)[0];
-                part.amount = action.part.amount;
-
-                //podmieniać oelement zamiast dodawać
-                draftState.toSerialize.parts.push(part);
+                let part = draftState.toSerialize.parts.filter(p => Number(action.part.id) === p.id);
+                part[0].amount = action.part.amount;
             })
         }
         default:
