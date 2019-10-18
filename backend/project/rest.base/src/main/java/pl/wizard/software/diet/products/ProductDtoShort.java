@@ -7,7 +7,7 @@ import pl.wizard.software.core.AbstractDtoShort;
 
 @Data
 @NoArgsConstructor
-class ProductDtoShort extends AbstractDtoShort {
+public class ProductDtoShort extends AbstractDtoShort {
 
     private String name;
 

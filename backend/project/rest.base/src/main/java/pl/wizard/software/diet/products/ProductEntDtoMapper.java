@@ -1,6 +1,6 @@
 package pl.wizard.software.diet.products;
 
-class ProductEntDtoMapper {
+public class ProductEntDtoMapper {
 
     public static ProductEntity mapFromDto(ProductDto aDto) {
         return ProductEntity.builder()

@@ -32,7 +32,8 @@ public class MealEntity extends AbstractBaseEntity {
     private Collection<MealPrepareStep> steps;
 
     @Builder
-    MealEntity(String aName, String aDescription, Collection<MealTimeEnum> aMealTimes, String aAuthor, List<ProductEntity> aParts, Collection<MealPrepareStep> aSteps) {
+    MealEntity(Long aId, int aVersion, String aName, String aDescription, Collection<MealTimeEnum> aMealTimes, String aAuthor, List<ProductEntity> aParts, Collection<MealPrepareStep> aSteps) {
+        super(aId, aVersion);
         name = aName;
         description = aDescription;
         mealTimes = aMealTimes;

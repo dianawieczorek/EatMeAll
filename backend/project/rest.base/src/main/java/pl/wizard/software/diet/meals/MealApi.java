@@ -22,19 +22,21 @@ public class MealApi {
     }
 
     @PostMapping
-    public ResponseEntity create(@Valid @RequestBody MealEntity product) {
-        return ResponseEntity.ok(mealDao.save(product));
+    public ResponseEntity create(@Valid @RequestBody MealEntity aMeal) {
+        aMeal.getSteps().forEach(s -> s.setMeal(aMeal));
+        @Valid MealEntity saved = mealDao.save(aMeal);
+        return ResponseEntity.ok(MealEntDtoMapper.mapToDto(saved));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MealEntity> findById(@PathVariable Long id) {
+    public ResponseEntity<MealDto> findById(@PathVariable Long id) {
         Optional<MealEntity> stock = mealDao.findById(id);
         if (!stock.isPresent()) {
             log.error("Id " + id + " is not existed");
             ResponseEntity.badRequest().build();
         }
 
-        return ResponseEntity.ok(stock.get());
+        return ResponseEntity.ok(MealEntDtoMapper.mapToDto(stock.get()));
     }
 
     @PutMapping("/{id}")
