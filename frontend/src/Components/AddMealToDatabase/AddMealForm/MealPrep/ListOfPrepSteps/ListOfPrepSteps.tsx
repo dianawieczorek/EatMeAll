@@ -23,7 +23,7 @@ class AddMealToDatabase extends PureComponent<Props> {
             return (
                 <React.Fragment>
                     <ol>
-                        {this.props.prepSteps.map((step: string) => <li className={styles.Step}>{step}
+                        {this.props.prepSteps.map(step => <li className={styles.Step}>{step}
                             <button type="button" className="btn btn-secondary  btn-number"
                                     onClick={this.deletePrepStep}>-
                             </button>
@@ -48,7 +48,7 @@ class AddMealToDatabase extends PureComponent<Props> {
 
 const mapStateToProps = (store: AppStore) => {
     return {
-        prepSteps: store.addMealToDatabaseReducer.preparation.map(step => step)
+        prepSteps: store.addMealToDatabaseReducer.toSerialize.steps
     };
 };
 

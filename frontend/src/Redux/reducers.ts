@@ -203,8 +203,6 @@ export const shoppingListReducer: Reducer<ShoppingListReducerIf, Types> = (state
 
 
 interface AddMealToDatabaseReducerIf {
-    preparation: Array<string>
-    nameOfRecipe: string
     mealTime: Array<DayOfWeekDto>
     authorOfRecipe: string
     prepTime: number
@@ -215,8 +213,6 @@ interface AddMealToDatabaseReducerIf {
 }
 
 const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
-    preparation: [],
-    nameOfRecipe: "",
     mealTime: [
         {id: 0, value: "śniadanie", isChecked: false},
         {id: 1, value: "2 śniadanie", isChecked: false},
@@ -243,17 +239,17 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
     switch (action.type) {
         case ADD_PREP_STEP: {
             return produce(state, draftState => {
-                draftState.preparation.push(action.step)
+                draftState.toSerialize.steps.push(action.step)
             })
         }
         case DELETE_PREP_STEP: {
             return produce(state, draftState => {
-                draftState.preparation = draftState.preparation.filter(step => step !== action.step);
+                draftState.toSerialize.steps = draftState.toSerialize.steps.filter(step => step !== action.step);
             })
         }
         case CHANGE_NAME_OF_RECIPE: {
             return produce(state, draftState => {
-                draftState.nameOfRecipe = action.name;
+                draftState.toSerialize.name = action.name;
             })
         }
         case CHANGE_CHECKED_MEALTIME: {
@@ -264,7 +260,7 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
         }
         case CHANGE_AUTHOR_OF_RECIPE: {
             return produce(state, draftState => {
-                draftState.authorOfRecipe = action.author;
+                draftState.toSerialize.author = action.author;
             })
         }
         case CHANGE_PREP_TIME: {
