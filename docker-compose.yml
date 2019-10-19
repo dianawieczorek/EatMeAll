@@ -21,7 +21,7 @@ services:
         ports:
             - "8080:8080"
             - "9990:9990"
-            - "8787:8787"
+            - "58787:8787"
         environment:
             JBOSS_HOME: /opt/jboss/wildfly
             JDBC_CONNECTION_URL: ${JDBC_CONNECTION_URL}
@@ -31,7 +31,6 @@ services:
           - ./backend/project/ear-me-all-ear/target/deployment:/opt/jboss/wildfly/standalone/deployments/
         networks:
             - lan
-        command: --debug
     frontend:
         build: ./frontend
         container_name: frontend
