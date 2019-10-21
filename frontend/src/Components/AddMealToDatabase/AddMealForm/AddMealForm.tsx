@@ -23,6 +23,11 @@ class AddMealForm extends PureComponent<Props> {
     }
 
     render() {
+        let tableWithAllCalories = this.props.selectedProducts.map(prod=> prod.calorific);
+        let tableWithAllCarbs = this.props.selectedProducts.map(prod=> prod.carbohydrates);
+        let tableWithAllProtein = this.props.selectedProducts.map(prod=> prod.protein);
+        let tableWithAllFat = this.props.selectedProducts.map(prod=> prod.fat);
+        let tableWithAmoutnts = this.props.selectedProductsToSerialize.map(p => p.amount/100);
         return (
             <form>
                 <BasicRecipeInfo/>
@@ -46,19 +51,19 @@ class AddMealForm extends PureComponent<Props> {
                                 <th scope="row">{product.name}</th>
                                 <td><input type="number" defaultValue="100" id={product.id.toString()} onChange={this.productAmountChange}/></td>
                                 <td><input type="text"/></td>
-                                <td>{(product.calorific * this.getAountConverter(product)).toFixed()}</td>
-                                <td>{(product.protein  * this.getAountConverter(product)).toFixed()}</td>
-                                <td>{(product.fat  * this.getAountConverter(product)).toFixed()}</td>
-                                <td>{(product.carbohydrates  * this.getAountConverter(product)).toFixed()}</td>
+                                <td>{(product.calorific * this.getAmountConverter(product)).toFixed()}</td>
+                                <td>{(product.protein  * this.getAmountConverter(product)).toFixed()}</td>
+                                <td>{(product.fat  * this.getAmountConverter(product)).toFixed()}</td>
+                                <td>{(product.carbohydrates  * this.getAmountConverter(product)).toFixed()}</td>
                             </tr>)}
                         <tr>
                             <th scope="row">SUMA:</th>
                             <td>{this.props.selectedProductsToSerialize.map(prod => prod).reduce((accumulator, productDetails) => accumulator + productDetails.amount, 0)}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>-</td>
+                            <td>{tableWithAllCalories.reduce((acc,cal,i) =>  acc+cal*tableWithAmoutnts[i],0).toFixed()}</td>
+                            <td>{tableWithAllProtein.reduce((acc,protein,i) =>  acc+protein*tableWithAmoutnts[i],0).toFixed()}</td>
+                            <td>{tableWithAllFat.reduce((acc,fat,i) =>  acc+fat*tableWithAmoutnts[i],0).toFixed()}</td>
+                            <td>{tableWithAllCarbs.reduce((acc,carbs,i) =>  acc+carbs*tableWithAmoutnts[i],0).toFixed()}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -68,7 +73,7 @@ class AddMealForm extends PureComponent<Props> {
         );
     }
 
-    private getAountConverter(product: ProductWholeDataDto) {
+    private getAmountConverter(product: ProductWholeDataDto) {
         return this.props.selectedProductsToSerialize.filter(p => p.id === product.id)[0].amount/100;
     }
 
