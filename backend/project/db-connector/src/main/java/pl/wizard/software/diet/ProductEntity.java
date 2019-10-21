@@ -1,10 +1,9 @@
-package pl.wizard.software.diet.products;
+package pl.wizard.software.diet;
 
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.wizard.software.AbstractBaseEntity;
-import pl.wizard.software.diet.meals.MealEntity;
 
 import javax.persistence.*;
 import java.util.Collection;

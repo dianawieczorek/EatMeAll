@@ -1,8 +1,8 @@
-package pl.wizard.software.diet.products;
+package pl.wizard.software.diet;
 
-public class ProductEntDtoMapper {
+class ProductEntDtoMapper {
 
-    public static ProductEntity mapFromDto(ProductDto aDto) {
+    static ProductEntity mapFromDto(ProductDto aDto) {
         return ProductEntity.builder()
                  .aId(aDto.getId())
                 .aVersion(aDto.getVersion())
@@ -15,14 +15,14 @@ public class ProductEntDtoMapper {
                 .build();
     }
 
-    public static ProductEntity mapFromDto(ProductDtoShort aShortDto) {
+    static ProductEntity mapFromDto(ProductDtoShort aShortDto) {
         return ProductEntity.builder()
                 .aId(aShortDto.getId())
                 .aName(aShortDto.getName())
                 .build();
     }
 
-    public static ProductDto mapToDto(ProductEntity aEntity) {
+    static ProductDto mapToDto(ProductEntity aEntity) {
         return ProductDto.builder()
                 .aId(aEntity.getId())
                 .aVersion(aEntity.getVersion())
@@ -35,7 +35,7 @@ public class ProductEntDtoMapper {
                 .build();
     }
 
-    public static ProductDtoShort mapToShortDto(ProductEntity aEntity) {
+    static ProductDtoShort mapToShortDto(ProductEntity aEntity) {
         return ProductDtoShort.builder()
                 .aId(aEntity.getId())
                 .aName(aEntity.getName())

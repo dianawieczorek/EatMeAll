@@ -1,14 +1,12 @@
-package pl.wizard.software.diet.meals;
+package pl.wizard.software.diet;
 
 
-import pl.wizard.software.diet.products.ProductEntDtoMapper;
-import pl.wizard.software.diet.products.ProductEntity;
 
 import java.util.stream.Collectors;
 
 class MealEntDtoMapper {
 
-//    public static MealEntity mapFromDto(MealDto aDto) {
+//    static MealEntity mapFromDto(MealDto aDto) {
 //        return MealEntity.builder()
 //                 .aId(aDto.getId())
 //                .aVersion(aDto.getVersion())
@@ -21,14 +19,14 @@ class MealEntDtoMapper {
 //                .build();
 //    }
 
-//    public static MealEntity mapFromDto(ProductDtoShort aShortDto) {
+//    static MealEntity mapFromDto(ProductDtoShort aShortDto) {
 //        return ProductEntity.builder()
 //                .aId(aShortDto.getId())
 //                .aName(aShortDto.getName())
 //                .build();
 //    }
 //
-    public static MealDto mapToDto(MealEntity aEntity) {
+    static MealDto mapToDto(MealEntity aEntity) {
         return MealDto.builder()
                 .aId(aEntity.getId())
                 .aVersion(aEntity.getVersion())
@@ -45,7 +43,7 @@ class MealEntDtoMapper {
                 .build();
     }
 //
-//    public static MealDtoShort mapToShortDto(MealEntity aEntity) {
+//    static MealDtoShort mapToShortDto(MealEntity aEntity) {
 //        return ProductDtoShort.builder()
 //                .aId(aEntity.getId())
 //                .aName(aEntity.getName())

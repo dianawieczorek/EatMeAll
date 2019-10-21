@@ -1,4 +1,4 @@
-package pl.wizard.software.diet.products;
+package pl.wizard.software.diet;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

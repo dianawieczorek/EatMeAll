@@ -1,4 +1,4 @@
-package pl.wizard.software.diet.meals;
+package pl.wizard.software.diet;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package pl.wizard.software.diet.products;
+package pl.wizard.software.diet;
 
 //@Controller
 //public class ProductController {

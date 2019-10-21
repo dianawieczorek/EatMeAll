@@ -1,4 +1,4 @@
-package pl.wizard.software.diet.products;
+package pl.wizard.software.diet;
 
 import lombok.Builder;
 import lombok.Data;

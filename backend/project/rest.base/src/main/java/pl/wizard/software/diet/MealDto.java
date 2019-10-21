@@ -1,10 +1,9 @@
-package pl.wizard.software.diet.meals;
+package pl.wizard.software.diet;
 
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.wizard.software.core.AbstractDto;
-import pl.wizard.software.diet.products.ProductDtoShort;
 
 import java.util.Collection;
 import java.util.List;

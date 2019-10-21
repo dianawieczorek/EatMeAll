@@ -1,7 +1,11 @@
-package pl.wizard.software.diet.products;
+package pl.wizard.software.diet;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.junit.jupiter.api.Test;
+import pl.wizard.software.diet.ProductDto;
+import pl.wizard.software.diet.ProductDtoShort;
+import pl.wizard.software.diet.ProductEntDtoMapper;
+import pl.wizard.software.diet.ProductEntity;
 
 import static org.junit.jupiter.api.Assertions.*;
 
