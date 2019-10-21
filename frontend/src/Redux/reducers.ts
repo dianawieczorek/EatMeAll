@@ -221,13 +221,13 @@ const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
     allProducts: [],
     selectedProducts: [],
     toSerialize: {
-        name:"",
+        name: "",
         description: "",
-        mealTime:[],
-        prepareTime:0,
-        author:"",
-        parts:[],
-        steps:[]
+        mealTime: [],
+        prepareTime: 0,
+        author: "",
+        parts: [],
+        steps: []
     }
 };
 
@@ -250,38 +250,50 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
         }
         case CHANGE_CHECKED_MEALTIME: {
             return produce(state, draftState => {
-                let selectedMeal = draftState.mealTime.filter(meal => meal.value === action.mealTime);
-                selectedMeal[0].isChecked = !selectedMeal[0].isChecked
-            })
+                let selectedMealTime = draftState.mealTime.filter(mealTime => mealTime.value === action.mealTime);
+                selectedMealTime[0].isChecked = !selectedMealTime[0].isChecked;
+                let selectedTime = draftState.mealTime.filter(mealTime => mealTime.isChecked === true).map(mt => mt.value);
+                draftState.toSerialize.mealTime = selectedTime;
+
+            console.log(selectedTime)
+            // draftState.toSerialize.mealTime =
         }
-        case CHANGE_AUTHOR_OF_RECIPE: {
-            return produce(state, draftState => {
-                draftState.toSerialize.author = action.author;
-            })
-        }
-        case CHANGE_PREP_TIME: {
-            return produce(state, draftState => {
-                draftState.toSerialize.prepareTime = action.time;
-            })
-        }
-        case ALL_PRODUCTS: {
-            return produce(state, draftState => {
-                draftState.allProducts = action.allProducts;
-            })
-        }
-        case ADD_PRODUCT: {
-            return produce(state, draftState => {
-                draftState.selectedProducts.push(action.product);
-                draftState.toSerialize.parts.push({id: action.product.id, amount:100, specialAmount: ""});
-            })
-        }
-        case CHANGE_PART_AMOUNT:{
-            return produce(state, draftState => {
-                let part = draftState.toSerialize.parts.filter(p => Number(action.part.id) === p.id);
-                part[0].amount = action.part.amount;
-            })
-        }
-        default:
-            return state
-    }
-};
+        )
+}
+case
+CHANGE_AUTHOR_OF_RECIPE: {
+    return produce(state, draftState => {
+        draftState.toSerialize.author = action.author;
+    })
+}
+case
+CHANGE_PREP_TIME: {
+    return produce(state, draftState => {
+        draftState.toSerialize.prepareTime = action.time;
+    })
+}
+case
+ALL_PRODUCTS: {
+    return produce(state, draftState => {
+        draftState.allProducts = action.allProducts;
+    })
+}
+case
+ADD_PRODUCT: {
+    return produce(state, draftState => {
+        draftState.selectedProducts.push(action.product);
+        draftState.toSerialize.parts.push({id: action.product.id, amount: 100, specialAmount: ""});
+    })
+}
+case
+CHANGE_PART_AMOUNT:{
+    return produce(state, draftState => {
+        let part = draftState.toSerialize.parts.filter(p => Number(action.part.id) === p.id);
+        part[0].amount = action.part.amount;
+    })
+}
+default:
+return state
+}
+}
+;

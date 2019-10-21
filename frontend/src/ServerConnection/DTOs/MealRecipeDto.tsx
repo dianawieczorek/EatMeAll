@@ -45,7 +45,7 @@ export interface typeMealDto {
 export interface PostMealRecipieDto {
     name: string
     description: string
-    mealTime: Array<number>
+    mealTime: Array<string>
     prepareTime: number
     author: string
     parts: Array<PostProductDto>
