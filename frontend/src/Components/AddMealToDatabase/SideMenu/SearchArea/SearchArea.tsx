@@ -1,26 +1,43 @@
-import React, {PureComponent} from 'react';
+import React, {Component, RefObject} from 'react';
 import {connect} from 'react-redux';
 import styles from '../../AddMealToDatabase.module.css'
+import {AppStore} from "../../../../Redux/store";
+import {ProductWholeDataDto} from "../../../../ServerConnection/DTOs/AllProductsDto";
+import {Dispatch} from "redux";
+import {addProduct} from "../../../../Redux/actions";
 
 interface OwnProps {
 }
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
-class SideMenu extends PureComponent<Props> {
+interface State {
+    currentProductInputValue: string
+}
+
+class SideMenu extends Component<Props, State> {
+    readonly productInput: RefObject<HTMLInputElement>;
+
+    constructor(Props: any, State: any) {
+        super(Props, State);
+        this.productInput = React.createRef();
+        this.state= {
+            currentProductInputValue: ""
+        }
+    }
+
     render() {
         return (
             <div className={styles.SearchArea}>
                 <form action="">
-                    <div className=" bg-light rounded rounded-pill shadow-sm">
+                    <div className=" bg-light rounded rounded-pill shadow-sm search-box">
                         <div className="input-group">
-                            <input type="search" placeholder="czego szukasz" aria-describedby="button-addon3"
+                            <input type="search" onChange={this.changeGEBERISH} ref={this.productInput}
+                                   placeholder="czego szukasz" aria-describedby="button-addon3"
                                    className="form-control bg-none border-0"/>
-                            <div className="input-group-append border-0">
-                                <button id="button-addon1" type="submit"
-                                        className="btn btn-light text-secondary">szukaj
-                                </button>
-                            </div>
+                        </div>
+                        <div className={[styles.SearchResults, "result"].join(" ")}>
+                            {this.dupa()}
                         </div>
                     </div>
                 </form>
@@ -40,14 +57,43 @@ class SideMenu extends PureComponent<Props> {
             </div>
         )
     }
+
+    private changeGEBERISH = () => {
+        document.querySelector(".result")!.classList.add(styles.show);
+        let innerValue = this.productInput.current!.value;
+        this.setState({currentProductInputValue: innerValue});
+    };
+
+    private dupa() {
+        if (this.props.allProducts !== undefined) {
+            const flatProducts = this.props.allProducts.flatMap(category => category.products);
+            return flatProducts.filter(p => p.name.toLocaleLowerCase().includes(this.state.currentProductInputValue.toLocaleLowerCase())
+        ).
+            map(p => <button id={p.id.toString()}
+                             onClick={this.selectProduct}>{p.name}</button>)
+        }
+    }
+
+    private selectProduct = (e: any) => {
+        let id = e.target.id;
+        fetch("http://localhost:8080/api/v1/products/" + id)
+            .then(response => response.json())
+            .then((json: ProductWholeDataDto) => {
+                this.props.addProductToTable(json)
+            })
+    }
 }
 
-const mapStateToProps = () => {
-    return {};
+const mapStateToProps = (store: AppStore) => {
+    return {
+        allProducts: store.addMealToDatabaseReducer.allProducts
+    };
 };
 
-const mapDispatchToProps = () => {
-    return {};
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {
+        addProductToTable: (aProduct: ProductWholeDataDto) => dispatch(addProduct(aProduct))
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);

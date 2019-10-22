@@ -65,7 +65,6 @@ class SideMenu extends Component<Props> {
             .then((json:ProductWholeDataDto)=> {
                 this.props.addProductToTable(json)
             })
-
     }
 }
 

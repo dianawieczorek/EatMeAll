@@ -21,6 +21,39 @@
     overflow-x:auto;
 }
 
+.SearchResults {
+    max-height: 30vh;
+    overflow-x: auto;
+    display: none;
+    position: relative;
+    z-index: 1;
+    background-color: #fbfbfb;
+}
+
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+
+.SearchResults button {
+    width: 95%;
+    box-sizing: border-box;
+    text-align: left;
+    color: black;
+    font-weight: 200;
+    text-decoration: none;
+    padding:1vh;
+    display: block;
+    cursor: pointer;
+}
+
+.SearchResults button:hover {
+    background-color: #3d978e
+}
+
+
 p {
     margin-top: 10px;
 }
