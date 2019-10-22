@@ -50,12 +50,8 @@ class SideMenu extends Component<Props> {
     private productSelectionList = (e: any) => {
         let innerValue = e.target.innerHTML;
         document.getElementById(innerValue)!.classList.toggle(styles.show);
-        fetch(ALL_PRODUCTS_INFORMATION)
-            .then(response => response.json())
-            .then((json: any) => {
-                let products = json.filter((category: any) => category.type == innerValue)[0].products;
-                return <div>{products.map((product: any) => <button>{product}</button>)}</div>;
-            });
+        let products = this.props.allProducts.filter((category: any) => category.type == innerValue)[0].products;
+        return <div>{products.map((product: any) => <button>{product}</button>)}</div>;
     };
 
     private selectProduct = (e: any) => {
