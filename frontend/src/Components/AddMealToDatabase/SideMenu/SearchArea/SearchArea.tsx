@@ -32,12 +32,12 @@ class SideMenu extends Component<Props, State> {
                 <form action="">
                     <div className=" bg-light rounded rounded-pill shadow-sm search-box">
                         <div className="input-group">
-                            <input type="search" onChange={this.changeGEBERISH} ref={this.productInput}
+                            <input type="search" onChange={this.changeCurrentProductInputValue} ref={this.productInput}
                                    placeholder="czego szukasz" aria-describedby="button-addon3"
                                    className="form-control bg-none border-0"/>
                         </div>
                         <div className={[styles.SearchResults, "result"].join(" ")}>
-                            {this.dupa()}
+                            {this.createListOfMatchingProducts()}
                         </div>
                     </div>
                 </form>
@@ -58,13 +58,13 @@ class SideMenu extends Component<Props, State> {
         )
     }
 
-    private changeGEBERISH = () => {
+    private changeCurrentProductInputValue = () => {
         document.querySelector(".result")!.classList.add(styles.show);
         let innerValue = this.productInput.current!.value;
         this.setState({currentProductInputValue: innerValue});
     };
 
-    private dupa() {
+    private createListOfMatchingProducts() {
         if (this.props.allProducts !== undefined) {
             const flatProducts = this.props.allProducts.flatMap(category => category.products);
             return flatProducts.filter(p => p.name.toLocaleLowerCase().includes(this.state.currentProductInputValue.toLocaleLowerCase())
