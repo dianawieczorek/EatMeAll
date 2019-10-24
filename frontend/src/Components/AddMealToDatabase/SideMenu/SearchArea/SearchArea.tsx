@@ -26,6 +26,7 @@ class SideMenu extends Component<Props, State> {
         }
     }
 
+
     render() {
         return (
             <div className={styles.SearchArea}>
@@ -65,13 +66,11 @@ class SideMenu extends Component<Props, State> {
     };
 
     private createListOfMatchingProducts() {
-        if (this.props.allProducts !== undefined) {
             const flatProducts = this.props.allProducts.flatMap(category => category.products);
             return flatProducts.filter(p => p.name.toLocaleLowerCase().includes(this.state.currentProductInputValue.toLocaleLowerCase())
         ).
-            map(p => <button id={p.id.toString()}
-                             onClick={this.selectProduct}>{p.name}</button>)
-        }
+            map(p => <li id={p.id.toString()}
+                             onClick={this.selectProduct}>{p.name}</li>)
     }
 
     private selectProduct = (e: any) => {
@@ -80,7 +79,10 @@ class SideMenu extends Component<Props, State> {
             .then(response => response.json())
             .then((json: ProductWholeDataDto) => {
                 this.props.addProductToTable(json)
-            })
+            });
+        document.querySelector(".result")!.classList.toggle(styles.show);
+        this.productInput.current!.value = ""
+
     }
 }
 

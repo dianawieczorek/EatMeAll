@@ -37,19 +37,20 @@
     display: none;
 }
 
-.SearchResults button {
+.SearchResults li {
     width: 95%;
+    font-size: 1rem;
     box-sizing: border-box;
     text-align: left;
     color: black;
     font-weight: 200;
     text-decoration: none;
-    padding:1vh;
+    padding:0.5vh 1vh;
     display: block;
     cursor: pointer;
 }
 
-.SearchResults button:hover {
+.SearchResults li:hover {
     background-color: #3d978e
 }
 
