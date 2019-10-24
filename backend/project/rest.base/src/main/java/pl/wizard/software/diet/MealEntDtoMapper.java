@@ -2,7 +2,9 @@ package pl.wizard.software.diet;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 class MealEntDtoMapper {
 
@@ -15,9 +17,17 @@ class MealEntDtoMapper {
                 .aMealTimes(aDto.getMealTimes())
                 .aAuthor(aDto.getAuthor())
                 .aParts(new ArrayList<>())
-                .aSteps(aDto.getSteps().stream().map(s -> MealPrepareStepEntity.builder().aStep(s).build()).collect(Collectors.toList()))
+                .aSteps(new ArrayList<>())
                 .build();
-        aDto.getParts().stream().forEach(p -> ret.addPart(new ProductEntity(p.getId(),0), p.getAmount()));
+        aDto.getParts().forEach(p -> ret.addPart(new ProductEntity(p.getId(),0), p.getAmount()));
+
+        Iterator<String> stepIterator = aDto.getSteps().iterator();
+        int index=0;
+        while(stepIterator.hasNext()){
+            String step = stepIterator.next();
+            ret.addStep(MealPrepareStepEntity.builder().aStep(step).aOrderNumber(index).build());
+            index++;
+        }
         return ret;
     }
 

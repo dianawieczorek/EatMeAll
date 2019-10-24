@@ -19,7 +19,7 @@ class MealPrepareStepEntity extends AbstractBaseEntity {
     private MealEntity meal;
 
     @Builder
-    MealPrepareStepEntity(Long aId, int aVersion, int aOrderNumber, String aStep) {
+    MealPrepareStepEntity(Long aId, int aVersion, int aOrderNumber, String aStep, MealEntity aMeal) {
         super(aId, aVersion);
         orderNumber = aOrderNumber;
         step = aStep;
