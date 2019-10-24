@@ -12,26 +12,23 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name="MEALS")
 public class MealEntity extends AbstractBaseEntity {
 
     private String name;
     private String description;
-    @ElementCollection(targetClass=MealTimeEnum.class, fetch = FetchType.EAGER)
+    @ElementCollection(targetClass=MealTimeEnum.class)
     @Enumerated(EnumType.ORDINAL)
     private Collection<MealTimeEnum> mealTimes;
     private String author;
     @OrderBy
-    @ManyToMany
-    @JoinTable(name = "R_meal_product",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "meal_id")
-    )
-    private List<ProductEntity> parts;
+    @OneToMany(mappedBy = "part", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Collection<MealPartEntity> parts;
     @OneToMany(mappedBy="meal", cascade = CascadeType.ALL)
-    private Collection<MealPrepareStep> steps;
+    private Collection<MealPrepareStepEntity> steps;
 
     @Builder
-    MealEntity(Long aId, int aVersion, String aName, String aDescription, Collection<MealTimeEnum> aMealTimes, String aAuthor, List<ProductEntity> aParts, Collection<MealPrepareStep> aSteps) {
+    MealEntity(Long aId, int aVersion, String aName, String aDescription, Collection<MealTimeEnum> aMealTimes, String aAuthor, List<MealPartEntity> aParts, Collection<MealPrepareStepEntity> aSteps) {
         super(aId, aVersion);
         name = aName;
         description = aDescription;
@@ -39,6 +36,11 @@ public class MealEntity extends AbstractBaseEntity {
         author = aAuthor;
         parts = aParts;
         steps = aSteps;
+    }
+
+    void addPart(ProductEntity aProduct, Integer aAmount) {
+        MealPartEntity mealPartEntity = new MealPartEntity(null, this, aProduct, aAmount);
+        parts.add(mealPartEntity);
     }
 
     public enum MealTimeEnum{

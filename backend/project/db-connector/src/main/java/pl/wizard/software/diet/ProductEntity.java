@@ -10,9 +10,9 @@ import java.util.Collection;
 
 
 @Entity
-@Table(name = "PRODUCTS")
 @Data
 @NoArgsConstructor
+@Table(name = "PRODUCTS")
 public class ProductEntity extends AbstractBaseEntity {
     private String name;
     private Double calorific;
@@ -22,15 +22,15 @@ public class ProductEntity extends AbstractBaseEntity {
     private Double roughage;
     @Enumerated(EnumType.ORDINAL)
     private ProductTypeEnum productType;
-    @ManyToMany(mappedBy = "parts")
-    private Collection<MealEntity> meals;
+//    @OneToMany(mappedBy = "meal", cascade = CascadeType.ALL)
+//    private Collection<MealPartEntity> meals;
 
     ProductEntity(Long aId, int aVersion) {
         super(aId, aVersion);
     }
 
     @Builder
-    ProductEntity(Long aId, int aVersion, String aName, Double aCalorific, Double aProtein, Double aFat, Double aCarbohydrates, Double aRoughage, ProductTypeEnum aProductType, Collection<MealEntity> aMeals) {
+    ProductEntity(Long aId, int aVersion, String aName, Double aCalorific, Double aProtein, Double aFat, Double aCarbohydrates, Double aRoughage, ProductTypeEnum aProductType, Collection<MealPartEntity> aMeals) {
         this(aId, aVersion);
         name = aName;
         calorific = aCalorific;
@@ -39,7 +39,7 @@ public class ProductEntity extends AbstractBaseEntity {
         carbohydrates = aCarbohydrates;
         roughage = aRoughage;
         productType = aProductType;
-        meals = aMeals;
+//        meals = aMeals;
     }
 
     public enum ProductTypeEnum {
@@ -66,3 +66,5 @@ public class ProductEntity extends AbstractBaseEntity {
         }
     }
 }
+
+

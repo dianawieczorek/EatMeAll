@@ -22,9 +22,9 @@ public class MealApi {
     }
 
     @PostMapping
-    public ResponseEntity create(@Valid @RequestBody MealEntity aMeal) {
-        aMeal.getSteps().forEach(s -> s.setMeal(aMeal));
-        @Valid MealEntity saved = mealDao.save(aMeal);
+    public ResponseEntity create(@Valid @RequestBody MealDto aMeal) {
+        MealEntity ent = MealEntDtoMapper.mapFromDto(aMeal);
+        @Valid MealEntity saved = mealDao.save(ent);
         return ResponseEntity.ok(MealEntDtoMapper.mapToDto(saved));
     }
 

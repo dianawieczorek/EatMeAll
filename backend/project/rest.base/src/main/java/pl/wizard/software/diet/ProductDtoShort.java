@@ -10,10 +10,12 @@ import pl.wizard.software.core.AbstractDtoShort;
 public class ProductDtoShort extends AbstractDtoShort {
 
     private String name;
+    private Integer amount;
 
     @Builder
-    ProductDtoShort(Long aId, String aName) {
+    ProductDtoShort(Long aId, String aName, Integer aAmount) {
         super(aId);
         name = aName;
+        amount = aAmount;
     }
 }
