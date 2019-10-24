@@ -46,6 +46,7 @@ class AddMealToDatabase extends PureComponent<Props> {
                                                       onChange={this.changePrepTime}/></p>
                         <p>autor przepisu: <input type="text" name="authorReceipt" ref={this.creatorInput}
                                                   onChange={this.changeAuthorOfRecipe}/></p>
+                        <p>dodatkowe informacje<input className={styles.NameInput} placeholder="tu możesz wpisać dodatkowe informacje dotyczące posiłku"/></p>
                     </div>
                 </div>
             </React.Fragment>
