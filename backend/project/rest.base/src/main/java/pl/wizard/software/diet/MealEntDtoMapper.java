@@ -39,7 +39,6 @@ class MealEntDtoMapper {
 //    }
 //
     static MealDto mapToDto(MealEntity aEntity) {
-
         double calorific=0;
         double fat=0;
         double protein=0;
@@ -76,11 +75,21 @@ class MealEntDtoMapper {
                 .build();
     }
 
-//
-//    static MealDtoShort mapToShortDto(MealEntity aEntity) {
-//        return ProductDtoShort.builder()
-//                .aId(aEntity.getId())
-//                .aName(aEntity.getName())
-//                .build();
-//    }
+
+    static MealDto mapToShortDto(MealEntity aEntity) {
+
+        return MealDto.builder()
+                .aId(aEntity.getId())
+                .aVersion(aEntity.getVersion())
+                .aName(aEntity.getName())
+                .aDescription(aEntity.getDescription())
+                .aMealTimes(aEntity.getMealTimes())
+                .aAuthor(aEntity.getAuthor())
+                .aParts(aEntity.getParts().stream().map(m ->
+                        ProductDtoShort.builder()
+                                .aId(m.getPart().getId())
+                                .aAmount(m.getAmount())
+                                .build()).collect(Collectors.toList()))
+                .build();
+    }
 }

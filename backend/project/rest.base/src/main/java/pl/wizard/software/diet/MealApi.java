@@ -25,7 +25,7 @@ public class MealApi {
     public ResponseEntity create(@Valid @RequestBody MealDto aMeal) {
         MealEntity ent = MealEntDtoMapper.mapFromDto(aMeal);
         @Valid MealEntity saved = mealDao.save(ent);
-        return ResponseEntity.ok(MealEntDtoMapper.mapToDto(saved));
+        return ResponseEntity.ok(MealEntDtoMapper.mapToShortDto(saved));
     }
 
     @GetMapping("/{id}")
