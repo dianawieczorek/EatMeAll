@@ -3,29 +3,29 @@ package pl.wizard.software.diet;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="R_MEAL_PRODUCT")
 @Setter
 @Getter
 @NoArgsConstructor
-class MealPartEntity {
+class MealPartEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    Long id;
-
     @ManyToOne
+    @JoinColumn
     private MealEntity meal;
 
+    @Id
     @ManyToOne
+    @JoinColumn
     private ProductEntity part;
 
     private Integer amount;
 
     @Builder
-    MealPartEntity(Long aId, MealEntity aMeal, ProductEntity aPart, Integer aAmount) {
-        id = aId;
+    MealPartEntity(MealEntity aMeal, ProductEntity aPart, Integer aAmount) {
         meal = aMeal;
         part = aPart;
         amount = aAmount;
@@ -38,11 +38,14 @@ class MealPartEntity {
 
         MealPartEntity that = (MealPartEntity) aO;
 
-        return id != null ? id.equals(that.id) : that.id == null;
+        if (meal != null ? !meal.equals(that.meal) : that.meal != null) return false;
+        return part != null ? part.equals(that.part) : that.part == null;
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        int result = meal != null ? meal.hashCode() : 0;
+        result = 31 * result + (part != null ? part.hashCode() : 0);
+        return result;
     }
 }

@@ -38,7 +38,7 @@ class MealEntDtoMapper {
                 .aAuthor(aEntity.getAuthor())
                 .aParts(aEntity.getParts().stream().map(m ->
                         ProductDtoShort.builder()
-                                .aId(m.getId())
+                                .aId(m.getPart().getId())
                                 .aAmount(m.getAmount())
                                 .aName(m.getPart().getName())
                                 .build()).collect(Collectors.toList()))

@@ -22,7 +22,7 @@ public class MealEntity extends AbstractBaseEntity {
     private Collection<MealTimeEnum> mealTimes;
     private String author;
     @OrderBy
-    @OneToMany(mappedBy = "part", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "meal", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Collection<MealPartEntity> parts;
     @OneToMany(mappedBy="meal", cascade = CascadeType.ALL)
     private Collection<MealPrepareStepEntity> steps;
@@ -39,7 +39,7 @@ public class MealEntity extends AbstractBaseEntity {
     }
 
     void addPart(ProductEntity aProduct, Integer aAmount) {
-        MealPartEntity mealPartEntity = new MealPartEntity(null, this, aProduct, aAmount);
+        MealPartEntity mealPartEntity = new MealPartEntity(this, aProduct, aAmount);
         parts.add(mealPartEntity);
     }
 
