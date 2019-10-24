@@ -39,6 +39,21 @@ class MealEntDtoMapper {
 //    }
 //
     static MealDto mapToDto(MealEntity aEntity) {
+
+        double calorific=0;
+        double fat=0;
+        double protein=0;
+        double roughage=0;
+        double carbohydrates=0;
+        for (MealPartEntity part: aEntity.getParts() ) {
+            ProductEntity product = part.getPart();
+            calorific += product.getCalorific()/100*part.getAmount();
+            fat += product.getFat()/100*part.getAmount();
+            protein += product.getProtein()/100*part.getAmount();
+            roughage += product.getRoughage()/100*part.getAmount();
+            carbohydrates += product.getCarbohydrates()/100*part.getAmount();
+        }
+
         return MealDto.builder()
                 .aId(aEntity.getId())
                 .aVersion(aEntity.getVersion())
@@ -53,10 +68,11 @@ class MealEntDtoMapper {
                                 .aName(m.getPart().getName())
                                 .build()).collect(Collectors.toList()))
                 .aSteps(aEntity.getSteps().stream().map(MealPrepareStepEntity::getStep).collect(Collectors.toList()))
-                .aCalorific(0.0)
-                .aFat(0.0)
-                .aProtein(0.0)
-                .aRoughage(0.0)
+                .aCalorific(calorific)
+                .aCarbohydrates(carbohydrates)
+                .aFat(fat)
+                .aProtein(protein)
+                .aRoughage(roughage)
                 .build();
     }
 
