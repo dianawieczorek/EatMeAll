@@ -5,7 +5,7 @@
 -- Dumped from database version 11.5 (Debian 11.5-1.pgdg90+1)
 -- Dumped by pg_dump version 11.5
 
--- Started on 2019-10-16 05:28:05
+-- Started on 2019-10-22 05:36:32
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -18,12 +18,28 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+--
+-- TOC entry 3 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: eatmeall
+--
+
+ALTER SCHEMA public OWNER TO eatmeall;
+
+--
+-- TOC entry 2908 (class 0 OID 0)
+-- Dependencies: 3
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: eatmeall
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- TOC entry 196 (class 1259 OID 16434)
+-- TOC entry 198 (class 1259 OID 16418)
 -- Name: hibernate_sequences; Type: TABLE; Schema: public; Owner: eatmeall
 --
 
@@ -36,7 +52,7 @@ CREATE TABLE public.hibernate_sequences (
 ALTER TABLE public.hibernate_sequences OWNER TO eatmeall;
 
 --
--- TOC entry 197 (class 1259 OID 16439)
+-- TOC entry 196 (class 1259 OID 16388)
 -- Name: meal_entity; Type: TABLE; Schema: public; Owner: eatmeall
 --
 
@@ -54,7 +70,7 @@ CREATE TABLE public.meal_entity (
 ALTER TABLE public.meal_entity OWNER TO eatmeall;
 
 --
--- TOC entry 198 (class 1259 OID 16447)
+-- TOC entry 199 (class 1259 OID 16423)
 -- Name: meal_entity_meal_times; Type: TABLE; Schema: public; Owner: eatmeall
 --
 
@@ -67,7 +83,7 @@ CREATE TABLE public.meal_entity_meal_times (
 ALTER TABLE public.meal_entity_meal_times OWNER TO eatmeall;
 
 --
--- TOC entry 199 (class 1259 OID 16450)
+-- TOC entry 197 (class 1259 OID 16397)
 -- Name: meal_prepare_step; Type: TABLE; Schema: public; Owner: eatmeall
 --
 
@@ -85,7 +101,43 @@ CREATE TABLE public.meal_prepare_step (
 ALTER TABLE public.meal_prepare_step OWNER TO eatmeall;
 
 --
--- TOC entry 200 (class 1259 OID 16455)
+-- TOC entry 200 (class 1259 OID 16426)
+-- Name: meal_prepare_step_entity; Type: TABLE; Schema: public; Owner: eatmeall
+--
+
+CREATE TABLE public.meal_prepare_step_entity (
+    id bigint NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    version integer NOT NULL,
+    order_number integer NOT NULL,
+    step character varying(255),
+    meal_id bigint
+);
+
+
+ALTER TABLE public.meal_prepare_step_entity OWNER TO eatmeall;
+
+--
+-- TOC entry 201 (class 1259 OID 16431)
+-- Name: meals; Type: TABLE; Schema: public; Owner: eatmeall
+--
+
+CREATE TABLE public.meals (
+    id bigint NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    version integer NOT NULL,
+    author character varying(255),
+    description character varying(255),
+    name character varying(255)
+);
+
+
+ALTER TABLE public.meals OWNER TO eatmeall;
+
+--
+-- TOC entry 202 (class 1259 OID 16439)
 -- Name: products; Type: TABLE; Schema: public; Owner: eatmeall
 --
 
@@ -107,81 +159,21 @@ CREATE TABLE public.products (
 ALTER TABLE public.products OWNER TO eatmeall;
 
 --
--- TOC entry 201 (class 1259 OID 16460)
+-- TOC entry 203 (class 1259 OID 16444)
 -- Name: r_meal_product; Type: TABLE; Schema: public; Owner: eatmeall
 --
 
 CREATE TABLE public.r_meal_product (
-    product_id bigint NOT NULL,
-    meal_id bigint NOT NULL
+    amount integer,
+    meal_id bigint NOT NULL,
+    part_id bigint NOT NULL
 );
 
 
 ALTER TABLE public.r_meal_product OWNER TO eatmeall;
 
 --
--- TOC entry 2892 (class 0 OID 16434)
--- Dependencies: 196
--- Data for Name: hibernate_sequences; Type: TABLE DATA; Schema: public; Owner: eatmeall
---
-
-COPY public.hibernate_sequences (sequence_name, next_val) FROM stdin;
-default	0
-\.
-
-
---
--- TOC entry 2893 (class 0 OID 16439)
--- Dependencies: 197
--- Data for Name: meal_entity; Type: TABLE DATA; Schema: public; Owner: eatmeall
---
-
-COPY public.meal_entity (id, created_at, updated_at, version, author, description, name) FROM stdin;
-\.
-
-
---
--- TOC entry 2894 (class 0 OID 16447)
--- Dependencies: 198
--- Data for Name: meal_entity_meal_times; Type: TABLE DATA; Schema: public; Owner: eatmeall
---
-
-COPY public.meal_entity_meal_times (meal_entity_id, meal_times) FROM stdin;
-\.
-
-
---
--- TOC entry 2895 (class 0 OID 16450)
--- Dependencies: 199
--- Data for Name: meal_prepare_step; Type: TABLE DATA; Schema: public; Owner: eatmeall
---
-
-COPY public.meal_prepare_step (id, created_at, updated_at, version, order_number, step, meal_id) FROM stdin;
-\.
-
-
---
--- TOC entry 2896 (class 0 OID 16455)
--- Dependencies: 200
--- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: eatmeall
---
-
-COPY public.products (id, created_at, updated_at, version, calorific, carbohydrates, fat, name, product_type, protein, roughage) FROM stdin;
-\.
-
-
---
--- TOC entry 2897 (class 0 OID 16460)
--- Dependencies: 201
--- Data for Name: r_meal_product; Type: TABLE DATA; Schema: public; Owner: eatmeall
---
-
-COPY public.r_meal_product (product_id, meal_id) FROM stdin;
-\.
-
-
---
--- TOC entry 2760 (class 2606 OID 16438)
+-- TOC entry 2769 (class 2606 OID 16422)
 -- Name: hibernate_sequences hibernate_sequences_pkey; Type: CONSTRAINT; Schema: public; Owner: eatmeall
 --
 
@@ -190,25 +182,25 @@ ALTER TABLE ONLY public.hibernate_sequences
 
 
 --
--- TOC entry 2762 (class 2606 OID 16446)
--- Name: meal_entity meal_entity_pkey; Type: CONSTRAINT; Schema: public; Owner: eatmeall
+-- TOC entry 2771 (class 2606 OID 16430)
+-- Name: meal_prepare_step_entity meal_prepare_step_entity_pkey; Type: CONSTRAINT; Schema: public; Owner: eatmeall
 --
 
-ALTER TABLE ONLY public.meal_entity
-    ADD CONSTRAINT meal_entity_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 2764 (class 2606 OID 16454)
--- Name: meal_prepare_step meal_prepare_step_pkey; Type: CONSTRAINT; Schema: public; Owner: eatmeall
---
-
-ALTER TABLE ONLY public.meal_prepare_step
-    ADD CONSTRAINT meal_prepare_step_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY public.meal_prepare_step_entity
+    ADD CONSTRAINT meal_prepare_step_entity_pkey PRIMARY KEY (id);
 
 
 --
--- TOC entry 2766 (class 2606 OID 16459)
+-- TOC entry 2773 (class 2606 OID 16438)
+-- Name: meals meals_pkey; Type: CONSTRAINT; Schema: public; Owner: eatmeall
+--
+
+ALTER TABLE ONLY public.meals
+    ADD CONSTRAINT meals_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2775 (class 2606 OID 16443)
 -- Name: products products_pkey; Type: CONSTRAINT; Schema: public; Owner: eatmeall
 --
 
@@ -217,46 +209,58 @@ ALTER TABLE ONLY public.products
 
 
 --
--- TOC entry 2767 (class 2606 OID 16463)
--- Name: meal_entity_meal_times fk1p00bqoujvnb62hyo7e35c3nc; Type: FK CONSTRAINT; Schema: public; Owner: eatmeall
+-- TOC entry 2777 (class 2606 OID 16448)
+-- Name: r_meal_product r_meal_product_pkey; Type: CONSTRAINT; Schema: public; Owner: eatmeall
+--
+
+ALTER TABLE ONLY public.r_meal_product
+    ADD CONSTRAINT r_meal_product_pkey PRIMARY KEY (meal_id, part_id);
+
+
+--
+-- TOC entry 2778 (class 2606 OID 16449)
+-- Name: meal_entity_meal_times fk7up78706a24il4hcxvs1lwykd; Type: FK CONSTRAINT; Schema: public; Owner: eatmeall
 --
 
 ALTER TABLE ONLY public.meal_entity_meal_times
-    ADD CONSTRAINT fk1p00bqoujvnb62hyo7e35c3nc FOREIGN KEY (meal_entity_id) REFERENCES public.meal_entity(id);
+    ADD CONSTRAINT fk7up78706a24il4hcxvs1lwykd FOREIGN KEY (meal_entity_id) REFERENCES public.meals(id);
 
 
 --
--- TOC entry 2770 (class 2606 OID 16478)
--- Name: r_meal_product fkfil1fnqd7f8re2op58xiukey9; Type: FK CONSTRAINT; Schema: public; Owner: eatmeall
---
-
-ALTER TABLE ONLY public.r_meal_product
-    ADD CONSTRAINT fkfil1fnqd7f8re2op58xiukey9 FOREIGN KEY (product_id) REFERENCES public.meal_entity(id);
-
-
---
--- TOC entry 2769 (class 2606 OID 16473)
--- Name: r_meal_product fklc5m3tjeifpldlu494u92ww2g; Type: FK CONSTRAINT; Schema: public; Owner: eatmeall
+-- TOC entry 2781 (class 2606 OID 16464)
+-- Name: r_meal_product fkhdcek2p6b2x4accs9ihl88ihj; Type: FK CONSTRAINT; Schema: public; Owner: eatmeall
 --
 
 ALTER TABLE ONLY public.r_meal_product
-    ADD CONSTRAINT fklc5m3tjeifpldlu494u92ww2g FOREIGN KEY (meal_id) REFERENCES public.products(id);
+    ADD CONSTRAINT fkhdcek2p6b2x4accs9ihl88ihj FOREIGN KEY (part_id) REFERENCES public.products(id);
 
 
 --
--- TOC entry 2768 (class 2606 OID 16468)
--- Name: meal_prepare_step fkm1p6sp0lqdfvxau7jygs0clqa; Type: FK CONSTRAINT; Schema: public; Owner: eatmeall
+-- TOC entry 2779 (class 2606 OID 16454)
+-- Name: meal_prepare_step_entity fksgeeb8kcqh8yxukp2ipvyafj6; Type: FK CONSTRAINT; Schema: public; Owner: eatmeall
 --
 
-ALTER TABLE ONLY public.meal_prepare_step
-    ADD CONSTRAINT fkm1p6sp0lqdfvxau7jygs0clqa FOREIGN KEY (meal_id) REFERENCES public.meal_entity(id);
+ALTER TABLE ONLY public.meal_prepare_step_entity
+    ADD CONSTRAINT fksgeeb8kcqh8yxukp2ipvyafj6 FOREIGN KEY (meal_id) REFERENCES public.meals(id);
 
 
--- Completed on 2019-10-16 05:28:05
+--
+-- TOC entry 2780 (class 2606 OID 16459)
+-- Name: r_meal_product fksvift4tocvxs1e37ypp21l2mv; Type: FK CONSTRAINT; Schema: public; Owner: eatmeall
+--
+
+ALTER TABLE ONLY public.r_meal_product
+    ADD CONSTRAINT fksvift4tocvxs1e37ypp21l2mv FOREIGN KEY (meal_id) REFERENCES public.meals(id);
+
+
+-- Completed on 2019-10-22 05:36:32
 
 --
 -- PostgreSQL database dump complete
 --
+
+
+
 
 
 ALTER TABLE public.products OWNER TO eatmeall;
