@@ -2,7 +2,7 @@ import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
     Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED_DAY,
     COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, CHANGE_CHECKED_MEALTIME,
-    CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY
+    CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY, ALL_PRODUCTS, ADD_PRODUCT, CHANGE_PART_AMOUNT
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
@@ -10,6 +10,8 @@ import {loadMembers, saveMealToCopy} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 import Member from './Model/Member';
 import {DayOfWeekDto} from "../ServerConnection/DTOs/DayOfWeekDto";
+import {ProductWholeDataDto, SingleCategoryDto} from "../ServerConnection/DTOs/AllProductsDto";
+import {PostMealRecipieDto} from "../ServerConnection/DTOs/MealRecipeDto";
 
 interface weekScheduleReducerIf {
     members: Array<Member>
@@ -201,16 +203,14 @@ export const shoppingListReducer: Reducer<ShoppingListReducerIf, Types> = (state
 
 
 interface AddMealToDatabaseReducerIf {
-    preparation: Array<string>
-    nameOfRecipe: string
     mealTime: Array<DayOfWeekDto>
-    authorOfRecipe: string
-    prepTime: number
+    allProducts: Array<SingleCategoryDto>
+    selectedProducts: Array<ProductWholeDataDto>
+
+    toSerialize: PostMealRecipieDto;
 }
 
 const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
-    preparation: [],
-    nameOfRecipe: "",
     mealTime: [
         {id: 0, value: "śniadanie", isChecked: false},
         {id: 1, value: "2 śniadanie", isChecked: false},
@@ -218,44 +218,79 @@ const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
         {id: 3, value: "podwieczorek", isChecked: false},
         {id: 4, value: "kolacja", isChecked: false},
     ],
-    authorOfRecipe: "",
-    prepTime: 0
+    allProducts: [],
+    selectedProducts: [],
+    toSerialize: {
+        name: "",
+        description: "",
+        mealTime: [],
+        prepareTime: 0,
+        author: "",
+        parts: [],
+        steps: []
+    }
 };
 
 export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types> = (state: AddMealToDatabaseReducerIf = ADD_MEAL_TO_DATABASE_INIT, action: Types) => {
-    switch (action.type) {
-        case ADD_PREP_STEP: {
-            return produce(state, draftState => {
-                draftState.preparation.push(action.step)
-            })
+        switch (action.type) {
+            case ADD_PREP_STEP: {
+                return produce(state, draftState => {
+                    draftState.toSerialize.steps.push(action.step)
+                })
+            }
+            case DELETE_PREP_STEP: {
+                return produce(state, draftState => {
+                    draftState.toSerialize.steps = draftState.toSerialize.steps.filter(step => step !== action.step);
+                })
+            }
+            case CHANGE_NAME_OF_RECIPE: {
+                return produce(state, draftState => {
+                    draftState.toSerialize.name = action.name;
+                })
+            }
+            case CHANGE_CHECKED_MEALTIME: {
+                return produce(state, draftState => {
+                        let selectedMealTime = draftState.mealTime.filter(mealTime => mealTime.value === action.mealTime);
+                        selectedMealTime[0].isChecked = !selectedMealTime[0].isChecked;
+                        let selectedTime = draftState.mealTime.filter(mealTime => mealTime.isChecked === true).map(mt => mt.id);
+                        draftState.toSerialize.mealTime = selectedTime;
+                    }
+                )
+            }
+            case
+            CHANGE_AUTHOR_OF_RECIPE: {
+                return produce(state, draftState => {
+                    draftState.toSerialize.author = action.author;
+                })
+            }
+            case
+            CHANGE_PREP_TIME: {
+                return produce(state, draftState => {
+                    draftState.toSerialize.prepareTime = action.time;
+                })
+            }
+            case
+            ALL_PRODUCTS: {
+                return produce(state, draftState => {
+                    draftState.allProducts = action.allProducts;
+                })
+            }
+            case
+            ADD_PRODUCT: {
+                return produce(state, draftState => {
+                    draftState.selectedProducts.push(action.product);
+                    draftState.toSerialize.parts.push({id: action.product.id, amount: 100, specialAmount: ""});
+                })
+            }
+            case
+            CHANGE_PART_AMOUNT: {
+                return produce(state, draftState => {
+                    let part = draftState.toSerialize.parts.filter(p => Number(action.part.id) === p.id);
+                    part[0].amount = action.part.amount;
+                })
+            }
+            default:
+                return state
         }
-        case DELETE_PREP_STEP: {
-            return produce(state, draftState => {
-                draftState.preparation = draftState.preparation.filter(step => step !== action.step);
-            })
-        }
-        case CHANGE_NAME_OF_RECIPE: {
-            return produce(state, draftState => {
-                draftState.nameOfRecipe = action.name;
-            })
-        }
-        case CHANGE_CHECKED_MEALTIME: {
-            return produce(state, draftState => {
-                let selectedMeal = draftState.mealTime.filter(meal => meal.value === action.mealTime);
-                selectedMeal[0].isChecked = !selectedMeal[0].isChecked
-            })
-        }
-        case CHANGE_AUTHOR_OF_RECIPE: {
-            return produce(state, draftState => {
-                draftState.authorOfRecipe = action.author;
-            })
-        }
-        case CHANGE_PREP_TIME: {
-            return produce(state, draftState => {
-                draftState.prepTime = action.time;
-            })
-        }
-        default:
-            return state
     }
-};
+;

@@ -41,3 +41,19 @@ export interface typeMealDto {
     idTypeMeal: number,
     mealTime: string
 }
+
+export interface PostMealRecipieDto {
+    name: string
+    description: string
+    mealTime: Array<number>
+    prepareTime: number
+    author: string
+    parts: Array<PostProductDto>
+    steps: Array<String>
+}
+
+export interface PostProductDto{
+    id: number
+    amount: number
+    specialAmount: string
+}

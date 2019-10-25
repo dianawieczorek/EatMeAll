@@ -5,6 +5,8 @@
 .SideMenu {
     border-right: 3px solid #326D65;
     padding-top: 20px;
+    height: 70vh;
+    overflow-x:auto;
 }
 
 .SearchArea {
@@ -15,7 +17,43 @@
     padding-top: 20px;
     padding-left: 5vw;
     margin-bottom: 5vh;
+    height: 70vh;
+    overflow-x:auto;
 }
+
+.SearchResults {
+    max-height: 30vh;
+    overflow-x: auto;
+    display: none;
+    position: relative;
+    z-index: 1;
+    background-color: #fbfbfb;
+}
+
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+
+.SearchResults li {
+    width: 95%;
+    font-size: 1rem;
+    box-sizing: border-box;
+    text-align: left;
+    color: black;
+    font-weight: 200;
+    text-decoration: none;
+    padding:0.5vh 1vh;
+    display: block;
+    cursor: pointer;
+}
+
+.SearchResults li:hover {
+    background-color: #3d978e
+}
+
 
 p {
     margin-top: 10px;
