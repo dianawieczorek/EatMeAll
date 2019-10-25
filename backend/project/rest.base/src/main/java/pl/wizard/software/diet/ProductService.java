@@ -2,31 +2,39 @@ package pl.wizard.software.diet;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.wizard.software.diet.products.ProductEntity;
-import pl.wizard.software.diet.products.ProductDao;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 
 @RequiredArgsConstructor
 public class ProductService {
-    private final ProductDao productRespository;
+    private final ProductDao productDao;
 
-    public List<ProductEntity> findAll() {
-        return productRespository.findAll();
+    public Collection<ProductTypeDto> findAll() {
+        List<ProductEntity> products = productDao.findAll();
+        Set<String> productTypes = products.stream().map(p -> p.getProductType().getStringName()).collect(Collectors.toSet());
+
+        HashMap<String, ProductTypeDto> hashMap = new HashMap<>();
+        productTypes.forEach(pt -> hashMap.put(pt, new ProductTypeDto(pt)));
+        productDao.findAll().forEach(p -> {
+            ProductTypeDto productType = hashMap.get(p.getProductType().getStringName());
+            productType.getProducts().add(ProductEntDtoMapper.mapToShortDto(p));
+        });
+        return hashMap.values();
     }
 
     public Optional<ProductEntity> findById(Long id) {
-        return productRespository.findById(id);
+        return productDao.findById(id);
     }
 
     public ProductEntity save(ProductEntity stock) {
-        return productRespository.save(stock);
+        return productDao.save(stock);
     }
 
     public void deleteById(Long id) {
-        productRespository.deleteById(id);
+        productDao.deleteById(id);
     }
 }
+

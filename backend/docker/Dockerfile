@@ -9,6 +9,6 @@ ${WILDFLY_HOME}/bin/jboss-cli.sh  --file=${WILDFLY_HOME}/customization/jboss-con
 && chmod +rwx /tmp \
 && rm -rf /tmp
 
-EXPOSE 8080 8443 
+EXPOSE 8080 8443 9990 8787
 
-ENTRYPOINT /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement=0.0.0.0
+CMD /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement=0.0.0.0 --debug *:8787

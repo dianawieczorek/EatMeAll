@@ -1,6 +1,7 @@
 package pl.wizard.software;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 @Data
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@NoArgsConstructor
 public class AbstractBaseEntity {
 
     @Id
@@ -24,6 +26,12 @@ public class AbstractBaseEntity {
 
     @Version
     private int version;
+
+    public AbstractBaseEntity(Long aId, int aVersion) {
+        id = aId;
+        version = aVersion;
+    }
+
 
     @Override
     public boolean equals(Object aO) {

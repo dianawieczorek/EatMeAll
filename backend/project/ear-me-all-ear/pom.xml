@@ -20,7 +20,7 @@
                 <artifactId>maven-ear-plugin</artifactId>
                 <version>3.0.1</version>
                 <configuration>
-                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <!--<defaultLibBundleDir>lib</defaultLibBundleDir>-->
                     <modules>
                         <webModule>
                             <groupId>${project.groupId}</groupId>
@@ -28,12 +28,15 @@
                             <contextRoot>/api</contextRoot>
                         </webModule>
                     </modules>
+                    <outputDirectory>${project.build.directory}/deployment</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
             </plugin>
+
+
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
