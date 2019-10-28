@@ -38,8 +38,8 @@ public class MealEntity extends AbstractBaseEntity {
         steps = aSteps;
     }
 
-    void addPart(ProductEntity aProduct, Integer aAmount) {
-        MealPartEntity mealPartEntity = new MealPartEntity(this, aProduct, aAmount);
+    void addPart(ProductEntity aProduct, Integer aAmount, String aSpecialAmount) {
+        MealPartEntity mealPartEntity = new MealPartEntity(this, aProduct, aAmount, aSpecialAmount);
         parts.add(mealPartEntity);
     }
 

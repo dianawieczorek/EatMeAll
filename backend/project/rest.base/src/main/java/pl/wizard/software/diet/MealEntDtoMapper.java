@@ -19,7 +19,7 @@ class MealEntDtoMapper {
                 .aParts(new ArrayList<>())
                 .aSteps(new ArrayList<>())
                 .build();
-        aDto.getParts().forEach(p -> ret.addPart(new ProductEntity(p.getId(),0), p.getAmount()));
+        aDto.getParts().forEach(p -> ret.addPart(new ProductEntity(p.getId(),0), p.getAmount(), p.getSpecialAmount()));
 
         Iterator<String> stepIterator = aDto.getSteps().iterator();
         int index=0;
@@ -37,7 +37,7 @@ class MealEntDtoMapper {
 //                .aName(aShortDto.getName())
 //                .build();
 //    }
-//
+
     static MealDto mapToDto(MealEntity aEntity) {
         double calorific=0;
         double fat=0;
@@ -64,6 +64,7 @@ class MealEntDtoMapper {
                         ProductDtoShort.builder()
                                 .aId(m.getPart().getId())
                                 .aAmount(m.getAmount())
+                                .aSpecialAmount(m.getSpecialAmount())
                                 .aName(m.getPart().getName())
                                 .build()).collect(Collectors.toList()))
                 .aSteps(aEntity.getSteps().stream().map(MealPrepareStepEntity::getStep).collect(Collectors.toList()))
@@ -77,7 +78,6 @@ class MealEntDtoMapper {
 
 
     static MealDto mapToShortDto(MealEntity aEntity) {
-
         return MealDto.builder()
                 .aId(aEntity.getId())
                 .aVersion(aEntity.getVersion())
@@ -85,11 +85,6 @@ class MealEntDtoMapper {
                 .aDescription(aEntity.getDescription())
                 .aMealTimes(aEntity.getMealTimes())
                 .aAuthor(aEntity.getAuthor())
-                .aParts(aEntity.getParts().stream().map(m ->
-                        ProductDtoShort.builder()
-                                .aId(m.getPart().getId())
-                                .aAmount(m.getAmount())
-                                .build()).collect(Collectors.toList()))
                 .build();
     }
 }

@@ -23,12 +23,14 @@ class MealPartEntity implements Serializable {
     private ProductEntity part;
 
     private Integer amount;
+    private String specialAmount;
 
     @Builder
-    MealPartEntity(MealEntity aMeal, ProductEntity aPart, Integer aAmount) {
+    MealPartEntity(MealEntity aMeal, ProductEntity aPart, Integer aAmount, String aSpecialAmount) {
         meal = aMeal;
         part = aPart;
         amount = aAmount;
+        specialAmount = aSpecialAmount;
     }
 
     @Override
