@@ -45,7 +45,7 @@ class ListOfMeals extends PureComponent<Props, State> {
 
     changeMealName = (e: any) => {
         this.props.randomMealChange(this.props.randomMealList[e.target.value], this.props.dayNumber, this.props.mealNumber);
-    }
+    };
 
     render() {
         return (
