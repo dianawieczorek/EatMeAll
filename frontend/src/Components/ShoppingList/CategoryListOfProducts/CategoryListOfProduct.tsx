@@ -24,7 +24,11 @@ class CategoryListOfProduct extends PureComponent<Props> {
         )
     }
     private createList = () => {
-        return this.props.productList.map((prod:ProductDto) => <li>{prod.name}, {prod.amount}{prod.unit}</li>)
+        return this.props.productList.map((prod:ProductDto) => <li onClick={this.strikethroughProduct} id={prod.name}>{prod.name}, {prod.amount}{prod.unit}</li>)
+    };
+
+    private strikethroughProduct = (e:any) => {
+        document.getElementById(e.target.id)!.classList.toggle(styles.Strikethrough)
     }
 }
 
