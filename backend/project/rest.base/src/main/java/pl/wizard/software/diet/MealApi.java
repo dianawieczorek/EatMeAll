@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/v1/meal")
@@ -59,5 +62,14 @@ public class MealApi {
         mealDao.deleteById(id);
 
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/random")
+    public ResponseEntity<Collection<MealDto>>randomMeals(@RequestParam int count){
+        List<MealEntity> entities = mealDao.randomMeals(count);
+
+        Set<MealDto> ret = entities.stream().map(MealEntDtoMapper::mapToDto).collect(Collectors.toSet());
+
+        return ResponseEntity.ok(ret);
     }
 }

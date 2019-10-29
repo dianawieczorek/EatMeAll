@@ -165,6 +165,7 @@ ALTER TABLE public.products OWNER TO eatmeall;
 
 CREATE TABLE public.r_meal_product (
     amount integer,
+	special_amount character varying(255),
     meal_id bigint NOT NULL,
     part_id bigint NOT NULL
 );
