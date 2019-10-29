@@ -49,7 +49,7 @@ public class MealEntity extends AbstractBaseEntity {
     }
 
     public enum MealTimeEnum{
-        BREAKFAST(1),LUNCH(2),DINNER(3),DESSERT(4),SUPPER(5);
+        FAKE(0),BREAKFAST(1),LUNCH(2),DINNER(3),DESSERT(4),SUPPER(5);
 
         private int mealTimeInt;
 

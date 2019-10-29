@@ -65,8 +65,8 @@ public class MealApi {
     }
 
     @GetMapping("/random")
-    public ResponseEntity<Collection<MealDto>>randomMeals(@RequestParam int count){
-        List<MealEntity> entities = mealDao.randomMeals(count);
+    public ResponseEntity<Collection<MealDto>>randomMeals(@RequestParam int count, @RequestParam int mealTime){
+        List<MealEntity> entities = mealDao.randomMeals(count, mealTime);
 
         Set<MealDto> ret = entities.stream().map(MealEntDtoMapper::mapToDto).collect(Collectors.toSet());
 
