@@ -36,10 +36,6 @@ class ProductEntDtoMapper {
     }
 
     static ProductDtoShort mapToShortDto(ProductEntity aEntity) {
-//        return ProductDtoShort.builder()
-//                .aId(aEntity.getId())
-//                .aName(aEntity.getName())
-//                .build();
         return new ProductDtoShort(aEntity.getId(), aEntity.getName() );
     }
 }
