@@ -1,4 +1,4 @@
-package pl.wizard.software.diet;
+package pl.wizard.software.diet.product;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -35,6 +35,10 @@ public class ProductService {
 
     public void deleteById(Long id) {
         productDao.deleteById(id);
+    }
+
+    public static ProductEntity createEmptyEntity(long aId){
+        return new ProductEntity(aId,0);
     }
 }
 

@@ -1,6 +1,7 @@
-package pl.wizard.software.diet;
+package pl.wizard.software.diet.meal;
 
 import lombok.*;
+import pl.wizard.software.diet.product.ProductEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,7 +11,7 @@ import java.io.Serializable;
 @Setter
 @Getter
 @NoArgsConstructor
-class MealPartEntity implements Serializable {
+public class MealPartEntity implements Serializable {
 
     @Id
     @ManyToOne

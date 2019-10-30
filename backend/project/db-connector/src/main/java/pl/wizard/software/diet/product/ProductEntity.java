@@ -1,9 +1,10 @@
-package pl.wizard.software.diet;
+package pl.wizard.software.diet.product;
 
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.wizard.software.AbstractBaseEntity;
+import pl.wizard.software.diet.meal.MealPartEntity;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -52,11 +53,11 @@ public class ProductEntity extends AbstractBaseEntity {
             productType = aType;
         }
 
-        public String getStringName() {
+        String getStringName() {
             return productType;
         }
 
-        public static ProductTypeEnum parse(String aStringProductType) {
+        static ProductTypeEnum parse(String aStringProductType) {
             for (ProductTypeEnum enumm : ProductTypeEnum.values()) {
                 if (enumm.productType.equalsIgnoreCase(aStringProductType)) {
                     return enumm;

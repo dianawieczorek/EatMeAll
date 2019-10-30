@@ -1,4 +1,4 @@
-package pl.wizard.software.diet;
+package pl.wizard.software.diet.product;
 
 class ProductEntDtoMapper {
 
@@ -36,9 +36,10 @@ class ProductEntDtoMapper {
     }
 
     static ProductDtoShort mapToShortDto(ProductEntity aEntity) {
-        return ProductDtoShort.builder()
-                .aId(aEntity.getId())
-                .aName(aEntity.getName())
-                .build();
+//        return ProductDtoShort.builder()
+//                .aId(aEntity.getId())
+//                .aName(aEntity.getName())
+//                .build();
+        return new ProductDtoShort(aEntity.getId(), aEntity.getName() );
     }
 }
