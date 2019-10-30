@@ -76,7 +76,6 @@ class ListOfMeals extends PureComponent<Props, State> {
     private createListOfMatchingMeals() {
 
     }
-
 }
 
 const mapStateToProps = () => {
