@@ -129,7 +129,7 @@ export const CHANGE_CHECKED_MEALTIME = 'CHANGE_CHECKED_MEALTIME';
 
 export interface changeMealTimeCheckboxIf {
     type: typeof CHANGE_CHECKED_MEALTIME
-    mealTime: string
+    mealTimes: Array<string>
 }
 
 export const CHANGE_AUTHOR_OF_RECIPE = 'CHANGE_AUTHOR_OF_RECIPE';

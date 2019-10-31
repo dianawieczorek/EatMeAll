@@ -13,7 +13,7 @@ export default class Member {
             for (let meal = 0; meal < 5; meal++) {
                 tempArray.push({
                     idMeal: -1,
-                    mealTime: "",
+                    mealTimes: [""],
                     title: "",
                     shortDescription: "",
                     amountCalories: 0,

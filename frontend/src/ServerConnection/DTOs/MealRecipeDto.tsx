@@ -39,13 +39,13 @@ export interface stepsDto {
 
 export interface typeMealDto {
     idTypeMeal: number,
-    mealTime: string
+    mealTimes: Array<string>
 }
 
 export interface PostMealRecipieDto {
     name: string
     description: string
-    mealTime: Array<number>
+    mealTimes: Array<number>
     prepareTime: number
     author: string
     parts: Array<PostProductDto>

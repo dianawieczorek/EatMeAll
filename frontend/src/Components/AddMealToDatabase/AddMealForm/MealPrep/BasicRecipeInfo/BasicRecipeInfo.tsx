@@ -34,11 +34,11 @@ class AddMealToDatabase extends PureComponent<Props> {
                 <div className={styles.ProductAndInfo}>
                     <div className={styles.BasicInfo}>
                         <p>Pora posiłku: </p>
-                        {this.props.mealTime.map((mealTime) =>
+                        {this.props.mealTimes.map((mealTimes:any) =>
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="checkbox" id={mealTime.value}
-                                       value={mealTime.value} onClick={this.selectedMeal} key={mealTime.id}/>
-                                <label className="form-check-label">{mealTime.value}</label>
+                                <input className="form-check-input" type="checkbox" id={mealTimes.value}
+                                       value={mealTimes.value} onClick={this.selectedMeal} key={mealTimes.id}/>
+                                <label className="form-check-label">{mealTimes.value}</label>
                             </div>
                         )}
                         <p>czas przygotowania: <input type="number" name="5"
@@ -74,7 +74,7 @@ class AddMealToDatabase extends PureComponent<Props> {
 
 const mapStateToProps = (store: AppStore) => {
     return {
-        mealTime: store.addMealToDatabaseReducer.mealTime
+        mealTimes: store.addMealToDatabaseReducer.mealTimes
     }
 };
 
@@ -83,7 +83,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
         changeNameOfRecipe: (aName: string) => dispatch(changeNameOfRecipe(aName)),
         changeAuthorOfRecipe: (aAuthor: string) => dispatch(changeAuthorOfRecipe(aAuthor)),
         changePrepTime: (aTime: number) => dispatch(changePrepTime(aTime)),
-        changeMealTimeCheckbox: (aMealTime: string) => dispatch(changeMealTimeCheckbox(aMealTime))
+        changeMealTimeCheckbox: (aMealTimes: Array<string>) => dispatch(changeMealTimeCheckbox(aMealTimes))
 
     };
 };

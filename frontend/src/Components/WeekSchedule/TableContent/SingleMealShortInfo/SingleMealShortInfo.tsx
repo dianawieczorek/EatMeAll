@@ -129,15 +129,15 @@ class SingleMealShortInfo extends PureComponent<Props> {
     }
 
     public typeOfMeal = () => {
-        if (this.props.MealInfo.mealTime === "BREAKFAST") {
+        if (this.props.MealInfo.mealTimes.includes("BREAKFAST")) {
             return "śniadanko"
-        } else if (this.props.MealInfo.mealTime === "DINNER") {
+        } else if (this.props.MealInfo.mealTimes.includes("DINNER")) {
             return "obiad"
-        } else if (this.props.MealInfo.mealTime === "LUNCH") {
+        } else if (this.props.MealInfo.mealTimes.includes("LUNCH")) {
             return "drugie śniadanie"
-        } else if (this.props.MealInfo.mealTime === "SNACK") {
+        } else if (this.props.MealInfo.mealTimes.includes("SNACK")) {
             return "podwieczorek"
-        } else if (this.props.MealInfo.mealTime === "SUPPER") {
+        } else if (this.props.MealInfo.mealTimes.includes("SUPPER")) {
             return "kolacja"
         } else {
             return ""

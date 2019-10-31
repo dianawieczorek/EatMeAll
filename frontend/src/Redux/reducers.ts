@@ -203,7 +203,7 @@ export const shoppingListReducer: Reducer<ShoppingListReducerIf, Types> = (state
 
 
 interface AddMealToDatabaseReducerIf {
-    mealTime: Array<DayOfWeekDto>
+    mealTimes: Array<DayOfWeekDto>
     allProducts: Array<SingleCategoryDto>
     selectedProducts: Array<ProductWholeDataDto>
 
@@ -211,7 +211,7 @@ interface AddMealToDatabaseReducerIf {
 }
 
 const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
-    mealTime: [
+    mealTimes: [
         {id: 0, value: "śniadanie", isChecked: false},
         {id: 1, value: "2 śniadanie", isChecked: false},
         {id: 2, value: "obiad", isChecked: false},
@@ -223,7 +223,7 @@ const ADD_MEAL_TO_DATABASE_INIT: AddMealToDatabaseReducerIf = {
     toSerialize: {
         name: "",
         description: "",
-        mealTime: [],
+        mealTimes: [],
         prepareTime: 0,
         author: "",
         parts: [],
@@ -250,10 +250,10 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
             }
             case CHANGE_CHECKED_MEALTIME: {
                 return produce(state, draftState => {
-                        let selectedMealTime = draftState.mealTime.filter(mealTime => mealTime.value === action.mealTime);
+                        let selectedMealTime = draftState.mealTimes.filter(mealTime => mealTime.value === action.mealTime);
                         selectedMealTime[0].isChecked = !selectedMealTime[0].isChecked;
-                        let selectedTime = draftState.mealTime.filter(mealTime => mealTime.isChecked === true).map(mt => mt.id);
-                        draftState.toSerialize.mealTime = selectedTime;
+                        let selectedTime = draftState.mealTimes.filter(mealTime => mealTime.isChecked === true).map(mt => mt.id);
+                        draftState.toSerialize.mealTimes = selectedTime;
                     }
                 )
             }

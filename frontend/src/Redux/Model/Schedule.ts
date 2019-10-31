@@ -2,7 +2,7 @@ import {MealDto} from "../../ServerConnection/DTOs/WeekScheduleDto";
 
 export class EmptyMeal implements MealDto {
     idMeal: number;
-    mealTime: string;
+    mealTimes: Array<string>;
     title: string;
     shortDescription: string;
     amountCalories: number;
@@ -12,7 +12,7 @@ export class EmptyMeal implements MealDto {
 
     constructor(){
         this.idMeal = -1;
-        this.mealTime = "";
+        this.mealTimes = [""];
         this.title = "";
         this.shortDescription = "";
         this.amountCalories = 0;

@@ -2,7 +2,7 @@
   {
     "idMeal": 69,
     "language": "PL",
-    "mealTime": "BREAKFAST",
+    "mealTimes": ["BREAKFAST"],
     "public": true,
     "shortDescription": "Przepis z Excel",
     "title": "jajecznica z boczkiem i szczypiorkiem",

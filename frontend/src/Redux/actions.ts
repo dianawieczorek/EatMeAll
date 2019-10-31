@@ -146,10 +146,10 @@ export const changeNameOfRecipe = (aName: string): changeNameOfRecipeIf => {
 };
 
 
-export const changeMealTimeCheckbox = (amealTime: string): changeMealTimeCheckboxIf => {
+export const changeMealTimeCheckbox = (amealTime: Array<string>): changeMealTimeCheckboxIf => {
     return {
         type: CHANGE_CHECKED_MEALTIME,
-        mealTime: amealTime
+        mealTimes: amealTime
     }
 };
 
