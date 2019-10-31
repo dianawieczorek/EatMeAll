@@ -1,9 +1,10 @@
-package pl.wizard.software.diet;
+package pl.wizard.software.diet.meal;
 
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.wizard.software.AbstractBaseEntity;
+import pl.wizard.software.diet.product.ProductEntity;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -57,11 +58,11 @@ public class MealEntity extends AbstractBaseEntity {
             mealTimeInt = aType;
         }
 
-        public int getMealTimeInt() {
+        int getMealTimeInt() {
             return mealTimeInt;
         }
 
-        public static MealEntity.MealTimeEnum parse(int aMealTime) {
+        static MealEntity.MealTimeEnum parse(int aMealTime) {
             for (MealEntity.MealTimeEnum enumm : MealEntity.MealTimeEnum.values()) {
                 if (enumm.mealTimeInt == aMealTime) {
                     return enumm;

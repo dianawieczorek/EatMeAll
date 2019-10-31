@@ -1,8 +1,9 @@
-package pl.wizard.software.diet;
+package pl.wizard.software.diet.product;
 
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import pl.wizard.software.core.AbstractDtoShort;
 
 @Data
@@ -10,14 +11,10 @@ import pl.wizard.software.core.AbstractDtoShort;
 public class ProductDtoShort extends AbstractDtoShort {
 
     private String name;
-    private Integer amount;
-    private String specialAmount;
 
-    @Builder
-    ProductDtoShort(Long aId, String aName, Integer aAmount, String aSpecialAmount) {
+//    @Builder
+    protected ProductDtoShort(Long aId, String aName) {
         super(aId);
         name = aName;
-        amount = aAmount;
-        specialAmount = aSpecialAmount;
     }
 }

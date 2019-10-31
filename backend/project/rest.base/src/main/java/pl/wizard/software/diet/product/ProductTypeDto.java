@@ -1,4 +1,4 @@
-package pl.wizard.software.diet;
+package pl.wizard.software.diet.product;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-class ProductTypeDto  {
+public class ProductTypeDto  {
 
     private String name;
     private List<ProductDtoShort> products;

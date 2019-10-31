@@ -1,4 +1,4 @@
-package pl.wizard.software.diet;
+package pl.wizard.software.diet.meal;
 
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 @Entity
 @Data
 @NoArgsConstructor
-class MealPrepareStepEntity extends AbstractBaseEntity {
+public class MealPrepareStepEntity extends AbstractBaseEntity {
 
     private int orderNumber;
     private String step;
