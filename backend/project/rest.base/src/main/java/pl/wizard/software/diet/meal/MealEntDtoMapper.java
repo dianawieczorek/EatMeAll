@@ -1,10 +1,13 @@
-package pl.wizard.software.diet;
+package pl.wizard.software.diet.meal;
 
+
+import pl.wizard.software.diet.product.ProductDtoShort;
+import pl.wizard.software.diet.product.ProductEntity;
+import pl.wizard.software.diet.product.ProductService;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 class MealEntDtoMapper {
 
@@ -19,7 +22,7 @@ class MealEntDtoMapper {
                 .aParts(new ArrayList<>())
                 .aSteps(new ArrayList<>())
                 .build();
-        aDto.getParts().forEach(p -> ret.addPart(new ProductEntity(p.getId(),0), p.getAmount(), p.getSpecialAmount()));
+        aDto.getParts().forEach(p -> ret.addPart(ProductService.createEmptyEntity(p.getId()), p.getAmount(), p.getSpecialAmount()));
 
         Iterator<String> stepIterator = aDto.getSteps().iterator();
         int index=0;
@@ -61,7 +64,7 @@ class MealEntDtoMapper {
                 .aMealTimes(aEntity.getMealTimes())
                 .aAuthor(aEntity.getAuthor())
                 .aParts(aEntity.getParts().stream().map(m ->
-                        ProductDtoShort.builder()
+                        MealPartDto.builder()
                                 .aId(m.getPart().getId())
                                 .aAmount(m.getAmount())
                                 .aSpecialAmount(m.getSpecialAmount())
