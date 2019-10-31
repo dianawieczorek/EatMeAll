@@ -11,7 +11,7 @@ import java.util.List;
 
 @NoArgsConstructor
 @Data
-class MealDto extends AbstractDto {
+public class MealDto extends AbstractDto {
 
     private String name;
     private String description;

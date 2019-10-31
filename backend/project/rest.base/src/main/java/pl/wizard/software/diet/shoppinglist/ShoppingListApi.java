@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.wizard.software.diet.meal.MealDto;
 import pl.wizard.software.diet.meal.MealEntity;
+import pl.wizard.software.diet.meal.MealService;
+import pl.wizard.software.diet.product.ProductEntity;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/v1/shoppingList")
@@ -17,11 +21,17 @@ import java.util.*;
 @RequiredArgsConstructor
 class ShoppingListApi {
 
-//    private final MealDao mealDao;
+    private final MealService mealService;
 
     @GetMapping("/{aMealIds}")
     public ResponseEntity<Collection<MealEntity>> generateShoppingList(@PathVariable long[] aMealIds) {
-//        List<MealEntity> meals = mealDao.findAllById(Arrays.stream(aMealIds).boxed().collect(Collectors.toList()));
+
+//        List<Long> ids = Arrays.stream(aMealIds).boxed().collect(Collectors.toList());
+//        z tego trzeba zrobić mapę id - ilość takich potraw
+//                meal part dto nie ma informacji o typie produktu - trzeba dodać żeby zwrócić tu sensownie posortowane...
+//        Map<Long,Integer> uniqIdsAndAmount = new HashMap<>();
+
+//        Set<MealDto> meals = mealService.findAllById(new ArrayList<Long>(uniqIdsAndAmount.keySet()));
 //        List<ProductEntity> products = meals.stream().flatMap(m -> m.getParts().stream().map(MealPartEntity::getPart)).collect(Collectors.toList());
 //
 //        Set<String> productTypes = products.stream().map(p -> p.getProductType().getStringName()).collect(Collectors.toSet());

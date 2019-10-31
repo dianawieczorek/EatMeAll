@@ -48,4 +48,8 @@ public class MealService {
 
         return entities.stream().map(MealEntDtoMapper::mapToDto).collect(Collectors.toSet());
     }
+
+    public Set<MealDto> findAllById(List<Long> aIds) {
+        return mealDao.findAllById(aIds).stream().map(e -> mapEntToDto(Optional.of(e))).collect(Collectors.toSet());
+    }
 }
