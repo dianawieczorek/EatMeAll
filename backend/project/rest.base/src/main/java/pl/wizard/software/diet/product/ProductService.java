@@ -7,12 +7,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductDao productDao;
 
-    public Collection<ProductTypeDto> findAll() {
+    Collection<ProductTypeDto> findAll() {
         List<ProductEntity> products = productDao.findAll();
         Set<String> productTypes = products.stream().map(p -> p.getProductType().getStringName()).collect(Collectors.toSet());
 
@@ -25,15 +24,15 @@ public class ProductService {
         return hashMap.values();
     }
 
-    public Optional<ProductEntity> findById(Long id) {
+    Optional<ProductEntity> findById(Long id) {
         return productDao.findById(id);
     }
 
-    public ProductEntity save(ProductEntity stock) {
+    ProductEntity save(ProductEntity stock) {
         return productDao.save(stock);
     }
 
-    public void deleteById(Long id) {
+    void deleteById(Long id) {
         productDao.deleteById(id);
     }
 
