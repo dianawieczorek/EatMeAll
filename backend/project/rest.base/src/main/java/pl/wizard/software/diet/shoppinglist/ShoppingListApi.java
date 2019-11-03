@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.wizard.software.diet.meal.MealDto;
 import pl.wizard.software.diet.meal.MealEntity;
+import pl.wizard.software.diet.meal.MealPartDto;
 import pl.wizard.software.diet.meal.MealService;
 import pl.wizard.software.diet.product.ProductEntity;
 
@@ -24,7 +25,7 @@ class ShoppingListApi {
     private final MealService mealService;
 
     @GetMapping("/{aMealIds}")
-    public ResponseEntity<Collection<MealEntity>> generateShoppingList(@PathVariable long[] aMealIds) {
+    public ResponseEntity<Collection<MealPartDto>> generateShoppingList(@PathVariable long[] aMealIds) {
 
 //        List<Long> ids = Arrays.stream(aMealIds).boxed().collect(Collectors.toList());
 //        z tego trzeba zrobić mapę id - ilość takich potraw
@@ -49,6 +50,27 @@ class ShoppingListApi {
 //        System.err.println(products.size());
 //        System.err.println(productTypes.size());
 
-        return ResponseEntity.ok(new ArrayList<>());
+        MealPartDto p1 = new MealPartDto();
+        p1.setId(1L);
+        p1.setName("P1");
+        p1.setAmount(200);
+        MealPartDto p2 = new MealPartDto();
+        p2.setId(2L);
+        p2.setName("P2");
+        p2.setAmount(10);
+
+        MealPartDto p3 = new MealPartDto();
+        p3.setId(3L);
+        p3.setName("P3");
+        p3.setAmount(3);
+
+        ArrayList<MealPartDto> expected = new ArrayList<>();
+        p1.setAmount(200);
+        expected.add(p1);
+        expected.add(p2);
+        expected.add(p3);
+
+
+        return ResponseEntity.ok(expected);
     }
 }

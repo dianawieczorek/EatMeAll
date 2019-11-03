@@ -7,7 +7,7 @@ import pl.wizard.software.diet.product.ProductDtoShort;
 
 @NoArgsConstructor
 @Data
-class MealPartDto extends ProductDtoShort {
+public class MealPartDto extends ProductDtoShort {
 
     private String specialAmount;
     private int amount;
