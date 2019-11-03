@@ -1,6 +1,7 @@
 package pl.wizard.software.diet.shoppinglist;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
@@ -30,16 +31,21 @@ class ShoppingListApiTest {
     private MealPartDto p1;
     private MealPartDto p2;
     private MealPartDto p3;
+    private ShoppingListApi shoppingListApi;
 
+    @BeforeEach
+    private void init() {
+        Set<MealDto> retMeals = prepareMeals();
+        Mockito.lenient().when(mealService.findAllById(Mockito.any())).thenReturn(retMeals);
+        Mockito.lenient().when(mealService.findAllById(Mockito.any())).thenReturn(retMeals);
+        shoppingListApi = new ShoppingListApi(mealService);
+    }
 
     @Test
-    void shouldGenerateCorrectShoppingListEventMealsHasTheSameProductInRecipie(){
+    void shouldGenerateCorrectShoppingListEventMealsHasTheSameProductInRecipe(){
         ArrayList<Long> idList = new ArrayList<>();
         idList.add(1L);
         idList.add(2L);
-        Set<MealDto> retMeals = prepareMeals();
-        Mockito.lenient().when(mealService.findAllById(idList)).thenReturn(retMeals);
-        ShoppingListApi shoppingListApi = new ShoppingListApi(mealService);
 
         ArrayList<MealPartDto> expected = new ArrayList<>();
         MealPartDto p1 = new MealPartDto();
@@ -56,6 +62,35 @@ class ShoppingListApiTest {
         expected.forEach(expectedProduct ->
                 assertTrue(EqualsBuilder.reflectionEquals(expectedProduct, result.getBody().stream().filter(resultProd -> resultProd.getId().equals(expectedProduct.getId())).findAny().get()))
         );
+    }
+
+    @Test
+    void shouldGenerateCorrectShoppingListEventDuplicateMeals() {
+        ArrayList<Long> idList = new ArrayList<>();
+        idList.add(1L);
+        idList.add(1L);
+        idList.add(2L);
+
+        ArrayList<MealPartDto> expected = new ArrayList<>();
+        MealPartDto p1 = new MealPartDto();
+        p1.setId(this.p1.getId());
+        p1.setName(this.p1.getName());
+        p1.setAmount(300);
+        expected.add(p1);
+        MealPartDto p2 = new MealPartDto();
+        p2.setId(this.p2.getId());
+        p2.setName(this.p2.getName());
+        p2.setAmount(20);
+        expected.add(p2);
+        expected.add(p3);
+
+
+        ResponseEntity<Collection<MealPartDto>> result = shoppingListApi.generateShoppingList(idList.stream().mapToLong(l -> l).toArray());
+
+        expected.forEach(expectedProduct ->
+                assertTrue(EqualsBuilder.reflectionEquals(expectedProduct, result.getBody().stream().filter(resultProd -> resultProd.getId().equals(expectedProduct.getId())).findAny().get()))
+        );
+
     }
 
     private Set<MealDto> prepareMeals() {
@@ -95,6 +130,4 @@ class ShoppingListApiTest {
         ret.add(m2);
         return ret;
     }
-
-
 }

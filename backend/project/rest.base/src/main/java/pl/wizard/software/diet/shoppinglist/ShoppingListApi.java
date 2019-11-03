@@ -29,7 +29,7 @@ class ShoppingListApi {
         Map<Long,Integer> uniqIdsAndAmount = new HashMap<>();
         ids.forEach(id -> {
             if (!uniqIdsAndAmount.containsKey(id)){
-                uniqIdsAndAmount.put(id,1);
+                uniqIdsAndAmount.put(id,0);
             }
             else{
                 uniqIdsAndAmount.put(id,uniqIdsAndAmount.get(id)+1);
@@ -50,7 +50,10 @@ class ShoppingListApi {
             }
         });
 
-
+        Set<Long> multiMeals = uniqIdsAndAmount.keySet().stream().filter(id -> uniqIdsAndAmount.get(ids) > 0).collect(Collectors.toSet());
+        multiMeals.forEach( mealId ->
+                for(uniqIdsAndAmount.get(mealId);
+        );
 
 
         return ResponseEntity.ok(partMap.values());
