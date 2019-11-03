@@ -91,6 +91,8 @@ class ShoppingListApiTest {
         m2.setName("M1");
         m2.setParts(parts2);
 
+        ret.add(m1);
+        ret.add(m2);
         return ret;
     }
 
