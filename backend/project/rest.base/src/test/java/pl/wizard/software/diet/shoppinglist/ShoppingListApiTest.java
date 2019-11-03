@@ -56,7 +56,6 @@ class ShoppingListApiTest {
         expected.add(p2);
         expected.add(p3);
 
-
         ResponseEntity<Collection<MealPartDto>> result = shoppingListApi.generateShoppingList(idList.stream().mapToLong(l -> l).toArray());
 
         expected.forEach(expectedProduct ->
@@ -90,7 +89,33 @@ class ShoppingListApiTest {
         expected.forEach(expectedProduct ->
                 assertTrue(EqualsBuilder.reflectionEquals(expectedProduct, result.getBody().stream().filter(resultProd -> resultProd.getId().equals(expectedProduct.getId())).findAny().get()))
         );
+    }
 
+    @Test
+    void shouldGenerateCorrectShoppingListEventDuplicateMeals2() {
+        ArrayList<Long> idList = new ArrayList<>();
+        idList.add(1L);
+        idList.add(2L);
+        idList.add(2L);
+
+        ArrayList<MealPartDto> expected = new ArrayList<>();
+        MealPartDto p1 = new MealPartDto();
+        p1.setId(this.p1.getId());
+        p1.setName(this.p1.getName());
+        p1.setAmount(300);
+        expected.add(p1);
+        expected.add(p2);
+        MealPartDto p3 = new MealPartDto();
+        p3.setId(this.p3.getId());
+        p3.setName(this.p3.getName());
+        p3.setAmount(6);
+        expected.add(p3);
+
+        ResponseEntity<Collection<MealPartDto>> result = shoppingListApi.generateShoppingList(idList.stream().mapToLong(l -> l).toArray());
+
+        expected.forEach(expectedProduct ->
+                assertTrue(EqualsBuilder.reflectionEquals(expectedProduct, result.getBody().stream().filter(resultProd -> resultProd.getId().equals(expectedProduct.getId())).findAny().get()))
+        );
     }
 
     private Set<MealDto> prepareMeals() {
@@ -122,8 +147,8 @@ class ShoppingListApiTest {
         parts2.add(p3);
 
         MealDto m2 = new MealDto();
-        m2.setId(1L);
-        m2.setName("M1");
+        m2.setId(2L);
+        m2.setName("M2");
         m2.setParts(parts2);
 
         ret.add(m1);

@@ -26,35 +26,28 @@ class ShoppingListApi {
     public ResponseEntity<Collection<MealPartDto>> generateShoppingList(@PathVariable long[] aMealIds) {
 
         List<Long> ids = Arrays.stream(aMealIds).boxed().collect(Collectors.toList());
-        Map<Long,Integer> uniqIdsAndAmount = new HashMap<>();
+        Map<Long, Integer> uniqIdsAndAmount = new HashMap<>();
         ids.forEach(id -> {
-            if (!uniqIdsAndAmount.containsKey(id)){
-                uniqIdsAndAmount.put(id,0);
-            }
-            else{
-                uniqIdsAndAmount.put(id,uniqIdsAndAmount.get(id)+1);
+            if (!uniqIdsAndAmount.containsKey(id)) {
+                uniqIdsAndAmount.put(id, 0);
+            } else {
+                uniqIdsAndAmount.put(id, uniqIdsAndAmount.get(id) + 1);
             }
         });
 
-        Set<MealDto> meals = mealService.findAllById(new ArrayList<>(uniqIdsAndAmount.keySet()));
+        ArrayList<MealDto> meals = new ArrayList<>(mealService.findAllById(new ArrayList<>(uniqIdsAndAmount.keySet())));
+        uniqIdsAndAmount.keySet().stream().filter(m -> uniqIdsAndAmount.get(m) > 0).forEach(m -> meals.add(meals.stream().filter(filtered -> filtered.getId().equals(m)).findAny().get()));
         List<MealPartDto> parts = meals.stream().flatMap(m -> m.getParts().stream()).collect(Collectors.toList());
         HashMap<Long, MealPartDto> partMap = new HashMap<>();
         parts.forEach(p -> {
-            if (!partMap.containsKey(p.getId())){
-                partMap.put(p.getId(),p);
-            }
-            else {
+            if (!partMap.containsKey(p.getId())) {
+                partMap.put(p.getId(), new MealPartDto(p));
+            } else {
                 MealPartDto part = partMap.get(p.getId());
                 part.setAmount(part.getAmount() + p.getAmount());
                 partMap.put(p.getId(), part);
             }
         });
-
-        Set<Long> multiMeals = uniqIdsAndAmount.keySet().stream().filter(id -> uniqIdsAndAmount.get(ids) > 0).collect(Collectors.toSet());
-        multiMeals.forEach( mealId ->
-                for(uniqIdsAndAmount.get(mealId);
-        );
-
 
         return ResponseEntity.ok(partMap.values());
     }

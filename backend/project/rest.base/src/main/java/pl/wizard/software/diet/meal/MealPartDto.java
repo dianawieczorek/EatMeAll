@@ -19,4 +19,10 @@ public class MealPartDto extends ProductDtoShort {
         specialAmount = aSpecialAmount;
         amount = aAmount;
     }
+
+    public MealPartDto(MealPartDto aP) {
+        super(aP.getId(),aP.getName());
+        specialAmount = aP.getSpecialAmount();
+        amount = aP.getAmount();
+    }
 }
