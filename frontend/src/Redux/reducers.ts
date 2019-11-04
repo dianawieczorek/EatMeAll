@@ -2,7 +2,8 @@ import {
     CLOSE_MODAL, OPEN_MODAL, RANDOM_MEAL_CHANGE, SET_CURRENT_WEEK_SCHEDULE, OPEN_SIDEDRAWER, CLOSE_SIDEDRAWER,
     Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED_DAY,
     COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, CHANGE_CHECKED_MEALTIME,
-    CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY, ALL_PRODUCTS, ADD_PRODUCT, CHANGE_PART_AMOUNT
+    CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY, ALL_PRODUCTS, ADD_PRODUCT, CHANGE_PART_AMOUNT,
+    ALL_MEALS
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
@@ -11,18 +12,20 @@ import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
 import Member from './Model/Member';
 import {DayOfWeekDto} from "../ServerConnection/DTOs/DayOfWeekDto";
 import {ProductWholeDataDto, SingleCategoryDto} from "../ServerConnection/DTOs/AllProductsDto";
-import {PostMealRecipieDto} from "../ServerConnection/DTOs/MealRecipeDto";
+import {MealRecipeDto, PostMealRecipieDto} from "../ServerConnection/DTOs/MealRecipeDto";
 
 interface weekScheduleReducerIf {
     members: Array<Member>
     currentMember: Member
     choosenMember: string
+    allMeals: Array<MealRecipeDto>
 }
 
 const WEEK_INIT: weekScheduleReducerIf = {
     members: loadMembers(),
     currentMember: loadMembers()[0],
-    choosenMember: loadMembers()[0].name
+    choosenMember: loadMembers()[0].name,
+    allMeals: []
 };
 
 export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state: weekScheduleReducerIf = WEEK_INIT, action: Types) => {
@@ -79,6 +82,11 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
         case CHOOSE_MEMBER_TO_COPY: {
             return produce(state, draftState => {
                 draftState.choosenMember = action.member
+            })
+        }
+        case ALL_MEALS: {
+            return produce(state, draftState => {
+                draftState.allMeals = action.allMeals;
             })
         }
 
@@ -250,7 +258,7 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
             }
             case CHANGE_CHECKED_MEALTIME: {
                 return produce(state, draftState => {
-                        let selectedMealTime = draftState.mealTimes.filter(mealTime => mealTime.value === action.mealTime);
+                        let selectedMealTime = draftState.mealTimes.filter((mealTimes: any) => mealTimes[0].value === action.mealTimes);
                         selectedMealTime[0].isChecked = !selectedMealTime[0].isChecked;
                         let selectedTime = draftState.mealTimes.filter(mealTime => mealTime.isChecked === true).map(mt => mt.id);
                         draftState.toSerialize.mealTimes = selectedTime;

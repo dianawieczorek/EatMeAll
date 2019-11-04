@@ -21,7 +21,7 @@ class SideMenu extends Component<Props, State> {
     constructor(Props: any, State: any) {
         super(Props, State);
         this.productInput = React.createRef();
-        this.state= {
+        this.state = {
             currentProductInputValue: ""
         }
     }
@@ -66,11 +66,10 @@ class SideMenu extends Component<Props, State> {
     };
 
     private createListOfMatchingProducts() {
-            const flatProducts = this.props.allProducts.flatMap(category => category.products);
-            return flatProducts.filter(p => p.name.toLocaleLowerCase().includes(this.state.currentProductInputValue.toLocaleLowerCase())
-        ).
-            map(p => <li id={p.id.toString()}
-                             onClick={this.selectProduct}>{p.name}</li>)
+        const flatProducts = this.props.allProducts.flatMap(category => category.products);
+        return flatProducts.filter(p => p.name.toLocaleLowerCase().includes(this.state.currentProductInputValue.toLocaleLowerCase())
+        ).map(p => <li id={p.id.toString()}
+                       onClick={this.selectProduct}>{p.name}</li>)
     }
 
     private selectProduct = (e: any) => {

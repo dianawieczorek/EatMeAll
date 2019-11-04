@@ -7,7 +7,7 @@ export default class Member {
 
     constructor(aUserName: string) {
         this.name = aUserName;
-        this.weekSchedule = []
+        this.weekSchedule = [];
         for (let day = 0; day < 7; day++) {
             const tempArray: Array<MealDto> = [];
             for (let meal = 0; meal < 5; meal++) {

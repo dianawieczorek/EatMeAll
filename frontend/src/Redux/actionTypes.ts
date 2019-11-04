@@ -169,9 +169,16 @@ export interface addProductIf {
 
 export const CHANGE_PART_AMOUNT = "CHANGE_PART_AMOUNT";
 
-export interface changePartAmountIf{
+export interface changePartAmountIf {
     type: typeof CHANGE_PART_AMOUNT
     part: PostProductDto
+}
+
+export const ALL_MEALS = 'ALL_MEALS';
+
+export interface allMealsIf {
+    type: typeof ALL_MEALS
+    allMeals: any
 }
 
 export type Types =
@@ -199,3 +206,4 @@ export type Types =
     | allProductIf
     | addProductIf
     | changePartAmountIf
+    | allMealsIf
