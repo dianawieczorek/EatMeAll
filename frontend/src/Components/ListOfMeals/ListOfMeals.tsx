@@ -1,12 +1,13 @@
-import React, {PureComponent, RefObject} from 'react';
+import React, {Component, PureComponent, RefObject} from 'react';
 import {connect} from 'react-redux';
 import styles from "./ListOfMeals.module.css"
 import {RandomMealDto} from "../../ServerConnection/DTOs/randomMealDto";
 import {closeModal, randomMealChange} from "../../Redux/actions";
 import {Dispatch} from "redux";
+import {AppStore} from "../../Redux/store";
+import {SHOW_DETAIL_URL} from "../../ServerConnection/RestCommunication/fileWithConstants";
 
 interface OwnProps {
-    randomMealList: Array<RandomMealDto>
     mealNumber: number
     dayNumber: number
 }
@@ -17,34 +18,34 @@ interface State {
     currentMealInputValue: string
 }
 
-class ListOfMeals extends PureComponent<Props, State> {
+class ListOfMeals extends Component<Props, State> {
     readonly mealInput: RefObject<HTMLInputElement>;
 
     constructor(Props: any, State: any) {
         super(Props, State);
         this.mealInput = React.createRef();
-        this.state= {
+        this.state = {
             currentMealInputValue: ""
         }
     }
 
-    prepareMealList() {
-        return (this.props.randomMealList.map((meal: RandomMealDto, i: number) =>
-            <li>
-                <button
-                    className={styles.mealButton}
-                    onClick={this.clickHandler} value={i}>{meal.title}</button>
-            </li>))
-    }
-    ;
-
-    clickHandler = (e: any) => {
-        this.changeMealName(e);
-        this.props.closeModal();
-    };
-
+    // prepareMealList() {
+    //     return (this.props.randomMealList.map((meal: RandomMealDto, i: number) =>
+    //         <li>
+    //             <button
+    //                 className={styles.mealButton}
+    //                 onClick={this.clickHandler} value={i}>{meal.title}</button>
+    //         </li>))
+    // }
+    // ;
     changeMealName = (e: any) => {
-        this.props.randomMealChange(this.props.randomMealList[e.target.value], this.props.dayNumber, this.props.mealNumber);
+        let id = e.target.id;
+        fetch(SHOW_DETAIL_URL + id)
+            .then(response => response.json())
+            .then((json: RandomMealDto) => {
+                this.props.randomMealChange(json, this.props.dayNumber, this.props.mealNumber);});
+        this.mealInput.current!.value = "";
+        this.props.closeModal();
     };
 
     render() {
@@ -58,27 +59,34 @@ class ListOfMeals extends PureComponent<Props, State> {
                                className="form-control bg-none border-0"/>
                     </div>
                     <div className={[styles.SearchResults, "result"].join(" ")}>
-                        {/*{this.createListOfMatchingMeals()}*/}
+                        {this.createListOfMatchingMeals()}
                     </div>
                 </div>
                 <ul className={styles.mealButtons}>
-                    {this.prepareMealList()}
+                {/*{this.prepareMealList()}*/}
                 </ul>
             </div>
         )
     }
+
     private changeCurrentMealInputValue = () => {
         document.querySelector(".result")!.classList.add(styles.show);
         let innerValue = this.mealInput.current!.value;
         this.setState({currentMealInputValue: innerValue});
     };
 
-    private createListOfMatchingMeals() {
-
+    private createListOfMatchingMeals = () => {
+        const allMeals = this.props.allMeals;
+        return allMeals.filter((p: any) => p.name.toLocaleLowerCase().includes(this.state.currentMealInputValue.toLocaleLowerCase())
+        ).map((p: any) => <li id={p.id.toString()} onClick={this.changeMealName}
+        >{p.name}</li>)
     }
 }
 
-const mapStateToProps = () => {
+const mapStateToProps = (store: AppStore) => {
+    return {
+        allMeals: store.weekScheduleReducer.allMeals
+    }
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {

@@ -19,3 +19,19 @@
 .mealButtons {
     margin-bottom: 30px;
 }
+
+.SearchResults {
+    max-height: 30vh;
+    overflow-x: auto;
+    display: none;
+    position: relative;
+    z-index: 1;
+    background-color: #fbfbfb;
+}
+
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}

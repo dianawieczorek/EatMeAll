@@ -5,6 +5,7 @@ import styles from "./TableHeader.module.css"
 import {Dispatch} from "redux";
 import {setCurrentWeekSchedule} from "../../../Redux/actions";
 import {DayDietDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
+import {SCHEDULE} from "../../../ServerConnection/RestCommunication/fileWithConstants";
 
 interface OwnProps {
 }
@@ -32,7 +33,7 @@ class TableHeader extends PureComponent<Props> {
     }
 
     private randomCurrentWeekSchedule = (e: MouseEvent) => {
-        fetch("http://217.182.78.23:100/app/schedule")
+        fetch(SCHEDULE)
             .then(response => response.json())
             .then((json: Array<DayDietDto>) => {
                 this.props.setCurrentWeekSchedule(json);
