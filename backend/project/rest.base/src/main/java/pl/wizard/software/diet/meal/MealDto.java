@@ -1,8 +1,6 @@
 package pl.wizard.software.diet.meal;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import pl.wizard.software.core.AbstractDto;
 import pl.wizard.software.diet.product.ProductDtoShort;
 
@@ -10,7 +8,8 @@ import java.util.Collection;
 import java.util.List;
 
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class MealDto extends AbstractDto {
 
     private String name;

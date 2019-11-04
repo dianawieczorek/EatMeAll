@@ -7,7 +7,7 @@ import pl.wizard.software.diet.product.ProductDtoShort;
 
 @NoArgsConstructor
 @Data
-class MealPartDto extends ProductDtoShort {
+public class MealPartDto extends ProductDtoShort {
 
     private String specialAmount;
     private int amount;
@@ -18,5 +18,11 @@ class MealPartDto extends ProductDtoShort {
         super(aId, aName);
         specialAmount = aSpecialAmount;
         amount = aAmount;
+    }
+
+    public MealPartDto(MealPartDto aP) {
+        super(aP.getId(),aP.getName());
+        specialAmount = aP.getSpecialAmount();
+        amount = aP.getAmount();
     }
 }

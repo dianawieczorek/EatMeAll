@@ -43,7 +43,7 @@ public class MealService {
         mealDao.deleteById(id);
     }
 
-    Set<MealDto> randomMeals(int aCount, int aMealTime) {
+    public Set<MealDto> randomMeals(int aCount, int aMealTime) {
         List<MealEntity> entities = mealDao.randomMeals(aCount, aMealTime);
 
         return entities.stream().map(MealEntDtoMapper::mapToDto).collect(Collectors.toSet());
