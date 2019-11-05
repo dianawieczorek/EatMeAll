@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.wizard.software.diet.meal.MealDto;
 import pl.wizard.software.diet.meal.MealPartDto;
 import pl.wizard.software.diet.meal.MealService;
+import pl.wizard.software.diet.product.ProductTypeDto;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -23,7 +24,7 @@ class ShoppingListApi {
     private final MealService mealService;
 
     @GetMapping("/{aMealIds}")
-    public ResponseEntity<Collection<MealPartDto>> generateShoppingList(@PathVariable long[] aMealIds) {
+    public ResponseEntity<Collection<ProductTypeDto<MealPartDto>>> generateShoppingList(@PathVariable long[] aMealIds) {
 
         List<Long> ids = Arrays.stream(aMealIds).boxed().collect(Collectors.toList());
         Map<Long, Integer> uniqIdsAndAmount = new HashMap<>();
@@ -49,6 +50,14 @@ class ShoppingListApi {
             }
         });
 
-        return ResponseEntity.ok(partMap.values());
+        Set<String> productTypes = partMap.values().stream().map(p -> p.getProductType().getStringName()).collect(Collectors.toSet());
+        HashMap<String, ProductTypeDto<MealPartDto>> hashMap = new HashMap<>();
+        productTypes.forEach(pt -> hashMap.put(pt, new ProductTypeDto<MealPartDto>(pt)));
+        partMap.values().forEach(p -> {
+            ProductTypeDto<MealPartDto> productType = hashMap.get(p.getProductType().getStringName());
+            productType.getProducts().add(new MealPartDto(p));
+        });
+
+        return ResponseEntity.ok(hashMap.values());
     }
 }

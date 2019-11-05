@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.wizard.software.diet.product.ProductDtoShort;
+import pl.wizard.software.diet.product.ProductEntity;
 
 @NoArgsConstructor
 @Data
@@ -11,18 +12,21 @@ public class MealPartDto extends ProductDtoShort {
 
     private String specialAmount;
     private int amount;
+    private ProductEntity.ProductTypeEnum productType;
 
 
     @Builder
-    MealPartDto(Long aId, String aName, Integer aAmount, String aSpecialAmount) {
+    MealPartDto(Long aId, String aName, Integer aAmount, String aSpecialAmount, ProductEntity.ProductTypeEnum aProductType) {
         super(aId, aName);
         specialAmount = aSpecialAmount;
         amount = aAmount;
+        productType = aProductType;
     }
 
     public MealPartDto(MealPartDto aP) {
         super(aP.getId(),aP.getName());
         specialAmount = aP.getSpecialAmount();
         amount = aP.getAmount();
+        productType = aP.getProductType();
     }
 }

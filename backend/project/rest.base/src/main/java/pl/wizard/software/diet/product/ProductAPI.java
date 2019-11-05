@@ -18,7 +18,7 @@ public class ProductAPI {
     private final ProductService productService;
 
     @GetMapping
-    public ResponseEntity<Collection<ProductTypeDto>> findAll() {
+    public ResponseEntity<Collection<ProductTypeDto<ProductDtoShort>>> findAll() {
         return ResponseEntity.ok(productService.findAll());
     }
 

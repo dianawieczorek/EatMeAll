@@ -68,6 +68,7 @@ class MealEntDtoMapper {
                                 .aId(m.getPart().getId())
                                 .aAmount(m.getAmount())
                                 .aSpecialAmount(m.getSpecialAmount())
+                                .aProductType(m.getPart().getProductType())
                                 .aName(m.getPart().getName())
                                 .build()).collect(Collectors.toList()))
                 .aSteps(aEntity.getSteps().stream().map(MealPrepareStepEntity::getStep).collect(Collectors.toList()))

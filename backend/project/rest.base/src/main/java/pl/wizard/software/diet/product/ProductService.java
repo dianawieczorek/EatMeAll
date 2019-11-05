@@ -11,14 +11,14 @@ import java.util.stream.Collectors;
 public class ProductService {
     private final ProductDao productDao;
 
-    Collection<ProductTypeDto> findAll() {
+    Collection<ProductTypeDto<ProductDtoShort>> findAll() {
         List<ProductEntity> products = productDao.findAll();
         Set<String> productTypes = products.stream().map(p -> p.getProductType().getStringName()).collect(Collectors.toSet());
 
-        HashMap<String, ProductTypeDto> hashMap = new HashMap<>();
-        productTypes.forEach(pt -> hashMap.put(pt, new ProductTypeDto(pt)));
+        HashMap<String, ProductTypeDto<ProductDtoShort>> hashMap = new HashMap<>();
+        productTypes.forEach(pt -> hashMap.put(pt, new ProductTypeDto<ProductDtoShort>(pt)));
         productDao.findAll().forEach(p -> {
-            ProductTypeDto productType = hashMap.get(p.getProductType().getStringName());
+            ProductTypeDto<ProductDtoShort> productType = hashMap.get(p.getProductType().getStringName());
             productType.getProducts().add(ProductEntDtoMapper.mapToShortDto(p));
         });
         return hashMap.values();

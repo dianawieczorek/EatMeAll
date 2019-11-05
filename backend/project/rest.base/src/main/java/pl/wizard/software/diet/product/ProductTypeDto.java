@@ -8,12 +8,12 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-public class ProductTypeDto  {
+public class ProductTypeDto<T>  {
 
     private String name;
-    private List<ProductDtoShort> products;
+    private List<T> products;
 
-    ProductTypeDto(String aName) {
+    public ProductTypeDto(String aName) {
         name = aName;
         products = new ArrayList<>();
     }
