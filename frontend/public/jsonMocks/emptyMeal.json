@@ -2,7 +2,7 @@
   {
     "idMeal": 0,
     "language": "PL",
-    "mealTime": "",
+    "mealTimes": [],
     "public": true,
     "shortDescription": "",
     "title": "jem na mieście albo wcale :)",

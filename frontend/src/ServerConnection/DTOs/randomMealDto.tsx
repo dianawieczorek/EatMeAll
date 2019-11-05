@@ -1,6 +1,6 @@
 export interface RandomMealDto {
     idMeal: number,
-    mealTime: string,
+    mealTimes: Array<string>,
     shortDescription: string,
     title: string,
     amountCalories: number,

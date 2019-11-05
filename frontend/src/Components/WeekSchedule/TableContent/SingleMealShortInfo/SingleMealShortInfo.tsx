@@ -94,11 +94,8 @@ class SingleMealShortInfo extends PureComponent<Props> {
     private changeMealFromList = () => {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
-        fetch(RANDOM_MEAL_URL + this.typeOfMealForEmpty())
-            .then(response => response.json())
-            .then((json: Array<RandomMealDto>) => {
-                this.showMealsListPopup(json, dayNumber, mealNumber);
-            })
+        this.showMealsListPopup(dayNumber, mealNumber);
+
     };
 
     private copyMeal = () => {
@@ -118,10 +115,9 @@ class SingleMealShortInfo extends PureComponent<Props> {
         />);
     };
 
-    private showMealsListPopup(selectedMealJson: Array<RandomMealDto>, dayNumber: number, mealNumber: number) {
+    private showMealsListPopup(dayNumber: number, mealNumber: number) {
         this.props.openModal(
             <ListOfMeals
-                randomMealList={selectedMealJson}
                 dayNumber={dayNumber}
                 mealNumber={mealNumber}
             />
@@ -129,15 +125,15 @@ class SingleMealShortInfo extends PureComponent<Props> {
     }
 
     public typeOfMeal = () => {
-        if (this.props.MealInfo.mealTime === "BREAKFAST") {
+        if (this.props.MealInfo.mealTimes =["BREAKFAST"]) {
             return "śniadanko"
-        } else if (this.props.MealInfo.mealTime === "DINNER") {
+        } else if (this.props.MealInfo.mealTimes=["DINNER"]) {
             return "obiad"
-        } else if (this.props.MealInfo.mealTime === "LUNCH") {
+        } else if (this.props.MealInfo.mealTimes=["LUNCH"]) {
             return "drugie śniadanie"
-        } else if (this.props.MealInfo.mealTime === "SNACK") {
+        } else if (this.props.MealInfo.mealTimes=["SNACK"]) {
             return "podwieczorek"
-        } else if (this.props.MealInfo.mealTime === "SUPPER") {
+        } else if (this.props.MealInfo.mealTimes=["SUPPER"]) {
             return "kolacja"
         } else {
             return ""

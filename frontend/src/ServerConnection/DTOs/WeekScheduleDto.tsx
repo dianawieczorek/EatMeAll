@@ -4,7 +4,7 @@ export interface DayDietDto {
 
 export interface MealDto {
     idMeal: number,
-    mealTime: string,
+    mealTimes: Array<string>,
     title: string,
     shortDescription: string,
     amountCalories: number,
