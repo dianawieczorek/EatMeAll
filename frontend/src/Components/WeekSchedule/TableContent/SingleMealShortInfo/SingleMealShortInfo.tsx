@@ -7,12 +7,11 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBook, faCalendarTimes, faCopy, faListUl, faPaste, faRetweet} from "@fortawesome/free-solid-svg-icons";
 import {copyMeal, openModal, pasteMeal, randomMealChange} from "../../../../Redux/actions";
 import MealRecipe from "../../../MealRecipe/MealRecipe";
-import {MealRecipeDto} from "../../../../ServerConnection/DTOs/MealRecipeDto";
 import ListOfMeals from "../../../ListOfMeals/ListOfMeals";
 import {EmptyMeal} from "../../../../Redux/Model/Schedule";
 import {RANDOM_MEAL_URL, SHOW_DETAIL_URL} from "../../../../ServerConnection/RestCommunication/fileWithConstants";
 import {loadMealToPaste} from "../../../../ServerConnection/localStorage";
-import {DayDietDto, MealDto} from "../../../../ServerConnection/DTOs/WeekScheduleDto";
+import {MealDto} from "../../../../ServerConnection/DTOs/WeekScheduleDto";
 
 
 interface OwnProps {

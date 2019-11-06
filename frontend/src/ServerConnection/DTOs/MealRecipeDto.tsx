@@ -54,6 +54,7 @@ export interface PostMealRecipieDto {
 
 export interface PostProductDto{
     id: number
+    name:string
     amount: number
     specialAmount: string
 }

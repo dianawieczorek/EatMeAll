@@ -124,11 +124,18 @@ export interface changeNameOfRecipeIf {
     name: string
 }
 
+export const CHANGE_DESCRIPTION_OF_RECIPE = 'CHANGE_DESCRIPTION_OF_RECIPE';
+
+export interface changeDescriptionOfRecipeIf {
+    type: typeof CHANGE_DESCRIPTION_OF_RECIPE
+    description: string
+}
+
 export const CHANGE_CHECKED_MEALTIME = 'CHANGE_CHECKED_MEALTIME';
 
 export interface changeMealTimeCheckboxIf {
     type: typeof CHANGE_CHECKED_MEALTIME
-    mealTimes: Array<string>
+    mealTimes: string
 }
 
 export const CHANGE_AUTHOR_OF_RECIPE = 'CHANGE_AUTHOR_OF_RECIPE';
@@ -206,3 +213,4 @@ export type Types =
     | addProductIf
     | changePartAmountIf
     | allMealsIf
+    | changeDescriptionOfRecipeIf

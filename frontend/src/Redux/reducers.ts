@@ -3,7 +3,7 @@ import {
     Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED_DAY,
     COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, CHANGE_CHECKED_MEALTIME,
     CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY, ALL_PRODUCTS, ADD_PRODUCT, CHANGE_PART_AMOUNT,
-    ALL_MEALS
+    ALL_MEALS, CHANGE_DESCRIPTION_OF_RECIPE
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
@@ -256,9 +256,14 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
                     draftState.toSerialize.name = action.name;
                 })
             }
+            case CHANGE_DESCRIPTION_OF_RECIPE: {
+                return produce(state, draftState => {
+                    draftState.toSerialize.description = action.description;
+                })
+            }
             case CHANGE_CHECKED_MEALTIME: {
                 return produce(state, draftState => {
-                        let selectedMealTime = draftState.mealTimes.filter((mealTimes: any) => mealTimes[0].value === action.mealTimes);
+                        let selectedMealTime = state.mealTimes.filter((mealTimes: any) => mealTimes.value === action.mealTimes);
                         selectedMealTime[0].isChecked = !selectedMealTime[0].isChecked;
                         let selectedTime = draftState.mealTimes.filter(mealTime => mealTime.isChecked === true).map(mt => mt.id);
                         draftState.toSerialize.mealTimes = selectedTime;
@@ -287,7 +292,7 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
             ADD_PRODUCT: {
                 return produce(state, draftState => {
                     draftState.selectedProducts.push(action.product);
-                    draftState.toSerialize.parts.push({id: action.product.id, amount: 100, specialAmount: ""});
+                    draftState.toSerialize.parts.push({id: action.product.id, name: action.product.name, amount: 100, specialAmount: ""});
                 })
             }
             case

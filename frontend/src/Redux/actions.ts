@@ -8,7 +8,8 @@ import {
     addPrepStepIf, ADD_PREP_STEP, deletePrepStepIf, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, changeNameOfRecipeIf,
     CHANGE_CHECKED_MEALTIME, changeMealTimeCheckboxIf, CHANGE_AUTHOR_OF_RECIPE, changeAuthorOfRecipeIf,
     changePrepTimeIf, CHANGE_PREP_TIME, chooseMemberToCopyIf, CHOOSE_MEMBER_TO_COPY, allProductIf, ALL_PRODUCTS,
-    addProductIf, ADD_PRODUCT, changePartAmountIf, CHANGE_PART_AMOUNT, allMealsIf, ALL_MEALS
+    addProductIf, ADD_PRODUCT, changePartAmountIf, CHANGE_PART_AMOUNT, allMealsIf, ALL_MEALS,
+    CHANGE_DESCRIPTION_OF_RECIPE, changeDescriptionOfRecipeIf
 } from "./actionTypes";
 
 
@@ -144,8 +145,15 @@ export const changeNameOfRecipe = (aName: string): changeNameOfRecipeIf => {
     }
 };
 
+export const changeDescriptionOfRecipe = (aDescription: string): changeDescriptionOfRecipeIf => {
+    return {
+        type: CHANGE_DESCRIPTION_OF_RECIPE,
+        description: aDescription
+    }
+};
 
-export const changeMealTimeCheckbox = (amealTime: Array<string>): changeMealTimeCheckboxIf => {
+
+export const changeMealTimeCheckbox = (amealTime: string): changeMealTimeCheckboxIf => {
     return {
         type: CHANGE_CHECKED_MEALTIME,
         mealTimes: amealTime
