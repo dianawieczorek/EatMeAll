@@ -53,7 +53,7 @@ class ShoppingList extends Component<Props> {
     private shoppingList = () => {
         let checkedDays = this.props.days.map(day => day.id).map(dayId => dayId);
         if (checkedDays.length > 0) {
-            let mealIds = [this.props.Meal.map((member: any) => member.weekSchedule.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.idMeal)))][0];
+            let mealIds = [this.props.Meal.map((member: any) => member.weekSchedule.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.id)))][0];
             let mealIdsForSelectedDays = [];
             for (let m = 0; m < this.props.memberList.length; m++) {
                 for (let x = 0; x < checkedDays.length; x++) {

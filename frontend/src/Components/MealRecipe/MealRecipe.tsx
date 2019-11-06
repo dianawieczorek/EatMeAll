@@ -2,9 +2,10 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import styles from './MealRecipe.module.css'
 import {MealRecipeDto, ProductsDto, stepsDto} from "../../ServerConnection/DTOs/MealRecipeDto";
+import {MealDto, PartDTO} from "../../ServerConnection/DTOs/WeekScheduleDto";
 
 interface OwnProps {
-    mealRecipe: MealRecipeDto
+    mealRecipe: MealDto
     typeOfMeal: any
 }
 
@@ -14,25 +15,26 @@ class MealRecipe extends PureComponent<Props> {
     render() {
         return (
             <React.Fragment>
-                <h2>{this.props.mealRecipe.title}</h2>
+                <h2>{this.props.mealRecipe.name}</h2>
                 <div className={styles.ProductAndInfo}>
                     <div className={styles.BasicInfo}>
                         <p>rodzaj dania: {this.props.typeOfMeal} </p>
-                        <p>czas przygotowania: {this.props.mealRecipe.receiptDTO.prepareTime}min</p>
-                        <p>ilość kcal: {this.props.mealRecipe.amountCalories}kcal</p>
+                        <p>czas przygotowania:[tu będzie przekazywany czas] min</p>
+                        <p>ilość kcal: {this.props.mealRecipe.calorific.toFixed(1)}kcal</p>
                         <div className={styles.Makro} >
-                            <p>węglowodany: {this.props.mealRecipe.amountCarbohydrates}g</p>
-                            <p>tłuszcze: {this.props.mealRecipe.amountFat}g</p>
-                            <p>białka: {this.props.mealRecipe.amountProtein}g</p>
+                            <p>węglowodany: {this.props.mealRecipe.carbohydrates.toFixed(1)}g</p>
+                            <p>tłuszcze: {this.props.mealRecipe.fat.toFixed(1)}g</p>
+                            <p>białka: {this.props.mealRecipe.protein.toFixed(1)}g</p>
                         </div>
-                        <p>autor przepisu: {this.props.mealRecipe.authorReceipt}</p>
+                        <p>autor przepisu: {this.props.mealRecipe.author}</p>
                     </div>
                     <div className={styles.Products}>
                         <h4 className={styles.MealRecipe}>Składniki</h4>
                         <ul>
                             {
-                                this.props.mealRecipe.products.map((product: ProductsDto) =>
-                                    <li>{product.name}, {product.amount}{product.unit} ({product.specialUnit})</li>)
+                                this.props.mealRecipe.parts.map((product: PartDTO) =>
+                                    <li>{product.name}, {product.amount} ({product.specialAmount})</li>)
+                                    // <li>{product.name}, {product.amount}{product.unit} ({product.specialUnit})</li>)
                             }
                         </ul>
                     </div>
@@ -41,8 +43,8 @@ class MealRecipe extends PureComponent<Props> {
                     <h4>Sposób wykonania</h4>
                     <ol>
                         {
-                            this.props.mealRecipe.receiptDTO.steps.map((step: stepsDto) =>
-                                <li>{step.header}</li>)
+                            this.props.mealRecipe.steps.map((step: string) =>
+                                <li>{step}</li>)
                         }
                     </ol>
                 </div>

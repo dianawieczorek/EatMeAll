@@ -1,29 +1,36 @@
-import {DayDietDto, MealDto} from "../../ServerConnection/DTOs/WeekScheduleDto";
+import {DayDietDto, MealDto, WeekScheduleDto} from "../../ServerConnection/DTOs/WeekScheduleDto";
 
 export default class Member {
     name: string;
-    weekSchedule: Array<DayDietDto>;
+    weekSchedule: WeekScheduleDto;
 
 
     constructor(aUserName: string) {
         this.name = aUserName;
-        this.weekSchedule = [];
+        this.weekSchedule = {id:0,version:0,days:[]};
+        const tempArray2: Array<DayDietDto> = [];
         for (let day = 0; day < 7; day++) {
             const tempArray: Array<MealDto> = [];
             for (let meal = 0; meal < 5; meal++) {
                 tempArray.push({
-                    idMeal: -1,
+                    id: -1,
+                    version: 0,
                     mealTimes: [""],
-                    title: "",
-                    shortDescription: "",
-                    amountCalories: 0,
-                    amountCarbohydrates: 0,
-                    amountFat: 0,
-                    amountProtein: 0
+                    name: "",
+                    description: "",
+                    author: "",
+                    parts: [],
+                    steps: [],
+                    calorific: 0,
+                    carbohydrates: 0,
+                    fat: 0,
+                    protein: 0,
+                    roughage: 0
                 })
             }
-            this.weekSchedule.push({meals: tempArray});
+            tempArray2.push({id:-1, meals: tempArray});
         }
+        this.weekSchedule={id:-1,version:0,days: tempArray2};
     }
 }
 

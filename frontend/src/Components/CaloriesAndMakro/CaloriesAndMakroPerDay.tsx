@@ -16,19 +16,19 @@ class CaloriesAndMakroPerDay extends PureComponent<Props> {
         let dayDetails = this.props.DayInfo;
         if (dayDetails !== undefined) {
             let amountCalories =
-                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountCalories, 0);
+                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.calorific, 0);
             let amountCarbs =
-                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountCarbohydrates, 0);
+                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.carbohydrates, 0);
             let amountFat =
-                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountFat, 0);
+                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.fat, 0);
             let amountProtein =
-                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.amountProtein, 0);
+                dayDetails.reduce((accumulator, dayDetails) => accumulator + dayDetails.protein, 0);
             return (
                 <tr>
-                    <td>{amountCalories}</td>
-                    <td>{amountCarbs}</td>
-                    <td>{amountFat}</td>
-                    <td>{amountProtein}</td>
+                    <td>{amountCalories.toFixed()}</td>
+                    <td>{amountCarbs.toFixed(1)}</td>
+                    <td>{amountFat.toFixed(1)}</td>
+                    <td>{amountProtein.toFixed(1)}</td>
                 </tr>)
         } else {
             return (
@@ -61,7 +61,7 @@ class CaloriesAndMakroPerDay extends PureComponent<Props> {
 
 const mapStateToProps = (state: AppStore, ownProps: any) => {
     return {
-        DayInfo: state.weekScheduleReducer.currentMember.weekSchedule[ownProps.dayNumber].meals
+        DayInfo: state.weekScheduleReducer.currentMember.weekSchedule.days[ownProps.dayNumber].meals
     };
 };
 

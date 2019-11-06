@@ -8,11 +8,11 @@ import {faBook, faCalendarTimes, faCopy, faListUl, faPaste, faRetweet} from "@fo
 import {copyMeal, openModal, pasteMeal, randomMealChange} from "../../../../Redux/actions";
 import MealRecipe from "../../../MealRecipe/MealRecipe";
 import {MealRecipeDto} from "../../../../ServerConnection/DTOs/MealRecipeDto";
-import {RandomMealDto} from "../../../../ServerConnection/DTOs/randomMealDto";
 import ListOfMeals from "../../../ListOfMeals/ListOfMeals";
 import {EmptyMeal} from "../../../../Redux/Model/Schedule";
 import {RANDOM_MEAL_URL, SHOW_DETAIL_URL} from "../../../../ServerConnection/RestCommunication/fileWithConstants";
 import {loadMealToPaste} from "../../../../ServerConnection/localStorage";
+import {DayDietDto, MealDto} from "../../../../ServerConnection/DTOs/WeekScheduleDto";
 
 
 interface OwnProps {
@@ -29,7 +29,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
                 <div className={styles.ChangeDiv}>
                     <div className={styles.MealInfo}>
                         <div className={styles.TypeOfMeal}>{this.typeOfMeal()}</div>
-                        <div className={styles.MealName}>{this.props.MealInfo.title}</div>
+                        <div className={styles.MealName}>{this.props.MealInfo.name}</div>
                         <div className={styles.HoverButtons}>
                             <button className={styles.Button} onClick={this.showDetails}>
                                 <FontAwesomeIcon className={styles.Icon} icon={faBook} title="przeczytaj przepis"/>
@@ -66,20 +66,20 @@ class SingleMealShortInfo extends PureComponent<Props> {
     }
 
     private showDetails = () => {
-        fetch(SHOW_DETAIL_URL + this.props.MealInfo.idMeal)
+        fetch(SHOW_DETAIL_URL + this.props.MealInfo.id)
             .then(response => response.json())
-            .then((json: Array<MealRecipeDto>) => {
-                this.showDetailsPopup(json[0]);
+            .then((json: MealDto) => {
+                this.showDetailsPopup(json);
             })
     };
 
     private randomizeMeal = () => {
         let dayNumber = this.props.dayNumber;
         let mealNumber = this.props.mealNumber;
-        fetch(RANDOM_MEAL_URL + this.typeOfMealForEmpty())
+        fetch(RANDOM_MEAL_URL + this.props.mealNumber)
             .then(response => response.json())
-            .then((json: Array<RandomMealDto>) => {
-                const meal = json[0];
+            .then((json: Array<MealDto>) => {
+                let meal = json[0];
                 this.props.randomMealChange(meal, dayNumber, mealNumber)
 
             })
@@ -108,7 +108,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
         this.props.pasteMeal(loadMealToPaste(), dayNumber, mealNumber)
     };
 
-    private showDetailsPopup = (selectedMealJson: MealRecipeDto) => {
+    private showDetailsPopup = (selectedMealJson: MealDto) => {
         this.props.openModal(<MealRecipe
             mealRecipe={selectedMealJson}
             typeOfMeal={this.typeOfMeal()}
@@ -125,15 +125,15 @@ class SingleMealShortInfo extends PureComponent<Props> {
     }
 
     public typeOfMeal = () => {
-        if (this.props.MealInfo.mealTimes =["BREAKFAST"]) {
+        if (this.props.mealNumber === 0) {
             return "śniadanko"
-        } else if (this.props.MealInfo.mealTimes=["DINNER"]) {
+        } else if (this.props.mealNumber === 1) {
+            return "2 śniadanko"
+        } else if (this.props.mealNumber === 2) {
             return "obiad"
-        } else if (this.props.MealInfo.mealTimes=["LUNCH"]) {
-            return "drugie śniadanie"
-        } else if (this.props.MealInfo.mealTimes=["SNACK"]) {
+        } else if (this.props.mealNumber === 3) {
             return "podwieczorek"
-        } else if (this.props.MealInfo.mealTimes=["SUPPER"]) {
+        } else if (this.props.mealNumber === 4) {
             return "kolacja"
         } else {
             return ""
@@ -159,7 +159,7 @@ class SingleMealShortInfo extends PureComponent<Props> {
 
 const mapStateToProps = (state: AppStore, ownProps: any) => {
     return {
-        MealInfo: state.weekScheduleReducer.currentMember.weekSchedule[ownProps.dayNumber].meals[ownProps.mealNumber]
+        MealInfo: state.weekScheduleReducer.currentMember.weekSchedule.days[ownProps.dayNumber].meals[ownProps.mealNumber]
     };
 };
 
@@ -167,9 +167,9 @@ const mapStateToProps = (state: AppStore, ownProps: any) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         openModal: (aData: JSX.Element) => dispatch(openModal(aData)),
-        randomMealChange: (randomMeal: RandomMealDto, dayNr: number, mealNr: number) => dispatch(randomMealChange(randomMeal, dayNr, mealNr)),
-        copyMeal: (mealToCopy: RandomMealDto) => dispatch(copyMeal(mealToCopy)),
-        pasteMeal: (meal:RandomMealDto, dayNr: number, mealNr: number) => dispatch(pasteMeal(meal, dayNr, mealNr)),
+        randomMealChange: (randomMeal: MealDto, dayNr: number, mealNr: number) => dispatch(randomMealChange(randomMeal, dayNr, mealNr)),
+        copyMeal: (mealToCopy: MealDto) => dispatch(copyMeal(mealToCopy)),
+        pasteMeal: (meal:MealDto, dayNr: number, mealNr: number) => dispatch(pasteMeal(meal, dayNr, mealNr)),
     }
 };
 

@@ -1,11 +1,11 @@
 import React, {Component, PureComponent, RefObject} from 'react';
 import {connect} from 'react-redux';
 import styles from "./ListOfMeals.module.css"
-import {RandomMealDto} from "../../ServerConnection/DTOs/randomMealDto";
 import {closeModal, randomMealChange} from "../../Redux/actions";
 import {Dispatch} from "redux";
 import {AppStore} from "../../Redux/store";
 import {SHOW_DETAIL_URL} from "../../ServerConnection/RestCommunication/fileWithConstants";
+import {MealDto} from "../../ServerConnection/DTOs/WeekScheduleDto";
 
 interface OwnProps {
     mealNumber: number
@@ -30,7 +30,7 @@ class ListOfMeals extends Component<Props, State> {
     }
 
     // prepareMealList() {
-    //     return (this.props.randomMealList.map((meal: RandomMealDto, i: number) =>
+    //     return (this.props.randomMealList.map((meal: DayDietDto, i: number) =>
     //         <li>
     //             <button
     //                 className={styles.mealButton}
@@ -42,7 +42,7 @@ class ListOfMeals extends Component<Props, State> {
         let id = e.target.id;
         fetch(SHOW_DETAIL_URL + id)
             .then(response => response.json())
-            .then((json: RandomMealDto) => {
+            .then((json: MealDto) => {
                 this.props.randomMealChange(json, this.props.dayNumber, this.props.mealNumber);});
         this.mealInput.current!.value = "";
         this.props.closeModal();
@@ -91,7 +91,7 @@ const mapStateToProps = (store: AppStore) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
-        randomMealChange: (randomMeal: RandomMealDto, dayNr: number, mealNr: number) => dispatch(randomMealChange(randomMeal, dayNr, mealNr)),
+        randomMealChange: (randomMeal: MealDto, dayNr: number, mealNr: number) => dispatch(randomMealChange(randomMeal, dayNr, mealNr)),
         closeModal: () => dispatch(closeModal()),
 
     }

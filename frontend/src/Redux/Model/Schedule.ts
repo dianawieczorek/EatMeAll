@@ -1,23 +1,33 @@
-import {MealDto} from "../../ServerConnection/DTOs/WeekScheduleDto";
+import {MealDto, PartDTO} from "../../ServerConnection/DTOs/WeekScheduleDto";
 
 export class EmptyMeal implements MealDto {
-    idMeal: number;
+    id: number;
+    version: number;
+    name: string;
+    description: string;
     mealTimes: Array<string>;
-    title: string;
-    shortDescription: string;
-    amountCalories: number;
-    amountCarbohydrates: number;
-    amountFat: number;
-    amountProtein: number;
+    author: string;
+    parts: Array<PartDTO>;
+    steps: Array<string>;
+    calorific: number;
+    protein: number;
+    fat: number;
+    carbohydrates: number;
+    roughage: number;
 
     constructor(){
-        this.idMeal = -1;
+        this.id = -1;
+        this.version=0;
+        this.name = "";
+        this.description = "";
         this.mealTimes = [""];
-        this.title = "";
-        this.shortDescription = "";
-        this.amountCalories = 0;
-        this.amountCarbohydrates = 0;
-        this.amountFat = 0;
-        this.amountProtein = 0;
+        this.author="";
+        this.parts=[];
+        this.steps=[];
+        this.calorific = 0;
+        this.carbohydrates = 0;
+        this.fat = 0;
+        this.protein = 0;
+        this.roughage=0;
     }
 }

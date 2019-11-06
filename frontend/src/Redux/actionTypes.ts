@@ -1,21 +1,20 @@
-import {DayDietDto} from "../ServerConnection/DTOs/WeekScheduleDto";
-import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
+import {DayDietDto, MealDto, WeekScheduleDto} from "../ServerConnection/DTOs/WeekScheduleDto";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
-import {ProductsInCategoryDto, ProductWholeDataDto} from "../ServerConnection/DTOs/AllProductsDto";
+import {ProductWholeDataDto} from "../ServerConnection/DTOs/AllProductsDto";
 import {PostProductDto} from "../ServerConnection/DTOs/MealRecipeDto";
 
 export const SET_CURRENT_WEEK_SCHEDULE = 'SET_CURRENT_WEEK_SCHEDULE';
 
 export interface setCurrentWeekScheduleIf {
     type: typeof SET_CURRENT_WEEK_SCHEDULE
-    currentWeekSchedule: Array<DayDietDto>
+    currentWeekSchedule: WeekScheduleDto
 }
 
 export const RANDOM_MEAL_CHANGE = 'RANDOM_MEAL_CHANGE';
 
 export interface randomMealChangeIf {
     type: typeof RANDOM_MEAL_CHANGE
-    randomMeal: RandomMealDto
+    randomMeal: MealDto
     dayNr: number,
     mealNr: number
 }
@@ -24,14 +23,14 @@ export const COPY_MEAL = 'COPY_MEAL';
 
 export interface copyMealIf {
     type: typeof COPY_MEAL
-    mealToCopy: RandomMealDto
+    mealToCopy: MealDto
 }
 
 export const PASTE_MEAL = 'PASTE_MEAL';
 
 export interface pasteMealIf {
     type: typeof PASTE_MEAL
-    mealToPaste: RandomMealDto
+    mealToPaste: MealDto
     dayNr: number,
     mealNr: number
 }
