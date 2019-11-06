@@ -79,7 +79,8 @@ class AddMealForm extends PureComponent<Props> {
 
     private productAmountChange = (e:any) => {
         let id = e.target.id;
-        this.props.onAmountChange({id:id, amount: parseInt(e.target.value), specialAmount:""})
+        let name=e.target.name
+        this.props.onAmountChange({id:id, name: name, amount: parseInt(e.target.value), specialAmount:""})
     }
 }
 
