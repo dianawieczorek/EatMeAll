@@ -1,5 +1,5 @@
 import Member from "../Redux/Model/Member";
-import {RandomMealDto} from "./DTOs/randomMealDto";
+import {MealDto} from "./DTOs/WeekScheduleDto";
 
 const MEMBERS = 'members';
 
@@ -25,7 +25,7 @@ export const loadMembers = () => {
     }
 };
 
-export const  saveMealToCopy = (meal:RandomMealDto) => {
+export const  saveMealToCopy = (meal:MealDto) => {
     try {
         const serializedState = JSON.stringify(meal);
         localStorage.setItem('meal', serializedState);

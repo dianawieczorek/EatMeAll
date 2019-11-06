@@ -12,14 +12,13 @@ import {
 } from "./actionTypes";
 
 
-import {DayDietDto} from "../ServerConnection/DTOs/WeekScheduleDto";
-import {RandomMealDto} from "../ServerConnection/DTOs/randomMealDto";
-import {GroupproductsDto, ProductDto} from "../ServerConnection/DTOs/ShoppingListDto";
-import {ProductsInCategoryDto, ProductWholeDataDto} from "../ServerConnection/DTOs/AllProductsDto";
+import {MealDto, WeekScheduleDto} from "../ServerConnection/DTOs/WeekScheduleDto";
+import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
+import {ProductWholeDataDto} from "../ServerConnection/DTOs/AllProductsDto";
 import {PostProductDto} from "../ServerConnection/DTOs/MealRecipeDto";
 
 
-export const setCurrentWeekSchedule = (aCurrentWeekSchedule: Array<DayDietDto>): setCurrentWeekScheduleIf => {
+export const setCurrentWeekSchedule = (aCurrentWeekSchedule: WeekScheduleDto): setCurrentWeekScheduleIf => {
     return {
         type: SET_CURRENT_WEEK_SCHEDULE,
         currentWeekSchedule: aCurrentWeekSchedule
@@ -33,7 +32,7 @@ export const setCurrentMember = (memberName: string): setCurrentMemberIf => {
     }
 };
 
-export const randomMealChange = (aRandomMeal: RandomMealDto, aDayNr: number, aMealNr: number): randomMealChangeIf => {
+export const randomMealChange = (aRandomMeal: MealDto, aDayNr: number, aMealNr: number): randomMealChangeIf => {
     return {
         type: RANDOM_MEAL_CHANGE,
         randomMeal: aRandomMeal,
@@ -42,14 +41,14 @@ export const randomMealChange = (aRandomMeal: RandomMealDto, aDayNr: number, aMe
     }
 };
 
-export const copyMeal = (aMealToCopy: RandomMealDto): copyMealIf => {
+export const copyMeal = (aMealToCopy: MealDto): copyMealIf => {
     return {
         type: COPY_MEAL,
         mealToCopy: aMealToCopy,
     }
 };
 
-export const pasteMeal = (aMealToPaste: RandomMealDto, aDayNr: number, aMealNr: number): pasteMealIf => {
+export const pasteMeal = (aMealToPaste: MealDto, aDayNr: number, aMealNr: number): pasteMealIf => {
     return {
         type: PASTE_MEAL,
         mealToPaste: aMealToPaste,

@@ -42,8 +42,8 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
         case RANDOM_MEAL_CHANGE: {
             return produce(state, draftState => {
                 draftState.currentMember = loadMembers()[currentMemberIndex];
-                draftState.members[currentMemberIndex].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
-                draftState.currentMember.weekSchedule[action.dayNr]["meals"][action.mealNr] = action.randomMeal;
+                draftState.members[currentMemberIndex].weekSchedule.days[action.dayNr].meals[action.mealNr] = action.randomMeal;
+                draftState.currentMember.weekSchedule.days[action.dayNr].meals[action.mealNr] = action.randomMeal;
             })
         }
         case SET_CURRENT_MEMBER: {
@@ -75,8 +75,8 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
         case PASTE_MEAL: {
             return produce(state, draftState => {
                 draftState.currentMember = loadMembers()[currentMemberIndex];
-                draftState.members[currentMemberIndex].weekSchedule[action.dayNr]["meals"][action.mealNr] = action.mealToPaste;
-                draftState.currentMember.weekSchedule[action.dayNr]["meals"][action.mealNr] = action.mealToPaste;
+                draftState.members[currentMemberIndex].weekSchedule.days[action.dayNr].meals[action.mealNr] = action.mealToPaste;
+                draftState.currentMember.weekSchedule.days[action.dayNr].meals[action.mealNr]  = action.mealToPaste;
             })
         }
         case CHOOSE_MEMBER_TO_COPY: {

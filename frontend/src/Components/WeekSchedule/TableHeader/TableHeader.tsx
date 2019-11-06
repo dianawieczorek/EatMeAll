@@ -4,7 +4,7 @@ import Button from "../../UI/Button/Button"
 import styles from "./TableHeader.module.css"
 import {Dispatch} from "redux";
 import {setCurrentWeekSchedule} from "../../../Redux/actions";
-import {DayDietDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
+import {DayDietDto, WeekScheduleDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
 import {SCHEDULE} from "../../../ServerConnection/RestCommunication/fileWithConstants";
 
 interface OwnProps {
@@ -35,7 +35,7 @@ class TableHeader extends PureComponent<Props> {
     private randomCurrentWeekSchedule = (e: MouseEvent) => {
         fetch(SCHEDULE)
             .then(response => response.json())
-            .then((json: Array<DayDietDto>) => {
+            .then((json: WeekScheduleDto) => {
                 this.props.setCurrentWeekSchedule(json);
             })
     }
@@ -48,7 +48,7 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
-        setCurrentWeekSchedule: (aCurrentWeekSchedule: Array<DayDietDto>) => dispatch(setCurrentWeekSchedule(aCurrentWeekSchedule))
+        setCurrentWeekSchedule: (aCurrentWeekSchedule: WeekScheduleDto) => dispatch(setCurrentWeekSchedule(aCurrentWeekSchedule))
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(TableHeader);

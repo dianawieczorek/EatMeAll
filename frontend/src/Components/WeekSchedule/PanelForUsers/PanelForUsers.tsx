@@ -6,7 +6,7 @@ import {AppStore} from "../../../Redux/store";
 import {Dispatch} from "redux";
 import {chooseMemberToCopy, setCurrentMember, setCurrentWeekSchedule} from "../../../Redux/actions";
 import {NavLink} from "react-router-dom";
-import {DayDietDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
+import {DayDietDto, WeekScheduleDto} from "../../../ServerConnection/DTOs/WeekScheduleDto";
 
 
 interface OwnProps {
@@ -81,7 +81,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         setCurrentMember: (memberName: string) => dispatch(setCurrentMember(memberName)),
         setChoosenMember: (member: string) => dispatch(chooseMemberToCopy(member)),
-        setCurrentWeekSchedule: (aCurrentWeekSchedule: Array<DayDietDto>) => dispatch(setCurrentWeekSchedule(aCurrentWeekSchedule))
+        setCurrentWeekSchedule: (aCurrentWeekSchedule: WeekScheduleDto) => dispatch(setCurrentWeekSchedule(aCurrentWeekSchedule))
 
 
     }
