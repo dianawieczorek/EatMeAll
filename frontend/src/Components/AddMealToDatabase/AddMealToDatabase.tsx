@@ -34,7 +34,7 @@ class AddMealToDatabase extends PureComponent<Props> {
                         <div className={["col-md-3", styles.SideMenu].join(" ")}>
                             <SideMenu/>
                         </div>
-                        <div className={["col-md-9", styles.Main].join(" ")}>
+                        <div id="addMeal" className={["col-md-9", styles.Main].join(" ")}>
                             <AddMealForm/>
                         </div>
                     </div>

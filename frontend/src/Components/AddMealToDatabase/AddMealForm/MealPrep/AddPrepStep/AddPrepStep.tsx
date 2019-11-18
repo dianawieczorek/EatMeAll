@@ -19,14 +19,24 @@ class AddMealToDatabase extends PureComponent<Props> {
     render() {
         return (
             <React.Fragment>
-                    <input type="text" name="receiptDTO" ref={this.stepInput}/>
+                    <input id="preparationInput" type="text" onKeyDown={this.addPrepStepOnEnter} name="receiptDTO" ref={this.stepInput}/>
                     <button type="button" className="btn btn-dark  btn-number" onClick={this.addPrepStep}>+</button>
             </React.Fragment>
         )}
 
     private addPrepStep = () => {
-        this.props.addPrepStep(this.stepInput.current!.value)
-        this.stepInput.current!.value = ""
+        this.props.addPrepStep(this.stepInput.current!.value);
+        this.stepInput.current!.value = "";
+        document.getElementById("preparationInput")!.focus();
+        document.getElementById("addMeal")!.scrollTop +=200;
+    };
+
+    private addPrepStepOnEnter = (e:any) => {
+        if (e.keyCode === 13) {
+            this.props.addPrepStep(this.stepInput.current!.value);
+            this.stepInput.current!.value = "";
+            document.getElementById("addMeal")!.scrollTop +=200;
+        }
     };
 }
 
