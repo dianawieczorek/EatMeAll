@@ -1,12 +1,12 @@
 import React, {PureComponent, RefObject} from 'react';
 import {connect} from 'react-redux';
-import styles from '../../../AddMealToDatabase.module.css'
+import styles from '../../AddMealToDatabase.module.css'
 import {
     changeAuthorOfRecipe, changeDescriptionOfRecipe, changeMealTimeCheckbox, changeNameOfRecipe,
     changePrepTime,
-} from "../../../../../Redux/actions";
+} from "../../../../Redux/actions";
 import {Dispatch} from "redux";
-import {AppStore} from "../../../../../Redux/store";
+import {AppStore} from "../../../../Redux/store";
 
 interface OwnProps {
 }

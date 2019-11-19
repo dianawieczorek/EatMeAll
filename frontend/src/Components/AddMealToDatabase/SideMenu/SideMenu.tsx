@@ -35,8 +35,8 @@ class SideMenu extends Component<Props> {
                 {this.props.allProducts.map((products: SingleCategoryDto) =>
                     <div className={styles.Dropdown}>
                         <button className={styles.ProductCategory}
-                                onClick={this.productSelectionList}>{products.type}</button>
-                        <div id={products.type} className={styles.DropdownContent}>
+                                onClick={this.productSelectionList}>{products.name}</button>
+                        <div id={products.name} className={styles.DropdownContent}>
                             {products.products.map((productsInCategory: ProductsInCategoryDto) => <button
                                 id={productsInCategory.id.toString()}
                                 onClick={this.selectProduct}>{productsInCategory.name}</button>)}
