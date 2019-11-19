@@ -5,27 +5,38 @@ import {AppStore} from "../../../../../Redux/store";
 import {changePartAmount} from "../../../../../Redux/actions";
 import {PostProductDto} from "../../../../../ServerConnection/DTOs/MealRecipeDto";
 import {Dispatch} from "redux";
+import styles from './SelectedProduct.module.css'
+
 
 interface OwnProps {
-    product:ProductWholeDataDto
+    product: ProductWholeDataDto
 }
 
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class SelectedProduct extends PureComponent<Props> {
+    readonly amountInput: RefObject<HTMLInputElement>;
+
+    constructor(Props: any) {
+        super(Props);
+        this.amountInput = React.createRef()
+    }
 
     render() {
         return (
-            <tr>
-                <th scope="row">{this.props.product.name}</th>
-                <td><input type="number" defaultValue="100" id={this.props.product.id.toString()} onChange={this.productAmountChange}/></td>
-                <td><input type="text"/></td>
-                <td>{(this.props.product.calorific * this.getAmountConverter(this.props.product)).toFixed()}</td>
-                <td>{(this.props.product.protein  * this.getAmountConverter(this.props.product)).toFixed()}</td>
-                <td>{(this.props.product.fat  * this.getAmountConverter(this.props.product)).toFixed()}</td>
-                <td>{(this.props.product.carbohydrates  * this.getAmountConverter(this.props.product)).toFixed()}</td>
-                <button>-</button>
-            </tr>
+            <React.Fragment>
+                <tr>
+                    <th scope="row">{this.props.product.name}</th>
+                    <td><input type="number" defaultValue="100" id={this.props.product.id.toString()}
+                               onChange={this.productAmountChange}/></td>
+                    <td><input type="text"/></td>
+                    <td>{(this.props.product.calorific * this.getAmountConverter(this.props.product)).toFixed()}</td>
+                    <td>{(this.props.product.protein * this.getAmountConverter(this.props.product)).toFixed()}</td>
+                    <td>{(this.props.product.fat * this.getAmountConverter(this.props.product)).toFixed()}</td>
+                    <td>{(this.props.product.carbohydrates * this.getAmountConverter(this.props.product)).toFixed()}</td>
+                    <td><input type="button" value="-" onClick={this.deleteProduct} className={[styles.DeleteButton, "btn btn-secondary  btn-number"].join(" ")}/></td>
+                </tr>
+            </React.Fragment>
         );
     }
 
@@ -37,10 +48,14 @@ class SelectedProduct extends PureComponent<Props> {
         let id = e.target.id;
         let name = e.target.name;
         this.props.onAmountChange({id: id, name: name, amount: parseInt(e.target.value), specialAmount: ""})
+    };
+
+    private deleteProduct = () => {
+
     }
 }
 
-const mapStateToProps = (store:AppStore) => {
+const mapStateToProps = (store: AppStore) => {
     return {
         selectedProductsToSerialize: store.addMealToDatabaseReducer.toSerialize.parts
     };

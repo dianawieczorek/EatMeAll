@@ -11,13 +11,6 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class AddMealForm extends PureComponent<Props> {
-    readonly amountInput: RefObject<HTMLInputElement>;
-
-    constructor(Props: any) {
-        super(Props);
-        this.amountInput = React.createRef()
-    }
-
     render() {
         return (
             <form>

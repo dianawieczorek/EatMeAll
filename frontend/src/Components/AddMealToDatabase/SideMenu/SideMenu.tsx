@@ -50,7 +50,7 @@ class SideMenu extends Component<Props> {
     private productSelectionList = (e: any) => {
         let innerValue = e.target.innerHTML;
         document.getElementById(innerValue)!.classList.toggle(styles.show);
-        let products = this.props.allProducts.filter((category: any) => category.type == innerValue)[0].products;
+        let products = this.props.allProducts.filter((category: any) => category.name == innerValue)[0].products;
         return <div>{products.map((product: any) => <button>{product}</button>)}</div>;
     };
 

@@ -10,13 +10,6 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class SelectedProductsTable extends PureComponent<Props> {
-    readonly amountInput: RefObject<HTMLInputElement>;
-
-    constructor(Props: any) {
-        super(Props);
-        this.amountInput = React.createRef()
-    }
-
     render() {
         let tableWithAllCalories = this.props.selectedProducts.map(prod => prod.calorific);
         let tableWithAllCarbs = this.props.selectedProducts.map(prod => prod.carbohydrates);
