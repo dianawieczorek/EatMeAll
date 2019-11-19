@@ -2,7 +2,7 @@ import React, {PureComponent, RefObject} from 'react';
 import {connect} from 'react-redux';
 import {ProductWholeDataDto} from "../../../../../ServerConnection/DTOs/AllProductsDto";
 import {AppStore} from "../../../../../Redux/store";
-import {changePartAmount} from "../../../../../Redux/actions";
+import {changePartAmount, deleteProduct} from "../../../../../Redux/actions";
 import {PostProductDto} from "../../../../../ServerConnection/DTOs/MealRecipeDto";
 import {Dispatch} from "redux";
 import styles from './SelectedProduct.module.css'
@@ -34,7 +34,8 @@ class SelectedProduct extends PureComponent<Props> {
                     <td>{(this.props.product.protein * this.getAmountConverter(this.props.product)).toFixed()}</td>
                     <td>{(this.props.product.fat * this.getAmountConverter(this.props.product)).toFixed()}</td>
                     <td>{(this.props.product.carbohydrates * this.getAmountConverter(this.props.product)).toFixed()}</td>
-                    <td><input type="button" value="-" onClick={this.deleteProduct} className={[styles.DeleteButton, "btn btn-secondary  btn-number"].join(" ")}/></td>
+                    <td><input type="button" value="-" onClick={this.deleteProduct}
+                               className={[styles.DeleteButton, "btn btn-secondary  btn-number"].join(" ")}/></td>
                 </tr>
             </React.Fragment>
         );
@@ -51,12 +52,13 @@ class SelectedProduct extends PureComponent<Props> {
     };
 
     private deleteProduct = () => {
-
+        this.props.deleteProduct(this.props.product.name)
     }
 }
 
 const mapStateToProps = (store: AppStore) => {
     return {
+        selectedProducts: store.addMealToDatabaseReducer.selectedProducts,
         selectedProductsToSerialize: store.addMealToDatabaseReducer.toSerialize.parts
     };
 };
@@ -64,6 +66,7 @@ const mapStateToProps = (store: AppStore) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         onAmountChange: (aPart: PostProductDto) => dispatch(changePartAmount(aPart)),
+        deleteProduct: (aProduct: string) => dispatch(deleteProduct(aProduct))
     };
 };
 

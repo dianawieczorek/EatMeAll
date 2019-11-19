@@ -9,7 +9,7 @@ import {
     CHANGE_CHECKED_MEALTIME, changeMealTimeCheckboxIf, CHANGE_AUTHOR_OF_RECIPE, changeAuthorOfRecipeIf,
     changePrepTimeIf, CHANGE_PREP_TIME, chooseMemberToCopyIf, CHOOSE_MEMBER_TO_COPY, allProductIf, ALL_PRODUCTS,
     addProductIf, ADD_PRODUCT, changePartAmountIf, CHANGE_PART_AMOUNT, allMealsIf, ALL_MEALS,
-    CHANGE_DESCRIPTION_OF_RECIPE, changeDescriptionOfRecipeIf
+    CHANGE_DESCRIPTION_OF_RECIPE, changeDescriptionOfRecipeIf, deleteProductIf, DELETE_PRODUCT
 } from "./actionTypes";
 
 
@@ -192,6 +192,13 @@ export const changePartAmount = (aPart: PostProductDto): changePartAmountIf => {
     return {
         type: CHANGE_PART_AMOUNT,
         part: aPart
+    }
+};
+
+export const deleteProduct = (aProduct: string): deleteProductIf => {
+    return {
+        type: DELETE_PRODUCT,
+        product: aProduct
     }
 };
 

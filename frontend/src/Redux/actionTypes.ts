@@ -180,6 +180,13 @@ export interface changePartAmountIf {
     part: PostProductDto
 }
 
+export const DELETE_PRODUCT = "DELETE_PRODUCT";
+
+export interface deleteProductIf {
+    type: typeof DELETE_PRODUCT
+    product: string
+}
+
 export const ALL_MEALS = 'ALL_MEALS';
 
 export interface allMealsIf {
@@ -214,3 +221,4 @@ export type Types =
     | changePartAmountIf
     | allMealsIf
     | changeDescriptionOfRecipeIf
+    | deleteProductIf
