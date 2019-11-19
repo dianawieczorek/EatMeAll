@@ -3,7 +3,7 @@ import {
     Types, SET_PRODUCT_LIST, ADD_MEMBER_NAME, DELETE_MEMBER, DELETE_MEMBERS, SET_CURRENT_MEMBER, CHANGE_CHECKED_DAY,
     COPY_MEAL, PASTE_MEAL, ADD_PREP_STEP, DELETE_PREP_STEP, CHANGE_NAME_OF_RECIPE, CHANGE_CHECKED_MEALTIME,
     CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY, ALL_PRODUCTS, ADD_PRODUCT, CHANGE_PART_AMOUNT,
-    ALL_MEALS, CHANGE_DESCRIPTION_OF_RECIPE
+    ALL_MEALS, CHANGE_DESCRIPTION_OF_RECIPE, DELETE_PRODUCT
 } from "./actionTypes";
 import {Reducer} from "redux";
 import {produce} from "immer"
@@ -76,7 +76,7 @@ export const weekScheduleReducer: Reducer<weekScheduleReducerIf, Types> = (state
             return produce(state, draftState => {
                 draftState.currentMember = loadMembers()[currentMemberIndex];
                 draftState.members[currentMemberIndex].weekSchedule.days[action.dayNr].meals[action.mealNr] = action.mealToPaste;
-                draftState.currentMember.weekSchedule.days[action.dayNr].meals[action.mealNr]  = action.mealToPaste;
+                draftState.currentMember.weekSchedule.days[action.dayNr].meals[action.mealNr] = action.mealToPaste;
             })
         }
         case CHOOSE_MEMBER_TO_COPY: {
@@ -270,36 +270,42 @@ export const addMealToDatabaseReducer: Reducer<AddMealToDatabaseReducerIf, Types
                     }
                 )
             }
-            case
-            CHANGE_AUTHOR_OF_RECIPE: {
+            case CHANGE_AUTHOR_OF_RECIPE: {
                 return produce(state, draftState => {
                     draftState.toSerialize.author = action.author;
                 })
             }
-            case
-            CHANGE_PREP_TIME: {
+            case CHANGE_PREP_TIME: {
                 return produce(state, draftState => {
                     draftState.toSerialize.prepareTime = action.time;
                 })
             }
-            case
-            ALL_PRODUCTS: {
+            case ALL_PRODUCTS: {
                 return produce(state, draftState => {
                     draftState.allProducts = action.allProducts;
                 })
             }
-            case
-            ADD_PRODUCT: {
+            case ADD_PRODUCT: {
                 return produce(state, draftState => {
                     draftState.selectedProducts.push(action.product);
-                    draftState.toSerialize.parts.push({id: action.product.id, name: action.product.name, amount: 100, specialAmount: ""});
+                    draftState.toSerialize.parts.push({
+                        id: action.product.id,
+                        name: action.product.name,
+                        amount: 100,
+                        specialAmount: ""
+                    });
                 })
             }
-            case
-            CHANGE_PART_AMOUNT: {
+            case CHANGE_PART_AMOUNT: {
                 return produce(state, draftState => {
                     let part = draftState.toSerialize.parts.filter(p => Number(action.part.id) === p.id);
                     part[0].amount = action.part.amount;
+                })
+            }
+            case DELETE_PRODUCT: {
+                return produce(state, draftState => {
+                    draftState.toSerialize.parts = draftState.toSerialize.parts.filter(product => product.name !== action.product);
+                    draftState.selectedProducts = draftState.selectedProducts.filter(product => product.name !== action.product)
                 })
             }
             default:
