@@ -4,8 +4,8 @@ import {ProductWholeDataDto} from "../../../../../ServerConnection/DTOs/AllProdu
 import {AppStore} from "../../../../../Redux/store";
 import {changePartAmount, deleteProduct} from "../../../../../Redux/actions";
 import {PostProductDto} from "../../../../../ServerConnection/DTOs/MealRecipeDto";
-import {Dispatch} from "redux";
 import styles from './SelectedProduct.module.css'
+import {Dispatch} from "redux";
 
 
 interface OwnProps {

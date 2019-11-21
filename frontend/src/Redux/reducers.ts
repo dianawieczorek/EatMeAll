@@ -5,7 +5,6 @@ import {
     CHANGE_AUTHOR_OF_RECIPE, CHANGE_PREP_TIME, CHOOSE_MEMBER_TO_COPY, ALL_PRODUCTS, ADD_PRODUCT, CHANGE_PART_AMOUNT,
     ALL_MEALS, CHANGE_DESCRIPTION_OF_RECIPE, DELETE_PRODUCT
 } from "./actionTypes";
-import {Reducer} from "redux";
 import {produce} from "immer"
 import {loadMembers, saveMealToCopy} from "../ServerConnection/localStorage";
 import {GroupproductsDto} from "../ServerConnection/DTOs/ShoppingListDto";
@@ -13,6 +12,7 @@ import Member from './Model/Member';
 import {DayOfWeekDto} from "../ServerConnection/DTOs/DayOfWeekDto";
 import {ProductWholeDataDto, SingleCategoryDto} from "../ServerConnection/DTOs/AllProductsDto";
 import {MealRecipeDto, PostMealRecipieDto} from "../ServerConnection/DTOs/MealRecipeDto";
+import {Reducer} from "redux";
 
 interface weekScheduleReducerIf {
     members: Array<Member>
@@ -214,7 +214,6 @@ interface AddMealToDatabaseReducerIf {
     mealTimes: Array<DayOfWeekDto>
     allProducts: Array<SingleCategoryDto>
     selectedProducts: Array<ProductWholeDataDto>
-
     toSerialize: PostMealRecipieDto;
 }
 
