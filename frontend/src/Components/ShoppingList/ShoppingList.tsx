@@ -56,7 +56,7 @@ class ShoppingList extends Component<Props> {
             fetch(SHOPPING_LIST_URL + arrayOfIdsMeals)
                 .then((response) => response.json())
                 .then((json: Array<GroupproductsDto>) => {
-                        this.props.setProductList(json)
+                        this.props.setProductList(json);
                     console.log(json)
                     }
                 );
