@@ -35,8 +35,8 @@ class SideMenu extends Component<Props> {
                 {this.props.allProducts.map((products: SingleCategoryDto) =>
                     <div className={styles.Dropdown}>
                         <button className={styles.ProductCategory}
-                                onClick={this.productSelectionList}>{products.type}</button>
-                        <div id={products.type} className={styles.DropdownContent}>
+                                onClick={this.productSelectionList}>{products.name}</button>
+                        <div id={products.name} className={styles.DropdownContent}>
                             {products.products.map((productsInCategory: ProductsInCategoryDto) => <button
                                 id={productsInCategory.id.toString()}
                                 onClick={this.selectProduct}>{productsInCategory.name}</button>)}
@@ -50,7 +50,7 @@ class SideMenu extends Component<Props> {
     private productSelectionList = (e: any) => {
         let innerValue = e.target.innerHTML;
         document.getElementById(innerValue)!.classList.toggle(styles.show);
-        let products = this.props.allProducts.filter((category: any) => category.type == innerValue)[0].products;
+        let products = this.props.allProducts.filter((category: any) => category.name == innerValue)[0].products;
         return <div>{products.map((product: any) => <button>{product}</button>)}</div>;
     };
 

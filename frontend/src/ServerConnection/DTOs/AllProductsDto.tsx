@@ -1,6 +1,6 @@
 export interface SingleCategoryDto {
     products: Array<ProductsInCategoryDto>,
-    type: string
+    name: string
 }
 
 export interface ProductsInCategoryDto {
