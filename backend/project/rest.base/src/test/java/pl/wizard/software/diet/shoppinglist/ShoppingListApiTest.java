@@ -89,7 +89,6 @@ class ShoppingListApiTest {
         expected.add(p2);
         expected.add(p3);
 
-
         ResponseEntity<Collection<ProductTypeDto<MealPartDto>>> result = shoppingListApi.generateShoppingList(idList.stream().mapToLong(l -> l).toArray());
 
         expected.forEach(expectedProduct ->
@@ -121,9 +120,6 @@ class ShoppingListApiTest {
 
         ResponseEntity<Collection<ProductTypeDto<MealPartDto>>> result = shoppingListApi.generateShoppingList(idList.stream().mapToLong(l -> l).toArray());
 
-//        expected.forEach(expectedProduct ->
-//                assertTrue(EqualsBuilder.reflectionEquals(expectedProduct, result.getBody().stream().filter(resultProd -> resultProd.getId().equals(expectedProduct.getId())).findAny().get()))
-//        );
         expected.forEach(expectedProduct ->
                 assertTrue(EqualsBuilder.reflectionEquals(expectedProduct, result.getBody().stream().flatMap(t -> t.getProducts().stream()).collect(Collectors.toList()).stream().filter(resultProd -> resultProd.getId().equals(expectedProduct.getId())).findAny().get()))
         );

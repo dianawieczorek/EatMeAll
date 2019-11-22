@@ -1124,4 +1124,17 @@ INSERT INTO public.products(
 (	854	, current_timestamp, current_timestamp,0,	714.00	,	2.60	,	79.00	        ,'Majonez domowy z olejem rzepakowym'	,	1.30	,	0.10	,	17	),
 (	855	, current_timestamp, current_timestamp,0,	714.00	,	2.60	,	79.00	        ,'Majonez domowy z olejem słonecznikowym'	,	1.30	,	0.10	,	17	),
 (	856	, current_timestamp, current_timestamp,0,	162.00	,	22.00	,	6.40	        ,'Musztarda'	,	5.70	,	1.70	,	17	),
-(	857	, current_timestamp, current_timestamp,0,	343.00	,	0.00	,	0.10	        ,'Żelatyna'	,	84.20	,	0.00	,	17	);
+(	857	, current_timestamp, current_timestamp,0,	343.00	,	0.00	,	0.10	        ,'Żelatyna'	,	84.20	,	0.00	,	17	),
+(	858	, current_timestamp, current_timestamp,0,	128.00	,	5.5	    ,	10.0  	        ,'Pilos jogurt grecki'	,	4.0	,	0.00	,	2	),
+(	859	, current_timestamp, current_timestamp,0,	80.00	,	2.3	    ,	3.0  	        ,'Pilos serek wiejski'	,	11.0	,	0.00	,	2	),
+(	860	, current_timestamp, current_timestamp,0,	6.00	,	0.3	    ,	0.5  	        ,'Bulion z kostki'	,	0.1	,	0.00	, 17	),
+(	861	, current_timestamp, current_timestamp,0,	70.00	,	8.3	    ,	3.4  	        ,'Ryneczek Lidla - codzienna'	,	0.8	,	1.6	, 13	),
+(	862	, current_timestamp, current_timestamp,0,	88.00	,	14.0	    ,	2.5  	        ,'Ryneczek Lidla - buraczki'	,	1.2	,	0.00	, 13	),
+(	863	, current_timestamp, current_timestamp,0,	53.00	,	2.2	    ,	6.0  	        ,'Ryneczek Lidla - colesław'	,	1.6	,	0.00	, 13	),
+(	864	, current_timestamp, current_timestamp,0,	65.00	,	8.7	    ,	2.5  	        ,'Ryneczek Lidla - rodzinna'	,	0.8	,	0.00	, 13	),
+(	865	, current_timestamp, current_timestamp,0,	82.00	,	10.5	    ,	3.2  	        ,'Ryneczek Lidla - wiosenna'	,	1.5	,	0.00	, 13	),
+(	866	, current_timestamp, current_timestamp,0,	233.00	,	21.0	    ,	4.0  	        ,'Serek puszysty almette'	,	7.0	,	0.00	,	2	),
+(	867	, current_timestamp, current_timestamp,0,	55.0	,	4.0		,		3.0			,'Warzywa na patelnie chińskie'	,	2.0	,	0.0	,	13	),
+(	868	, current_timestamp, current_timestamp,0,	111	,	12.6		,		1.0			,'Fasola w zalewie'	,	8.4	,	0.0	,	13	),
+(	869	, current_timestamp, current_timestamp,0,	30.0	,	5.0		,		0.0			,'Passata pomidorowa'	,	2.0	,	0.0	,	13	),
+(	870	, current_timestamp, current_timestamp,0,	228.0	,	1.0		,		25.0			,'Mięso mielone wołowe'	,	15.0	,	0.0	,	3	);
