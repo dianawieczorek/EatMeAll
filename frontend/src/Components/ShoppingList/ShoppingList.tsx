@@ -35,17 +35,8 @@ class ShoppingList extends Component<Props> {
 
                     </div>
                 </div>
-                <CategoryListOfProduct category={"Owoce"} productList={this.props.ProductList.fruit}/>
-                <CategoryListOfProduct category={"Warzywa"} productList={this.props.ProductList.vegetable}/>
-                <CategoryListOfProduct category={"Pieczywo"} productList={this.props.ProductList.baking}/>
-                <CategoryListOfProduct category={"Nabiał"} productList={this.props.ProductList.dairy}/>
-                <CategoryListOfProduct category={"Mięso"} productList={this.props.ProductList.meat}/>
-                <CategoryListOfProduct category={"Ryby"} productList={this.props.ProductList.fish}/>
-                <CategoryListOfProduct category={"Napoje"} productList={this.props.ProductList.drink}/>
-                <CategoryListOfProduct category={"Ziarna"} productList={this.props.ProductList.grains}/>
-                <CategoryListOfProduct category={"Przyprawy"} productList={this.props.ProductList.spice}/>
-                <CategoryListOfProduct category={"Inne"}
-                                       productList={this.props.ProductList.other && this.props.ProductList.unknown}/>
+                {this.props.productList.map(group => <CategoryListOfProduct category={group.name}
+                                                                            productList={group.products}/>)}
             </div>
         )
     }
@@ -53,7 +44,7 @@ class ShoppingList extends Component<Props> {
     private shoppingList = () => {
         let checkedDays = this.props.days.map(day => day.id).map(dayId => dayId);
         if (checkedDays.length > 0) {
-            let mealIds = [this.props.Meal.map((member: any) => member.weekSchedule.map((dayOfWeekPlan: any) => dayOfWeekPlan["meals"].map((meal: any) => meal.id)))][0];
+            let mealIds = [this.props.Meal.map((member: any) => member.weekSchedule.days.map((dayOfWeekPlan: any) => dayOfWeekPlan.meals.map((meal: any) => meal.id)))][0];
             let mealIdsForSelectedDays = [];
             for (let m = 0; m < this.props.memberList.length; m++) {
                 for (let x = 0; x < checkedDays.length; x++) {
@@ -64,8 +55,9 @@ class ShoppingList extends Component<Props> {
             let arrayOfIdsMeals = mealIdsForSelectedDays.reduce((arr, el) => arr.concat(el));
             fetch(SHOPPING_LIST_URL + arrayOfIdsMeals)
                 .then((response) => response.json())
-                .then((json: GroupproductsDto) => {
-                        this.props.setProductList(json)
+                .then((json: Array<GroupproductsDto>) => {
+                        this.props.setProductList(json);
+                    console.log(json)
                     }
                 );
         } else {
@@ -80,7 +72,7 @@ const mapStateToProps = (store: AppStore) => {
         return {
             Meal: store.weekScheduleReducer.members,
             memberList: store.weekScheduleReducer.members.map(member => member.name),
-            ProductList: store.productListReducer.categoryListOfProduct,
+            productList: store.productListReducer.categoryListOfProduct,
             days: store.shoppingListReducer.days.filter(day => day.isChecked === true)
         }
     }
@@ -88,8 +80,8 @@ const mapStateToProps = (store: AppStore) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
-        setProductList: (aProductList: GroupproductsDto) => dispatch(setProductList(aProductList))
+        setProductList: (aProductList: Array<GroupproductsDto>) => dispatch(setProductList(aProductList))
     };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingList);

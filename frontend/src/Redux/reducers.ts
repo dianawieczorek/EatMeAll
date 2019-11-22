@@ -149,23 +149,11 @@ export const sidedrawerReducer: Reducer<SideDrawerReducerIf, Types> = (state: Si
 };
 
 interface ProductListReducerIf {
-    categoryListOfProduct: GroupproductsDto,
+    categoryListOfProduct: Array<GroupproductsDto>,
 }
 
 const PRODUCT_LIST_INIT: ProductListReducerIf = {
-    categoryListOfProduct: {
-        baking: [],
-        dairy: [],
-        drink: [],
-        meat: [],
-        fish: [],
-        fruit: [],
-        vegetable: [],
-        grains: [],
-        spice: [],
-        other: [],
-        unknown: []
-    },
+    categoryListOfProduct: []
 };
 
 export const productListReducer: Reducer<ProductListReducerIf, Types> = (state: ProductListReducerIf = PRODUCT_LIST_INIT, action: Types) => {
