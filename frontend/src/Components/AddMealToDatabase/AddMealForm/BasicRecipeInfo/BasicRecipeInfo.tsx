@@ -7,6 +7,7 @@ import {
 } from "../../../../Redux/actions";
 import {Dispatch} from "redux";
 import {AppStore} from "../../../../Redux/store";
+import {Field, reduxForm} from 'redux-form'
 
 interface OwnProps {
 }
@@ -28,15 +29,24 @@ class AddMealToDatabase extends PureComponent<Props> {
     }
 
     render() {
+        const required = (value: any) => value ? undefined : 'Required';
+        const renderField = ({input, ref, label, type, meta: {touched, error, warning}}: any) => (
+            <div>
+                <input {...input} ref={ref} className="form-control" placeholder={label} type={type}/>
+                {touched && ((error && <span className="text-danger">{error}</span>) || (warning &&
+                    <span>{warning}</span>))}
+            </div>
+        );
+
         return (
             <React.Fragment>
-                <input className={styles.NameInput} type="text" name="title" ref={this.nameInput}
+                <Field className={styles.NameInput} type="text" name="title" value={this.nameInput}
                        onChange={this.changeNameOfRecipe}
-                       placeholder="nazwa posiłku"/>
+                       label="nazwa posiłku" component={renderField} validate={required}/>
                 <div className={styles.ProductAndInfo}>
                     <div className={styles.BasicInfo}>
                         <p>Pora posiłku: </p>
-                        {this.props.mealTimes.map((mealTimes:any) =>
+                        {this.props.mealTimes.map((mealTimes: any) =>
                             <div className="form-check form-check-inline">
                                 <input className="form-check-input" type="checkbox" id={mealTimes.value}
                                        value={mealTimes.value} onClick={this.selectedMeal} key={mealTimes.id}/>
@@ -48,7 +58,10 @@ class AddMealToDatabase extends PureComponent<Props> {
                                                       onChange={this.changePrepTime}/></p>
                         <p>autor przepisu: <input type="text" name="authorReceipt" ref={this.creatorInput}
                                                   onChange={this.changeAuthorOfRecipe}/></p>
-                        <p>dodatkowe informacje: <input className={styles.NameInput}  ref={this.descriptionInput} onChange={this.changeDescription} placeholder="tu możesz wpisać dodatkowe informacje dotyczące posiłku"/></p>
+                        <p>dodatkowe informacje: <input className={styles.NameInput} ref={this.descriptionInput}
+                                                        onChange={this.changeDescription}
+                                                        placeholder="tu możesz wpisać dodatkowe informacje dotyczące posiłku"/>
+                        </p>
                     </div>
                 </div>
             </React.Fragment>
@@ -94,4 +107,14 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddMealToDatabase);
+
+AddMealToDatabase = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AddMealToDatabase);
+
+export default reduxForm({
+    form: 'AddMealToDatabase',
+})(AddMealToDatabase)
+
+// export default connect(mapStateToProps, mapDispatchToProps)(AddMealToDatabase);

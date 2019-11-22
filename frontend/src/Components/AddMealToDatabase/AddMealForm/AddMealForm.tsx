@@ -13,7 +13,7 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 class AddMealForm extends PureComponent<Props> {
     render() {
         return (
-            <form>
+            <form >
                 <BasicRecipeInfo/>
                 <div className={styles.Products}>
                     <SelectedProductsTable/>
