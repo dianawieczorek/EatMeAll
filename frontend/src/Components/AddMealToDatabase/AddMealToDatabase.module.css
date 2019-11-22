@@ -4,7 +4,7 @@
 
 .SideMenu {
     border-right: 3px solid #326D65;
-    padding-top: 20px;
+    padding-top: 5vh;
     height: 70vh;
     overflow-x:auto;
 }
@@ -14,8 +14,7 @@
     border-bottom: 2px solid #326D65;
 }
 .Main {
-    padding-top: 20px;
-    padding-left: 5vw;
+    padding: 5vh 2vw 8vh 5vw;
     margin-bottom: 5vh;
     height: 70vh;
     overflow-x:auto;
@@ -68,7 +67,7 @@ input {
 }
 
 .NameInput {
-    width: 70%;
+    width: 60%;
 }
 
 .Table th,
