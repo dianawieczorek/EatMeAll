@@ -90,7 +90,7 @@ export const closeSidedrawer = (): closeSidedrawerIf => {
     }
 };
 
-export const setProductList = (aProductList: GroupproductsDto): setProductListIf => {
+export const setProductList = (aProductList: Array<GroupproductsDto>): setProductListIf => {
     return {
         type: SET_PRODUCT_LIST,
         categoryListOfProduct: aProductList

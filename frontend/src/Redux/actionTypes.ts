@@ -64,7 +64,7 @@ export const SET_PRODUCT_LIST = 'SET_PRODUCT_LIST';
 
 export interface setProductListIf {
     type: typeof SET_PRODUCT_LIST
-    categoryListOfProduct: GroupproductsDto
+    categoryListOfProduct: Array<GroupproductsDto>
 }
 
 export const ADD_MEMBER_NAME = 'ADD_MEMBER_NAME';

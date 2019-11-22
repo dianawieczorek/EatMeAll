@@ -1,20 +1,12 @@
 export interface GroupproductsDto {
-    baking: Array<ProductDto>,
-    dairy: Array<ProductDto>,
-    drink: Array<ProductDto>,
-    meat: Array<ProductDto>,
-    fish: Array<ProductDto>,
-    fruit: Array<ProductDto>,
-    vegetable: Array<ProductDto>,
-    grains: Array<ProductDto>,
-    spice: Array<ProductDto>,
-    other: Array<ProductDto>,
-    unknown: Array<ProductDto>
+    name: string,
+    products: Array<ProductDto>
 }
 
 export interface ProductDto {
-    amount: number,
-    category: string,
+    id: number,
     name: string,
-    unit: string,
+    specialAmount: number,
+    amount: number,
+    productType: string,
 }
