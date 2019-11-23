@@ -48,8 +48,9 @@ CREATE TABLE public.hibernate_sequences (
     next_val bigint
 );
 
-
 ALTER TABLE public.hibernate_sequences OWNER TO eatmeall;
+
+INSERT INTO public.hibernate_sequences VALUES ('default', 42);
 
 --
 -- TOC entry 196 (class 1259 OID 16388)
@@ -341,7 +342,6 @@ INSERT INTO public.products(
 (	71	, current_timestamp, current_timestamp,0,	343.00	,	64.00	,	3.00	        ,'Makaron pełnoziarnisty'	,	15.00	,	8.00	,	1	),
 (	72	, current_timestamp, current_timestamp,0,	354.00	,	70.70	,	2.70	        ,'Mąka gryczana pełna'	,	11.70	,	3.70	,	1	),
 (	73	, current_timestamp, current_timestamp,0,	338.00	,	64.70	,	3.00	        ,'Mąka jęczmienna'	,	9.20	,	7.60	,	1	),
-(	74	, current_timestamp, current_timestamp,0,	348.00	,	72.00	,	1.90	        ,'Mąka jęczmienna pełnoziarnista'	,	10.60	,	NULL	,	1	),
 (	75	, current_timestamp, current_timestamp,0,	337.00	,	78.00	,	3.00	        ,'Mąka kukurydziana'	,	5.90	,	7.50	,	1	),
 (	76	, current_timestamp, current_timestamp,0,	348.00	,	72.70	,	1.80	        ,'Mąka orkiszowa'	,	13.40	,	8.20	,	1	),
 (	77	, current_timestamp, current_timestamp,0,	363.00	,	68.10	,	5.90	        ,'Mąka owsiana'	,	12.90	,	7.20	,	1	),
@@ -384,7 +384,6 @@ INSERT INTO public.products(
 (	114	, current_timestamp, current_timestamp,0,	226.00	,	45.30	,	1.80	        ,'Słone precelki'	,	7.10	,	1.90	,	1	),
 (	115	, current_timestamp, current_timestamp,0,	322.00	,	67.40	,	2.80	        ,'Strucle tureckie'	,	7.70	,	1.90	,	1	),
 (	116	, current_timestamp, current_timestamp,0,	303.00	,	56.90	,	4.80	        ,'Stucle wrocławskie'	,	8.90	,	1.70	,	1	),
-(	117	, current_timestamp, current_timestamp,0,	370.00	,	56.80	,	8.80	        ,'Szarłat (Amarantus)'	,	15.80	,	NULL	,	1	),
 (	118	, current_timestamp, current_timestamp,0,	323.00	,	45.50	,	9.40	        ,'Zarodki pszenne'	,	27.50	,	14.00	,	1	),
 (	119	, current_timestamp, current_timestamp,0,	306.00	,	70.50	,	2.40	        ,'Ziarno pszenicy'	,	11.10	,	11.50	,	1	),
 (	120	, current_timestamp, current_timestamp,0,	301.00	,	74.20	,	2.20	        ,'Ziarno żyta'	,	7.90	,	12.90	,	1	),
@@ -414,45 +413,15 @@ INSERT INTO public.products(
 (	144	, current_timestamp, current_timestamp,0,	326.00	,	55.30	,	8.00	        ,'Mleko zagęszczone, słodzone'	,	7.50	,	0.00	,	2	),
 (	145	, current_timestamp, current_timestamp,0,	82.00	,	12.10	,	1.90	        ,'Napój mleczny jogurtowy'	,	4.00	,	0.00	,	2	),
 (	146	, current_timestamp, current_timestamp,0,	81.00	,	12.10	,	2.10	        ,'Napój mleczny kawowy'	,	3.30	,	0.10	,	2	),
-(	147	, current_timestamp, current_timestamp,0,	386.00	,	NULL	,	31.60	        ,'Ser Appenzeller, 50% tłuszczu'	,	25.40	,	0.00	,	2	),
-(	148	, current_timestamp, current_timestamp,0,	229.00	,	NULL	,	17.00	        ,'Ser Back-Camembert, 45% tłuszczu'	,	19.00	,	0.00	,	2	),
-(	149	, current_timestamp, current_timestamp,0,	413.00	,	NULL	,	40.00	        ,'Ser Bavaria Blue, 70% tłuszczu'	,	13.20	,	0.00	,	2	),
-(	150	, current_timestamp, current_timestamp,0,	373.00	,	NULL	,	30.20	        ,'Ser Bel Paese'	,	25.40	,	0.00	,	2	),
-(	151	, current_timestamp, current_timestamp,0,	358.00	,	NULL	,	29.60	        ,'Ser Bleu d’Auvergne, 50% tłuszczu'	,	22.90	,	0.00	,	2	),
-(	152	, current_timestamp, current_timestamp,0,	358.00	,	NULL	,	29.60	        ,'Ser Bleu de Bresse, 50% tłuszczu'	,	22.90	,	0.00	,	2	),
-(	153	, current_timestamp, current_timestamp,0,	413.00	,	NULL	,	40.00	        ,'Ser Cambozola, 70% tłuszczu'	,	13.20	,	0.00	,	2	),
 (	154	, current_timestamp, current_timestamp,0,	334.00	,	1.00	,	24.90	        ,'Ser Edamski wędzony'	,	26.40	,	0.00	,	2	),
-(	155	, current_timestamp, current_timestamp,0,	325.00	,	NULL	,	25.40	        ,'Ser Favorel, Danbo, 45% tłuszczu'	,	24.10	,	0.00	,	2	),
-(	156	, current_timestamp, current_timestamp,0,	360.00	,	NULL	,	31.20	        ,'Ser Gorgonzola'	,	19.40	,	0.00	,	2	),
-(	157	, current_timestamp, current_timestamp,0,	399.00	,	NULL	,	32.10	        ,'Ser Gruyère, 45% tłuszczu'	,	26.90	,	0.00	,	2	),
-(	158	, current_timestamp, current_timestamp,0,	126.00	,	NULL	,	0.70	        ,'Ser Herceński, moguncki'	,	30.00	,	0.00	,	2	),
-(	159	, current_timestamp, current_timestamp,0,	349.00	,	NULL	,	26.90	        ,'Ser Jarlsberg, 45% tłuszczu'	,	26.70	,	0.00	,	2	),
-(	160	, current_timestamp, current_timestamp,0,	280.00	,	NULL	,	21.80	        ,'Ser kozi miękki, 45% tłuszczu'	,	21.00	,	0.00	,	2	),
-(	161	, current_timestamp, current_timestamp,0,	329.00	,	NULL	,	27.00	        ,'Ser kozi w plasterkach, 48% tłuszczu'	,	21.60	,	0.00	,	2	),
-(	162	, current_timestamp, current_timestamp,0,	352.00	,	NULL	,	27.60	        ,'Ser Leerdamski, 45% tłuszczu'	,	25.90	,	0.00	,	2	),
-(	163	, current_timestamp, current_timestamp,0,	184.00	,	NULL	,	8.60	        ,'Ser Limburski, 20% tłuszczu'	,	26.40	,	0.00	,	2	),
-(	164	, current_timestamp, current_timestamp,0,	268.00	,	NULL	,	19.70	        ,'Ser Limburski, 40% tłuszczu'	,	22.40	,	0.00	,	2	),
-(	165	, current_timestamp, current_timestamp,0,	286.00	,	NULL	,	18.00	        ,'Ser Lindenberski lekki, 30% tłuszczu'	,	31.00	,	0.00	,	2	),
-(	166	, current_timestamp, current_timestamp,0,	386.00	,	NULL	,	30.00	        ,'Ser Lindenberski, 45% tłuszczu'	,	28.90	,	0.00	,	2	),
-(	167	, current_timestamp, current_timestamp,0,	355.00	,	NULL	,	29.60	        ,'Ser Maaslandzki, 50% tłuszczu'	,	22.20	,	0.00	,	2	),
 (	168	, current_timestamp, current_timestamp,0,	460.00	,	3.60	,	47.50	        ,'Ser Mascarpone'	,	4.60	,	0.00	,	2	),
-(	169	, current_timestamp, current_timestamp,0,	366.00	,	NULL	,	33.20	        ,'Ser miękki z zielonym pieprzem, 60% tłuszczu'	,	16.80	,	0.00	,	2	),
-(	170	, current_timestamp, current_timestamp,0,	297.00	,	NULL	,	22.40	        ,'Ser Moorbier, 40% tłuszczu'	,	23.80	,	0.00	,	2	),
 (	171	, current_timestamp, current_timestamp,0,	314.00	,	1.70	,	25.40	        ,'Ser owczy, Bryndza'	,	20.50	,	0.00	,	2	),
-(	172	, current_timestamp, current_timestamp,0,	356.00	,	NULL	,	29.60	        ,'Ser Pirenejski, 50% tłuszczu'	,	22.30	,	0.00	,	2	),
-(	173	, current_timestamp, current_timestamp,0,	355.00	,	NULL	,	29.80	        ,'Ser Pleśniowy, 60% tłuszczu'	,	21.10	,	0.00	,	2	),
-(	174	, current_timestamp, current_timestamp,0,	365.00	,	NULL	,	28.90	        ,'Ser Provolone'	,	26.30	,	0.00	,	2	),
-(	175	, current_timestamp, current_timestamp,0,	343.00	,	NULL	,	28.00	        ,'Ser Raclette, 48% tłuszczu'	,	22.70	,	0.00	,	2	),
 (	176	, current_timestamp, current_timestamp,0,	333.00	,	1.90	,	33.00	        ,'Ser Robiola, 75% tłuszczu'	,	7.00	,	0.00	,	2	),
-(	177	, current_timestamp, current_timestamp,0,	187.00	,	NULL	,	9.00	        ,'Ser Romadur, 20% tłuszczu'	,	26.40	,	0.00	,	2	),
-(	178	, current_timestamp, current_timestamp,0,	226.00	,	NULL	,	14.10	        ,'Ser Romadur, 30% tłuszczu'	,	24.80	,	0.00	,	2	),
-(	179	, current_timestamp, current_timestamp,0,	386.00	,	NULL	,	32.00	        ,'Ser Tête de Moine, 50% tłuszczu'	,	24.50	,	0.00	,	2	),
 (	180	, current_timestamp, current_timestamp,0,	99.00	,	3.50	,	0.50	        ,'Ser twarogowy chudy'	,	19.80	,	0.00	,	2	),
 (	181	, current_timestamp, current_timestamp,0,	133.00	,	3.70	,	4.70	        ,'Ser twarogowy półtłusty'	,	18.70	,	0.00	,	2	),
 (	182	, current_timestamp, current_timestamp,0,	175.00	,	3.50	,	10.10	        ,'Ser twarogowy tłusty'	,	17.70	,	0.00	,	2	),
 (	183	, current_timestamp, current_timestamp,0,	215.00	,	1.00	,	16.00	        ,'Ser typu „Feta”'	,	17.00	,	0.00	,	2	),
 (	184	, current_timestamp, current_timestamp,0,	345.00	,	1.30	,	28.90	        ,'Ser typu Roqefort (Niva)'	,	20.00	,	0.00	,	2	),
-(	185	, current_timestamp, current_timestamp,0,	352.00	,	NULL	,	27.60	        ,'Ser Westberski, 45% tłuszczu'	,	25.90	,	0.00	,	2	),
 (	186	, current_timestamp, current_timestamp,0,	329.00	,	0.20	,	28.00	        ,'Ser, Brie pełnotłusty'	,	19.80	,	0.00	,	2	),
 (	187	, current_timestamp, current_timestamp,0,	291.00	,	0.20	,	23.00	        ,'Ser, Camembert pełnotłusty'	,	21.40	,	0.00	,	2	),
 (	188	, current_timestamp, current_timestamp,0,	391.00	,	0.10	,	31.70	        ,'Ser, Cheddar pełnotłusty'	,	27.10	,	0.00	,	2	),
@@ -542,18 +511,11 @@ INSERT INTO public.products(
 (	272	, current_timestamp, current_timestamp,0,	102.00	,	0.50	,	3.10	        ,'Wędzonka wołowa, gotowana'	,	17.80	,	0.00	,	3	),
 (	273	, current_timestamp, current_timestamp,0,	194.00	,	1.70	,	14.80	        ,'Baranina, biodrówka'	,	13.50	,	0.00	,	4	),
 (	274	, current_timestamp, current_timestamp,0,	284.00	,	0.00	,	25.00	        ,'Baranina, łopatka'	,	15.60	,	0.00	,	4	),
-(	275	, current_timestamp, current_timestamp,0,	381.00	,	NULL	,	37.00	        ,'Baranina, mostek'	,	12.00	,	0.00	,	4	),
-(	276	, current_timestamp, current_timestamp,0,	112.00	,	NULL	,	3.40	        ,'Baranina, polędwica'	,	20.40	,	0.00	,	4	),
-(	277	, current_timestamp, current_timestamp,0,	131.00	,	NULL	,	6.10	        ,'Baranina, sznycel'	,	19.10	,	0.00	,	4	),
 (	278	, current_timestamp, current_timestamp,0,	232.00	,	0.00	,	18.00	        ,'Baranina, udziec'	,	18.00	,	0.00	,	4	),
-(	279	, current_timestamp, current_timestamp,0,	98.00	,	NULL	,	1.60	        ,'Cielęcina, goleń'	,	20.90	,	0.00	,	4	),
 (	280	, current_timestamp, current_timestamp,0,	106.00	,	0.00	,	2.80	        ,'Cielęcina, łopatka'	,	19.90	,	0.00	,	4	),
-(	281	, current_timestamp, current_timestamp,0,	131.00	,	NULL	,	6.30	        ,'Cielęcina, mostek'	,	18.60	,	0.00	,	4	),
-(	282	, current_timestamp, current_timestamp,0,	95.00	,	NULL	,	1.40	        ,'Cielęcina, polędwica'	,	20.60	,	0.00	,	4	),
 (	283	, current_timestamp, current_timestamp,0,	105.00	,	0.00	,	2.40	        ,'Cielęcina, sznyclówka'	,	20.50	,	0.00	,	4	),
 (	284	, current_timestamp, current_timestamp,0,	108.00	,	0.00	,	3.10	        ,'Cielęcina, udziec'	,	19.90	,	0.00	,	4	),
 (	285	, current_timestamp, current_timestamp,0,	84.00	,	0.00	,	2.20	        ,'Flaki'	,	16.00	,	0.00	,	4	),
-(	286	, current_timestamp, current_timestamp,0,	99.00	,	NULL	,	3.40	        ,'Grasica cielęca'	,	17.20	,	0.00	,	4	),
 (	287	, current_timestamp, current_timestamp,0,	160.00	,	0.00	,	9.10	        ,'Jagnięcina, udziec'	,	19.40	,	0.00	,	4	),
 (	288	, current_timestamp, current_timestamp,0,	109.00	,	0.00	,	2.50	        ,'Konina, mięso bez kości'	,	21.50	,	0.00	,	4	),
 (	289	, current_timestamp, current_timestamp,0,	109.00	,	0.00	,	2.50	        ,'Konina, mięso z kością'	,	21.50	,	0.00	,	4	),
@@ -564,7 +526,6 @@ INSERT INTO public.products(
 (	294	, current_timestamp, current_timestamp,0,	102.00	,	0.00	,	3.80	        ,'Nerki wieprzowe'	,	16.80	,	0.00	,	4	),
 (	295	, current_timestamp, current_timestamp,0,	95.00	,	0.00	,	3.60	        ,'Nerki wołowe'	,	15.60	,	0.00	,	4	),
 (	296	, current_timestamp, current_timestamp,0,	274.00	,	0.00	,	20.40	        ,'Nogi wieprzowe'	,	23.00	,	0.00	,	4	),
-(	297	, current_timestamp, current_timestamp,0,	194.00	,	NULL	,	13.20	        ,'Ozór barani'	,	18.70	,	0.00	,	4	),
 (	298	, current_timestamp, current_timestamp,0,	165.00	,	0.00	,	11.10	        ,'Ozór wieprzowy'	,	16.50	,	0.00	,	4	),
 (	299	, current_timestamp, current_timestamp,0,	95.00	,	0.20	,	2.30	        ,'Płuca baranie'	,	18.40	,	0.00	,	4	),
 (	300	, current_timestamp, current_timestamp,0,	111.00	,	0.00	,	4.80	        ,'Serca wieprzowe'	,	16.90	,	0.00	,	4	),
@@ -654,13 +615,10 @@ INSERT INTO public.products(
 (	384	, current_timestamp, current_timestamp,0,	769.00	,	0.00	,	79.20	        ,'Skwarki'	,	16.90	,	0.00	,	7	),
 (	385	, current_timestamp, current_timestamp,0,	797.00	,	0.00	,	89.00	        ,'Słonina'	,	2.40	,	0.00	,	7	),
 (	386	, current_timestamp, current_timestamp,0,	880.00	,	0.00	,	99.50	        ,'Smalec'	,	0.00	,	0.00	,	7	),
-(	387	, current_timestamp, current_timestamp,0,	896.00	,	0.00	,	99.50	        ,'Smalec gęsi'	,	NULL	,	0.00	,	7	),
 (	388	, current_timestamp, current_timestamp,0,	573.00	,	0.90	,	64.00	        ,'Tłuszcz mieszany roślinno-zwierzęcy, 60% tłuszczu'	,	0.90	,	0.00	,	7	),
 (	389	, current_timestamp, current_timestamp,0,	899.00	,	0.00	,	99.90	        ,'Tran'	,	0.00	,	0.00	,	7	),
-(	390	, current_timestamp, current_timestamp,0,	11.00	,	NULL	,	0.20	        ,'Boczniaki'	,	2.30	,	5.90	,	8	),
 (	391	, current_timestamp, current_timestamp,0,	41.00	,	5.20	,	0.60	        ,'Borowiki jadalne, surowe'	,	5.10	,	3.00	,	8	),
 (	392	, current_timestamp, current_timestamp,0,	321.00	,	39.20	,	3.10	        ,'Borowiki jadalne, suszone'	,	37.70	,	7.50	,	8	),
-(	393	, current_timestamp, current_timestamp,0,	18.00	,	NULL	,	0.60	        ,'Koźlarze'	,	3.10	,	6.50	,	8	),
 (	394	, current_timestamp, current_timestamp,0,	18.00	,	0.30	,	0.80	        ,'Koźlarze czerwone'	,	2.20	,	4.70	,	8	),
 (	395	, current_timestamp, current_timestamp,0,	15.00	,	0.20	,	0.50	        ,'Kurki'	,	2.40	,	4.70	,	8	),
 (	396	, current_timestamp, current_timestamp,0,	12.00	,	0.30	,	0.40	        ,'Maślaki'	,	1.70	,	5.90	,	8	),
@@ -686,7 +644,6 @@ INSERT INTO public.products(
 (	416	, current_timestamp, current_timestamp,0,	645.00	,	18.00	,	60.30	        ,'Orzechy włoskie'	,	16.00	,	6.50	,	9	),
 (	417	, current_timestamp, current_timestamp,0,	571.00	,	30.50	,	42.20	        ,'Orzeszki cashew'	,	17.20	,	2.90	,	9	),
 (	418	, current_timestamp, current_timestamp,0,	674.00	,	20.50	,	60.00	        ,'Orzeszki pinii'	,	13.00	,	1.00	,	9	),
-(	419	, current_timestamp, current_timestamp,0,	520.00	,	54.00	,	28.00	        ,'Płatki arachidowe'	,	13.00	,	NULL	,	9	),
 (	420	, current_timestamp, current_timestamp,0,	632.00	,	10.00	,	59.90	        ,'Sezam, nasiona'	,	23.20	,	7.90	,	9	),
 (	421	, current_timestamp, current_timestamp,0,	561.00	,	24.60	,	43.70	        ,'Słonecznik, nasiona'	,	24.40	,	6.00	,	9	),
 (	422	, current_timestamp, current_timestamp,0,	606.00	,	27.00	,	63.20	        ,'Wiórki kokosowe'	,	5.60	,	21.10	,	9	),
@@ -730,14 +687,10 @@ INSERT INTO public.products(
 (	460	, current_timestamp, current_timestamp,0,	38.00	,	11.90	,	0.60	        ,'Gujawa'	,	0.80	,	4.70	,	10	),
 (	461	, current_timestamp, current_timestamp,0,	238.00	,	62.30	,	2.10	        ,'Jabłka, suszone'	,	2.10	,	10.30	,	10	),
 (	462	, current_timestamp, current_timestamp,0,	46.00	,	12.10	,	0.40	        ,'Jabłko'	,	0.40	,	2.00	,	10	),
-(	463	, current_timestamp, current_timestamp,0,	85.00	,	18.00	,	NULL	        ,'Jarzębina słodka, owoce'	,	1.50	,	2.40	,	10	),
 (	464	, current_timestamp, current_timestamp,0,	54.00	,	12.40	,	1.00	        ,'Jeżyny, surowe'	,	1.40	,	5.60	,	10	),
 (	465	, current_timestamp, current_timestamp,0,	70.00	,	16.00	,	0.30	        ,'Kaki (persymona)'	,	0.60	,	2.50	,	10	),
 (	466	, current_timestamp, current_timestamp,0,	56.00	,	13.90	,	0.50	        ,'Kiwi'	,	0.90	,	2.10	,	10	),
-(	467	, current_timestamp, current_timestamp,0,	64.00	,	14.60	,	0.30	        ,'Kumkwat, surowy'	,	0.60	,	NULL	,	10	),
 (	468	, current_timestamp, current_timestamp,0,	75.00	,	17.00	,	0.30	        ,'Liczi (śliwa chińska)'	,	0.90	,	1.60	,	10	),
-(	469	, current_timestamp, current_timestamp,0,	39.00	,	1.90	,	2.40	        ,'Limonka, surowa'	,	0.50	,	NULL	,	10	),
-(	470	, current_timestamp, current_timestamp,0,	64.00	,	15.00	,	NULL	        ,'Malinojeżyny, surowe'	,	1.10	,	1.10	,	10	),
 (	471	, current_timestamp, current_timestamp,0,	29.00	,	12.00	,	0.30	        ,'Maliny'	,	1.30	,	6.70	,	10	),
 (	472	, current_timestamp, current_timestamp,0,	29.00	,	12.00	,	0.30	        ,'Maliny, mrożone'	,	1.30	,	6.70	,	10	),
 (	473	, current_timestamp, current_timestamp,0,	42.00	,	11.20	,	0.20	        ,'Mandarynki'	,	0.60	,	1.90	,	10	),
@@ -747,7 +700,6 @@ INSERT INTO public.products(
 (	477	, current_timestamp, current_timestamp,0,	67.00	,	15.00	,	0.20	        ,'Mirabelki'	,	0.70	,	0.90	,	10	),
 (	478	, current_timestamp, current_timestamp,0,	47.00	,	11.90	,	0.20	        ,'Morele'	,	0.90	,	1.70	,	10	),
 (	479	, current_timestamp, current_timestamp,0,	284.00	,	72.20	,	1.20	        ,'Morele, suszone'	,	5.40	,	10.30	,	10	),
-(	480	, current_timestamp, current_timestamp,0,	38.00	,	8.10	,	NULL	        ,'Morwa, całe owoce'	,	1.30	,	2.00	,	10	),
 (	481	, current_timestamp, current_timestamp,0,	48.00	,	11.80	,	0.20	        ,'Nektarynka'	,	0.90	,	1.20	,	10	),
 (	482	, current_timestamp, current_timestamp,0,	125.00	,	4.10	,	12.70	        ,'Oliwki zielone, konserwowe'	,	1.40	,	2.40	,	10	),
 (	483	, current_timestamp, current_timestamp,0,	38.00	,	7.10	,	0.70	        ,'Owoce opuncji (figa kaktusowa)'	,	0.80	,	5.00	,	10	),
@@ -778,17 +730,13 @@ INSERT INTO public.products(
 (	508	, current_timestamp, current_timestamp,0,	489.00	,	43.90	,	36.30	        ,'Gałka muszkatołowa, cała'	,	7.10	,	20.80	,	11	),
 (	509	, current_timestamp, current_timestamp,0,	469.00	,	34.90	,	28.80	        ,'Gorczyca, nasiona'	,	24.90	,	14.70	,	11	),
 (	510	, current_timestamp, current_timestamp,0,	363.00	,	63.60	,	17.20	        ,'Goździki, suszone'	,	5.80	,	34.60	,	11	),
-(	511	, current_timestamp, current_timestamp,0,	348.00	,	84.10	,	0.00	        ,'Guma arabska'	,	1.40	,	NULL	,	11	),
-(	512	, current_timestamp, current_timestamp,0,	61.00	,	11.00	,	0.80	        ,'Imbir, świeży'	,	2.50	,	NULL	,	11	),
 (	513	, current_timestamp, current_timestamp,0,	333.00	,	71.90	,	4.70	        ,'Imbir, mielony'	,	7.10	,	12.50	,	11	),
-(	514	, current_timestamp, current_timestamp,0,	415.00	,	52.00	,	20.20	        ,'Kapary'	,	6.00	,	NULL	,	11	),
 (	515	, current_timestamp, current_timestamp,0,	311.00	,	68.50	,	6.70	        ,'Kardamon'	,	10.80	,	28.00	,	11	),
 (	516	, current_timestamp, current_timestamp,0,	328.00	,	57.50	,	13.70	        ,'Kminek, nasiona'	,	12.60	,	38.00	,	11	),
 (	517	, current_timestamp, current_timestamp,0,	298.00	,	55.00	,	17.80	        ,'Kolendra, nasiona'	,	12.40	,	41.90	,	11	),
 (	518	, current_timestamp, current_timestamp,0,	323.00	,	58.40	,	6.40	        ,'Kozieradka, nasiona'	,	23.00	,	24.60	,	11	),
 (	519	, current_timestamp, current_timestamp,0,	354.00	,	64.90	,	9.90	        ,'Kurkuma'	,	7.80	,	21.10	,	11	),
 (	520	, current_timestamp, current_timestamp,0,	263.00	,	58.90	,	5.60	        ,'Majeranek, suszony'	,	14.30	,	40.30	,	11	),
-(	521	, current_timestamp, current_timestamp,0,	88.00	,	17.00	,	NULL	        ,'Ocet balsamiczny'	,	0.50	,	0.00	,	11	),
 (	522	, current_timestamp, current_timestamp,0,	306.00	,	64.40	,	10.30	        ,'Oregano suszone'	,	11.00	,	42.80	,	11	),
 (	523	, current_timestamp, current_timestamp,0,	324.00	,	55.70	,	13.00	        ,'Papryka, suszona (przyprawa)'	,	14.80	,	37.40	,	11	),
 (	524	, current_timestamp, current_timestamp,0,	335.00	,	62.70	,	8.60	        ,'Pieprz czarny'	,	11.80	,	20.20	,	11	),
@@ -805,24 +753,13 @@ INSERT INTO public.products(
 (	535	, current_timestamp, current_timestamp,0,	83.00	,	0.00	,	1.80	        ,'Flądra, świeża'	,	16.50	,	0.00	,	12	),
 (	536	, current_timestamp, current_timestamp,0,	86.00	,	0.00	,	1.90	        ,'Gładzica-płastuga, świeża'	,	17.10	,	0.00	,	12	),
 (	537	, current_timestamp, current_timestamp,0,	98.00	,	0.00	,	1.90	        ,'Halibut biały, świeży'	,	20.10	,	0.00	,	12	),
-(	538	, current_timestamp, current_timestamp,0,	81.00	,	NULL	,	1.90	        ,'Homary'	,	15.90	,	0.00	,	12	),
-(	539	, current_timestamp, current_timestamp,0,	73.00	,	NULL	,	0.90	        ,'Kalmary'	,	16.10	,	0.00	,	12	),
-(	540	, current_timestamp, current_timestamp,0,	105.00	,	NULL	,	3.60	        ,'Karmazyn atlantycki'	,	18.20	,	0.00	,	12	),
 (	541	, current_timestamp, current_timestamp,0,	110.00	,	0.00	,	4.20	        ,'Karp, świeży'	,	18.00	,	0.00	,	12	),
-(	542	, current_timestamp, current_timestamp,0,	115.00	,	NULL	,	6.50	        ,'Kawior namiastka'	,	14.00	,	0.00	,	12	),
-(	543	, current_timestamp, current_timestamp,0,	244.00	,	NULL	,	15.50	        ,'Kawior naturalny'	,	26.10	,	0.00	,	12	),
-(	544	, current_timestamp, current_timestamp,0,	87.00	,	NULL	,	1.40	        ,'Kraby'	,	18.60	,	0.00	,	12	),
-(	545	, current_timestamp, current_timestamp,0,	92.00	,	NULL	,	2.50	        ,'Kraby w puszce'	,	17.40	,	0.00	,	12	),
 (	546	, current_timestamp, current_timestamp,0,	84.00	,	1.30	,	1.10	        ,'Langusta'	,	17.20	,	0.00	,	12	),
-(	547	, current_timestamp, current_timestamp,0,	116.00	,	NULL	,	5.50	        ,'Leszcz'	,	16.60	,	0.00	,	12	),
-(	548	, current_timestamp, current_timestamp,0,	77.00	,	NULL	,	0.70	        ,'Lin'	,	17.70	,	0.00	,	12	),
 (	549	, current_timestamp, current_timestamp,0,	201.00	,	0.00	,	13.60	        ,'Łosoś, świeży'	,	19.90	,	0.00	,	12	),
 (	550	, current_timestamp, current_timestamp,0,	162.00	,	0.00	,	8.40	        ,'Łosoś, wędzony'	,	21.50	,	0.00	,	12	),
 (	551	, current_timestamp, current_timestamp,0,	181.00	,	0.00	,	11.90	        ,'Makrela, świeża'	,	18.70	,	0.00	,	12	),
 (	552	, current_timestamp, current_timestamp,0,	221.00	,	0.00	,	15.50	        ,'Makrela, wędzona'	,	20.70	,	0.00	,	12	),
-(	553	, current_timestamp, current_timestamp,0,	54.00	,	NULL	,	1.30	        ,'Małże – małgiew'	,	10.50	,	0.00	,	12	),
 (	554	, current_timestamp, current_timestamp,0,	69.00	,	2.40	,	2.00	        ,'Małże – omułek jadalny'	,	10.50	,	0.00	,	12	),
-(	555	, current_timestamp, current_timestamp,0,	87.00	,	NULL	,	1.70	        ,'Mięso raków, w puszkach'	,	18.00	,	0.00	,	12	),
 (	556	, current_timestamp, current_timestamp,0,	73.00	,	0.00	,	0.60	        ,'Mintaj, świeży'	,	16.60	,	0.00	,	12	),
 (	557	, current_timestamp, current_timestamp,0,	89.00	,	0.00	,	2.20	        ,'Morszczuk, świeży'	,	17.20	,	0.00	,	12	),
 (	558	, current_timestamp, current_timestamp,0,	82.00	,	0.00	,	0.80	        ,'Okoń, świeży'	,	18.40	,	0.00	,	12	),
@@ -832,14 +769,12 @@ INSERT INTO public.products(
 (	562	, current_timestamp, current_timestamp,0,	151.00	,	1.20	,	10.60	        ,'Pasztet z ryb wędzonych'	,	12.90	,	0.10	,	12	),
 (	563	, current_timestamp, current_timestamp,0,	97.00	,	0.00	,	2.10	        ,'Pstrąg strumieniowy, świeży'	,	19.20	,	0.00	,	12	),
 (	564	, current_timestamp, current_timestamp,0,	160.00	,	0.00	,	9.60	        ,'Pstrąg tęczowy, świeży'	,	18.60	,	0.00	,	12	),
-(	565	, current_timestamp, current_timestamp,0,	64.00	,	NULL	,	0.50	        ,'Raki (rzeczne)'	,	15.00	,	0.00	,	12	),
 (	566	, current_timestamp, current_timestamp,0,	181.00	,	6.90	,	13.20	        ,'Sałatka pikantna z makreli'	,	10.20	,	1.30	,	12	),
 (	567	, current_timestamp, current_timestamp,0,	187.00	,	7.20	,	13.90	        ,'Sałatka z dorsza'	,	9.80	,	1.30	,	12	),
 (	568	, current_timestamp, current_timestamp,0,	84.00	,	0.00	,	0.70	        ,'Sandacz, świeży'	,	19.20	,	0.00	,	12	),
 (	569	, current_timestamp, current_timestamp,0,	221.00	,	0.00	,	13.90	        ,'Sardynka w oleju'	,	24.10	,	0.00	,	12	),
 (	570	, current_timestamp, current_timestamp,0,	162.00	,	1.40	,	9.90	        ,'Sardynka w pomidorach'	,	17.00	,	0.10	,	12	),
 (	571	, current_timestamp, current_timestamp,0,	169.00	,	0.00	,	9.60	        ,'Sardynka, świeża'	,	20.60	,	0.00	,	12	),
-(	572	, current_timestamp, current_timestamp,0,	100.00	,	NULL	,	3.20	        ,'Sieja'	,	17.80	,	0.00	,	12	),
 (	573	, current_timestamp, current_timestamp,0,	83.00	,	0.00	,	1.40	        ,'Sola, świeża'	,	17.50	,	0.00	,	12	),
 (	574	, current_timestamp, current_timestamp,0,	82.00	,	0.00	,	0.80	        ,'Szczupak, świeży'	,	18.40	,	0.00	,	12	),
 (	575	, current_timestamp, current_timestamp,0,	104.00	,	3.00	,	7.00	        ,'Śledzie marynowane „Rolmopsy”'	,	8.00	,	0.60	,	12	),
@@ -853,14 +788,10 @@ INSERT INTO public.products(
 (	583	, current_timestamp, current_timestamp,0,	190.00	,	0.00	,	9.00	        ,'Tuńczyk w oleju'	,	27.10	,	0.00	,	12	),
 (	584	, current_timestamp, current_timestamp,0,	96.00	,	0.00	,	1.20	        ,'Tuńczyk w wodzie'	,	21.00	,	0.00	,	12	),
 (	585	, current_timestamp, current_timestamp,0,	137.00	,	0.00	,	4.60	        ,'Tuńczyk, świeży'	,	23.70	,	0.00	,	12	),
-(	586	, current_timestamp, current_timestamp,0,	82.00	,	NULL	,	1.70	        ,'Turbot'	,	16.70	,	0.00	,	12	),
-(	587	, current_timestamp, current_timestamp,0,	77.00	,	NULL	,	0.60	        ,'Wątłusz/łupacz'	,	17.90	,	0.00	,	12	),
-(	588	, current_timestamp, current_timestamp,0,	302.00	,	NULL	,	24.10	        ,'Wędzone płaty brzuszne rekina'	,	21.30	,	0.00	,	12	),
 (	589	, current_timestamp, current_timestamp,0,	278.00	,	0.00	,	24.50	        ,'Węgorz, świeży'	,	15.00	,	0.00	,	12	),
 (	590	, current_timestamp, current_timestamp,0,	326.00	,	0.00	,	28.60	        ,'Węgorz, wędzony'	,	17.90	,	0.00	,	12	),
-(	591	, current_timestamp, current_timestamp,0,	80.00	,	NULL	,	1.90	        ,'Zębacz'	,	15.80	,	0.00	,	12	),
+(591, current_timestamp, current_timestamp, 0, 80, 0.0, 1.9, 'Zębacz', 12, 15.80, 0),
 (	592	, current_timestamp, current_timestamp,0,	21.00	,	6.30	,	0.10	        ,'Bakłażan'	,	1.10	,	2.50	,	13	),
-(	593	, current_timestamp, current_timestamp,0,	17.00	,	1.00	,	0.30	        ,'Bambus, kiełki'	,	2.50	,	NULL	,	13	),
 (	594	, current_timestamp, current_timestamp,0,	108.00	,	24.10	,	0.60	        ,'Bataty'	,	1.60	,	3.10	,	13	),
 (	595	, current_timestamp, current_timestamp,0,	17.00	,	5.50	,	0.50	        ,'Boćwina'	,	2.10	,	4.40	,	13	),
 (	596	, current_timestamp, current_timestamp,0,	66.00	,	14.00	,	0.40	        ,'Bób'	,	7.10	,	5.80	,	13	),
@@ -975,7 +906,6 @@ INSERT INTO public.products(
 (	705	, current_timestamp, current_timestamp,0,	85.00	,	20.50	,	0.10	        ,'Ziemniaki, późne'	,	1.90	,	1.60	,	13	),
 (	706	, current_timestamp, current_timestamp,0,	77.00	,	18.30	,	0.10	        ,'Ziemniaki, średnio'	,	1.90	,	1.50	,	13	),
 (	707	, current_timestamp, current_timestamp,0,	69.00	,	16.30	,	0.10	        ,'Ziemniaki, wczesne'	,	1.80	,	1.30	,	13	),
-(	708	, current_timestamp, current_timestamp,0,	166.00	,	30.00	,	0.00	        ,'Likiery (ok. 30 procentowe)'	,	NULL	,	0.00	,	14	),
 (	709	, current_timestamp, current_timestamp,0,	37.00	,	4.30	,	0.00	        ,'Piwo ciemne, 10%'	,	0.30	,	0.00	,	14	),
 (	710	, current_timestamp, current_timestamp,0,	38.00	,	4.00	,	0.00	        ,'Piwo jasne, 10 %'	,	0.30	,	0.00	,	14	),
 (	711	, current_timestamp, current_timestamp,0,	45.00	,	5.30	,	0.00	        ,'Piwo jasne, ciemne 12%'	,	0.40	,	0.00	,	14	),
@@ -983,21 +913,18 @@ INSERT INTO public.products(
 (	713	, current_timestamp, current_timestamp,0,	43.00	,	2.80	,	0.00	        ,'Piwo leżakowane (pełne), jasne'	,	0.50	,	0.00	,	14	),
 (	714	, current_timestamp, current_timestamp,0,	43.00	,	3.10	,	0.00	        ,'Piwo leżakowane, pilzneńskie'	,	0.50	,	0.00	,	14	),
 (	715	, current_timestamp, current_timestamp,0,	49.00	,	3.80	,	0.00	        ,'Piwo pełne'	,	0.50	,	0.00	,	14	),
-(	716	, current_timestamp, current_timestamp,0,	42.00	,	NULL	,	0.00	        ,'Piwo kolońskie'	,	0.40	,	0.00	,	14	),
 (	717	, current_timestamp, current_timestamp,0,	46.00	,	3.00	,	0.00	        ,'Piwo pszeniczne pełne'	,	0.50	,	0.00	,	14	),
 (	718	, current_timestamp, current_timestamp,0,	48.00	,	8.60	,	0.00	        ,'Piwo słodowe'	,	0.40	,	0.00	,	14	),
 (	719	, current_timestamp, current_timestamp,0,	521.00	,	0.00	,	0.00	        ,'Spirytus rektyfikowany'	,	0.00	,	0.00	,	14	),
 (	720	, current_timestamp, current_timestamp,0,	76.00	,	1.40	,	0.00	        ,'Szampan'	,	0.30	,	0.00	,	14	),
 (	721	, current_timestamp, current_timestamp,0,	155.00	,	15.90	,	0.00	        ,'Wermut słodki'	,	0.00	,	0.00	,	14	),
 (	722	, current_timestamp, current_timestamp,0,	250.00	,	0.10	,	0.00	        ,'Whisky'	,	0.00	,	0.00	,	14	),
-(	723	, current_timestamp, current_timestamp,0,	240.00	,	2.00	,	0.00	        ,'Winiak'	,	NULL	,	0.00	,	14	),
 (	724	, current_timestamp, current_timestamp,0,	81.00	,	3.70	,	0.00	        ,'Wino białe, półwytrawne'	,	0.00	,	0.00	,	14	),
 (	725	, current_timestamp, current_timestamp,0,	95.00	,	5.90	,	0.00	        ,'Wino białe, słodkie'	,	0.20	,	0.00	,	14	),
 (	726	, current_timestamp, current_timestamp,0,	66.00	,	0.60	,	0.00	        ,'Wino białe, wytrawne'	,	0.10	,	0.00	,	14	),
 (	727	, current_timestamp, current_timestamp,0,	68.00	,	0.20	,	0.00	        ,'Wino czerwone'	,	0.10	,	0.00	,	14	),
 (	728	, current_timestamp, current_timestamp,0,	160.00	,	15.00	,	0.00	        ,'Wino deserowe'	,	0.10	,	0.00	,	14	),
 (	729	, current_timestamp, current_timestamp,0,	83.00	,	5.00	,	0.00	        ,'Wino musujące, białe'	,	0.10	,	0.00	,	14	),
-(	730	, current_timestamp, current_timestamp,0,	74.00	,	5.00	,	0.00	        ,'Wino owocowe'	,	NULL	,	0.00	,	14	),
 (	731	, current_timestamp, current_timestamp,0,	220.00	,	0.00	,	0.00	        ,'Wódki – średnio'	,	0.00	,	0.00	,	14	),
 (	732	, current_timestamp, current_timestamp,0,	42.00	,	10.40	,	0.00	        ,'Coca cola, pepsi cola'	,	0.00	,	0.00	,	15	),
 (	733	, current_timestamp, current_timestamp,0,	0.00	,	0.00	,	0.00	        ,'Herbata, napar bez cukru'	,	0.10	,	0.00	,	15	),
@@ -1018,7 +945,6 @@ INSERT INTO public.products(
 (	748	, current_timestamp, current_timestamp,0,	43.00	,	9.90	,	0.10	        ,'Sok pomarańczowy'	,	0.60	,	0.10	,	15	),
 (	749	, current_timestamp, current_timestamp,0,	14.00	,	3.30	,	0.10	        ,'Sok pomidorowy'	,	0.80	,	0.40	,	15	),
 (	750	, current_timestamp, current_timestamp,0,	25.00	,	5.70	,	0.30	        ,'Sok wielowarzywny'	,	1.00	,	1.20	,	15	),
-(	751	, current_timestamp, current_timestamp,0,	22.00	,	4.50	,	0.30	        ,'Sok z aceroli'	,	0.30	,	NULL	,	15	),
 (	752	, current_timestamp, current_timestamp,0,	52.00	,	14.00	,	0.30	        ,'Sok z marchwi, jabłek i owoców tropikalnych'	,	0.70	,	2.60	,	15	),
 (	753	, current_timestamp, current_timestamp,0,	437.00	,	56.10	,	20.40	        ,'Babeczki z kremem śmietankowym'	,	8.10	,	1.10	,	16	),
 (	754	, current_timestamp, current_timestamp,0,	341.00	,	67.10	,	4.20	        ,'Babka biszkoptowa'	,	8.50	,	0.80	,	16	),
@@ -1028,8 +954,6 @@ INSERT INTO public.products(
 (	758	, current_timestamp, current_timestamp,0,	448.00	,	71.80	,	16.20	        ,'Baton Milky Way'	,	3.60	,	0.50	,	16	),
 (	759	, current_timestamp, current_timestamp,0,	497.00	,	52.60	,	28.90	        ,'Baton Snickers'	,	9.70	,	2.90	,	16	),
 (	760	, current_timestamp, current_timestamp,0,	483.00	,	64.20	,	23.20	        ,'Baton Twi,'	,	5.30	,	1.00	,	16	),
-(	761	, current_timestamp, current_timestamp,0,	320.00	,	70.00	,	2.50	        ,'Budyń czekoladowy, w proszku'	,	4.50	,	NULL	,	16	),
-(	762	, current_timestamp, current_timestamp,0,	346.00	,	86.00	,	0.00	        ,'Budyń waniliowy, śmietankowy, w proszku'	,	0.50	,	NULL	,	16	),
 (	763	, current_timestamp, current_timestamp,0,	272.00	,	47.30	,	7.20	        ,'Bułeczki drożdżowe z jabłkami'	,	6.20	,	2.20	,	16	),
 (	764	, current_timestamp, current_timestamp,0,	343.00	,	65.20	,	6.50	        ,'Bułeczki drożdżowe z powidłami śliwkowymi'	,	7.00	,	2.00	,	16	),
 (	765	, current_timestamp, current_timestamp,0,	352.00	,	63.80	,	8.10	        ,'Bułeczki drożdżowe, z nadzieniem makowym'	,	7.80	,	2.60	,	16	),
@@ -1062,7 +986,6 @@ INSERT INTO public.products(
 (	792	, current_timestamp, current_timestamp,0,	326.00	,	35.50	,	18.00	        ,'Eklery z bitą śmietaną'	,	5.90	,	0.40	,	16	),
 (	793	, current_timestamp, current_timestamp,0,	511.00	,	49.50	,	31.60	        ,'Faworki luksusowe'	,	8.80	,	1.20	,	16	),
 (	794	, current_timestamp, current_timestamp,0,	476.00	,	37.60	,	30.20	        ,'Groszek ptysiowy'	,	14.90	,	1.20	,	16	),
-(	795	, current_timestamp, current_timestamp,0,	10.00	,	2.60	,	0.00	        ,'Guma do życia'	,	0.00	,	NULL	,	16	),
 (	796	, current_timestamp, current_timestamp,0,	437.00	,	76.80	,	11.00	        ,'Herbatniki'	,	8.20	,	1.30	,	16	),
 (	797	, current_timestamp, current_timestamp,0,	440.00	,	67.10	,	17.20	        ,'Herbatniki „Corso”'	,	5.00	,	1.30	,	16	),
 (	798	, current_timestamp, current_timestamp,0,	474.00	,	62.90	,	22.30	        ,'Herbatniki kakaowe'	,	6.90	,	1.60	,	16	),
@@ -1083,21 +1006,11 @@ INSERT INTO public.products(
 (	813	, current_timestamp, current_timestamp,0,	378.00	,	92.00	,	0.50	        ,'Karmelki nadziewane'	,	0.30	,	0.30	,	16	),
 (	814	, current_timestamp, current_timestamp,0,	399.00	,	98.20	,	0.00	        ,'Karmelki twarde'	,	0.00	,	0.00	,	16	),
 (	815	, current_timestamp, current_timestamp,0,	385.00	,	53.70	,	17.50	        ,'Keks bakaliowy'	,	6.50	,	3.60	,	16	),
-(	816	, current_timestamp, current_timestamp,0,	332.00	,	83.00	,	NULL	        ,'Kisiel owocowy, w proszku'	,	NULL	,	NULL	,	16	),
-(	817	, current_timestamp, current_timestamp,0,	456.00	,	73.00	,	16.50	        ,'Krem czekoladowy, w proszku'	,	4.00	,	NULL	,	16	),
-(	818	, current_timestamp, current_timestamp,0,	322.00	,	80.00	,	NULL	        ,'Krem owocowy, w proszku'	,	0.50	,	NULL	,	16	),
-(	819	, current_timestamp, current_timestamp,0,	401.00	,	69.50	,	13.00	        ,'Krem waniliowy, w proszku'	,	1.50	,	NULL	,	16	),
-(	820	, current_timestamp, current_timestamp,0,	127.00	,	20.00	,	3.00	        ,'Lody mleczne'	,	5.00	,	NULL	,	16	),
-(	821	, current_timestamp, current_timestamp,0,	115.00	,	19.00	,	3.00	        ,'Lody mleczno-owocowe'	,	3.00	,	NULL	,	16	),
-(	822	, current_timestamp, current_timestamp,0,	80.00	,	20.00	,	NULL	        ,'Lody owocowe'	,	NULL	,	NULL	,	16	),
-(	823	, current_timestamp, current_timestamp,0,	220.00	,	15.00	,	17.00	        ,'Lody śmietankowe'	,	2.00	,	NULL	,	16	),
 (	824	, current_timestamp, current_timestamp,0,	493.00	,	59.00	,	25.00	        ,'Marcepan'	,	8.00	,	1.00	,	16	),
 (	825	, current_timestamp, current_timestamp,0,	483.00	,	64.30	,	23.00	        ,'Markizy'	,	5.60	,	1.20	,	16	),
 (	826	, current_timestamp, current_timestamp,0,	270.00	,	64.50	,	0.00	        ,'Melasa'	,	2.90	,	6.00	,	16	),
 (	827	, current_timestamp, current_timestamp,0,	324.00	,	79.50	,	0.00	        ,'Miód pszczeli'	,	0.30	,	0.00	,	16	),
 (	828	, current_timestamp, current_timestamp,0,	336.00	,	82.50	,	0.00	        ,'Miód sztuczny'	,	0.10	,	0.00	,	16	),
-(	829	, current_timestamp, current_timestamp,0,	500.00	,	66.00	,	24.00	        ,'Nugat'	,	5.00	,	NULL	,	16	),
-(	830	, current_timestamp, current_timestamp,0,	528.00	,	58.40	,	31.00	        ,'Pasta orzechowa do chleba'	,	4.00	,	NULL	,	16	),
 (	831	, current_timestamp, current_timestamp,0,	414.00	,	62.10	,	15.50	        ,'Pączki tradycyjne'	,	7.60	,	1.50	,	16	),
 (	832	, current_timestamp, current_timestamp,0,	410.00	,	73.00	,	9.90	        ,'Pieczywo półfrancuskie, z dżemem'	,	8.30	,	2.00	,	16	),
 (	833	, current_timestamp, current_timestamp,0,	396.00	,	66.60	,	10.00	        ,'Pieczywo półfrancuskie, z serem'	,	10.70	,	1.70	,	16	),
@@ -1138,3 +1051,137 @@ INSERT INTO public.products(
 (	868	, current_timestamp, current_timestamp,0,	111	,	12.6		,		1.0			,'Fasola w zalewie'	,	8.4	,	0.0	,	13	),
 (	869	, current_timestamp, current_timestamp,0,	30.0	,	5.0		,		0.0			,'Passata pomidorowa'	,	2.0	,	0.0	,	13	),
 (	870	, current_timestamp, current_timestamp,0,	228.0	,	1.0		,		25.0			,'Mięso mielone wołowe'	,	15.0	,	0.0	,	3	);
+
+INSERT INTO public.meals VALUES (1, '2019-11-08 19:52:40.435', '2019-11-08 19:52:40.435', 0, 'pSZemcio redukcja', '', 'Bułeczka potreningowa');
+INSERT INTO public.meals VALUES (3, '2019-11-09 04:55:09.402', '2019-11-09 04:55:09.402', 0, 'pSZemcio redukcja', '', 'Jajecznica + 2 kanapeczki');
+INSERT INTO public.meals VALUES (6, '2019-11-09 04:58:04.692', '2019-11-09 04:58:04.692', 0, 'pSZemcio redukcja', '', 'Koktajl bananowy');
+INSERT INTO public.meals VALUES (8, '2019-11-09 05:01:01.998', '2019-11-09 05:01:01.998', 0, 'pSZemcio redukcja', '', '3 Kanapeczki + 2 jajeczka');
+INSERT INTO public.meals VALUES (10, '2019-11-09 05:03:39.206', '2019-11-09 05:03:39.206', 0, 'pSZemcio redukcja', '', 'Koktajl bananowo-truskawkowy');
+INSERT INTO public.meals VALUES (12, '2019-11-09 05:08:56.059', '2019-11-09 05:08:56.059', 0, 'pSZemcio redukcja', '', 'Bułka z masłem orzechowym i dżemikiem');
+INSERT INTO public.meals VALUES (14, '2019-11-18 03:48:11.774', '2019-11-18 03:48:11.774', 0, 'pSZemcio redukcja', '', 'Risotto z kurczakiem pieczarkami i papryką');
+INSERT INTO public.meals VALUES (19, '2019-11-18 04:11:56.473', '2019-11-18 04:11:56.473', 0, 'pSZemcio redukcja', '', 'Miodowy indyk');
+INSERT INTO public.meals VALUES (24, '2019-11-18 04:15:59.837', '2019-11-18 04:15:59.837', 0, 'pSZemcio redukcja', '', 'Ziemniaki z sadzonym jajeczkiem');
+INSERT INTO public.meals VALUES (28, '2019-11-18 04:19:20.4', '2019-11-18 04:19:20.4', 0, 'pSZemcio redukcja', '', 'Smażona rybka');
+INSERT INTO public.meals VALUES (32, '2019-11-18 04:25:17.409', '2019-11-18 04:25:17.409', 0, 'pSZemcio redukcja', '', 'Leczo z kurczakiem i ryżem');
+INSERT INTO public.meals VALUES (38, '2019-11-18 04:37:31.196', '2019-11-18 04:37:31.196', 0, 'pSZemcio redukcja', '', 'Spaghetti - bez fasoli :(');
+
+INSERT INTO public.meal_entity_meal_times VALUES (1, 3);
+INSERT INTO public.meal_entity_meal_times VALUES (3, 0);
+INSERT INTO public.meal_entity_meal_times VALUES (6, 4);
+INSERT INTO public.meal_entity_meal_times VALUES (8, 0);
+INSERT INTO public.meal_entity_meal_times VALUES (10, 3);
+INSERT INTO public.meal_entity_meal_times VALUES (10, 4);
+INSERT INTO public.meal_entity_meal_times VALUES (6, 3);
+INSERT INTO public.meal_entity_meal_times VALUES (12, 1);
+INSERT INTO public.meal_entity_meal_times VALUES (14, 2);
+INSERT INTO public.meal_entity_meal_times VALUES (19, 2);
+INSERT INTO public.meal_entity_meal_times VALUES (24, 2);
+INSERT INTO public.meal_entity_meal_times VALUES (28, 2);
+INSERT INTO public.meal_entity_meal_times VALUES (32, 2);
+INSERT INTO public.meal_entity_meal_times VALUES (38, 2);
+
+INSERT INTO public.meal_prepare_step_entity VALUES (2, '2019-11-08 19:52:40.494', '2019-11-08 19:52:40.494', 0, 0, 'Przygotować bułeczke', 1);
+INSERT INTO public.meal_prepare_step_entity VALUES (4, '2019-11-09 04:55:09.428', '2019-11-09 04:55:09.428', 0, 0, 'Przygotować 2 kanapeczki z awokado', 3);
+INSERT INTO public.meal_prepare_step_entity VALUES (5, '2019-11-09 04:55:09.431', '2019-11-09 04:55:09.431', 0, 1, 'Usmażyć jajówkę', 3);
+INSERT INTO public.meal_prepare_step_entity VALUES (7, '2019-11-09 04:58:04.714', '2019-11-09 04:58:04.714', 0, 0, 'Zbełtać', 6);
+INSERT INTO public.meal_prepare_step_entity VALUES (9, '2019-11-09 05:01:02.015', '2019-11-09 05:01:02.015', 0, 0, 'Przygotować kanapeczki', 8);
+INSERT INTO public.meal_prepare_step_entity VALUES (11, '2019-11-09 05:03:39.222', '2019-11-09 05:03:39.222', 0, 0, 'Zbełtać', 10);
+INSERT INTO public.meal_prepare_step_entity VALUES (13, '2019-11-09 05:08:56.07', '2019-11-09 05:08:56.07', 0, 0, 'Przygotować bułeczkę', 12);
+INSERT INTO public.meal_prepare_step_entity VALUES (15, '2019-11-18 03:48:11.806', '2019-11-18 03:48:11.806', 0, 0, 'Na rozgrzanej patelni zeszklij cebulę', 14);
+INSERT INTO public.meal_prepare_step_entity VALUES (16, '2019-11-18 03:48:11.81', '2019-11-18 03:48:11.81', 0, 1, 'Dodaj pokrojone w kostkę warzywa, mięso oraz SUROWY ryż', 14);
+INSERT INTO public.meal_prepare_step_entity VALUES (17, '2019-11-18 03:48:11.812', '2019-11-18 03:48:11.812', 0, 2, 'Dolej bulionu', 14);
+INSERT INTO public.meal_prepare_step_entity VALUES (18, '2019-11-18 03:48:11.817', '2019-11-18 03:48:11.817', 0, 3, 'Gdy ryż wsiąknie bulion dolej kolejną porcję, tak długo aż ryż będzie miękki', 14);
+INSERT INTO public.meal_prepare_step_entity VALUES (20, '2019-11-18 04:11:56.493', '2019-11-18 04:11:56.493', 0, 0, 'Warzywa podsmaż lub ugotuj na parze', 19);
+INSERT INTO public.meal_prepare_step_entity VALUES (21, '2019-11-18 04:11:56.496', '2019-11-18 04:11:56.496', 0, 1, 'Posiekane mięso wrzuć na rozgrzany olej, dopraw curry i tymiankiem', 19);
+INSERT INTO public.meal_prepare_step_entity VALUES (22, '2019-11-18 04:11:56.498', '2019-11-18 04:11:56.498', 0, 2, 'Gdy mięso się zarumieni dodaj miód oraz warzywa', 19);
+INSERT INTO public.meal_prepare_step_entity VALUES (23, '2019-11-18 04:11:56.5', '2019-11-18 04:11:56.5', 0, 3, 'Po podsmażeniu podaj z ryżem', 19);
+INSERT INTO public.meal_prepare_step_entity VALUES (25, '2019-11-18 04:15:59.859', '2019-11-18 04:15:59.859', 0, 0, 'Ugotuj ziemniaki', 24);
+INSERT INTO public.meal_prepare_step_entity VALUES (26, '2019-11-18 04:15:59.861', '2019-11-18 04:15:59.861', 0, 1, 'Przygotuj sałatę ze śmietaną', 24);
+INSERT INTO public.meal_prepare_step_entity VALUES (27, '2019-11-18 04:15:59.864', '2019-11-18 04:15:59.864', 0, 2, 'Usmaż jajka sadzone', 24);
+INSERT INTO public.meal_prepare_step_entity VALUES (29, '2019-11-18 04:19:20.419', '2019-11-18 04:19:20.419', 0, 0, 'Ugotuj ziemniaki', 28);
+INSERT INTO public.meal_prepare_step_entity VALUES (30, '2019-11-18 04:19:20.421', '2019-11-18 04:19:20.421', 0, 1, 'Ugotuj brokuł', 28);
+INSERT INTO public.meal_prepare_step_entity VALUES (31, '2019-11-18 04:19:20.423', '2019-11-18 04:19:20.423', 0, 2, 'Usmaż rybę', 28);
+INSERT INTO public.meal_prepare_step_entity VALUES (33, '2019-11-18 04:25:17.429', '2019-11-18 04:25:17.429', 0, 0, 'Zeszklij cebulę', 32);
+INSERT INTO public.meal_prepare_step_entity VALUES (34, '2019-11-18 04:25:17.431', '2019-11-18 04:25:17.431', 0, 1, 'Dodaj pokrojonego w kostkę kurczaka', 32);
+INSERT INTO public.meal_prepare_step_entity VALUES (35, '2019-11-18 04:25:17.433', '2019-11-18 04:25:17.433', 0, 2, 'Po podsmażeniu dodaj paprykę oraz pieczarki', 32);
+INSERT INTO public.meal_prepare_step_entity VALUES (36, '2019-11-18 04:25:17.435', '2019-11-18 04:25:17.435', 0, 3, 'Po 5 minutach dodaj koncentrat oraz trochę wody', 32);
+INSERT INTO public.meal_prepare_step_entity VALUES (37, '2019-11-18 04:25:17.438', '2019-11-18 04:25:17.438', 0, 4, 'Dodaj pomidory i duś aż papryka i pieczarki zmięknną', 32);
+INSERT INTO public.meal_prepare_step_entity VALUES (39, '2019-11-18 04:37:31.211', '2019-11-18 04:37:31.211', 0, 0, 'Ugotuj makaron', 38);
+INSERT INTO public.meal_prepare_step_entity VALUES (40, '2019-11-18 04:37:31.212', '2019-11-18 04:37:31.212', 0, 1, 'Podsmaż cebulę, pieczarki', 38);
+INSERT INTO public.meal_prepare_step_entity VALUES (41, '2019-11-18 04:37:31.214', '2019-11-18 04:37:31.214', 0, 2, 'Dodaj mięsko i zeszklij', 38);
+INSERT INTO public.meal_prepare_step_entity VALUES (42, '2019-11-18 04:37:31.215', '2019-11-18 04:37:31.215', 0, 3, 'Wlej passatę i pogotuj kilka chwil', 38);
+
+INSERT INTO public.r_meal_product VALUES (75, '', 1, 8);
+INSERT INTO public.r_meal_product VALUES (45, '', 1, 257);
+INSERT INTO public.r_meal_product VALUES (10, '', 1, 682);
+INSERT INTO public.r_meal_product VALUES (30, '', 1, 681);
+INSERT INTO public.r_meal_product VALUES (60, '', 1, 669);
+INSERT INTO public.r_meal_product VALUES (150, '', 1, 742);
+INSERT INTO public.r_meal_product VALUES (10, '', 1, 360);
+INSERT INTO public.r_meal_product VALUES (168, '', 3, 349);
+INSERT INTO public.r_meal_product VALUES (60, '', 3, 43);
+INSERT INTO public.r_meal_product VALUES (5, '', 3, 360);
+INSERT INTO public.r_meal_product VALUES (60, '', 3, 267);
+INSERT INTO public.r_meal_product VALUES (120, '', 3, 669);
+INSERT INTO public.r_meal_product VALUES (70, '', 3, 428);
+INSERT INTO public.r_meal_product VALUES (100, '', 6, 180);
+INSERT INTO public.r_meal_product VALUES (300, '', 6, 140);
+INSERT INTO public.r_meal_product VALUES (100, '', 6, 429);
+INSERT INTO public.r_meal_product VALUES (45, '', 6, 100);
+INSERT INTO public.r_meal_product VALUES (90, '', 8, 43);
+INSERT INTO public.r_meal_product VALUES (15, '', 8, 360);
+INSERT INTO public.r_meal_product VALUES (45, '', 8, 257);
+INSERT INTO public.r_meal_product VALUES (15, '', 8, 682);
+INSERT INTO public.r_meal_product VALUES (120, '', 8, 669);
+INSERT INTO public.r_meal_product VALUES (50, '', 8, 655);
+INSERT INTO public.r_meal_product VALUES (112, '', 8, 349);
+INSERT INTO public.r_meal_product VALUES (300, '', 10, 140);
+INSERT INTO public.r_meal_product VALUES (100, '', 10, 180);
+INSERT INTO public.r_meal_product VALUES (120, '', 10, 429);
+INSERT INTO public.r_meal_product VALUES (200, '', 10, 498);
+INSERT INTO public.r_meal_product VALUES (30, '', 10, 100);
+INSERT INTO public.r_meal_product VALUES (30, '', 12, 361);
+INSERT INTO public.r_meal_product VALUES (75, '', 12, 8);
+INSERT INTO public.r_meal_product VALUES (20, '', 12, 442);
+INSERT INTO public.r_meal_product VALUES (300, '', 14, 860);
+INSERT INTO public.r_meal_product VALUES (100, '', 14, 605);
+INSERT INTO public.r_meal_product VALUES (200, '', 14, 339);
+INSERT INTO public.r_meal_product VALUES (10, '', 14, 383);
+INSERT INTO public.r_meal_product VALUES (140, '', 14, 658);
+INSERT INTO public.r_meal_product VALUES (200, '', 14, 398);
+INSERT INTO public.r_meal_product VALUES (60, '', 14, 106);
+INSERT INTO public.r_meal_product VALUES (200, '', 19, 867);
+INSERT INTO public.r_meal_product VALUES (200, '', 19, 324);
+INSERT INTO public.r_meal_product VALUES (24, '', 19, 827);
+INSERT INTO public.r_meal_product VALUES (50, '', 19, 107);
+INSERT INTO public.r_meal_product VALUES (10, '', 19, 372);
+INSERT INTO public.r_meal_product VALUES (1, '', 19, 530);
+INSERT INTO public.r_meal_product VALUES (3, '', 19, 505);
+INSERT INTO public.r_meal_product VALUES (1, '', 19, 526);
+INSERT INTO public.r_meal_product VALUES (1, '', 19, 524);
+INSERT INTO public.r_meal_product VALUES (100, '', 24, 208);
+INSERT INTO public.r_meal_product VALUES (200, '', 24, 682);
+INSERT INTO public.r_meal_product VALUES (168, '', 24, 349);
+INSERT INTO public.r_meal_product VALUES (250, '', 24, 707);
+INSERT INTO public.r_meal_product VALUES (5, '', 24, 372);
+INSERT INTO public.r_meal_product VALUES (200, '', 28, 591);
+INSERT INTO public.r_meal_product VALUES (3, '', 28, 503);
+INSERT INTO public.r_meal_product VALUES (200, '', 28, 598);
+INSERT INTO public.r_meal_product VALUES (100, '', 28, 605);
+INSERT INTO public.r_meal_product VALUES (20, '', 28, 383);
+INSERT INTO public.r_meal_product VALUES (300, '', 28, 707);
+INSERT INTO public.r_meal_product VALUES (10, '', 32, 372);
+INSERT INTO public.r_meal_product VALUES (60, '', 32, 107);
+INSERT INTO public.r_meal_product VALUES (140, '', 32, 658);
+INSERT INTO public.r_meal_product VALUES (120, '', 32, 669);
+INSERT INTO public.r_meal_product VALUES (200, '', 32, 339);
+INSERT INTO public.r_meal_product VALUES (100, '', 32, 605);
+INSERT INTO public.r_meal_product VALUES (25, '', 32, 642);
+INSERT INTO public.r_meal_product VALUES (200, '', 32, 398);
+INSERT INTO public.r_meal_product VALUES (100, '', 38, 870);
+INSERT INTO public.r_meal_product VALUES (2, '', 38, 614);
+INSERT INTO public.r_meal_product VALUES (70, '', 38, 71);
+INSERT INTO public.r_meal_product VALUES (100, '', 38, 605);
+INSERT INTO public.r_meal_product VALUES (100, '', 38, 398);
+INSERT INTO public.r_meal_product VALUES (100, '', 38, 869);
+INSERT INTO public.r_meal_product VALUES (10, '', 38, 372);
