@@ -1,19 +1,21 @@
 import React, {PureComponent, RefObject} from 'react';
-import {connect} from 'react-redux';
 import styles from '../AddMealToDatabase.module.css'
 import MealPrep from "./MealPrep/MealPrep";
 import BasicRecipeInfo from "./BasicRecipeInfo/BasicRecipeInfo";
 import SelectedProductsTable from './SelectedProductsTable/SelectedProductsTable';
+import {InjectedFormProps, reduxForm} from 'redux-form'
 
 interface OwnProps {
+    handleSubmit:any
 }
 
-type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type Props = OwnProps
 
-class AddMealForm extends PureComponent<Props> {
+class AddMealForm extends PureComponent<InjectedFormProps<Props>> {
     render() {
         return (
-            <form >
+
+            <form onSubmit={this.props.handleSubmit}>
                 <BasicRecipeInfo/>
                 <div className={styles.Products}>
                     <SelectedProductsTable/>
@@ -24,14 +26,7 @@ class AddMealForm extends PureComponent<Props> {
     }
 }
 
-const mapStateToProps = () => {
-    return {
-    };
-};
+export default reduxForm<Props>({
+    form: "addMealForm"
+})(AddMealForm);
 
-const mapDispatchToProps = () => {
-    return {
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddMealForm);
