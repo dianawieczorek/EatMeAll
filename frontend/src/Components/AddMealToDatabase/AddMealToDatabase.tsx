@@ -45,31 +45,21 @@ class AddMealToDatabase extends PureComponent<Props> {
     }
 
     private sendMealToDatabase = (e: any) => {
-        // try {
-        //     const data = postData("http://localhost:8080/api/v1/meal", this.props.mealToSend);
-        //     console.log(JSON.stringify(data));
-        // } catch (error) {
-        //     console.error(error);
-        // }
-        // async function postData(url="", data= {}) {
-        //     const response = await fetch(url, {
-        //         method: "POST",
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify(data)
-        //     });
-        //     return await response.json();
-        // }
-
-        fetch("http://localhost:8080/api/v1/meal",{method: "POST",headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(this.props.mealToSend)})
-            .then(response => response.json())
-            .then((json: any) => {
-                console.log(json);
-            });
+        console.log(this.props.mealToSend);
+        if (this.props.mealToSend.mealTimes.length == 0 || this.props.mealToSend.steps.length == 0 || this.props.mealToSend.parts.length == 0 || this.props.mealToSend.prepareTime == 0 || this.props.mealToSend.author == "" || this.props.mealToSend.name == "") {
+            window.alert("Nie zostały wypełnione wszystkie pola")
+        } else {
+            fetch("http://localhost:8080/api/v1/meal", {
+                method: "POST", headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(this.props.mealToSend)
+            })
+                .then(response => response.json())
+                .then((json: any) => {
+                    console.log(json);
+                });
+        }
     }
 }
 
