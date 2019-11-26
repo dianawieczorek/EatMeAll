@@ -15,19 +15,6 @@ interface OwnProps {
 type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class AddMealToDatabase extends PureComponent<Props> {
-    readonly nameInput: RefObject<HTMLInputElement>;
-    readonly creatorInput: RefObject<HTMLInputElement>;
-    readonly prepTime: RefObject<HTMLInputElement>;
-    readonly descriptionInput: RefObject<HTMLInputElement>;
-
-    constructor(Props: any) {
-        super(Props);
-        this.nameInput = React.createRef();
-        this.creatorInput = React.createRef();
-        this.prepTime = React.createRef();
-        this.descriptionInput = React.createRef();
-    }
-
     render() {
         const required = (value: any) => value ? undefined : 'pole nie może być puste';
         const minValue =  (value:any) =>
