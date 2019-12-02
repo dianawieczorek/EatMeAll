@@ -8,6 +8,7 @@ import {
 import {Dispatch} from "redux";
 import {AppStore} from "../../../../Redux/store";
 import {Field} from 'redux-form'
+import MealTypeCheckbox from "./MealTypeCheckbox";
 
 interface OwnProps {
 }
@@ -35,20 +36,14 @@ class AddMealToDatabase extends PureComponent<Props> {
                 <div className={styles.ProductAndInfo}>
                     <div className={styles.BasicInfo}>
                         <p>Pora posiłku: </p>
-                        {this.props.mealTimes.map((mealTimes: any) =>
-                            <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="checkbox" id={mealTimes.value}
-                                       value={mealTimes.value} onClick={this.selectedMeal}  key={mealTimes.id}/>
-                                <label className="form-check-label">{mealTimes.value}</label>
-                            </div>
-                        )}
+                        <MealTypeCheckbox/>
                         <p>czas przygotowania: <Field type="number" name="prepareTime" className={styles.TimeInput}
                                onBlur={this.changePrepTime} label="ilość minut" component={renderField}
                                validate={[required, minValue]}/></p>
                         <Field type="text" name="authorReceipt" className={styles.NameInput}
                                onBlur={this.changeAuthorOfRecipe} label="autor przepisu" component={renderField}
                                validate={required}/>
-                        <Field className={styles.NameInput} type="text" onBlur={this.changeDescription}
+                        <Field name="description" className={styles.NameInput} type="text" onBlur={this.changeDescription}
                                label="tu możesz wpisać dodatkowe informacje dotyczące posiłku" component={renderField}/>
                     </div>
                 </div>
@@ -60,10 +55,6 @@ class AddMealToDatabase extends PureComponent<Props> {
         this.props.changeNameOfRecipe(e.currentTarget.defaultValue)
     };
 
-    private selectedMeal = (e: any) => {
-        let selectedMeal = e.target.value;
-        this.props.changeMealTimeCheckbox(selectedMeal)
-    };
 
     private changeAuthorOfRecipe = (e: any) => {
         this.props.changeAuthorOfRecipe(e.currentTarget.defaultValue)
@@ -91,8 +82,6 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
         changeDescription: (aDescription: string) => dispatch(changeDescriptionOfRecipe(aDescription)),
         changeAuthorOfRecipe: (aAuthor: string) => dispatch(changeAuthorOfRecipe(aAuthor)),
         changePrepTime: (aTime: number) => dispatch(changePrepTime(aTime)),
-        changeMealTimeCheckbox: (aMealTimes: string) => dispatch(changeMealTimeCheckbox(aMealTimes))
-
     };
 };
 

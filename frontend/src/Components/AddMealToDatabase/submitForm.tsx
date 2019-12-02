@@ -1,3 +1,3 @@
-export default  (async function submit(values:any) {
-    console.log(values)
+export default (async function submit(values: any) {
+    console.log(values);
 });
