@@ -28,7 +28,6 @@ class AddMealToDatabase extends PureComponent<Props> {
             </div>
         );
 
-
         return (
             <React.Fragment>
                 <Field className={styles.NameInput} type="text" name="title" onBlur={this.changeNameOfRecipe}
@@ -72,8 +71,6 @@ class AddMealToDatabase extends PureComponent<Props> {
 }
 
 const mapStateToProps = () => {
-    return {
-    }
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {

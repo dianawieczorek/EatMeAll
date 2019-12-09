@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import styles from '../../AddMealToDatabase.module.css'
 import {AppStore} from "../../../../Redux/store";
 import SelectedProduct from "./SelectedProduct/SelectedProduct";
+import {Field} from 'redux-form'
 
 interface OwnProps {
 }
@@ -16,6 +17,13 @@ class SelectedProductsTable extends PureComponent<Props> {
         let tableWithAllProtein = this.props.selectedProducts.map(prod => prod.protein);
         let tableWithAllFat = this.props.selectedProducts.map(prod => prod.fat);
         let tableWithAmoutnts = this.props.selectedProductsToSerialize.map(p => p.amount / 100);
+
+        const renderField = ({input, meta: {touched, error}}: any) => (
+            <div>
+                <input {...input} style={{display:"none"}}/>
+                {touched && (error && <span className="text-danger">{error}</span>)}
+            </div>
+        );
 
         return (
             <React.Fragment>
@@ -34,7 +42,6 @@ class SelectedProductsTable extends PureComponent<Props> {
                     </thead>
                     <tbody>
                     {this.props.selectedProducts.map(product => <SelectedProduct product={product}/>)}
-                    {}
                     <tr>
                         <th scope="row">SUMA:</th>
                         <td>{this.props.selectedProductsToSerialize.map(prod => prod).reduce((accumulator, productDetails) => accumulator + productDetails.amount, 0)}</td>
@@ -46,6 +53,9 @@ class SelectedProductsTable extends PureComponent<Props> {
                     </tr>
                     </tbody>
                 </table>
+
+                <Field component={renderField} type="text" name={"selectedProducts"}
+                       validate={() => this.props.selectedProducts.length > 0 ? undefined : 'wybierz przynajmniej jeden składnik!'}/>
             </React.Fragment>
         );
     }
