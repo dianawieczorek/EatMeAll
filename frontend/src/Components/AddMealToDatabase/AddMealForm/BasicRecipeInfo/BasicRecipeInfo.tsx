@@ -41,7 +41,6 @@ class AddMealToDatabase extends PureComponent<Props> {
         this.props.changeNameOfRecipe(e.currentTarget.defaultValue)
     };
 
-
     private changeAuthorOfRecipe = (e: any) => {
         this.props.changeAuthorOfRecipe(e.currentTarget.defaultValue)
     };
