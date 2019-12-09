@@ -20,19 +20,16 @@ class AddMealToDatabase extends PureComponent<Props> {
         return (
             <React.Fragment>
                 <InputFieldTypeText type="text" name="title" onBlur={this.changeNameOfRecipe}
-                                     label="nazwa posiłku" placeholder="pyszny przepis"/>
-                <div className={styles.ProductAndInfo}>
-                    <div className={styles.BasicInfo}>
-                        <MealTypeCheckbox/>
-                        <InputFieldTypeNumber type="number" name="prepareTime"
-                                              onBlur={this.changePrepTime} label="czas przygotowania w minutach"/>
-                        <InputFieldTypeText type="text" name="authorReceipt"
-                                            onBlur={this.changeAuthorOfRecipe} label="autor przepisu" placeholder="Janina"/>
-                        <InputFieldTypeText  name="description" type="text"
-                                             onBlur={this.changeDescription}
-                                             label="dodatkowy opis" placeholder="tu możesz wpisać dodatkowe informacje dotyczące posiłku"/>
-                    </div>
-                </div>
+                                    label="nazwa posiłku" placeholder="pyszny przepis"/>
+                <MealTypeCheckbox/>
+                <InputFieldTypeNumber type="number" name="prepareTime"
+                                      onBlur={this.changePrepTime} label="czas przygotowania w minutach"/>
+                <InputFieldTypeText type="text" name="authorReceipt"
+                                    onBlur={this.changeAuthorOfRecipe} label="autor przepisu" placeholder="Janina"/>
+                <InputFieldTypeText name="description" type="text"
+                                    onBlur={this.changeDescription}
+                                    label="dodatkowy opis"
+                                    placeholder="tu możesz wpisać dodatkowe informacje dotyczące posiłku"/>
             </React.Fragment>
         )
     }

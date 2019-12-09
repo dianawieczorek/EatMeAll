@@ -6,7 +6,7 @@ import {addPrepStep} from "../../../../../Redux/actions";
 interface OwnProps {
 }
 
-type Props = OwnProps & ReturnType<typeof mapDispatchToProps>;
+type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class AddMealToDatabase extends PureComponent<Props> {
     readonly stepInput: RefObject<HTMLInputElement>;
@@ -42,10 +42,14 @@ class AddMealToDatabase extends PureComponent<Props> {
     };
 }
 
+const mapStateToProps = () => {
+    return {};
+};
+
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         addPrepStep: (aStep: string) => dispatch(addPrepStep(aStep)),
     };
 };
 
-export default connect( mapDispatchToProps)(AddMealToDatabase);
+export default connect(mapStateToProps, mapDispatchToProps)(AddMealToDatabase);

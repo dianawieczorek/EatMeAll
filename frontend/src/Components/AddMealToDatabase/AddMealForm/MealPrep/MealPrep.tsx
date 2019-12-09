@@ -7,10 +7,8 @@ import {AppStore} from "../../../../Redux/store";
 import {connect} from "react-redux";
 import {Field} from 'redux-form'
 
-interface OwnProps {
-}
 
-type Props = OwnProps & ReturnType<typeof mapStateToProps>;
+type Props = ReturnType<typeof mapStateToProps>;
 
 class AddMealToDatabase extends PureComponent<Props> {
     render() {
