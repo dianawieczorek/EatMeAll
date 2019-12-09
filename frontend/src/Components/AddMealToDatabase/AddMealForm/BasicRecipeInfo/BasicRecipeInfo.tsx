@@ -6,53 +6,38 @@ import {
     changePrepTime,
 } from "../../../../Redux/actions";
 import {Dispatch} from "redux";
-import {Field} from 'redux-form'
 import MealTypeCheckbox from "./MealTypeCheckbox";
+import InputFieldTypeText from "./InputFieldTypeText/InputFieldTypeText";
+import InputFieldTypeNumber from "./InputFieldTypeNumber/InputFieldTypeNumber";
 
 interface OwnProps {
 }
 
-type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type Props = OwnProps & ReturnType<typeof mapDispatchToProps>;
 
 class AddMealToDatabase extends PureComponent<Props> {
     render() {
-        const required = (value: any) => value ? undefined : 'pole nie może być puste';
-        const minValue = (value: any) =>
-            value && value < 1 ? `Czas przygotowania musi wynosić minimum 1min` : undefined;
-
-        const renderField = ({input, label, className, type, meta: {touched, error, warning}}: any) => (
-            <div>
-                <input {...input} className={["form-control", className].join(" ")} placeholder={label} type={type}/>
-                {touched && ((error && <span className="text-danger">{error}</span>) || (warning &&
-                    <span>{warning}</span>))}
-            </div>
-        );
-
         return (
             <React.Fragment>
-                <Field className={styles.NameInput} type="text" name="title" onBlur={this.changeNameOfRecipe}
-                       label="nazwa posiłku" component={renderField} validate={required}/>
+                <InputFieldTypeText type="text" name="title" onBlur={this.changeNameOfRecipe}
+                                     label="nazwa posiłku" placeholder="pyszny przepis"/>
                 <div className={styles.ProductAndInfo}>
                     <div className={styles.BasicInfo}>
-                        <p>Pora posiłku: </p>
                         <MealTypeCheckbox/>
-                        <p>czas przygotowania: <Field type="number" name="prepareTime" className={styles.TimeInput}
-                                                      onBlur={this.changePrepTime} label="ilość minut"
-                                                      component={renderField}
-                                                      validate={[required, minValue]}/></p>
-                        <Field type="text" name="authorReceipt" className={styles.NameInput}
-                               onBlur={this.changeAuthorOfRecipe} label="autor przepisu" component={renderField}
-                               validate={required}/>
-                        <Field name="description" className={styles.NameInput} type="text"
-                               onBlur={this.changeDescription}
-                               label="tu możesz wpisać dodatkowe informacje dotyczące posiłku" component={renderField}/>
+                        <InputFieldTypeNumber type="number" name="prepareTime"
+                                              onBlur={this.changePrepTime} label="czas przygotowania w minutach"/>
+                        <InputFieldTypeText type="text" name="authorReceipt"
+                                            onBlur={this.changeAuthorOfRecipe} label="autor przepisu" placeholder="Janina"/>
+                        <InputFieldTypeText  name="description" type="text"
+                                             onBlur={this.changeDescription}
+                                             label="dodatkowy opis" placeholder="tu możesz wpisać dodatkowe informacje dotyczące posiłku"/>
                     </div>
                 </div>
             </React.Fragment>
         )
     }
 
-    private changeNameOfRecipe = (e: any) => {
+    public changeNameOfRecipe = (e: any) => {
         this.props.changeNameOfRecipe(e.currentTarget.defaultValue)
     };
 
@@ -70,9 +55,6 @@ class AddMealToDatabase extends PureComponent<Props> {
     }
 }
 
-const mapStateToProps = () => {
-};
-
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         changeNameOfRecipe: (aName: string) => dispatch(changeNameOfRecipe(aName)),
@@ -82,4 +64,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddMealToDatabase);
+export default connect(mapDispatchToProps)(AddMealToDatabase);

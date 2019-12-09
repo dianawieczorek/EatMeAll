@@ -1,10 +1,8 @@
 import React, {PureComponent} from 'react';
-import {connect} from 'react-redux';
 import style from '..//WeekSchedule/WeekSchedule.module.css'
 import styles from './AddMealToDatabase.module.css'
 import SideMenu from "./SideMenu/SideMenu";
 import AddMealForm from "./AddMealForm/AddMealForm";
-import {AppStore} from "../../Redux/store";
 import RemoteSubmitButton from "./RemoteSubmitButton";
 import classes from "../WeekSchedule/TableHeader/TableHeader.module.css";
 
@@ -13,7 +11,7 @@ interface OwnProps {
     handleSubmit: any
 }
 
-type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type Props = OwnProps
 
 class AddMealToDatabase extends PureComponent<Props> {
     render() {
@@ -38,33 +36,7 @@ class AddMealToDatabase extends PureComponent<Props> {
             </div>);
     }
 
-    // private sendMealToDatabase = (e: any) => {
-    //     console.log(this.props.mealToSend);
-    //     if (this.props.mealToSend.mealTimes.length == 0 || this.props.mealToSend.steps.length == 0 || this.props.mealToSend.parts.length == 0 || this.props.mealToSend.prepareTime == 0 || this.props.mealToSend.author == "" || this.props.mealToSend.name == "") {
-    //         window.alert("Nie zostały wypełnione wszystkie pola")
-    //     } else {
-    //         fetch("http://localhost:8080/api/v1/meal", {
-    //             method: "POST", headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(this.props.mealToSend)
-    //         })
-    //             .then(response => response.json())
-    //             .then((json: any) => {
-    //                 console.log(json);
-    //             });
-    //     }
-    // }
 }
 
-const mapStateToProps = (store: AppStore) => {
-    return {
-        mealToSend: store.addMealToDatabaseReducer.toSerialize
-    };
-};
 
-const mapDispatchToProps = () => {
-    return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddMealToDatabase);
+export default (AddMealToDatabase);
