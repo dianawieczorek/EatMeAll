@@ -2,11 +2,10 @@ import React, {PureComponent, RefObject} from 'react';
 import {connect} from 'react-redux';
 import styles from '../../AddMealToDatabase.module.css'
 import {
-    changeAuthorOfRecipe, changeDescriptionOfRecipe, changeMealTimeCheckbox, changeNameOfRecipe,
+    changeAuthorOfRecipe, changeDescriptionOfRecipe, changeNameOfRecipe,
     changePrepTime,
 } from "../../../../Redux/actions";
 import {Dispatch} from "redux";
-import {AppStore} from "../../../../Redux/store";
 import {Field} from 'redux-form'
 import MealTypeCheckbox from "./MealTypeCheckbox";
 
@@ -18,7 +17,7 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 class AddMealToDatabase extends PureComponent<Props> {
     render() {
         const required = (value: any) => value ? undefined : 'pole nie może być puste';
-        const minValue =  (value:any) =>
+        const minValue = (value: any) =>
             value && value < 1 ? `Czas przygotowania musi wynosić minimum 1min` : undefined;
 
         const renderField = ({input, label, className, type, meta: {touched, error, warning}}: any) => (
@@ -29,6 +28,7 @@ class AddMealToDatabase extends PureComponent<Props> {
             </div>
         );
 
+
         return (
             <React.Fragment>
                 <Field className={styles.NameInput} type="text" name="title" onBlur={this.changeNameOfRecipe}
@@ -38,12 +38,14 @@ class AddMealToDatabase extends PureComponent<Props> {
                         <p>Pora posiłku: </p>
                         <MealTypeCheckbox/>
                         <p>czas przygotowania: <Field type="number" name="prepareTime" className={styles.TimeInput}
-                               onBlur={this.changePrepTime} label="ilość minut" component={renderField}
-                               validate={[required, minValue]}/></p>
+                                                      onBlur={this.changePrepTime} label="ilość minut"
+                                                      component={renderField}
+                                                      validate={[required, minValue]}/></p>
                         <Field type="text" name="authorReceipt" className={styles.NameInput}
                                onBlur={this.changeAuthorOfRecipe} label="autor przepisu" component={renderField}
                                validate={required}/>
-                        <Field name="description" className={styles.NameInput} type="text" onBlur={this.changeDescription}
+                        <Field name="description" className={styles.NameInput} type="text"
+                               onBlur={this.changeDescription}
                                label="tu możesz wpisać dodatkowe informacje dotyczące posiłku" component={renderField}/>
                     </div>
                 </div>
@@ -69,10 +71,8 @@ class AddMealToDatabase extends PureComponent<Props> {
     }
 }
 
-const mapStateToProps = (store: AppStore) => {
+const mapStateToProps = () => {
     return {
-        mealTimes: store.addMealToDatabaseReducer.mealTimes,
-        selectedMealTimes: store.addMealToDatabaseReducer.toSerialize.mealTimes
     }
 };
 
