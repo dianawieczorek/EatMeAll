@@ -2,8 +2,6 @@ import React, {PureComponent} from 'react';
 import NavigationItem from '../NavigationItem/NavigationItem';
 import styles from "./NavItems.module.css"
 
-
-
 class NavItems extends PureComponent {
 render() {
     return (
@@ -16,10 +14,7 @@ render() {
             <NavigationItem link="/profile">profil</NavigationItem>
         </ul>
     )
-
 }
-
 }
-
 
 export default(NavItems);

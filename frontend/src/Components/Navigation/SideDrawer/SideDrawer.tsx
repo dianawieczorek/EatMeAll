@@ -8,11 +8,7 @@ import {AppStore} from "../../../Redux/store";
 import {closeSidedrawer} from "../../../Redux/actions";
 import {Dispatch} from "redux";
 
-
-interface OwnProps {
-}
-
-type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class SideDrawer extends PureComponent<Props> {
     render() {
@@ -37,7 +33,7 @@ class SideDrawer extends PureComponent<Props> {
     closeSidedrawer = () => {
         this.props.closeSidedrawer();
     };
-};
+}
 
 const mapStateToProps = (store:AppStore) => {
     return {
@@ -49,6 +45,6 @@ const mapDispatchToProps = (dispatch:Dispatch) => {
     return {
         closeSidedrawer: () => dispatch(closeSidedrawer())
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideDrawer);
