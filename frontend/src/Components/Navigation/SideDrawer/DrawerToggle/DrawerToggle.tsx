@@ -1,14 +1,11 @@
 import React, {PureComponent} from 'react';
-
 import styles from './DrawerToggle.module.css'
-import {connect} from "react-redux";
-
 
 interface OwnProps {
     clicked:any
 }
 
-type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type Props = OwnProps
 
 class DrawerToggle extends PureComponent<Props> {
     render() {
@@ -20,11 +17,6 @@ class DrawerToggle extends PureComponent<Props> {
             </div>
         )
     }
-};
+}
 
-const mapStateToProps = () => {
-};
-
-const mapDispatchToProps = () => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(DrawerToggle);
+export default (DrawerToggle);

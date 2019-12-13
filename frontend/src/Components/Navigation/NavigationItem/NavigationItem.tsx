@@ -1,5 +1,4 @@
 import React, {PureComponent} from 'react';
-import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import styles from "./NavigationItem.module.css"
 
@@ -8,7 +7,7 @@ interface OwnProps {
     link:any
 }
 
-type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type Props = OwnProps
 
 class NavItems extends PureComponent<Props> {
     render() {
@@ -20,14 +19,7 @@ class NavItems extends PureComponent<Props> {
                 </NavLink>
             </li>
         )
-
     }
-
 }
 
-const mapStateToProps = () => {
-};
-
-const mapDispatchToProps = () => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavItems);
+export default (NavItems);

@@ -1,5 +1,4 @@
 import React, {PureComponent} from 'react';
-import {connect} from 'react-redux';
 import styles from "./Toolbar.module.css"
 import NavItems from "../NavItems/NavItems";
 import Logo from "../../LOGO/Logo"
@@ -9,7 +8,7 @@ interface OwnProps {
     drawerToggleClicked:any
 }
 
-type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type Props = OwnProps
 
 class Toolbar extends PureComponent<Props> {
     render() {
@@ -26,9 +25,4 @@ class Toolbar extends PureComponent<Props> {
     }
 }
 
-const mapStateToProps = () => {
-};
-
-const mapDispatchToProps = () => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
+export default (Toolbar);

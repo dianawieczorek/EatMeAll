@@ -25,10 +25,12 @@ class AddMealToDatabase extends PureComponent<Props> {
         )}
 
     private addPrepStep = () => {
-        this.props.addPrepStep(this.stepInput.current!.value);
-        this.stepInput.current!.value = "";
-        document.getElementById("preparationInput")!.focus();
-        document.getElementById("addMeal")!.scrollTop +=200;
+        if(this.stepInput.current!.value !== "") {
+            this.props.addPrepStep(this.stepInput.current!.value);
+            this.stepInput.current!.value = "";
+            document.getElementById("preparationInput")!.focus();
+            document.getElementById("addMeal")!.scrollTop += 200;
+        }
     };
 
     private addPrepStepOnEnter = (e:any) => {

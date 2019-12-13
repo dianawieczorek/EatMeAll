@@ -8,6 +8,7 @@ import Profile from "./Components/Profile/Profile";
 import {AppStore} from "./Redux/store";
 import {connect} from "react-redux";
 import AddMealToDatabase from "./Components/AddMealToDatabase/AddMealToDatabase";
+import AboutUs from "./Components/AboutUs/AboutUs";
 
 type Props = ReturnType<typeof mapStateToProps>;
 
@@ -24,6 +25,7 @@ class App extends React.Component<Props> {
                         <Redirect from="/home" exact to={'/home/'+defaultUser}/>
                         <Route from="/shopping-list" component={ShoppingList}/>
                         <Route from="/add-meal" component={AddMealToDatabase}/>
+                        <Route from="/about" component={AboutUs}/>
                         <Route from="/profile" component={Profile}/>npm start
                         <Route render={() => <h1>Sorry but our devs still working on this page, see You soon! </h1>}/>
                     </Switch>
