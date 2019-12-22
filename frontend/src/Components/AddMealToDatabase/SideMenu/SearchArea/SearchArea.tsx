@@ -7,10 +7,8 @@ import {Dispatch} from "redux";
 import {addProduct} from "../../../../Redux/actions";
 import {GET_PRODUCT_BY_ID_URL} from "../../../../ServerConnection/RestCommunication/fileWithConstants";
 
-interface OwnProps {
-}
 
-type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 interface State {
     currentProductInputValue: string
@@ -43,19 +41,6 @@ class SideMenu extends Component<Props, State> {
                         </div>
                     </div>
                 </form>
-                <p>rodzaj</p>
-                <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="protein" value="protein"/>
-                    <label className="form-check-label">białkowy</label>
-                </div>
-                <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="carbs" value="carbs"/>
-                    <label className="form-check-label">węglowy</label>
-                </div>
-                <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="fat" value="fat"/>
-                    <label className="form-check-label">tłuszczowy</label>
-                </div>
             </div>
         )
     }

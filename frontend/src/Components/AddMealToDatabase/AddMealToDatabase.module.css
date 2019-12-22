@@ -54,9 +54,12 @@
 }
 
 
-p {
-    margin-top: 10px;
+.Label {
+    margin: 10px 10px 0 0;
+    font-weight: 200;
+    display: block;
 }
+
 
 h4 {
     margin-top: 5vh;
@@ -67,7 +70,17 @@ input {
 }
 
 .NameInput {
-    width: 60%;
+    max-width: 80%;
+    margin-top: 5px;
+}
+
+.TimeInput {
+    width: 20%;
+    margin: 8px 0 8px 0;
+}
+
+span {
+    font-weight: 200;
 }
 
 .Table th,

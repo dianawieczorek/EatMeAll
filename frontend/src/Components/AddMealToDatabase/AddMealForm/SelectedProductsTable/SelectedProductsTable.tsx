@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import styles from '../../AddMealToDatabase.module.css'
 import {AppStore} from "../../../../Redux/store";
 import SelectedProduct from "./SelectedProduct/SelectedProduct";
+import {Field} from 'redux-form'
 
 interface OwnProps {
 }
@@ -11,6 +12,20 @@ type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof m
 
 class SelectedProductsTable extends PureComponent<Props> {
     render() {
+        let tableWithAllCalories = this.props.selectedProducts.map(prod => prod.calorific);
+        let tableWithAllCarbs = this.props.selectedProducts.map(prod => prod.carbohydrates);
+        let tableWithAllProtein = this.props.selectedProducts.map(prod => prod.protein);
+        let tableWithAllFat = this.props.selectedProducts.map(prod => prod.fat);
+        let tableWithAmoutnts = this.props.selectedProductsToSerialize.map(p => p.amount / 100);
+
+
+        const renderField = ({input, meta: {touched, error}}: any) => (
+            <div>
+                <input {...input} style={{display:"none"}}/>
+                {touched && (error && <span className="text-danger">{error}</span>)}
+            </div>
+        );
+
         return (
             <React.Fragment>
                 <h4 className={styles.MealRecipe}>Składniki</h4>
@@ -28,9 +43,20 @@ class SelectedProductsTable extends PureComponent<Props> {
                     </thead>
                     <tbody>
                     {this.props.selectedProducts.map(product => <SelectedProduct product={product}/>)}
-
+                    <tr>
+                        <th scope="row">SUMA:</th>
+                        <td>{this.props.selectedProductsToSerialize.map(prod => prod).reduce((accumulator, productDetails) => accumulator + productDetails.amount, 0)}</td>
+                        <td>-</td>
+                        <td>{tableWithAllCalories.reduce((acc, cal, i) => acc + cal * tableWithAmoutnts[i], 0).toFixed()}</td>
+                        <td>{tableWithAllProtein.reduce((acc, protein, i) => acc + protein * tableWithAmoutnts[i], 0).toFixed()}</td>
+                        <td>{tableWithAllFat.reduce((acc, fat, i) => acc + fat * tableWithAmoutnts[i], 0).toFixed()}</td>
+                        <td>{tableWithAllCarbs.reduce((acc, carbs, i) => acc + carbs * tableWithAmoutnts[i], 0).toFixed()}</td>
+                    </tr>
                     </tbody>
                 </table>
+
+                <Field component={renderField} type="text" name={"selectedProducts"}
+                       validate={() => this.props.selectedProducts.length > 0 ? undefined : 'wybierz przynajmniej jeden składnik!'}/>
             </React.Fragment>
         );
     }
@@ -39,12 +65,12 @@ class SelectedProductsTable extends PureComponent<Props> {
 const mapStateToProps = (store: AppStore) => {
     return {
         selectedProducts: store.addMealToDatabaseReducer.selectedProducts,
+        selectedProductsToSerialize: store.addMealToDatabaseReducer.toSerialize.parts
     };
 };
 
 const mapDispatchToProps = () => {
-    return {
-    };
+    return {};
 };
 
 
