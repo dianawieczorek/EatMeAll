@@ -60,4 +60,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     };
 };
 
-export default connect(mapDispatchToProps)(AddMealToDatabase);
+export default connect(null, mapDispatchToProps)(AddMealToDatabase);
