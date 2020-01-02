@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import SearchArea from "./SearchArea/SearchArea";
 import styles from "./SideMenu.module.css"
 import {
-    ALL_PRODUCTS_INFORMATION,
+    ALL_PRODUCTS_INFORMATION, GET_PRODUCT_BY_ID_URL,
 } from "../../../ServerConnection/RestCommunication/fileWithConstants";
 import {Dispatch} from "redux";
 import {AppStore} from "../../../Redux/store";
@@ -56,7 +56,7 @@ class SideMenu extends Component<Props> {
 
     private selectProduct = (e: any) => {
         let id = e.target.id;
-        fetch("http://localhost:8080/api/v1/products/"+id)
+        fetch(GET_PRODUCT_BY_ID_URL + id)
             .then(response => response.json())
             .then((json:ProductWholeDataDto)=> {
                 this.props.addProductToTable(json)

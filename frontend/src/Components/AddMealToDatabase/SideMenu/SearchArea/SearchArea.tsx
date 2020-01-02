@@ -5,6 +5,7 @@ import {AppStore} from "../../../../Redux/store";
 import {ProductWholeDataDto} from "../../../../ServerConnection/DTOs/AllProductsDto";
 import {Dispatch} from "redux";
 import {addProduct} from "../../../../Redux/actions";
+import {GET_PRODUCT_BY_ID_URL} from "../../../../ServerConnection/RestCommunication/fileWithConstants";
 
 
 type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
@@ -59,7 +60,7 @@ class SideMenu extends Component<Props, State> {
 
     private selectProduct = (e: any) => {
         let id = e.target.id;
-        fetch("http://localhost:8080/api/v1/products/" + id)
+        fetch(GET_PRODUCT_BY_ID_URL + id)
             .then(response => response.json())
             .then((json: ProductWholeDataDto) => {
                 this.props.addProductToTable(json)

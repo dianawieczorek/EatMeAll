@@ -1,8 +1,9 @@
 import store from "../../Redux/store";
+import {POST_MEAL_TO_SERVER_URL} from "../../ServerConnection/RestCommunication/fileWithConstants";
 
 export default (function submit() {
     console.log(store.getState().addMealToDatabaseReducer.toSerialize)
-    fetch("http://localhost:8080/api/v1/meal", {
+    fetch(POST_MEAL_TO_SERVER_URL, {
         method: "POST", headers: {
             'Content-Type': 'application/json'
         },
