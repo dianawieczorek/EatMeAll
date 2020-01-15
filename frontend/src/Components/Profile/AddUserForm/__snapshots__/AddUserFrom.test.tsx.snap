@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`My Connected React-Redux Component should render with given state from Redux store 1`] = `
+<div>
+  <input
+    className="Input"
+    type="text"
+  />
+  <button
+    className="Button undefined"
+    onClick={[Function]}
+  >
+    dodaj dietożercę
+  </button>
+  <button
+    className="Button undefined"
+    onClick={[Function]}
+  >
+    skasuj wszystkich dietożerców
+  </button>
+</div>
+`;
