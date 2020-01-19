@@ -1050,7 +1050,9 @@ INSERT INTO public.products(
 (	867	, current_timestamp, current_timestamp,0,	55.0	,	4.0		,		3.0			,'Warzywa na patelnie chińskie'	,	2.0	,	0.0	,	13	),
 (	868	, current_timestamp, current_timestamp,0,	111	,	12.6		,		1.0			,'Fasola w zalewie'	,	8.4	,	0.0	,	13	),
 (	869	, current_timestamp, current_timestamp,0,	30.0	,	5.0		,		0.0			,'Passata pomidorowa'	,	2.0	,	0.0	,	13	),
-(	870	, current_timestamp, current_timestamp,0,	228.0	,	1.0		,		25.0			,'Mięso mielone wołowe'	,	15.0	,	0.0	,	3	);
+(	870	, current_timestamp, current_timestamp,0,	228.0	,	1.0		,		25.0			,'Mięso mielone wołowe'	,	15.0	,	0.0	,	3	)
+(	871	, current_timestamp, current_timestamp,0,	19.00	,	3.2	,	0	,'Pomidory w puszce Dawtona'	,	1.1	,	1.1	,	13	)
+(	872	, current_timestamp, current_timestamp,0,	111.00	,	12.6	,	1	,'Czerwona fasola w puszcze Freshona'	,	8.4	,	0.0	,	13	);
 
 INSERT INTO public.meals VALUES (1, '2019-11-08 19:52:40.435', '2019-11-08 19:52:40.435', 0, 'pSZemcio redukcja', '', 'Bułeczka potreningowa');
 INSERT INTO public.meals VALUES (3, '2019-11-09 04:55:09.402', '2019-11-09 04:55:09.402', 0, 'pSZemcio redukcja', '', 'Jajecznica + 2 kanapeczki');

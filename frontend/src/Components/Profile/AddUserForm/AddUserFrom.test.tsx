@@ -2,9 +2,13 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import {Provider} from "react-redux";
 import renderer from 'react-test-renderer';
+import Enzyme, {mount} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 import AddUserForm from "./AddUserForm";
-import {AnyAction, Store} from "redux";
+import {ADD_MEMBER_NAME, DELETE_MEMBERS} from "../../../Redux/actionTypes";
 
 //CONTRACT:
 //1. What should be rendered?
@@ -19,26 +23,17 @@ import {AnyAction, Store} from "redux";
 //4. Component has any cifecycle behaviour?
 // --
 
-// Static HTML
-const STATIC_HTML = `<div>
-//     <input type="text" class="Input"/>
-//     <button class="Button undefined">dodaj dietożercę</button>
-//     <button class="Button undefined">skasuj wszystkich dietożerców</button>
-// </div>`.replace(/(\r\n|\n|\r)/gm, '').replace(/  +/g, '');
-
-
 const mockStore = configureStore([]);
 let mockedStore: any;
 let component: any;
 
 beforeEach(() => {
-    mockedStore = mockStore({
-        myState: 'sample text',
-    });
+    mockedStore = mockStore({});
+    mockedStore.dispatch = jest.fn();
 
     component = renderer.create(
         <Provider store={mockedStore}>
-            <AddUserForm />
+            <AddUserForm/>
         </Provider>
     );
 });
@@ -48,8 +43,23 @@ describe('My Connected React-Redux Component', () => {
     it('should render with given state from Redux store', () => {
         expect(component.toJSON()).toMatchSnapshot();
     });
-    
-    it('should dispatch an action on button click', () => {
-    });
-});
 
+    it('should remove all dietożercy', () => {
+        renderer.act(() => {
+            component.root.findAllByType('button')[1].props.onClick();
+        });
+
+        expect(mockedStore.dispatch).toHaveBeenCalledWith({type: DELETE_MEMBERS});
+    });
+
+    it('should dispatch an action on button click', () => {
+        renderer.act(() => {
+            component.root.findAllByType('button')[0].props.onClick();
+        });
+        expect(mockedStore.dispatch).toHaveBeenCalledWith(
+            {type: ADD_MEMBER_NAME, userName: ''}
+        );
+        expect(mockedStore.dispatch).toHaveBeenCalledTimes(1);
+    });
+
+});

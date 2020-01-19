@@ -4,7 +4,9 @@ exports[`My Connected React-Redux Component should render with given state from 
 <div>
   <input
     className="Input"
+    onChange={[Function]}
     type="text"
+    value=""
   />
   <button
     className="Button undefined"
