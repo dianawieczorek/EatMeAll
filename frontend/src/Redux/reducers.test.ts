@@ -1,11 +1,27 @@
 import {weekScheduleReducer} from "./reducers";
-import {deleteUsers} from "./actions";
+import Member from "./Model/Member";
+import {setUserName} from "./actions";
 
-describe('My Connected React-Redux Component', () => {
-    it('should render with given state from Redux store', () => {
-        expect(weekScheduleReducer(undefined, deleteUsers())).toEqual({
-            members: []
+describe('WeekScheduleReducerTests', () => {
+    it('reducer should have correct initial state', () => {
+        expect(weekScheduleReducer(undefined, {})).toEqual({
+            members: [new Member('default')],
+            currentMember: new Member('default'),
+            choosenMember: 'default',
+            allMeals: []
         });
     });
 });
+
+describe('WeekScheduleReducerTests', () => {
+    it('should add user with empty meal list', () => {
+        expect(weekScheduleReducer(undefined, setUserName('test-1'))).toEqual({
+            members: [new Member('default'), new Member('test-1')],
+            currentMember: new Member('default'),
+            choosenMember: 'default',
+            allMeals: []
+        });
+    });
+});
+
 
