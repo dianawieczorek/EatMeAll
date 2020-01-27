@@ -1,0 +1,37 @@
+{
+	"links": [
+		"GET   myself: http://192.168.99.100:8080/rest-api/customer-company/1",
+		"GET   getAll: http://192.168.99.100:8080/rest-api/customer-company/",
+		"GET   getEntityById: http://192.168.99.100:8080/rest-api/customer-company/{id}",
+		"POST   addEntity: http://192.168.99.100:8080/rest-api/customer-company/",
+		"DELETE   delete: http://192.168.99.100:8080/rest-api/customer-company/{id}"
+	],
+	"entityName": "CustomerCompanyDto",
+	"response": {
+		"id": 1,
+		"name": "FIRMA_1",
+		"address": "Adres firmy 1",
+		"phone": 111,
+		"fax": 111,
+		"mail": "kontakt@firma1.pl",
+		"hourlyPay": 11,
+		"comment": "Firma pierwsza z 1 projektem i 3 pracownikami",
+		"employees": [
+			{
+				"id": 1,
+				"name": "Pracownik",
+				"surname": "1"
+			},
+			{
+				"id": 2,
+				"name": "pracownik",
+				"surname": "2"
+			},
+			{
+				"id": 3,
+				"name": "pracownik",
+				"surname": "3"
+			}
+		]
+	}
+}

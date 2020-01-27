@@ -1,0 +1,18 @@
+{
+	"links": [],
+	"entityName": "ToolRentalShortDto",
+	"response": [
+		{
+			"id": 1,
+			"startDate": "2018-01-08",
+			"realReturnDate": "2018-05-08",
+			"toolsCount": 3
+		},
+		{
+			"id": 2,
+			"startDate": "2018-01-02",
+			"realReturnDate": null,
+			"toolsCount": 3
+		}
+	]
+}

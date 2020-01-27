@@ -1,0 +1,27 @@
+{
+	"links": [],
+	"entityName": "ProjectDto",
+	"response": {
+		"id": 1,
+		"name": "name",
+		"startDate": 1526083200000,
+		"stopDate": null,
+		"coordinator": {
+			"id": 1,
+			"name": "name",
+			"surname": "surname"
+		},
+		"subcordinators": [
+			{
+				"id": 3,
+				"name": "Heniek",
+				"surname": "Wieczorek"
+			},
+			{
+				"id": 2,
+				"name": "Zbyszek",
+				"surname": "Kowalski"
+			}
+		]
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"links": [],
+	"entityName": "ProjectDto",
+	"response": {
+		"id": 1,
+		"name": "PROJEKT_1",
+		"startDate": "2018-01-01",
+		"stopDate": null,
+		"coordinator": {
+			"id": 1,
+			"name": "Pracownik",
+			"surname": "1"
+		},
+		"subcontractors": [
+			{
+				"id": 3,
+				"name": "Podwykonawca",
+				"surname": "3"
+			},
+			{
+				"id": 4,
+				"name": "Podwykonawca",
+				"surname": "4"
+			}
+		]
+	}
+}

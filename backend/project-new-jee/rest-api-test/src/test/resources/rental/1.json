@@ -1,0 +1,35 @@
+{
+	"links": [],
+	"entityName": "ToolRentalDto",
+	"response": {
+		"id": 1,
+		"startDate": "2018-01-08",
+		"realReturnDate": "2018-05-08",
+		"toolsCount": 3,
+		"subcontractor": {
+			"id": 1,
+			"name": "Podwykonawca",
+			"surname": "1"
+		},
+		"tools": [
+			{
+				"id": 1,
+				"name": "NARZEDZIE_1",
+				"serialNumber": "111",
+				"inWarehouse": true
+			},
+			{
+				"id": 3,
+				"name": "NARZEDZIE_3",
+				"serialNumber": "333",
+				"inWarehouse": true
+			},
+			{
+				"id": 5,
+				"name": "NARZEDZIE_5",
+				"serialNumber": "555",
+				"inWarehouse": false
+			}
+		]
+	}
+}

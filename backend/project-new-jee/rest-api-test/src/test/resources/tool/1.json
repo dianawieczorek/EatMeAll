@@ -1,0 +1,25 @@
+{
+	"links": [],
+	"entityName": "ToolDto",
+	"response": {
+		"id": 1,
+		"name": "NARZEDZIE_1",
+		"serialNumber": "111",
+		"inWarehouse": true,
+		"state": null,
+		"history": [
+			{
+				"id": 1,
+				"toolSerialNumber": "111",
+				"toolName": "NARZEDZIE_1",
+				"realReturnDate": "2018-05-08",
+				"borrower": {
+					"id": 1,
+					"name": "Podwykonawca",
+					"surname": "1"
+				},
+				"rentalId": 1
+			}
+		]
+	}
+}

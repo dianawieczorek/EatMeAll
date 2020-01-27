@@ -1,0 +1,26 @@
+{
+	"links": [],
+	"entityName": "SubcordinatorShortDto",
+	"response": [
+		{
+			"id": 1,
+			"name": "Podwykonawca",
+			"surname": "1"
+		},
+		{
+			"id": 2,
+			"name": "Podwykonawca",
+			"surname": "2"
+		},
+		{
+			"id": 3,
+			"name": "Podwykonawca",
+			"surname": "3"
+		},
+		{
+			"id": 4,
+			"name": "Podwykonawca",
+			"surname": "4"
+		}
+	]
+}

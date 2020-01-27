@@ -1,0 +1,21 @@
+{
+	"links": [],
+	"entityName": "ProjectShortDto",
+	"response": [
+		{
+			"id": 1,
+			"name": "PROJEKT_1",
+			"isActive": true
+		},
+		{
+			"id": 2,
+			"name": "PROJEKT_2",
+			"isActive": true
+		},
+		{
+			"id": 3,
+			"name": "PROJEKT_3",
+			"isActive": false
+		}
+	]
+}

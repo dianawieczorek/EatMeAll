@@ -1,0 +1,19 @@
+{
+	"links": [
+		"GET   getAll: http://192.168.99.100:8080/rest-api/customer-company/",
+		"GET   getEntityById: http://192.168.99.100:8080/rest-api/customer-company/{id}",
+		"POST   addEntity: http://192.168.99.100:8080/rest-api/customer-company/",
+		"DELETE   delete: http://192.168.99.100:8080/rest-api/customer-company/{id}"
+	],
+	"entityName": "CustomerCompanyShortDto",
+	"response": [
+		{
+			"id": 1,
+			"name": "FIRMA_1"
+		},
+		{
+			"id": 2,
+			"name": "FIRMA_2"
+		}
+	]
+}

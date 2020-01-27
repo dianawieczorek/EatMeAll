@@ -1,0 +1,37 @@
+{
+	"links": [],
+	"entityName": "SubcontractorDto",
+	"response": {
+		"id": 1,
+		"name": "Podwykonawca",
+		"surname": "1",
+		"address": "Adres współpracownika 1",
+		"birthDate": "1981-01-01",
+		"phone": 111111111,
+		"mail": "współpracownik1@gmail.com",
+		"activity": true,
+		"nationality": null,
+		"idNumber": "Numer dowodu 1",
+		"companyInsurance": "2018-12-01",
+		"healthInsurance": "opis ubezpieczenia pracownika 1? - tutaj chyba powinna być data :(",
+		"craftCard": "2018-12-01",
+		"taxFree": "2018-12-01",
+		"a1Insurance": "2018-12-01",
+		"hourlyPay": 11,
+		"projects": [
+			{
+				"id": 3,
+				"name": "PROJEKT_3",
+				"isActive": false
+			}
+		],
+		"toolRentals": [
+			{
+				"id": 1,
+				"startDate": "2018-01-08",
+				"realReturnDate": "2018-05-08",
+				"toolsCount": 3
+			}
+		]
+	}
+}

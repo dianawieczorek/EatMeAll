@@ -1,0 +1,31 @@
+{
+	"links": [
+		"GET   getAll: http://192.168.99.100:8080/rest-api/customer-employee/",
+		"GET   getEntityById: http://192.168.99.100:8080/rest-api/customer-employee/{id}",
+		"POST   addEntity: http://192.168.99.100:8080/rest-api/customer-employee/",
+		"DELETE   delete: http://192.168.99.100:8080/rest-api/customer-employee/{id}"
+	],
+	"entityName": "CustomerEmployeeShortDto",
+	"response": [
+		{
+			"id": 1,
+			"name": "Pracownik",
+			"surname": "1"
+		},
+		{
+			"id": 2,
+			"name": "pracownik",
+			"surname": "2"
+		},
+		{
+			"id": 3,
+			"name": "pracownik",
+			"surname": "3"
+		},
+		{
+			"id": 4,
+			"name": "pracownik 1",
+			"surname": "z firmy 2"
+		}
+	]
+}

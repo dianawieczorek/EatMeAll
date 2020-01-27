@@ -1,0 +1,36 @@
+{
+	"links": [],
+	"entityName": "ToolShortDto",
+	"response": [
+		{
+			"id": 1,
+			"name": "NARZEDZIE_1",
+			"serialNumber": "111",
+			"inWarehouse": true
+		},
+		{
+			"id": 2,
+			"name": "NARZEDZIE_2",
+			"serialNumber": "222",
+			"inWarehouse": false
+		},
+		{
+			"id": 3,
+			"name": "NARZEDZIE_3",
+			"serialNumber": "333",
+			"inWarehouse": true
+		},
+		{
+			"id": 4,
+			"name": "NARZEDZIE_4",
+			"serialNumber": "444",
+			"inWarehouse": false
+		},
+		{
+			"id": 5,
+			"name": "NARZEDZIE_5",
+			"serialNumber": "555",
+			"inWarehouse": false
+		}
+	]
+}
