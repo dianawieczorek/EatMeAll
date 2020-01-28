@@ -57,7 +57,6 @@ class ShoppingList extends Component<Props> {
                 .then((response) => response.json())
                 .then((json: Array<GroupproductsDto>) => {
                         this.props.setProductList(json);
-                    console.log(json)
                     }
                 );
         } else {
