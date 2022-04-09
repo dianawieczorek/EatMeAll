@@ -13,7 +13,7 @@
     "@types/react-redux": "^7.1.1",
     "@types/react-router-dom": "^4.3.5",
     "create-react-app": "^3.0.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.26",
     "node-css": "^0.1.0",
     "react": "^16.8.6",
